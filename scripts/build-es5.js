@@ -18,5 +18,6 @@ function bundle(entries, outfile) {
 };
 
 bundle([
-    'app/index/index.es5.js'
-], 'app-es5.js');
+    'src/index/index.es5.js'
+], 'dist-es5/app.js');
+
