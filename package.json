@@ -10,15 +10,15 @@
   "main": "",
   "directories": {},
   "devDependencies": {
-    "babel-cli": "^6.4.5",
-    "babel-preset-es2015": "^6.3.13",
-    "babelify": "^7.2.0",
-    "browserify": "^11.2.0",
-    "uglifyify": "^3.0.1"
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.3.0",
+    "uglifyify": "^3.0.4"
   },
   "dependencies": {
-    "mithril": "0.2.0",
-    "polythene": "0.2.5"
+    "mithril": "^0.2.5",
+    "polythene": "^0.2.33"
   },
   "scripts": {
     "build-es6": "node scripts/build-es6.js",
