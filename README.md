@@ -1,28 +1,24 @@
-# Polythene for Mithril - setup example
+# Setup of Polythene 0.3 for Mithril
+
+Compatible with Mithril 0.2.5.
 
 Minimal setup example how to create a Polythene app.
 
-Variations:
 
-* for ECMAScript2015 / es6
-* for ECMAScript 5 / es5
-
-## Init
+Init
 
 ~~~
-npm install
+yarn
 ~~~
 
-## Build es6
+Development server (port 3000)
 
 ~~~
-npm run build-es6
-open es6.html
+yarn run dev
 ~~~
 
-## Build es5
+Build
 
 ~~~
-npm run build-es5
-open es5.html
+yarn run build
 ~~~
