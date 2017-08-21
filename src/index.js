@@ -1,7 +1,8 @@
 import m from "mithril";
-import { Button, Dialog } from "polythene";
-import { addLayoutStyles } from 'polythene-utilities'; // not required
-import { addRoboto, addTypography } from 'polythene-motif';
+import { RaisedButton, Dialog } from "polythene-mithril";
+import { addFastClick } from "polythene-fastclick"; // optional
+import { addLayoutStyles } from "polythene-utilities"; // optional
+import { addTypography, addRoboto } from "polythene-style"; // optional
 
 addLayoutStyles(); // not required
 addRoboto();
@@ -10,14 +11,13 @@ addTypography();
 const app = {
   view: () =>
     m("div", [
-      m(Button, {
+      m(RaisedButton, {
         label: "Open dialog",
-        raised: true,
         events: {
           onclick: () => {
             Dialog.show({
               title: "Dialog title",
-              body: "Click background to hide.",
+              body: "Click background to hide or press ESCAPE.",
               backdrop: true
             });
           }

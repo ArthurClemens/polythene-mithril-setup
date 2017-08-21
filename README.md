@@ -1,24 +1,31 @@
-# Setup of Polythene 0.3 for Mithril
+# Setup of Polythene 1.0 for Mithril
 
-Compatible with Mithril 0.2.5.
+Compatible with Mithril 1.x
 
-Minimal setup example how to create a Polythene app.
+Minimal setup example how to create a Polythene app for Mithril.
 
 
-Init
+## Setup
+
+init:
 
 ~~~
 yarn
 ~~~
 
-Development server (port 3000)
+start development server (port 3000):
 
 ~~~
 yarn run dev
 ~~~
 
-Build
+build:
 
 ~~~
 yarn run build
 ~~~
+
+
+## Older versions
+
+[Setup of Polythene 0.3 for Mithril](https://github.com/ArthurClemens/Polythene-setup/tree/0.x)
