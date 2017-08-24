@@ -2,7 +2,7 @@
 
 Compatible with Mithril 1.x
 
-Minimal setup example how to create a Polythene app for Mithril.
+Minimal setup example how to create a [Polythene](https://github.com/ArthurClemens/polythene) app for Mithril.
 
 
 ## Setup
@@ -28,4 +28,4 @@ yarn run build
 
 ## Older versions
 
-[Setup of Polythene 0.3 for Mithril](https://github.com/ArthurClemens/Polythene-setup/tree/0.x)
+[Setup of Polythene 0.3 for Mithril](https://github.com/ArthurClemens/polythene-mithril-setup/tree/0.x)
