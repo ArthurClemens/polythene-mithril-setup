@@ -1,4 +1,17 @@
 {
-  "plugins": ["transform-object-rest-spread", "transform-es2015-destructuring"],
-  "presets": ["es2015"]
+  "presets": [
+    ["es2015", { "modules": false }]
+  ],
+  "plugins": [
+    "transform-object-assign",
+    "transform-object-rest-spread",
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "es2015"
+      ],
+      "plugins": ["transform-runtime"]
+    }
+  }
 }

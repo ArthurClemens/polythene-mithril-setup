@@ -1,18 +1,21 @@
 import m from "mithril";
 import { RaisedButton, Dialog } from "polythene-mithril";
 import { addFastClick } from "polythene-fastclick"; // optional
-import { addLayoutStyles } from "polythene-utilities"; // optional
-import { addTypography, addRoboto } from "polythene-style"; // optional
+import { addTypography, addRoboto, ButtonCSS } from "polythene-css"; // optional
 
-addLayoutStyles(); // not required
 addRoboto();
 addTypography();
 
-const app = {
+ButtonCSS.addStyle(".themed-button", {
+  color_light_background: "#ff9800",
+});
+
+const App = {
   view: () =>
     m("div", [
       m(RaisedButton, {
         label: "Open dialog",
+        className: "themed-button",
         events: {
           onclick: () => {
             Dialog.show({
@@ -27,4 +30,4 @@ const app = {
     ])
 };
 
-m.mount(document.body, app);
+m.mount(document.body, App);
