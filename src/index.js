@@ -1,5 +1,5 @@
 import m from "mithril";
-import { RaisedButton, Dialog } from "polythene-mithril";
+import { Button, Dialog } from "polythene-mithril";
 import { addFastClick } from "polythene-fastclick"; // optional
 import { addTypography, addRoboto, ButtonCSS } from "polythene-css"; // optional
 
@@ -13,13 +13,13 @@ ButtonCSS.addStyle(".themed-button", {
 const App = {
   view: () =>
     m("div", [
-      m(RaisedButton, {
+      m(Button, {
         label: "Open dialog",
         className: "themed-button",
         events: {
           onclick: () => {
             Dialog.show({
-              title: "Dialog title",
+              title: "Hello",
               body: "Click background to hide or press ESCAPE.",
               backdrop: true
             });

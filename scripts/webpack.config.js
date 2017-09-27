@@ -6,7 +6,7 @@ module.exports = {
   context: path.resolve(__dirname, "../src"),
 
   entry: {
-    index: "../index.js"
+    index: "../src/index.js"
   },
 
   externals: {

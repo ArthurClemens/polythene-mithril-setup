@@ -1,6 +1,6 @@
 {
   "name": "polythene-setup",
-  "version": "1.0.0-rc.4",
+  "version": "1.0.0-rc.7",
   "main": "dist/js/index.js",
   "module": "dist/js/index.mjs",
   "description": "Polythene setup example",
@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "mithril": "1.1.4",
+    "polythene-css": "^1.0.0-rc.6",
     "polythene-fastclick": "^1.0.0-rc.6",
-    "polythene-mithril": "^1.0.0-rc.7",
-    "polythene-css": "^1.0.0-rc.6"
+    "polythene-mithril": "^1.0.0-rc.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
