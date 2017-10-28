@@ -1,24 +1,21 @@
 import m from "mithril";
-import { Button, Dialog } from "polythene-mithril";
+import { RaisedButton, Dialog } from "polythene-mithril";
 import { addFastClick } from "polythene-fastclick"; // optional
-import { addTypography, addRoboto, ButtonCSS } from "polythene-css"; // optional
 
-addRoboto();
-addTypography();
+import "polythene-css/dist/polythene.css";            // Component CSS
+import "polythene-css/dist/polythene-typography.css"; // Default Material Design styles including Roboto font
 
-ButtonCSS.addStyle(".themed-button", {
-  color_light_background: "#ff9800",
-});
+addFastClick()
 
 const App = {
   view: () =>
     m("div", [
-      m(Button, {
+      m(RaisedButton, {
         label: "Open dialog",
-        className: "themed-button",
         events: {
           onclick: () => {
             Dialog.show({
+              /* note the Dialog component is below the other elements in the app */
               title: "Hello",
               body: "Click background to hide or press ESCAPE.",
               backdrop: true

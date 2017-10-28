@@ -1,15 +1,14 @@
 {
   "presets": [
-    ["es2015", { "modules": false }]
+    ["env", { "modules": false }],
+    "react"
   ],
   "plugins": [
-    "transform-object-assign",
-    "transform-object-rest-spread",
   ],
   "env": {
     "test": {
       "presets": [
-        "es2015"
+        "env"
       ],
       "plugins": ["transform-runtime"]
     }

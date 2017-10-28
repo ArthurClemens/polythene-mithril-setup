@@ -25,7 +25,3 @@ build:
 yarn run build
 ~~~
 
-
-## Older versions
-
-[Setup of Polythene 0.3 for Mithril](https://github.com/ArthurClemens/polythene-mithril-setup/tree/0.x)
