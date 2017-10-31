@@ -11,8 +11,7 @@
     "dev": "npm-run-all --parallel dev:watch dev:serve",
     "dev:serve": "webpack-dev-server --config scripts/webpack.config.dev.js --port 3000",
     "dev:watch": "webpack --watch --config scripts/webpack.config.dev.js",
-    "build": "webpack -p --config scripts/webpack.config.prod.js",
-    "stats": "webpack --config scripts/webpack.config.prod.js --profile --json > stats.json"
+    "build": "webpack -p --config scripts/webpack.config.prod.js"
   },
   "dependencies": {
     "mithril": "1.1.5",
@@ -34,7 +33,6 @@
     "npm-run-all": "^4.1.1",
     "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
-    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.3"
   }
 }
