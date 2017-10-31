@@ -26,17 +26,17 @@ module.exports = {
         // For more options see: https://philipwalton.com/articles/deploying-es2015-code-in-production-today/
         test: /\.js$/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
             presets: [
-              ['env', {
+              ["env", {
                 modules: false,
                 useBuiltIns: true,
                 targets: {
                   browsers: [
-                    '> 1%',
-                    'last 2 versions',
-                    'Firefox ESR',
+                    "> 1%",
+                    "last 2 versions",
+                    "Firefox ESR",
                   ],
                 }
               }]
@@ -56,7 +56,7 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin({
-      filename: 'css/app.css'
+      filename: "css/app.css"
     }),
   ],
 

@@ -7,21 +7,32 @@ Minimal setup example how to create a [Polythene](https://github.com/ArthurCleme
 
 ## Setup
 
-init:
+Init:
 
 ~~~
 yarn
 ~~~
 
-start development server (port 3000):
+Start development server (port 3000):
 
 ~~~
 yarn run dev
 ~~~
 
-build:
+Build:
 
 ~~~
 yarn run build
 ~~~
 
+View with gzip compression:
+
+~~~
+http-server -g -p 8080 dist/
+~~~
+
+You may need to install http-server:
+
+~~~
+yarn global add http-server
+~~~

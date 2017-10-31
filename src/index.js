@@ -1,5 +1,6 @@
 import m from "mithril";
-import { RaisedButton, Dialog } from "polythene-mithril";
+import { Dialog } from "polythene-mithril-dialog";
+import { RaisedButton } from "polythene-mithril-raised-button";
 import { addFastClick } from "polythene-fastclick"; // optional
 
 import "polythene-css/dist/polythene.css";            // Component CSS
