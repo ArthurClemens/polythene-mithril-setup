@@ -36,3 +36,7 @@ You may need to install http-server:
 ~~~
 yarn global add http-server
 ~~~
+
+## See also
+
+* [Setup of Polythene for React](https://github.com/ArthurClemens/polythene-react-setup)
