@@ -1,12 +1,9 @@
 import m from "mithril";
 import { Dialog } from "polythene-mithril-dialog";
 import { RaisedButton } from "polythene-mithril-raised-button";
-import { addFastClick } from "polythene-fastclick"; // optional
 
 import "polythene-css/dist/polythene.css";            // Component CSS
 import "polythene-css/dist/polythene-typography.css"; // Default Material Design styles including Roboto font
-
-addFastClick()
 
 const App = {
   view: () =>

@@ -9,6 +9,7 @@ config.plugins.push(new webpack.DefinePlugin({
 }));
 
 config.plugins.push(new BabiliPlugin());
+
 config.plugins.push(new CompressionPlugin({
   asset: "[path].gz[query]",
   algorithm: "gzip",
