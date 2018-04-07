@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const BabiliPlugin = require("babili-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 
+config.mode = "production";
 config.plugins.push(new webpack.DefinePlugin({
   "process.env": { NODE_ENV: JSON.stringify("production") }
 }));

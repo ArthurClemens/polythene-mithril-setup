@@ -1,4 +1,4 @@
-# Setup of Polythene 1.0 for Mithril
+# Polythene for Mithril setup example
 
 Compatible with Mithril 1.x
 
