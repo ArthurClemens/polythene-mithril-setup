@@ -10,19 +10,19 @@ Minimal setup example how to create a [Polythene](https://github.com/ArthurCleme
 Init:
 
 ~~~
-yarn
+npm install
 ~~~
 
 Start development server (port 3000):
 
 ~~~
-yarn run dev
+npm run dev
 ~~~
 
 Build:
 
 ~~~
-yarn run build
+npm run build
 ~~~
 
 View with gzip compression:
@@ -34,7 +34,7 @@ http-server -g -p 8080 dist/
 You may need to install http-server:
 
 ~~~
-yarn global add http-server
+npm install -g http-server
 ~~~
 
 ## See also

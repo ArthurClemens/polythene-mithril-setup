@@ -1,7 +1,7 @@
 {
   "name": "polythene-mithril-setup",
   "description": "Polythene for Mithril setup example",
-  "version": "1.0.0-rc.8",
+  "version": "1.2.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -15,23 +15,22 @@
   },
   "dependencies": {
     "mithril": "1.1.6",
-    "polythene-css": "^1.1.0",
-    "polythene-mithril-dialog": "^1.1.0",
-    "polythene-mithril-raised-button": "^1.1.0"
+    "polythene-css": "1.2.0",
+    "polythene-mithril-dialog": "1.2.0",
+    "polythene-mithril-raised-button": "1.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babili-webpack-plugin": "^0.1.2",
-    "compression-webpack-plugin": "^1.1.11",
-    "css-loader": "^0.28.11",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "compression-webpack-plugin": "1.1.11",
+    "css-loader": "0.28.11",
     "extract-text-webpack-plugin": "4.0.0-beta.0",
-    "npm-run-all": "^4.1.2",
-    "style-loader": "^0.20.3",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14",
-    "webpack-dev-server": "^3.1.2"
+    "npm-run-all": "4.1.2",
+    "style-loader": "0.21.0",
+    "webpack": "4.6.0",
+    "webpack-cli": "2.1.2",
+    "webpack-dev-server": "3.1.3"
   }
 }
