@@ -1,6 +1,5 @@
 import m from "mithril";
-import { Dialog } from "polythene-mithril-dialog";
-import { RaisedButton } from "polythene-mithril-raised-button";
+import { Dialog, RaisedButton } from "polythene-mithril";
 
 import "polythene-css/dist/polythene.css";            // Component CSS
 import "polythene-css/dist/polythene-typography.css"; // Default Material Design styles including Roboto font
