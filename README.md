@@ -1,6 +1,6 @@
 # Polythene for Mithril setup example
 
-Compatible with Mithril 1.x
+Compatible with Mithril 1.x, Webpack 4 and Babel 7.
 
 Minimal setup example how to create a [Polythene](https://github.com/ArthurClemens/polythene) app for Mithril.
 

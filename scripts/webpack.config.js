@@ -1,10 +1,10 @@
 /* global __dirname */
 const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 
-  context: path.resolve(__dirname, "../src"), 
+  context: path.resolve(__dirname, "../src"),
 
   entry: {
     index: "../index.js",
@@ -15,10 +15,14 @@ module.exports = {
     filename: "js/[name].js"
   },
 
+  resolve: {
+    extensions: ["*", ".mjs", ".js"]
+  },
+
   module: {
     rules: [
       {
-        test: /\.js$/, // Check for all js files
+        test: /\.js$/,
         exclude: /node_modules/,
         use: [{
           loader: "babel-loader"
@@ -26,16 +30,25 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              sourceMap: true,
+              localIdentName: "[local]"
+            }
+          },
+        ]
       }
     ]
   },
 
   plugins: [
-    new ExtractTextPlugin("css/app.css"),
+    new MiniCssExtractPlugin({
+      filename: "css/app.css"
+    }),
   ],
 
   devtool: "source-map"
