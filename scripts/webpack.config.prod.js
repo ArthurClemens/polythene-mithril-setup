@@ -1,20 +1,15 @@
-
 const config = require("./webpack.config.js");
-const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 config.mode = "production";
 
-config.plugins.push(new UglifyWebpackPlugin({
-  sourceMap: true
-}));
+config.optimization = {
+  minimizer: [new TerserPlugin({
+    sourceMap: true
+  })]
+};
 
-config.plugins.push(new CompressionPlugin({
-  filename: "[path].gz[query]",
-  algorithm: "gzip",
-  test: /\.js$|\.css$|\.html$/,
-  threshold: 10240,
-  minRatio: 0
-}));
+config.plugins.push(new CompressionPlugin());
 
 module.exports = config;
