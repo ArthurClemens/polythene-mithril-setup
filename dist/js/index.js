@@ -1,2 +1,11777 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var a=t[r]={i:r,l:!1,exports:{}};return e[r].call(a.exports,a,a.exports,n),a.l=!0,a.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)n.d(r,a,function(t){return e[t]}.bind(null,a));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=7)}([function(e,t,n){(function(t,n){!function(){"use strict";function r(e,t,n,r,a,i){return{tag:e,key:t,attrs:n,children:r,text:a,dom:i,domSize:void 0,state:void 0,_state:void 0,events:void 0,instance:void 0,skip:!1}}r.normalize=function(e){return Array.isArray(e)?r("[",void 0,void 0,r.normalizeChildren(e),void 0,void 0):null!=e&&"object"!=typeof e?r("#",void 0,void 0,!1===e?"":e,void 0,void 0):e},r.normalizeChildren=function(e){for(var t=0;t<e.length;t++)e[t]=r.normalize(e[t]);return e};var a=/(?:(^|#|\.)([^#\.\[\]]+))|(\[(.+?)(?:\s*=\s*("|'|)((?:\\["'\]]|.)*?)\5)?\])/g,i={},o={}.hasOwnProperty;function c(e){for(var t in e)if(o.call(e,t))return!1;return!0}function l(e){var t,n=arguments[1],l=2;if(null==e||"string"!=typeof e&&"function"!=typeof e&&"function"!=typeof e.view)throw Error("The selector must be either a string or a component.");if("string"==typeof e)var s=i[e]||function(e){for(var t,n="div",r=[],o={};t=a.exec(e);){var c=t[1],l=t[2];if(""===c&&""!==l)n=l;else if("#"===c)o.id=l;else if("."===c)r.push(l);else if("["===t[3][0]){var s=t[6];s&&(s=s.replace(/\\(["'])/g,"$1").replace(/\\\\/g,"\\")),"class"===t[4]?r.push(s):o[t[4]]=""===s?s:s||!0}}return r.length>0&&(o.className=r.join(" ")),i[e]={tag:n,attrs:o}}(e);if(null==n?n={}:("object"!=typeof n||null!=n.tag||Array.isArray(n))&&(n={},l=1),arguments.length===l+1)t=arguments[l],Array.isArray(t)||(t=[t]);else for(t=[];l<arguments.length;)t.push(arguments[l++]);var u=r.normalizeChildren(t);return"string"==typeof e?function(e,t,n){var a,i,l=!1,s=t.className||t.class;if(!c(e.attrs)&&!c(t)){var u={};for(var p in t)o.call(t,p)&&(u[p]=t[p]);t=u}for(var p in e.attrs)o.call(e.attrs,p)&&(t[p]=e.attrs[p]);for(var p in void 0!==s&&(void 0!==t.class&&(t.class=void 0,t.className=s),null!=e.attrs.className&&(t.className=e.attrs.className+" "+s)),t)if(o.call(t,p)&&"key"!==p){l=!0;break}return Array.isArray(n)&&1===n.length&&null!=n[0]&&"#"===n[0].tag?i=n[0].children:a=n,r(e.tag,t.key,l?t:void 0,a,i)}(s,n,u):r(e,n.key,n,u)}l.trust=function(e){return null==e&&(e=""),r("<",void 0,void 0,e,void 0,void 0)},l.fragment=function(e,t){return r("[",e.key,e,r.normalizeChildren(t),void 0,void 0)};var s=l;if((u=function(e){if(!(this instanceof u))throw new Error("Promise must be called with `new`");if("function"!=typeof e)throw new TypeError("executor must be a function");var n=this,r=[],a=[],i=s(r,!0),o=s(a,!1),c=n._instance={resolvers:r,rejectors:a},l="function"==typeof t?t:setTimeout;function s(e,t){return function i(s){var u;try{if(!t||null==s||"object"!=typeof s&&"function"!=typeof s||"function"!=typeof(u=s.then))l(function(){t||0!==e.length||console.error("Possible unhandled promise rejection:",s);for(var n=0;n<e.length;n++)e[n](s);r.length=0,a.length=0,c.state=t,c.retry=function(){i(s)}});else{if(s===n)throw new TypeError("Promise can't be resolved w/ itself");p(u.bind(s))}}catch(e){o(e)}}}function p(e){var t=0;function n(e){return function(n){t++>0||e(n)}}var r=n(o);try{e(n(i),r)}catch(e){r(e)}}p(e)}).prototype.then=function(e,t){var n,r,a=this._instance;function i(e,t,i,o){t.push(function(t){if("function"!=typeof e)i(t);else try{n(e(t))}catch(e){r&&r(e)}}),"function"==typeof a.retry&&o===a.state&&a.retry()}var o=new u(function(e,t){n=e,r=t});return i(e,a.resolvers,n,!0),i(t,a.rejectors,r,!1),o},u.prototype.catch=function(e){return this.then(null,e)},u.resolve=function(e){return e instanceof u?e:new u(function(t){t(e)})},u.reject=function(e){return new u(function(t,n){n(e)})},u.all=function(e){return new u(function(t,n){var r=e.length,a=0,i=[];if(0===e.length)t([]);else for(var o=0;o<e.length;o++)!function(o){function c(e){a++,i[o]=e,a===r&&t(i)}null==e[o]||"object"!=typeof e[o]&&"function"!=typeof e[o]||"function"!=typeof e[o].then?c(e[o]):e[o].then(c,n)}(o)})},u.race=function(e){return new u(function(t,n){for(var r=0;r<e.length;r++)e[r].then(t,n)})},"undefined"!=typeof window){void 0===window.Promise&&(window.Promise=u);var u=window.Promise}else if(void 0!==n){void 0===n.Promise&&(n.Promise=u);u=n.Promise}var p=function(e){if("[object Object]"!==Object.prototype.toString.call(e))return"";var t=[];for(var n in e)r(n,e[n]);return t.join("&");function r(e,n){if(Array.isArray(n))for(var a=0;a<n.length;a++)r(e+"["+a+"]",n[a]);else if("[object Object]"===Object.prototype.toString.call(n))for(var a in n)r(e+"["+a+"]",n[a]);else t.push(encodeURIComponent(e)+(null!=n&&""!==n?"="+encodeURIComponent(n):""))}},f=new RegExp("^file://","i"),d=function(e,t){var n,r=0;function a(){var e=0;function t(){0==--e&&"function"==typeof n&&n()}return function n(r){var a=r.then;return r.then=function(){e++;var i=a.apply(r,arguments);return i.then(t,function(n){if(t(),0===e)throw n}),n(i)},r}}function i(e,t){if("string"==typeof e){var n=e;null==(e=t||{}).url&&(e.url=n)}return e}function o(e,t){if(null==t)return e;for(var n=e.match(/:[^\/]+/gi)||[],r=0;r<n.length;r++){var a=n[r].slice(1);null!=t[a]&&(e=e.replace(n[r],t[a]))}return e}function c(e,t){var n=p(t);if(""!==n){var r=e.indexOf("?")<0?"?":"&";e+=r+n}return e}function l(e){try{return""!==e?JSON.parse(e):null}catch(t){throw new Error(e)}}function s(e){return e.responseText}function u(e,t){if("function"==typeof e){if(!Array.isArray(t))return new e(t);for(var n=0;n<t.length;n++)t[n]=new e(t[n])}return t}return{request:function(n,r){var p=a();n=i(n,r);var d=new t(function(t,r){null==n.method&&(n.method="GET"),n.method=n.method.toUpperCase();var a="GET"!==n.method&&"TRACE"!==n.method&&("boolean"!=typeof n.useBody||n.useBody);"function"!=typeof n.serialize&&(n.serialize="undefined"!=typeof FormData&&n.data instanceof FormData?function(e){return e}:JSON.stringify),"function"!=typeof n.deserialize&&(n.deserialize=l),"function"!=typeof n.extract&&(n.extract=s),n.url=o(n.url,n.data),a?n.data=n.serialize(n.data):n.url=c(n.url,n.data);var i=new e.XMLHttpRequest,p=!1,d=i.abort;for(var m in i.abort=function(){p=!0,d.call(i)},i.open(n.method,n.url,"boolean"!=typeof n.async||n.async,"string"==typeof n.user?n.user:void 0,"string"==typeof n.password?n.password:void 0),n.serialize!==JSON.stringify||!a||n.headers&&n.headers.hasOwnProperty("Content-Type")||i.setRequestHeader("Content-Type","application/json; charset=utf-8"),n.deserialize!==l||n.headers&&n.headers.hasOwnProperty("Accept")||i.setRequestHeader("Accept","application/json, text/*"),n.withCredentials&&(i.withCredentials=n.withCredentials),n.headers)({}).hasOwnProperty.call(n.headers,m)&&i.setRequestHeader(m,n.headers[m]);"function"==typeof n.config&&(i=n.config(i,n)||i),i.onreadystatechange=function(){if(!p&&4===i.readyState)try{var e=n.extract!==s?n.extract(i,n):n.deserialize(n.extract(i,n));if(i.status>=200&&i.status<300||304===i.status||f.test(n.url))t(u(n.type,e));else{var a=new Error(i.responseText);for(var o in e)a[o]=e[o];r(a)}}catch(e){r(e)}},a&&null!=n.data?i.send(n.data):i.send()});return!0===n.background?d:p(d)},jsonp:function(n,l){var s=a();n=i(n,l);var p=new t(function(t,a){var i=n.callbackName||"_mithril_"+Math.round(1e16*Math.random())+"_"+r++,l=e.document.createElement("script");e[i]=function(r){l.parentNode.removeChild(l),t(u(n.type,r)),delete e[i]},l.onerror=function(){l.parentNode.removeChild(l),a(new Error("JSONP request failed")),delete e[i]},null==n.data&&(n.data={}),n.url=o(n.url,n.data),n.data[n.callbackKey||"callback"]=i,l.src=c(n.url,n.data),e.document.documentElement.appendChild(l)});return!0===n.background?p:s(p)},setCompletionCallback:function(e){n=e}}}(window,u),m=function(e){var t,n=e.document,a=n.createDocumentFragment(),i={svg:"http://www.w3.org/2000/svg",math:"http://www.w3.org/1998/Math/MathML"};function o(e){return e.attrs&&e.attrs.xmlns||i[e.tag]}function c(e,t,n,r,a,i,o){for(var c=n;c<r;c++){var s=t[c];null!=s&&l(e,s,a,o,i)}}function l(e,t,i,p,f){var d=t.tag;if("string"!=typeof d)return function(e,t,n,r,i){if(u(t,n),null!=t.instance){var o=l(e,t.instance,n,r,i);return t.dom=t.instance.dom,t.domSize=null!=t.dom?t.instance.domSize:0,_(e,o,i),o}return t.domSize=0,a}(e,t,i,p,f);switch(t.state={},null!=t.attrs&&j(t.attrs,t,i),d){case"#":return function(e,t,r){return t.dom=n.createTextNode(t.children),_(e,t.dom,r),t.dom}(e,t,f);case"<":return s(e,t,f);case"[":return function(e,t,r,a,i){var o=n.createDocumentFragment();if(null!=t.children){var l=t.children;c(o,l,0,l.length,r,null,a)}return t.dom=o.firstChild,t.domSize=o.childNodes.length,_(e,o,i),o}(e,t,i,p,f);default:return function(e,t,a,i,l){var s=t.tag,u=t.attrs,p=u&&u.is,f=(i=o(t)||i)?p?n.createElementNS(i,s,{is:p}):n.createElementNS(i,s):p?n.createElement(s,{is:p}):n.createElement(s);t.dom=f,null!=u&&function(e,t,n){for(var r in t)y(e,r,null,t[r],n)}(t,u,i);if(_(e,f,l),null!=t.attrs&&null!=t.attrs.contenteditable)b(t);else if(null!=t.text&&(""!==t.text?f.textContent=t.text:t.children=[r("#",void 0,void 0,t.text,void 0,void 0)]),null!=t.children){var d=t.children;c(f,d,0,d.length,a,null,i),function(e){var t=e.attrs;"select"===e.tag&&null!=t&&("value"in t&&y(e,"value",null,t.value,void 0),"selectedIndex"in t&&y(e,"selectedIndex",null,t.selectedIndex,void 0))}(t)}return f}(e,t,i,p,f)}}function s(e,t,r){var a={caption:"table",thead:"table",tbody:"table",tfoot:"table",tr:"tbody",th:"tr",td:"tr",colgroup:"table",col:"colgroup"}[(t.children.match(/^\s*?<(\w+)/im)||[])[1]]||"div",i=n.createElement(a);i.innerHTML=t.children,t.dom=i.firstChild,t.domSize=i.childNodes.length;for(var o,c=n.createDocumentFragment();o=i.firstChild;)c.appendChild(o);return _(e,c,r),c}function u(e,t){var n;if("function"==typeof e.tag.view){if(e.state=Object.create(e.tag),null!=(n=e.state.view).$$reentrantLock$$)return a;n.$$reentrantLock$$=!0}else{if(e.state=void 0,null!=(n=e.tag).$$reentrantLock$$)return a;n.$$reentrantLock$$=!0,e.state=null!=e.tag.prototype&&"function"==typeof e.tag.prototype.view?new e.tag(e):e.tag(e)}if(e._state=e.state,null!=e.attrs&&j(e.attrs,e,t),j(e._state,e,t),e.instance=r.normalize(e._state.view.call(e.state,e)),e.instance===e)throw Error("A view cannot return the vnode it received as argument");n.$$reentrantLock$$=null}function p(e,t,n,r,a,i,o){if(t!==n&&(null!=t||null!=n))if(null==t)c(e,n,0,n.length,a,i,o);else if(null==n)v(t,0,t.length,n);else{if(t.length===n.length){for(var s=!1,u=0;u<n.length;u++)if(null!=n[u]&&null!=t[u]){s=null==n[u].key&&null==t[u].key;break}if(s){for(u=0;u<t.length;u++)t[u]!==n[u]&&(null==t[u]&&null!=n[u]?l(e,n[u],a,o,h(t,u+1,i)):null==n[u]?v(t,u,u+1,n):f(e,t[u],n[u],a,h(t,u+1,i),r,o));return}}if(r=r||function(e,t){if(null!=e.pool&&Math.abs(e.pool.length-t.length)<=Math.abs(e.length-t.length)){var n=e[0]&&e[0].children&&e[0].children.length||0,r=e.pool[0]&&e.pool[0].children&&e.pool[0].children.length||0,a=t[0]&&t[0].children&&t[0].children.length||0;if(Math.abs(r-a)<=Math.abs(n-a))return!0}return!1}(t,n)){var p=t.pool;t=t.concat(t.pool)}for(var b,w=0,g=0,y=t.length-1,O=n.length-1;y>=w&&O>=g;){if((j=t[w])!==(k=n[g])||r)if(null==j)w++;else if(null==k)g++;else if(j.key===k.key){var C=null!=p&&w>=t.length-p.length||null==p&&r;g++,f(e,j,k,a,h(t,++w,i),C,o),r&&j.tag===k.tag&&_(e,m(j),i)}else{if((j=t[y])!==k||r)if(null==j)y--;else if(null==k)g++;else{if(j.key!==k.key)break;C=null!=p&&y>=t.length-p.length||null==p&&r;f(e,j,k,a,h(t,y+1,i),C,o),(r||g<O)&&_(e,m(j),h(t,w,i)),y--,g++}else y--,g++}else w++,g++}for(;y>=w&&O>=g;){var j,k;if((j=t[y])!==(k=n[O])||r)if(null==j)y--;else if(null==k)O--;else if(j.key===k.key){C=null!=p&&y>=t.length-p.length||null==p&&r;f(e,j,k,a,h(t,y+1,i),C,o),r&&j.tag===k.tag&&_(e,m(j),i),null!=j.dom&&(i=j.dom),y--,O--}else{if(b||(b=d(t,y)),null!=k){var T=b[k.key];if(null!=T){var P=t[T];C=null!=p&&T>=t.length-p.length||null==p&&r;f(e,P,k,a,h(t,y+1,i),r,o),_(e,m(P),i),t[T].skip=!0,null!=P.dom&&(i=P.dom)}else{i=l(e,k,a,o,i)}}O--}else y--,O--;if(O<g)break}c(e,n,g,O+1,a,i,o),v(t,w,y+1,n)}}function f(e,t,n,a,i,c,d){var h=t.tag;if(h===n.tag){if(n.state=t.state,n._state=t._state,n.events=t.events,!c&&function(e,t){var n,r;null!=e.attrs&&"function"==typeof e.attrs.onbeforeupdate&&(n=e.attrs.onbeforeupdate.call(e.state,e,t));"string"!=typeof e.tag&&"function"==typeof e._state.onbeforeupdate&&(r=e._state.onbeforeupdate.call(e.state,e,t));if(!(void 0===n&&void 0===r||n||r))return e.dom=t.dom,e.domSize=t.domSize,e.instance=t.instance,!0;return!1}(n,t))return;if("string"==typeof h)switch(null!=n.attrs&&(c?(n.state={},j(n.attrs,n,a)):k(n.attrs,n,a)),h){case"#":!function(e,t){e.children.toString()!==t.children.toString()&&(e.dom.nodeValue=t.children);t.dom=e.dom}(t,n);break;case"<":!function(e,t,n,r){t.children!==n.children?(m(t),s(e,n,r)):(n.dom=t.dom,n.domSize=t.domSize)}(e,t,n,i);break;case"[":!function(e,t,n,r,a,i,o){p(e,t.children,n.children,r,a,i,o);var c=0,l=n.children;if(n.dom=null,null!=l){for(var s=0;s<l.length;s++){var u=l[s];null!=u&&null!=u.dom&&(null==n.dom&&(n.dom=u.dom),c+=u.domSize||1)}1!==c&&(n.domSize=c)}}(e,t,n,c,a,i,d);break;default:!function(e,t,n,a,i){var c=t.dom=e.dom;i=o(t)||i,"textarea"===t.tag&&(null==t.attrs&&(t.attrs={}),null!=t.text&&(t.attrs.value=t.text,t.text=void 0));(function(e,t,n,r){if(null!=n)for(var a in n)y(e,a,t&&t[a],n[a],r);if(null!=t)for(var a in t)null!=n&&a in n||("className"===a&&(a="class"),"o"!==a[0]||"n"!==a[1]||O(a)?"key"!==a&&e.dom.removeAttribute(a):C(e,a,void 0))})(t,e.attrs,t.attrs,i),null!=t.attrs&&null!=t.attrs.contenteditable?b(t):null!=e.text&&null!=t.text&&""!==t.text?e.text.toString()!==t.text.toString()&&(e.dom.firstChild.nodeValue=t.text):(null!=e.text&&(e.children=[r("#",void 0,void 0,e.text,void 0,e.dom.firstChild)]),null!=t.text&&(t.children=[r("#",void 0,void 0,t.text,void 0,void 0)]),p(c,e.children,t.children,n,a,null,i))}(t,n,c,a,d)}else!function(e,t,n,a,i,o,c){if(o)u(n,a);else{if(n.instance=r.normalize(n._state.view.call(n.state,n)),n.instance===n)throw Error("A view cannot return the vnode it received as argument");null!=n.attrs&&k(n.attrs,n,a),k(n._state,n,a)}null!=n.instance?(null==t.instance?l(e,n.instance,a,c,i):f(e,t.instance,n.instance,a,i,o,c),n.dom=n.instance.dom,n.domSize=n.instance.domSize):null!=t.instance?(w(t.instance,null),n.dom=void 0,n.domSize=0):(n.dom=t.dom,n.domSize=t.domSize)}(e,t,n,a,i,c,d)}else w(t,null),l(e,n,a,d,i)}function d(e,t){var n={},r=0;for(r=0;r<t;r++){var a=e[r];if(null!=a){var i=a.key;null!=i&&(n[i]=r)}}return n}function m(e){var t=e.domSize;if(null!=t||null==e.dom){var r=n.createDocumentFragment();if(t>0){for(var a=e.dom;--t;)r.appendChild(a.nextSibling);r.insertBefore(a,r.firstChild)}return r}return e.dom}function h(e,t,n){for(;t<e.length;t++)if(null!=e[t]&&null!=e[t].dom)return e[t].dom;return n}function _(e,t,n){n&&n.parentNode?e.insertBefore(t,n):e.appendChild(t)}function b(e){var t=e.children;if(null!=t&&1===t.length&&"<"===t[0].tag){var n=t[0].children;e.dom.innerHTML!==n&&(e.dom.innerHTML=n)}else if(null!=e.text||null!=t&&0!==t.length)throw new Error("Child node of a contenteditable must be trusted")}function v(e,t,n,r){for(var a=t;a<n;a++){var i=e[a];null!=i&&(i.skip?i.skip=!1:w(i,r))}}function w(e,t){var n,r=1,a=0;e.attrs&&"function"==typeof e.attrs.onbeforeremove&&(null!=(n=e.attrs.onbeforeremove.call(e.state,e))&&"function"==typeof n.then&&(r++,n.then(i,i)));"string"!=typeof e.tag&&"function"==typeof e._state.onbeforeremove&&(null!=(n=e._state.onbeforeremove.call(e.state,e))&&"function"==typeof n.then&&(r++,n.then(i,i)));function i(){if(++a===r&&(function e(t){t.attrs&&"function"==typeof t.attrs.onremove&&t.attrs.onremove.call(t.state,t);if("string"!=typeof t.tag)"function"==typeof t._state.onremove&&t._state.onremove.call(t.state,t),null!=t.instance&&e(t.instance);else{var n=t.children;if(Array.isArray(n))for(var r=0;r<n.length;r++){var a=n[r];null!=a&&e(a)}}}(e),e.dom)){var n=e.domSize||1;if(n>1)for(var i=e.dom;--n;)g(i.nextSibling);g(e.dom),null==t||null!=e.domSize||null!=(o=e.attrs)&&(o.oncreate||o.onupdate||o.onbeforeremove||o.onremove)||"string"!=typeof e.tag||(t.pool?t.pool.push(e):t.pool=[e])}var o}i()}function g(e){var t=e.parentNode;null!=t&&t.removeChild(e)}function y(e,t,r,a,i){var o=e.dom;if("key"!==t&&"is"!==t&&(r!==a||function(e,t){return"value"===t||"checked"===t||"selectedIndex"===t||"selected"===t&&e.dom===n.activeElement}(e,t)||"object"==typeof a)&&void 0!==a&&!O(t)){var c,l=t.indexOf(":");if(l>-1&&"xlink"===t.substr(0,l))o.setAttributeNS("http://www.w3.org/1999/xlink",t.slice(l+1),a);else if("o"===t[0]&&"n"===t[1]&&"function"==typeof a)C(e,t,a);else if("style"===t)!function(e,t,n){t===n&&(e.style.cssText="",t=null);if(null==n)e.style.cssText="";else if("string"==typeof n)e.style.cssText=n;else{for(var r in"string"==typeof t&&(e.style.cssText=""),n)e.style[r]=n[r];if(null!=t&&"string"!=typeof t)for(var r in t)r in n||(e.style[r]="")}}(o,r,a);else if(t in o&&("href"!==(c=t)&&"list"!==c&&"form"!==c&&"width"!==c&&"height"!==c)&&void 0===i&&!function(e){return e.attrs.is||e.tag.indexOf("-")>-1}(e)){if("value"===t){var s=""+a;if(("input"===e.tag||"textarea"===e.tag)&&e.dom.value===s&&e.dom===n.activeElement)return;if("select"===e.tag)if(null===a){if(-1===e.dom.selectedIndex&&e.dom===n.activeElement)return}else if(null!==r&&e.dom.value===s&&e.dom===n.activeElement)return;if("option"===e.tag&&null!=r&&e.dom.value===s)return}if("input"===e.tag&&"type"===t)return void o.setAttribute(t,a);o[t]=a}else"boolean"==typeof a?a?o.setAttribute(t,""):o.removeAttribute(t):o.setAttribute("className"===t?"class":t,a)}}function O(e){return"oninit"===e||"oncreate"===e||"onupdate"===e||"onremove"===e||"onbeforeremove"===e||"onbeforeupdate"===e}function C(e,n,r){var a=e.dom,i="function"!=typeof t?r:function(e){var n=r.call(a,e);return t.call(a,e),n};if(n in a)a[n]="function"==typeof r?i:null;else{var o=n.slice(2);if(void 0===e.events&&(e.events={}),e.events[n]===i)return;null!=e.events[n]&&a.removeEventListener(o,e.events[n],!1),"function"==typeof r&&(e.events[n]=i,a.addEventListener(o,e.events[n],!1))}}function j(e,t,n){"function"==typeof e.oninit&&e.oninit.call(t.state,t),"function"==typeof e.oncreate&&n.push(e.oncreate.bind(t.state,t))}function k(e,t,n){"function"==typeof e.onupdate&&n.push(e.onupdate.bind(t.state,t))}return{render:function(e,t){if(!e)throw new Error("Ensure the DOM element being passed to m.route/m.mount/m.render is not undefined.");var a=[],i=n.activeElement,o=e.namespaceURI;null==e.vnodes&&(e.textContent=""),Array.isArray(t)||(t=[t]),p(e,e.vnodes,r.normalizeChildren(t),!1,a,null,"http://www.w3.org/1999/xhtml"===o?void 0:o),e.vnodes=t,null!=i&&n.activeElement!==i&&i.focus();for(var c=0;c<a.length;c++)a[c]()},setEventCallback:function(e){return t=e}}};var h=function(e){var t=m(e);t.setEventCallback(function(e){!1===e.redraw?e.redraw=void 0:a()});var n=[];function r(e){var t=n.indexOf(e);t>-1&&n.splice(t,2)}function a(){for(var e=1;e<n.length;e+=2)n[e]()}return{subscribe:function(e,t){r(e),n.push(e,function(e){var t=0,n=null,r="function"==typeof requestAnimationFrame?requestAnimationFrame:setTimeout;return function(){var a=Date.now();0===t||a-t>=16?(t=a,e()):null===n&&(n=r(function(){n=null,e(),t=Date.now()},16-(a-t)))}}(t))},unsubscribe:r,redraw:a,render:t.render}}(window);d.setCompletionCallback(h.redraw);var _;s.mount=(_=h,function(e,t){if(null===t)return _.render(e,[]),void _.unsubscribe(e);if(null==t.view&&"function"!=typeof t)throw new Error("m.mount(element, component) expects a component, not a vnode");_.subscribe(e,function(){_.render(e,r(t))}),_.redraw()});var b=u,v=function(e){if(""===e||null==e)return{};"?"===e.charAt(0)&&(e=e.slice(1));for(var t=e.split("&"),n={},r={},a=0;a<t.length;a++){var i=t[a].split("="),o=decodeURIComponent(i[0]),c=2===i.length?decodeURIComponent(i[1]):"";"true"===c?c=!0:"false"===c&&(c=!1);var l=o.split(/\]\[?|\[/),s=n;o.indexOf("[")>-1&&l.pop();for(var u=0;u<l.length;u++){var p=l[u],f=l[u+1],d=""==f||!isNaN(parseInt(f,10)),m=u===l.length-1;if(""===p)null==r[o=l.slice(0,u).join()]&&(r[o]=0),p=r[o]++;null==s[p]&&(s[p]=m?c:d?[]:{}),s=s[p]}}return n},w=function(e){var n,r="function"==typeof e.history.pushState,a="function"==typeof t?t:setTimeout;function i(t){var n=e.location[t].replace(/(?:%[a-f89][a-f0-9])+/gim,decodeURIComponent);return"pathname"===t&&"/"!==n[0]&&(n="/"+n),n}function o(e,t,n){var r=e.indexOf("?"),a=e.indexOf("#"),i=r>-1?r:a>-1?a:e.length;if(r>-1){var o=a>-1?a:e.length,c=v(e.slice(r+1,o));for(var l in c)t[l]=c[l]}if(a>-1){var s=v(e.slice(a+1));for(var l in s)n[l]=s[l]}return e.slice(0,i)}var c={prefix:"#!",getPath:function(){switch(c.prefix.charAt(0)){case"#":return i("hash").slice(c.prefix.length);case"?":return i("search").slice(c.prefix.length)+i("hash");default:return i("pathname").slice(c.prefix.length)+i("search")+i("hash")}},setPath:function(t,n,a){var i={},l={};if(t=o(t,i,l),null!=n){for(var s in n)i[s]=n[s];t=t.replace(/:([^\/]+)/g,function(e,t){return delete i[t],n[t]})}var u=p(i);u&&(t+="?"+u);var f=p(l);if(f&&(t+="#"+f),r){var d=a?a.state:null,m=a?a.title:null;e.onpopstate(),a&&a.replace?e.history.replaceState(d,m,c.prefix+t):e.history.pushState(d,m,c.prefix+t)}else e.location.href=c.prefix+t}};return c.defineRoutes=function(t,i,l){function s(){var n=c.getPath(),r={},a=o(n,r,r),s=e.history.state;if(null!=s)for(var u in s)r[u]=s[u];for(var p in t){var f=new RegExp("^"+p.replace(/:[^\/]+?\.{3}/g,"(.*?)").replace(/:[^\/]+/g,"([^\\/]+)")+"/?$");if(f.test(a))return void a.replace(f,function(){for(var e=p.match(/:[^\/]+/g)||[],a=[].slice.call(arguments,1,-2),o=0;o<e.length;o++)r[e[o].replace(/:|\./g,"")]=decodeURIComponent(a[o]);i(t[p],r,n,p)})}l(n,r)}var u;r?e.onpopstate=(u=s,function(){null==n&&(n=a(function(){n=null,u()}))}):"#"===c.prefix.charAt(0)&&(e.onhashchange=s),s()},c};s.route=function(e,t){var n,a,i,o,c,l=w(e),s=function(e,s,u){if(null==e)throw new Error("Ensure the DOM element that was passed to `m.route` is not undefined");var p=function(){null!=n&&t.render(e,n(r(a,i.key,i)))},f=function(e){if(e===s)throw new Error("Could not resolve default route "+s);l.setPath(s,null,{replace:!0})};l.defineRoutes(u,function(e,t,r){var l=c=function(e,s){l===c&&(a=null==s||"function"!=typeof s.view&&"function"!=typeof s?"div":s,i=t,o=r,c=null,n=(e.render||function(e){return e}).bind(e),p())};e.view||"function"==typeof e?l({},e):e.onmatch?b.resolve(e.onmatch(t,r)).then(function(t){l(e,t)},f):l(e,"div")},f),t.subscribe(e,p)};return s.set=function(e,t,n){null!=c&&((n=n||{}).replace=!0),c=null,l.setPath(e,t,n)},s.get=function(){return o},s.prefix=function(e){l.prefix=e},s.link=function(e){e.dom.setAttribute("href",l.prefix+e.attrs.href),e.dom.onclick=function(e){if(!(e.ctrlKey||e.metaKey||e.shiftKey||2===e.which)){e.preventDefault(),e.redraw=!1;var t=this.getAttribute("href");0===t.indexOf(l.prefix)&&(t=t.slice(l.prefix.length)),s.set(t,void 0,void 0)}}},s.param=function(e){return void 0!==i&&void 0!==e?i[e]:i},s}(window,h),s.withAttr=function(e,t,n){return function(r){t.call(n||this,e in r.currentTarget?r.currentTarget[e]:r.currentTarget.getAttribute(e))}};var g=m(window);s.render=g.render,s.redraw=h.redraw,s.request=d.request,s.jsonp=d.jsonp,s.parseQueryString=v,s.buildQueryString=p,s.version="1.1.6",s.vnode=r,e.exports=s}()}).call(this,n(2).setImmediate,n(1))},function(e,t){var n;n=function(){return this}();try{n=n||new Function("return this")()}catch(e){"object"==typeof window&&(n=window)}e.exports=n},function(e,t,n){(function(e){var r=void 0!==e&&e||"undefined"!=typeof self&&self||window,a=Function.prototype.apply;function i(e,t){this._id=e,this._clearFn=t}t.setTimeout=function(){return new i(a.call(setTimeout,r,arguments),clearTimeout)},t.setInterval=function(){return new i(a.call(setInterval,r,arguments),clearInterval)},t.clearTimeout=t.clearInterval=function(e){e&&e.close()},i.prototype.unref=i.prototype.ref=function(){},i.prototype.close=function(){this._clearFn.call(r,this._id)},t.enroll=function(e,t){clearTimeout(e._idleTimeoutId),e._idleTimeout=t},t.unenroll=function(e){clearTimeout(e._idleTimeoutId),e._idleTimeout=-1},t._unrefActive=t.active=function(e){clearTimeout(e._idleTimeoutId);var t=e._idleTimeout;t>=0&&(e._idleTimeoutId=setTimeout(function(){e._onTimeout&&e._onTimeout()},t))},n(3),t.setImmediate="undefined"!=typeof self&&self.setImmediate||void 0!==e&&e.setImmediate||this&&this.setImmediate,t.clearImmediate="undefined"!=typeof self&&self.clearImmediate||void 0!==e&&e.clearImmediate||this&&this.clearImmediate}).call(this,n(1))},function(e,t,n){(function(e,t){!function(e,n){"use strict";if(!e.setImmediate){var r,a,i,o,c,l=1,s={},u=!1,p=e.document,f=Object.getPrototypeOf&&Object.getPrototypeOf(e);f=f&&f.setTimeout?f:e,"[object process]"==={}.toString.call(e.process)?r=function(e){t.nextTick(function(){m(e)})}:!function(){if(e.postMessage&&!e.importScripts){var t=!0,n=e.onmessage;return e.onmessage=function(){t=!1},e.postMessage("","*"),e.onmessage=n,t}}()?e.MessageChannel?((i=new MessageChannel).port1.onmessage=function(e){m(e.data)},r=function(e){i.port2.postMessage(e)}):p&&"onreadystatechange"in p.createElement("script")?(a=p.documentElement,r=function(e){var t=p.createElement("script");t.onreadystatechange=function(){m(e),t.onreadystatechange=null,a.removeChild(t),t=null},a.appendChild(t)}):r=function(e){setTimeout(m,0,e)}:(o="setImmediate$"+Math.random()+"$",c=function(t){t.source===e&&"string"==typeof t.data&&0===t.data.indexOf(o)&&m(+t.data.slice(o.length))},e.addEventListener?e.addEventListener("message",c,!1):e.attachEvent("onmessage",c),r=function(t){e.postMessage(o+t,"*")}),f.setImmediate=function(e){"function"!=typeof e&&(e=new Function(""+e));for(var t=new Array(arguments.length-1),n=0;n<t.length;n++)t[n]=arguments[n+1];var a={callback:e,args:t};return s[l]=a,r(l),l++},f.clearImmediate=d}function d(e){delete s[e]}function m(e){if(u)setTimeout(m,0,e);else{var t=s[e];if(t){u=!0;try{!function(e){var t=e.callback,r=e.args;switch(r.length){case 0:t();break;case 1:t(r[0]);break;case 2:t(r[0],r[1]);break;case 3:t(r[0],r[1],r[2]);break;default:t.apply(n,r)}}(t)}finally{d(e),u=!1}}}}}("undefined"==typeof self?void 0===e?this:e:self)}).call(this,n(1),n(4))},function(e,t){var n,r,a=e.exports={};function i(){throw new Error("setTimeout has not been defined")}function o(){throw new Error("clearTimeout has not been defined")}function c(e){if(n===setTimeout)return setTimeout(e,0);if((n===i||!n)&&setTimeout)return n=setTimeout,setTimeout(e,0);try{return n(e,0)}catch(t){try{return n.call(null,e,0)}catch(t){return n.call(this,e,0)}}}!function(){try{n="function"==typeof setTimeout?setTimeout:i}catch(e){n=i}try{r="function"==typeof clearTimeout?clearTimeout:o}catch(e){r=o}}();var l,s=[],u=!1,p=-1;function f(){u&&l&&(u=!1,l.length?s=l.concat(s):p=-1,s.length&&d())}function d(){if(!u){var e=c(f);u=!0;for(var t=s.length;t;){for(l=s,s=[];++p<t;)l&&l[p].run();p=-1,t=s.length}l=null,u=!1,function(e){if(r===clearTimeout)return clearTimeout(e);if((r===o||!r)&&clearTimeout)return r=clearTimeout,clearTimeout(e);try{r(e)}catch(t){try{return r.call(null,e)}catch(t){return r.call(this,e)}}}(e)}}function m(e,t){this.fun=e,this.array=t}function h(){}a.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)t[n-1]=arguments[n];s.push(new m(e,t)),1!==s.length||u||c(d)},m.prototype.run=function(){this.fun.apply(null,this.array)},a.title="browser",a.browser=!0,a.env={},a.argv=[],a.version="",a.versions={},a.on=h,a.addListener=h,a.once=h,a.off=h,a.removeListener=h,a.removeAllListeners=h,a.emit=h,a.prependListener=h,a.prependOnceListener=h,a.listeners=function(e){return[]},a.binding=function(e){throw new Error("process.binding is not supported")},a.cwd=function(){return"/"},a.chdir=function(e){throw new Error("process.chdir is not supported")},a.umask=function(){return 0}},function(e,t,n){e.exports={"pe-spinner":"pe-spinner","pe-spinner--raised":"pe-spinner--raised","pe-spinner--permanent":"pe-spinner--permanent","pe-spinner--visible":"pe-spinner--visible","pe-spinner--fab":"pe-spinner--fab","pe-spinner--large":"pe-spinner--large","pe-spinner--medium":"pe-spinner--medium","pe-spinner--regular":"pe-spinner--regular","pe-spinner--small":"pe-spinner--small","pe-dark-tone":"pe-dark-tone","pe-light-tone":"pe-light-tone","pe-button-group":"pe-button-group","pe-button":"pe-button","pe-button--disabled":"pe-button--disabled","pe-button--inactive":"pe-button--inactive","pe-button--selected":"pe-button--selected","pe-button__content":"pe-button__content","pe-button__label":"pe-button__label","pe-button__wash":"pe-button__wash","pe-button-row":"pe-button-row","pe-text-button":"pe-text-button","pe-button--separator-start":"pe-button--separator-start","pe-button--border":"pe-button--border","pe-ripple":"pe-ripple","pe-button__dropdown":"pe-button__dropdown","pe-button__text-label":"pe-button__text-label","pe-button--dropdown":"pe-button--dropdown","pe-svg":"pe-svg","pe-button--dropdown-open":"pe-button--dropdown-open","pe-rtl":"pe-rtl","pe-button--high-label":"pe-button--high-label","pe-button--extra-wide":"pe-button--extra-wide","pe-no-touch":"pe-no-touch","pe-button--contained":"pe-button--contained","pe-card":"pe-card","pe-card__content":"pe-card__content","pe-card__media":"pe-card__media","pe-card__media--landscape":"pe-card__media--landscape","pe-card__media--square":"pe-card__media--square","pe-card__media--crop-x":"pe-card__media--crop-x","pe-card__media--origin-start":"pe-card__media--origin-start","pe-card__media--origin-end":"pe-card__media--origin-end","pe-card__media--crop-y":"pe-card__media--crop-y","pe-card__header":"pe-card__header","pe-card__primary-media":"pe-card__primary-media","pe-card__media__dimmer":"pe-card__media__dimmer","pe-card__overlay":"pe-card__overlay","pe-card__overlay__content":"pe-card__overlay__content","pe-list-tile__title":"pe-list-tile__title","pe-list-tile__subtitle":"pe-list-tile__subtitle","pe-card__primary":"pe-card__primary","pe-card__text":"pe-card__text","pe-card__title":"pe-card__title","pe-card__subtitle":"pe-card__subtitle","pe-card__actions":"pe-card__actions","pe-card__actions--tight":"pe-card__actions--tight","pe-card__actions--vertical":"pe-card__actions--vertical","pe-card__actions--horizontal":"pe-card__actions--horizontal","pe-card__actions--justified":"pe-card__actions--justified","pe-list":"pe-list","pe-card__primary--media":"pe-card__primary--media","pe-card__media--large":"pe-card__media--large","pe-card__media--medium":"pe-card__media--medium","pe-card__media--regular":"pe-card__media--regular","pe-card__media--small":"pe-card__media--small","pe-card__text--tight":"pe-card__text--tight","pe-card__primary--tight":"pe-card__primary--tight","pe-card__overlay--sheet":"pe-card__overlay--sheet","pe-card__actions--border":"pe-card__actions--border","pe-dialog-pane":"pe-dialog-pane","pe-dialog-pane__content":"pe-dialog-pane__content","pe-dialog-pane__title":"pe-dialog-pane__title","pe-toolbar":"pe-toolbar","pe-dialog-pane__header":"pe-dialog-pane__header","pe-dialog-pane__body":"pe-dialog-pane__body","pe-dialog-pane--body-full-bleed":"pe-dialog-pane--body-full-bleed","pe-dialog-pane__header--title":"pe-dialog-pane__header--title","pe-dialog-pane__footer":"pe-dialog-pane__footer","pe-dialog-pane__footer--high":"pe-dialog-pane__footer--high","pe-dialog-pane__footer--buttons":"pe-dialog-pane__footer--buttons","pe-dialog-pane__actions":"pe-dialog-pane__actions","pe-dialog-pane--header":"pe-dialog-pane--header","pe-dialog-pane--border-top":"pe-dialog-pane--border-top","pe-dialog-pane--footer":"pe-dialog-pane--footer","pe-dialog-pane--border-bottom":"pe-dialog-pane--border-bottom","pe-dialog__content":"pe-dialog__content","pe-menu__content":"pe-menu__content","pe-dialog":"pe-dialog","pe-dialog--full-screen":"pe-dialog--full-screen","pe-dialog__backdrop":"pe-dialog__backdrop","pe-dialog--backdrop":"pe-dialog--backdrop","pe-dialog--visible":"pe-dialog--visible","pe-dialog__holder":"pe-dialog__holder","pe-drawer":"pe-drawer","pe-drawer--fixed":"pe-drawer--fixed","pe-drawer--border":"pe-drawer--border","pe-dialog--transition":"pe-dialog--transition","pe-drawer--mini":"pe-drawer--mini","pe-drawer--permanent":"pe-drawer--permanent","pe-drawer--floating":"pe-drawer--floating","pe-drawer--cover":"pe-drawer--cover","pe-dialog__touch":"pe-dialog__touch","pe-drawer--push":"pe-drawer--push","pe-drawer--anchor-end":"pe-drawer--anchor-end","pe-fab":"pe-fab","pe-fab__content":"pe-fab__content","pe-button__focus":"pe-button__focus","pe-fab--mini":"pe-fab--mini","pe-button--focus":"pe-button--focus","pe-icon-button":"pe-icon-button","pe-icon-button__content":"pe-icon-button__content","pe-icon-button__label":"pe-icon-button__label","pe-icon-button--compact":"pe-icon-button--compact","pe-icon":"pe-icon","pe-icon--avatar":"pe-icon--avatar","pe-icon--small":"pe-icon--small","pe-icon--regular":"pe-icon--regular","pe-icon--medium":"pe-icon--medium","pe-icon--large":"pe-icon--large","pe-ios-spinner":"pe-ios-spinner","pe-ios-spinner__blades":"pe-ios-spinner__blades","pe-ios-spinner__blade":"pe-ios-spinner__blade",iosSpinnerFade:"iosSpinnerFade","pe-list-tile":"pe-list-tile","pe-list-tile__content-front":"pe-list-tile__content-front","pe-list-tile__content":"pe-list-tile__content","pe-list-tile--navigation":"pe-list-tile--navigation","pe-list-tile--sticky":"pe-list-tile--sticky","pe-list-tile__primary":"pe-list-tile__primary","pe-list-tile__secondary":"pe-list-tile__secondary","pe-list-tile--header":"pe-list-tile--header","pe-list-tile--disabled":"pe-list-tile--disabled","pe-list-tile__high-subtitle":"pe-list-tile__high-subtitle","pe-list-tile--selected":"pe-list-tile--selected","pe-list-tile--subtitle":"pe-list-tile--subtitle","pe-list-tile--high-subtitle":"pe-list-tile--high-subtitle","pe-list-tile--hoverable":"pe-list-tile--hoverable","pe-list-tile--selectable":"pe-list-tile--selectable","pe-list-tile--compact-front":"pe-list-tile--compact-front","pe-list--compact":"pe-list--compact","pe-list-tile--compact":"pe-list-tile--compact","pe-list-tile--highlight":"pe-list-tile--highlight","pe-list--header":"pe-list--header","pe-list--indented-border":"pe-list--indented-border","pe-list--border":"pe-list--border","pe-list--padding":"pe-list--padding","pe-list--padding-top":"pe-list--padding-top","pe-list--padding-bottom":"pe-list--padding-bottom","pe-md-progress-spinner":"pe-md-progress-spinner","pe-md-progress-spinner__animation":"pe-md-progress-spinner__animation","pe-md-progress-spinner__circle":"pe-md-progress-spinner__circle","pe-md-progress-spinner__circle-left":"pe-md-progress-spinner__circle-left","pe-md-progress-spinner__circle-right":"pe-md-progress-spinner__circle-right","pe-md-spinner":"pe-md-spinner","pe-md-spinner__animation":"pe-md-spinner__animation","pe-md-spinner__gap-patch":"pe-md-spinner__gap-patch","pe-md-spinner__circle":"pe-md-spinner__circle","pe-md-spinner__circle-clipper":"pe-md-spinner__circle-clipper","pe-md-spinner__circle-clipper-left":"pe-md-spinner__circle-clipper-left","pe-md-spinner__circle-clipper-right":"pe-md-spinner__circle-clipper-right","pe-md-spinner__layer":"pe-md-spinner__layer","pe-md-spinner__layer-1":"pe-md-spinner__layer-1",mdSpinnerFillUnfillRotate:"mdSpinnerFillUnfillRotate",mdSpinnerLayer1FadeInOut:"mdSpinnerLayer1FadeInOut","pe-md-spinner__layer-2":"pe-md-spinner__layer-2",mdSpinnerLayer2FadeInOut:"mdSpinnerLayer2FadeInOut","pe-md-spinner__layer-3":"pe-md-spinner__layer-3",mdSpinnerLayer3FadeInOut:"mdSpinnerLayer3FadeInOut","pe-md-spinner__layer-4":"pe-md-spinner__layer-4",mdSpinnerLayer4FadeInOut:"mdSpinnerLayer4FadeInOut",mdSpinnerLeftSpin:"mdSpinnerLeftSpin",mdSpinnerRightSpin:"mdSpinnerRightSpin",mdSpinnerRotate:"mdSpinnerRotate","pe-spinner--single-color":"pe-spinner--single-color","pe-menu":"pe-menu","pe-menu--width-auto":"pe-menu--width-auto","pe-menu--permanent":"pe-menu--permanent","pe-menu__panel":"pe-menu__panel","pe-menu--floating":"pe-menu--floating","pe-menu__backdrop":"pe-menu__backdrop","pe-menu--backdrop":"pe-menu--backdrop","pe-menu--visible":"pe-menu--visible","pe-menu--top-menu":"pe-menu--top-menu","pe-menu--width-1-5":"pe-menu--width-1-5","pe-menu--width-2":"pe-menu--width-2","pe-menu--width-3":"pe-menu--width-3","pe-menu--width-4":"pe-menu--width-4","pe-menu--width-5":"pe-menu--width-5","pe-menu--width-6":"pe-menu--width-6","pe-menu--width-7":"pe-menu--width-7","pe-menu--full-height":"pe-menu--full-height","pe-menu--origin":"pe-menu--origin","pe-notification":"pe-notification","pe-notification__title":"pe-notification__title","pe-notification__action":"pe-notification__action","pe-notification__content":"pe-notification__content","pe-notification--horizontal":"pe-notification--horizontal","pe-notification--vertical":"pe-notification--vertical","pe-notification--visible":"pe-notification--visible","pe-notification__title--multi-line":"pe-notification__title--multi-line","pe-notification__holder":"pe-notification__holder","pe-multiple--screen":"pe-multiple--screen","pe-notification--container":"pe-notification--container","pe-multiple--container":"pe-multiple--container","pe-radio-group":"pe-radio-group","pe-ripple--unconstrained":"pe-ripple--unconstrained","pe-ripple__mask":"pe-ripple__mask","pe-ripple__waves":"pe-ripple__waves","pe-ripple__waves--animating":"pe-ripple__waves--animating","pe-search":"pe-search","pe-textfield":"pe-textfield","pe-textfield__input-area":"pe-textfield__input-area","pe-textfield__input":"pe-textfield__input","pe-textfield__label":"pe-textfield__label","pe-search__content":"pe-search__content","pe-search--full-width":"pe-search--full-width","pe-search--inset":"pe-search--inset","pe-control":"pe-control","pe-control__form-label":"pe-control__form-label","pe-control--inactive":"pe-control--inactive","pe-control__box":"pe-control__box","pe-control__button":"pe-control__button","pe-control--off":"pe-control--off","pe-control__button--on":"pe-control__button--on","pe-control__button--off":"pe-control__button--off","pe-control--on":"pe-control--on","pe-control__label":"pe-control__label","pe-control--disabled":"pe-control--disabled","pe-control--small":"pe-control--small","pe-control--regular":"pe-control--regular","pe-control--medium":"pe-control--medium","pe-control--large":"pe-control--large","pe-shadow":"pe-shadow","pe-shadow__top":"pe-shadow__top","pe-shadow__bottom":"pe-shadow__bottom","pe-shadow--animated":"pe-shadow--animated","pe-shadow--depth-0":"pe-shadow--depth-0","pe-shadow--depth-1":"pe-shadow--depth-1","pe-shadow--depth-2":"pe-shadow--depth-2","pe-shadow--depth-3":"pe-shadow--depth-3","pe-shadow--depth-4":"pe-shadow--depth-4","pe-shadow--depth-5":"pe-shadow--depth-5","pe-slider":"pe-slider","pe-slider__track":"pe-slider__track","pe-slider__control":"pe-slider__control","pe-slider__thumb":"pe-slider__thumb","pe-slider__label":"pe-slider__label","pe-slider__track-part":"pe-slider__track-part","pe-slider__track-rest":"pe-slider__track-rest","pe-slider__track-value":"pe-slider__track-value","pe-slider__track-bar":"pe-slider__track-bar","pe-slider__track-bar-value":"pe-slider__track-bar-value","pe-slider__ticks":"pe-slider__ticks","pe-slider__pin":"pe-slider__pin","pe-slider--pin":"pe-slider--pin","pe-slider--active":"pe-slider--active","pe-slider--focus":"pe-slider--focus","pe-slider--disabled":"pe-slider--disabled","pe-slider--track":"pe-slider--track","pe-slider--ticks":"pe-slider--ticks","pe-slider__tick":"pe-slider__tick","pe-slider--min":"pe-slider--min","pe-slider--tick":"pe-slider--tick","pe-slider__tick--value":"pe-slider__tick--value","pe-slider--tick--value":"pe-slider--tick--value","pe-snackbar":"pe-snackbar","pe-snackbar__holder":"pe-snackbar__holder","pe-switch-control":"pe-switch-control","pe-switch-control__track":"pe-switch-control__track","pe-switch-control__thumb":"pe-switch-control__thumb","pe-switch-control__knob":"pe-switch-control__knob","pe-tabs":"pe-tabs","pe-tabs__indicator":"pe-tabs__indicator","pe-tabs--scrollable":"pe-tabs--scrollable","pe-tabs__scroll-button":"pe-tabs__scroll-button","pe-tabs__tab":"pe-tabs__tab","pe-tabs--end":"pe-tabs--end","pe-tabs__scroll-button-end":"pe-tabs__scroll-button-end","pe-tabs--start":"pe-tabs--start","pe-tabs__scroll-button-start":"pe-tabs__scroll-button-start","pe-tabs__row":"pe-tabs__row","pe-tabs__row--indent":"pe-tabs__row--indent","pe-tabs__row--centered":"pe-tabs__row--centered","pe-tabs__scroll-button-offset":"pe-tabs__scroll-button-offset","pe-toolbar--tabs":"pe-toolbar--tabs","pe-toolbar__bar":"pe-toolbar__bar","pe-tab":"pe-tab","pe-tabs__tab--icon":"pe-tabs__tab--icon","pe-tabs--menu":"pe-tabs--menu","pe-tabs--compact":"pe-tabs--compact","pe-tabs__tab-content":"pe-tabs__tab-content","pe-tabs--autofit":"pe-tabs--autofit","pe-tabs__active--selectable":"pe-tabs__active--selectable","pe-tabs--small":"pe-tabs--small","pe-textfield__counter":"pe-textfield__counter","pe-textfield--focused":"pe-textfield--focused","pe-textfield--dirty":"pe-textfield--dirty","pe-textfield--no-char":"pe-textfield--no-char","pe-textfield__optional-indicator":"pe-textfield__optional-indicator","pe-textfield__required-indicator":"pe-textfield__required-indicator","pe-textfield--floating-label":"pe-textfield--floating-label","pe-textfield--disabled":"pe-textfield--disabled","pe-textfield--readonly":"pe-textfield--readonly","pe-textfield__error":"pe-textfield__error","pe-textfield__error-placeholder":"pe-textfield__error-placeholder","pe-textfield__help":"pe-textfield__help","pe-textfield__help-focus":"pe-textfield__help-focus","pe-textfield--hide-clear":"pe-textfield--hide-clear","pe-textfield--hide-spinner":"pe-textfield--hide-spinner","pe-textfield--full-width":"pe-textfield--full-width","pe-textfield--dense":"pe-textfield--dense","pe-textfield--invalid":"pe-textfield--invalid","pe-textfield--hide-validation":"pe-textfield--hide-validation","pe-textfield--required":"pe-textfield--required","pe-textfield--counter":"pe-textfield--counter","pe-toolbar--fullbleed":"pe-toolbar--fullbleed","pe-toolbar--border":"pe-toolbar--border","pe-toolbar__title":"pe-toolbar__title","pe-toolbar__title--indent":"pe-toolbar__title--indent","pe-toolbar__title--center":"pe-toolbar__title--center","pe-action":"pe-action","pe-fit":"pe-fit","pe-toolbar--compact":"pe-toolbar--compact",mdSpinnerFadeOut:"mdSpinnerFadeOut"}},function(e,t,n){},function(e,t,n){"use strict";n.r(t);var r=n(0),a=n.n(r),i={autocomplete:"autocomplete",autofocus:"autofocus",class:"class",className:"class",enctype:"enctype",formaction:"formaction",frameborder:"frameborder",maxlength:"maxlength",minlength:"minlength",onblur:"onblur",onchange:"onchange",onclick:"onclick",onfocus:"onfocus",oninput:"oninput",onkeydown:"onkeydown",onkeyup:"onkeyup",onmousedown:"onmousedown",onmouseout:"onmouseout",onmouseover:"onmouseover",onmouseup:"onmouseup",onscroll:"onscroll",onsubmit:"onsubmit",ontouchend:"ontouchend",ontouchmove:"ontouchmove",ontouchstart:"ontouchstart",readonly:"readonly",tabindex:"tabindex"},o=a.a;function c(){return(c=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}o.displayName="mithril",s.SKIP={},s.lift=function(){var e=arguments[0];return p(Array.prototype.slice.call(arguments,1)).map(function(t){return e.apply(void 0,t)})},s.scan=function(e,t,n){var r=n.map(function(n){return t=e(t,n)});return r(t),r},s.merge=p,s.combine=u,s.scanMerge=function(e,t){var n=e.map(function(e){return e[0]}),r=u(function(){var r=arguments[arguments.length-1];return n.forEach(function(n,a){r.indexOf(n)>-1&&(t=e[a][1](t,n()))}),t},n);return r(t),r},s["fantasy-land/of"]=s;var l=!1;function s(e){var t,n=[],r=[];function a(t){return arguments.length&&t!==s.SKIP&&f(a)&&(e=t,a.changing(),a.state="active",n.forEach(function(t,n){t(r[n](e))})),e}return a.constructor=s,a.state=arguments.length&&e!==s.SKIP?"active":"pending",a.changing=function(){f(a)&&(a.state="changing"),n.forEach(function(e){e.dependent&&e.dependent.changing(),e.changing()})},a.map=function(t,i){var o="active"===a.state&&i!==s.SKIP?s(t(e)):s();return n.push(o),r.push(t),o},a.toJSON=function(){return null!=e&&"function"==typeof e.toJSON?e.toJSON():e},a["fantasy-land/map"]=a.map,a["fantasy-land/ap"]=function(e){return u(function(e,t){return e()(t())},[e,a])},Object.defineProperty(a,"end",{get:function(){return t||((t=s()).map(function(e){return!0===e&&(a.state="ended",n.length=r.length=0),e}),t)}}),a}function u(e,t){var n=t.every(function(e){if(e.constructor!==s)throw new Error("Ensure that each item passed to stream.combine/stream.merge/lift is a stream");return"active"===e.state}),r=n?s(e.apply(null,t.concat([t]))):s(),a=[];return t.forEach(function(i){i.map(function(o){return a.push(i),(n||t.every(function(e){return"pending"!==e.state}))&&(n=!0,r(e.apply(null,t.concat([a]))),a=[]),o},s.SKIP).parent=r}),r}function p(e){return u(function(){return e.map(function(e){return e()})},e)}function f(e){return"pending"===e.state||"active"===e.state||"changing"===e.state}Object.defineProperty(s,"HALT",{get:function(){return l&&console.log("HALT is deprecated and has been renamed to SKIP"),l=!0,s.SKIP}});var d,m=(d=Object.freeze({default:s}))&&d.default||d,h=function(e){var t=e.createContent,n=void 0===t?function(){}:t,r=e.createProps,a=void 0===r?function(){}:r,l=e.component,s=void 0===l?null:l,u=e.getElement,p=void 0===u?function(){return"div"}:u,f=e.getInitialState,d=void 0===f?function(){return{}}:f,h=e.onMount,_=void 0===h?function(){}:h,b=e.onUnMount,v=void 0===b?function(){}:b,w=e.onUpdate,g=void 0===w?function(){}:w,y=e.view,O=void 0===y?null:y,C=function(e){return o(s||p(e),a(e,{renderer:o,requiresKeys:!1,keys:i}),[e.attrs.before,n(e,{renderer:o,requiresKeys:!1,keys:i}),e.attrs.after])};return{view:O?function(e){return O(e,{render:C,renderer:o})}:function(e){return C(e)},oninit:function(e){var t=c({},e),n=d(t,m,{keys:i});c(e.state,n),e._mounted=!1,e.state.redrawOnUpdate&&e.state.redrawOnUpdate.map(function(){return e._mounted&&setTimeout(o.redraw(!0))})},oncreate:function(e){e._mounted=!0,_(e,{keys:i})},onremove:v,onupdate:g}},_=function(e){var t=e.createContent,n=void 0===t?function(){}:t,r=e.createProps,a=void 0===r?function(){}:r,c=e.getElement,l=void 0===c?function(){return"div"}:c,s=e.component,u=void 0===s?null:s,p=e.view,f=void 0===p?null:p,d=e.onMount,m=void 0===d?function(){}:d,h=e.onUnMount,_=function(e){return o(u||l(e),a(e,{renderer:o,requiresKeys:!1,keys:i}),[e.attrs.before,n(e,{renderer:o,requiresKeys:!1,keys:i}),e.attrs.after])};return{view:f?function(e){return f(e,{render:_,renderer:o})}:function(e){return _(e)},oncreate:function(e){return m(e,{keys:i})},onremove:void 0===h?function(){}:h}},b="undefined"!=typeof document,v=!b,w={animation:"animationend",OAnimation:"oAnimationEnd",MozAnimation:"animationend",WebkitAnimation:"webkitAnimationEnd"};function g(){return(g=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var y="hidden",O="visible",C="exposing",j="hiding",k={getInitialState:function(e,t){var n=e.attrs;if(!n.didHide)return{};var r=n.permanent||n.show,a=t(n.permanent?O:r?O:y);return{mode:a,redrawOnUpdate:t.merge([a])}},onUpdate:function(e){var t=e.state,n=e.attrs;if(n.didHide){var r=t.mode();n.permanent?r===O&&n.show?t.mode(C):r!==C||n.show||t.mode(j):r===y&&n.show?t.mode(O):r!==O||n.show||t.mode(j)}},view:function(e,t){var n=e.state,r=e.attrs,a=t.renderer,i=a("span",{className:r.placeholderClassName});if(!r.didHide)return r.permanent||r.inactive||r.show?a(r.instance,r):i;var o=n.mode();return o!==y?a(r.instance,g({},r,{didHide:function(e){return r.didHide(e),n.mode(r.permanent?O:y)}},o===j&&{show:!0,hide:!0})):i},displayName:"Conditional"},T=function(e,t){return e[t]=1,e},P=["key","style","href","id","tabIndex","tabindex","oninit","oncreate","onupdate","onbeforeremove","onremove","onbeforeupdate"],E=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=t.add,r=void 0===n?[]:n,a=t.remove,i=(void 0===a?[]:a).reduce(T,{}),o=P.concat(r).filter(function(e){return!i[e]}).reduce(T,{});return Object.keys(e).reduce(function(t,n){return o[n]&&(t[n]=e[n]),t},{})},N=function(e){return"function"==typeof e?e():e},I=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"regular";return function(e){return{small:e.small,regular:e.regular,medium:e.medium,large:e.large,fab:e.fab}}(e)[t]},D=!v&&"ontouchstart"in document.documentElement,z=D?["click","mouseup"]:["mouseup"],x=D?["touchstart","mousedown"]:["mousedown"],B=D?["touchmove","mousemove"]:["mousemove"],A=D?["touchend","mouseup"]:["mouseup"];b&&document.querySelector("html").classList.add(D?"pe-touch":"pe-no-touch");var L={},M=function(e,t,n){L[e]=L[e]||[],L[e].push(n?function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:.05,n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:b?window:{},r=!1;return function(){for(var a=arguments.length,i=new Array(a),o=0;o<a;o++)i[o]=arguments[o];r||(e.apply(n,i),r=!0,setTimeout(function(){return r=!1},t))}}(t,n):t)},q=function(e,t){if(L[e]){var n=L[e].indexOf(t);n>-1&&L[e].splice(n,1)}},S=function(e,t){L[e]&&L[e].forEach(function(e){return e(t)})};b&&(window.addEventListener("resize",function(e){return S("resize",e)}),window.addEventListener("scroll",function(e){return S("scroll",e)}),window.addEventListener("keydown",function(e){return S("keydown",e)}),window.addEventListener(z,function(e){return S(z,e)}));var H=function(e){var t,n=e.options,r=e.renderer,a=[],i=function(e){t||console.error("Cannot set state. Did you set a root element like Dialog to show instances?"),t(e.id),S(n.name,e)},o=function(e){var t=c(e);return a.indexOf(t)},c=function(e){for(var t=0;t<a.length;t++)if(a[t].instanceId===e)return a[t]},l=function(){a.length&&(a[0].show=!0),i({id:a.length?a[0].instanceId:null,name:"next"})},s=function(){var e,t,r=arguments.length>0&&void 0!==arguments[0]?arguments[0]:n.defaultId;n.queue?(a.shift(),l()):-1!==(t=o(e=r))&&(a.splice(t,1),i({id:e,name:"removeItem"}))},u=function(e,t){var n=c(t);n&&(n.pause=e,n.unpause=!e,i({id:t,name:e?"pause":"unpause"}))},p=function(){a.length=0,i({id:null,name:"removeAll"})};return{clear:p,count:function(){return a.length},getInitialState:function(e,n){return{current:t=n(null),redrawOnUpdate:n.merge([t])}},hide:function(){var e=(arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}).id||n.defaultId,t=n.queue&&a.length?a[0]:c(e);return t&&(t.hide=!0),i({id:e,name:"hide"}),t?t.hidePromise:Promise.resolve(e)},pause:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:n.defaultId;return u(!0,e)},remove:s,show:function(){var e,t,r=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},u=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},p=u.id||n.defaultId,f=function(e,t,r){var a,o,c=N(e),l=new Promise(function(e){return a=e}),u=new Promise(function(e){return o=e});return g({},n,{instanceId:t,spawn:r,attrs:e,show:!n.queue,showPromise:l,hidePromise:u,didShow:function(){return c.didShow&&c.didShow(t),i({id:t,name:"didShow"}),a(t)},didHide:function(){return c.didHide&&c.didHide(t),i({id:t,name:"didHide"}),s(t),o(t)}})}(r,p,u.spawn||n.defaultId);i({id:p,name:"show"}),n.queue?(a.push(f),1===a.length&&l()):c(p)?(e=f,-1!==(t=o(p))&&(a[t]=e)):a.push(f);return f.showPromise},unpause:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:n.defaultId;return u(!1,e)},view:function(e){var t=e.attrs,i=t.spawn||n.defaultId,o=a.filter(function(e){return e.show&&e.spawn===i});return n.htmlShowClass&&b&&document.documentElement&&document.documentElement.classList[o.length?"add":"remove"](n.htmlShowClass),o.length?r(n.holderSelector,{className:"container"===t.position?"pe-multiple--container":"pe-multiple--screen"},o.map(function(e){return r(n.instance,g({},{fromMultipleClassName:n.className,fromMultipleClear:p,fromMultipleDidHide:e.didHide,fromMultipleDidShow:e.didShow,hide:e.hide,holderSelector:n.holderSelector,instanceId:e.instanceId,key:e.key,pause:e.pause,show:e.show,spawnId:i,transitions:n.transitions,unpause:e.unpause},N(e.attrs)))})):r(n.placeholder)}}};H.displayName="Multi";var F=function(e){var t=e.element,n=e.selector,r=e.pseudoSelector,a=e.prop,i=n?t.querySelector(n):t;if(i)return i.currentStyle?i.currentStyle[a]:window.getComputedStyle?document.defaultView.getComputedStyle(i,r).getPropertyValue(a):null},U=function(e){var t=e.element,n=e.selector,r=e.pseudoSelector,a=e.prop,i=e.equals,o=e.contains,c=n?t.querySelector(n):t;return!!c&&(void 0!==i?i===document.defaultView.getComputedStyle(c,r).getPropertyValue(a):void 0!==o?-1!==document.defaultView.getComputedStyle(c,r).getPropertyValue(a).indexOf(o):void 0)},R=function(e){var t=parseFloat(e)*(-1===e.indexOf("ms")?1e3:1);return isNaN(t)?0:t},W=function(e){return K(e,"show")},V=function(e){return K(e,"hide")},K=function(e,t){var n=e.el;return n?new Promise(function(r){var a=n.style,i=b?window.getComputedStyle(n):{},o=e.hasDuration?1e3*e.duration:R(i.transitionDuration),c=e.hasDelay?1e3*e.delay:R(i.transitionDelay),l=e.timingFunction||i.transitionTimingFunction;e.transitionClass&&(e.transitionClassElement||n).classList.add(e.transitionClass);var s=function(){a.transitionDuration="0ms",a.transitionDelay="0ms",e.before()},u=e.before&&"show"===t?s:e.before&&"hide"===t?s:null,p=e.after?function(){return e.after()}:null,f=function(){!function(){a.transitionDuration=o+"ms",a.transitionDelay=c+"ms",l&&(a.transitionTimingFunction=l),e.showClass&&(e.showClassElement||n).classList["show"===t?"add":"remove"](e.showClass);e.transition&&e.transition()}(),setTimeout(function(){(p&&p(),e.transitionClass)&&((e.transitionClassElement||n).classList.remove(e.transitionClass),n.offsetHeight);r()},o+c)},d=function(){0===o?f():setTimeout(f,0)};u?(u(),n.offsetHeight,setTimeout(function(){d()},0)):d()}):Promise.resolve()},Q=function(e){var t=e.isShow,n=e.state,r=e.attrs,a=e.domElements,i=e.beforeTransition,o=e.afterTransition,c=e.showClass,l=e.transitionClass;if(n.transitioning())return Promise.resolve();n.transitioning(!0),n.visible(!!t),i&&i();var s=r[t?"showDuration":"hideDuration"],u=r[t?"showDelay":"hideDelay"],p=r[t?"showTimingFunction":"hideTimingFunction"],f=r.transitions,d=t?W:V,m=g({},r,a,{showClass:c,transitionClass:l,duration:s,delay:u,timingFunction:p}),h=g({},m,f&&f[t?"show":"hide"](m));return d(g({},h,{duration:void 0!==h.duration?h.duration:.24,hasDuration:void 0!==h.duration,delay:void 0!==h.delay?h.delay:0,hasDelay:void 0!==h.delay})).then(function(){var e=n.instanceId;r[t?"fromMultipleDidShow":"fromMultipleDidHide"]?r[t?"fromMultipleDidShow":"fromMultipleDidHide"](e):r[t?"didShow":"didHide"]&&r[t?"didShow":"didHide"](e),o&&o(),n.transitioning(!1)})},G=function(e,t){var n=t.option,r=t.newOption,a=t.newComponent;return n&&console.warn("".concat(e,": option '").concat(n,"' is deprecated and will be removed in later versions. Use '").concat(r,"' instead.")),a&&!r&&console.warn("".concat(e,": this component is deprecated and will be removed in later versions. Use '").concat(a,"' instead.")),a&&r&&console.warn("".concat(e,": this component is deprecated and will be removed in later versions. Use '").concat(a,"' with option '").concat(r,"' instead."))};function J(e){return(J="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function X(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Y(){return(Y=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var $,Z={component:"pe-text-button",super:"pe-button",row:"pe-button-row",content:"pe-button__content",label:"pe-button__label",textLabel:"pe-button__text-label",wash:"pe-button__wash",dropdown:"pe-button__dropdown",border:"pe-button--border",contained:"pe-button--contained",disabled:"pe-button--disabled",dropdownClosed:"pe-button--dropdown-closed",dropdownOpen:"pe-button--dropdown-open",extraWide:"pe-button--extra-wide",hasDropdown:"pe-button--dropdown",highLabel:"pe-button--high-label",inactive:"pe-button--inactive",raised:"pe-button--raised",selected:"pe-button--selected",separatorAtStart:"pe-button--separator-start"},ee=Object.freeze({getElement:function(e){return e.attrs.element||"a"},getInitialState:function(e,t){var n=t(null),r=t(!1),a=t(!1);return{dom:n,focus:r,inactive:a,mouseover:t(!1),redrawOnUpdate:t.merge([n,r,a])}},onMount:function(e){if(e.dom){var t=e.state,n=e.attrs;if(void 0!==n.borders&&G("Button",{option:"borders",newOption:"border"}),t.dom(e.dom),b){var r=function(){return t.focus(!t.mouseover())},a=function(){return t.focus(!1)},i=function(){return t.mouseover(!1)},o=function(){return t.inactive(!0),setTimeout(function(){return t.inactive(!1)},1e3*n.inactivate)};e.dom.addEventListener("focus",r,!1),e.dom.addEventListener("blur",a,!1),e.dom.addEventListener("mouseover",function(){return t.mouseover(!0)},!1),e.dom.addEventListener("mouseout",i,!1),e.dom.addEventListener("click",o,!1),t.removeEventListeners=function(){return e.dom.removeEventListener("focus",r,!1),e.dom.removeEventListener("blur",a,!1),e.dom.removeEventListener("mouseover",a,!1),e.dom.removeEventListener("mouseout",i,!1),e.dom.removeEventListener("click",o,!1)}}}},onUnMount:function(e){return e.state.removeEventListeners&&e.state.removeEventListeners()},createProps:function(e,t){var n,r=t.keys,a=e.state,i=e.attrs,o=i.disabled,c=i.inactive||a.inactive(),l=i.events&&i.events[r.onclick],s=i.events&&i.events[r.onkeyup]||l;return Y({},E(i,{add:[r.formaction,"type"],remove:["style"]}),{className:[Z.super,i.parentClassName||Z.component,i.contained?Z.contained:null,i.raised?Z.contained:null,i.raised?Z.raised:null,i.selected?Z.selected:null,i.highLabel?Z.highLabel:null,i.extraWide?Z.extraWide:null,o?Z.disabled:null,c?Z.inactive:null,i.separatorAtStart?Z.separatorAtStart:null,i.border||i.borders?Z.border:null,i.dropdown?Z.hasDropdown:null,i.dropdown?i.dropdown.open?Z.dropdownOpen:Z.dropdownClosed:null,"dark"===i.tone?"pe-dark-tone":null,"light"===i.tone?"pe-light-tone":null,i.className||i[r.class]].join(" ")},i.events,c?null:(X(n={},r.tabindex,o||c?-1:i[r.tabindex]||0),X(n,r.onclick,l),X(n,r.onkeyup,function(e){13===e.keyCode&&a.focus()&&(a.focus(!1),s&&s(e))}),n),i.url,o?{disabled:!0}:null)},createContent:function(e,t){var n,r=t.renderer,a=t.keys,i=t.Ripple,o=t.Icon,c=t.Shadow,l=e.state,s=e.attrs,u=void 0!==s.ink&&!1===s.ink,p=s.disabled,f=s.children||e.children,d=s.content?s.content:void 0!==s.label?"object"===J(s.label)?s.label:r("div",{className:Z.label},r("div",{className:Z.textLabel,style:s.textStyle},s.label)):f||null,m=p||void 0!==s.wash&&!s.wash;return r("div",(X(n={},a.class,Z.content),X(n,"style",s.style),n),[r(c,{key:"shadow",shadowDepth:void 0!==s.shadowDepth?s.shadowDepth:0,animated:!0}),p||u||!i||"react"===r.displayName&&!l.dom()?null:r(i,Y({},{key:"ripple",target:l.dom()},s.ripple)),m?null:r("div",{key:"wash",className:Z.wash}),d,s.dropdown?r(o,{className:Z.dropdown,key:"dropdown",svg:{content:r.trust('<svg xmlns="http://www.w3.org/2000/svg" id="dd-down-svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>')}}):null])}}),te=function(){},ne=[],re=function(e,t){"down"===e&&ne.push(Y({},t)),!1!==t.attrs.animateOnTap&&function(e,t){var n=t.state.shadowDepthBase,r=t.attrs.increase||1,a=t.state.shadowDepth(),i="down"===e&&n<5?Math.min(n+r,5):"up"===e?Math.max(a-r,n):a;i!==a&&t.state.shadowDepth(i)}(e,t)},ae=Object.freeze({getInitialState:function(e,t){var n=e.attrs,r=void 0!==n.shadowDepth?n.shadowDepth:void 0!==n.z?n.z:1,a=t(r);return{shadowDepthBase:r,shadowDepth:a,tapEventsInited:t(!1),redrawOnUpdate:t.merge([a])}},onMount:function(e){if(e.dom){var t=e.state;void 0!==e.attrs.z&&G("RaisedButton",{option:"z",newOption:"shadowDepth"}),t.tapEventsInited()||(function(e){v||($=function(){return re("down",e)},te=function(){ne.map(function(e){return re("up",e)}),ne=[]},x.forEach(function(t){return e.dom.addEventListener(t,$)}),A.forEach(function(e){return document.addEventListener(e,te)}))}(e),t.tapEventsInited(!0))}},onUnMount:function(e){e.state.tapEventsInited()&&function(e){x.forEach(function(t){return e.dom.removeEventListener(t,$)}),A.forEach(function(e){return document.removeEventListener(e,te)})}(e)},createProps:function(e){var t=e.attrs,n=e.state,r=t.children||e.children||[];return Y({},{raised:!0,animateOnTap:!1,wash:void 0!==t.wash&&t.wash,children:r},t,{shadowDepth:t.disabled?0:n.shadowDepth()})},createContent:function(e){return e.children}}),ie="ease-out";function oe(){return(oe=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var ce=function(){if(b){var e=document.createElement("fakeelement");for(var t in w)if(void 0!==e.style[t])return w[t]}}(),le=function(e){var t=e.e,n=e.id,r=e.el,a=e.attrs,i=e.classes;return new Promise(function(e){var o=document.createElement("div");o.setAttribute("class",i.mask),r.appendChild(o);var c=document.createElement("div");c.setAttribute("class",i.waves),o.appendChild(c);var l=r.getBoundingClientRect(),s=D&&t.touches?t.touches[0].pageX:t.clientX,u=D&&t.touches?t.touches[0].pageY:t.clientY,p=r.offsetWidth,f=r.offsetHeight,d=Math.sqrt(p*p+f*f),m=a.center?l.left+l.width/2:s,h=a.center?l.top+l.height/2:u,_=m-l.left-d/2,b=h-l.top-d/2,w=void 0!==a.startOpacity?a.startOpacity:.2,g=void 0!==a.opacityDecayVelocity?a.opacityDecayVelocity:.35,y=a.endOpacity||0,O=a.startScale||.1,C=a.endScale||2,j=a.duration?a.duration:1/g*.2,k=window.getComputedStyle(r).color,T=c.style;T.width=T.height=d+"px",T.top=b+"px",T.left=_+"px",T["animation-duration"]=T["-webkit-animation-duration"]=T["-moz-animation-duration"]=T["-o-animation-duration"]=j+"s",T.backgroundColor=k,T.opacity=w,T.animationName=n,T.animationTimingFunction=a.animationTimingFunction||ie;var P="@keyframes ".concat(n," {\n      0% {\n        transform:scale(").concat(O,");\n        opacity: ").concat(w,"\n      }\n      100% {\n        transform:scale(").concat(C,");\n        opacity: ").concat(y,";\n      }\n    }");!function(e,t){if(!v){var n=window.document,r=n.createElement("style");r.setAttribute("id",e),r.appendChild(n.createTextNode(t)),n.head.appendChild(r)}}(n,P);c.addEventListener(ce,function t(l){!function(e){if(!v){var t=document.getElementById(e);t&&t.parentNode&&t.parentNode.removeChild(t)}}(n),c.removeEventListener(ce,t,!1),a.persistent?(T.opacity=y,T.transform="scale("+C+")"):(c.classList.remove(i.wavesAnimating),o.removeChild(c),r.removeChild(o)),e(l)},!1),c.classList.add(i.wavesAnimating)})},se={component:"pe-ripple",mask:"pe-ripple__mask",waves:"pe-ripple__waves",unconstrained:"pe-ripple--unconstrained",wavesAnimating:"pe-ripple__waves--animating"},ue=function(e){return e.animating=Object.keys(e.animations).length>0},pe=h(Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(){return{animations:{},animating:!1,cleanUp:void 0}},createProps:function(e,t){var n=t.keys,r=e.attrs;return oe({},E(r),{className:[se.component,r.unconstrained?se.unconstrained:null,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")})},onMount:function(e){if(e.dom&&!v){var t=e.state,n=e.attrs,r=function(r){if(!(n.disabled||!n.multi&&t.animating)){n.start&&n.start(r);var a="ripple_animation_".concat((new Date).getTime());t.animations[a]=le({e:r,id:a,el:e.dom,attrs:n,classes:se}).then(function(e){n.end&&n.end(e),delete t.animations[a],ue(t)}),ue(t)}},a=n.target?n.target:e.dom&&e.dom.parentElement;a&&z.forEach(function(e){return a.addEventListener(e,r,!1)}),t.cleanUp=function(){a&&z.forEach(function(e){return a.removeEventListener(e,r,!1)})}}},onUnMount:function(e){var t=e.state;return t.cleanUp&&t.cleanUp()}}));function fe(){return(fe=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}pe.displayName="Ripple";var de={component:"pe-icon",avatar:"pe-icon--avatar",large:"pe-icon--large",medium:"pe-icon--medium",regular:"pe-icon--regular",small:"pe-icon--small"},me=Object.freeze({getElement:function(e){return e.attrs.element||"div"},createProps:function(e,t){var n=t.keys,r=e.attrs;return fe({},E(r),{className:[de.component,I(de,r.size),r.avatar?de.avatar:null,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e,t){var n=t.renderer,r=t.SVG,a=e.attrs;return a.content?a.content:a.svg?n(r,a.svg):a.src?n("img",{src:a.src}):a.children||e.children}});function he(){return(he=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var _e={component:"pe-svg"};function be(){return(be=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var ve=_(be({},Object.freeze({getElement:function(e){return e.attrs.element||"div"},onMount:function(e){if(e.dom){var t=e.dom.querySelector("svg");t&&t.setAttribute("focusable","false")}},createProps:function(e,t){var n=t.keys,r=e.attrs;return he({},E(r),{className:[_e.component,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")})},createContent:function(e){var t=e.attrs;return t.content?t.content:t.children||e.children||t}})));function we(){return(we=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}ve.displayName="SVG";var ge=_(we({},me,{createProps:function(e,t){return me.createProps(e,we(t,{SVG:ve}))},createContent:function(e,t){return me.createContent(e,we(t,{SVG:ve}))}}));function ye(){return(ye=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}ge.displayName="Icon";var Oe={component:"pe-shadow",bottomShadow:"pe-shadow__bottom",topShadow:"pe-shadow__top",animated:"pe-shadow--animated",depth_n:"pe-shadow--depth-"};function Ce(){return(Ce=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var je=_(Ce({},Object.freeze({getElement:function(e){return e.attrs.element||"div"},onMount:function(e){void 0!==e.attrs.z&&G("Shadow",{option:"z",newOption:"shadowDepth"})},createProps:function(e,t){var n=t.keys,r=e.attrs;return ye({},E(r),{className:[Oe.component,r.animated&&Oe.animated,r.className||r[n.class]].join(" ")})},createContent:function(e,t){var n=t.renderer,r=e.attrs,a=r.content?r.content:r.children||e.children,i=void 0!==r.shadowDepth?r.shadowDepth:r.z,o=void 0!==i?"".concat(Oe.depth_n).concat(Math.min(5,i)):null;return[a,n("div",{key:"bottom",className:[Oe.bottomShadow,o].join(" ")}),n("div",{key:"top",className:[Oe.topShadow,o].join(" ")})]}})));function ke(){return(ke=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}je.displayName="Shadow";var Te=h(ke({},ee,{createProps:function(e,t){return ee.createProps(e,ke(t,{Ripple:pe,Icon:ge,Shadow:je}))},createContent:function(e,t){return ee.createContent(e,ke(t,{Ripple:pe,Icon:ge,Shadow:je}))}}));Te.displayName="TextButton";var Pe=h(ke({},ae,{createProps:function(e,t){return ae.createProps(e,ke(t,{Shadow:je}))},createContent:function(e,t){return ae.createContent(e,ke(t,{Shadow:je}))},component:Te}));Pe.displayName="RaisedButton";var Ee=_({view:function(e){return o(e.attrs.raised?Pe:Te,e.attrs,e.children)}});function Ne(){return(Ne=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Ee.displayName="Button";var Ie={component:"pe-button-group"};function De(){return(De=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}function ze(){return(ze=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}_(De({},Object.freeze({createProps:function(e,t){var n=t.keys,r=e.attrs;return Ne({},{className:[Ie.component,r.className||r[n.class]].join(" ")})},createContent:function(e){return e.children}}))).displayName="ButtonGroup";var xe={component:"pe-card",actions:"pe-card__actions",any:"pe-card__any",content:"pe-card__content",header:"pe-card__header",headerTitle:"pe-card__header-title",media:"pe-card__media",mediaDimmer:"pe-card__media__dimmer",overlay:"pe-card__overlay",overlayContent:"pe-card__overlay__content",primary:"pe-card__primary",primaryMedia:"pe-card__primary-media",subtitle:"pe-card__subtitle",text:"pe-card__text",title:"pe-card__title",actionsBorder:"pe-card__actions--border",actionsHorizontal:"pe-card__actions--horizontal",actionsJustified:"pe-card__actions--justified",actionsTight:"pe-card__actions--tight",actionsVertical:"pe-card__actions--vertical",mediaCropX:"pe-card__media--crop-x",mediaCropY:"pe-card__media--crop-y",mediaOriginStart:"pe-card__media--origin-start",mediaOriginCenter:"pe-card__media--origin-center",mediaOriginEnd:"pe-card__media--origin-end",mediaLarge:"pe-card__media--large",mediaMedium:"pe-card__media--medium",mediaRatioLandscape:"pe-card__media--landscape",mediaRatioSquare:"pe-card__media--square",mediaRegular:"pe-card__media--regular",mediaSmall:"pe-card__media--small",overlaySheet:"pe-card__overlay--sheet",primaryHasMedia:"pe-card__primary--media",primaryTight:"pe-card__primary--tight",textTight:"pe-card__text--tight"},Be=Object.freeze({getElement:function(e){return e.attrs.element||e.attrs.url?"a":"div"},onMount:function(e){void 0!==e.attrs.z&&G("Card",{option:"z",newOption:"shadowDepth"})},createProps:function(e,t){var n=t.keys,r=e.attrs;return ze({},E(r),{className:[xe.component,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")},r.url,r.events)},createContent:function(e,t){var n=t.renderer,r=t.keys,a=t.CardActions,i=t.CardMedia,o=t.CardPrimary,c=t.Icon,l=t.Shadow,s=t.ListTile,u=e.attrs,p=Array.isArray(u.content)?u.content.map(function e(t){var l=Object.keys(t)[0],u=ze({},t[l],{dispatcher:e,key:l});switch(l){case"actions":return n(a,u);case"header":return function(e){var t=e.attrs,n=e.h,r=e.k,a=e.Icon;return n(e.ListTile,ze({},t,{key:t.key||"card-header",className:[xe.header,t.className||t[r.class]].join(" ")},t.icon?{front:n(a,t.icon)}:null))}({attrs:u,h:n,k:r,Icon:c,ListTile:s});case"media":return n(i,u);case"overlay":return function(e){var t=e.dispatcher,n=e.attrs,r=e.h,a=e.k,i=n.element||"div",o=n.content.map(t);return r("div",{key:n.key||"card-overlay",style:n.style,className:[xe.overlay,n.sheet?xe.overlaySheet:null,"light"===n.tone?null:"pe-dark-tone","light"===n.tone?"pe-light-tone":null].join(" ")},[r(i,{key:"content",className:[xe.overlayContent,n.className||n[a.class]].join(" ")},o),r("div",{key:"dimmer",className:xe.mediaDimmer})])}({dispatcher:e,attrs:u,h:n,k:r});case"primary":return n(o,u);case"text":return function(e){var t=e.attrs,n=e.h,r=e.k;return n(t.element||"div",ze({},E(t),{key:t.key||"card-text",className:[xe.text,t.tight?xe.textTight:null,t.className||t[r.class]].join(" ")},t.events),t.content)}({attrs:u,h:n,k:r});case"any":return function(e){var t=e.attrs,n=e.h,r=e.k;return n(t.element||"div",ze({},E(t),{key:t.key||"card-any",className:[xe.any,t.tight?xe.textTight:null,t.className||t[r.class]].join(" ")}),t.content)}({attrs:u,h:n,k:r});default:throw'Content type "'.concat(l,'" does not exist')}}):u.content,f=void 0!==u.shadowDepth?u.shadowDepth:u.z;return[n(l,{shadowDepth:void 0!==f?f:1,animated:!0,key:"shadow"}),n("div",{className:xe.content,key:"content"},p)]}}),Ae="pe-button-row",Le={horizontal:xe.actionsHorizontal,vertical:xe.actionsVertical,justified:xe.actionsJustified},Me=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"horizontal";return Le[e]},qe=Object.freeze({onMount:function(e){void 0!==e.attrs.bordered&&G("Card",{option:"bordered",newOption:"border"})},createProps:function(e,t){var n=t.keys,r=e.attrs;return ze({},E(r),{key:"card-actions",className:[xe.actions,"vertical"!==r.layout?Ae:null,Me(r.layout),r.border||r.bordered?xe.actionsBorder:null,r.tight?xe.actionsTight:null,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e){return e.attrs.content||e.children}}),Se={landscape:16/9,square:1},He={small:xe.mediaSmall,regular:xe.mediaRegular,medium:xe.mediaMedium,large:xe.mediaLarge},Fe=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"regular";return He[e]},Ue=Object.freeze({onMount:function(e){if(e.dom){var t=e.attrs,n=t.ratio||"landscape",r=t.origin||"center",a=e.dom,i=a.querySelector("img")||a.querySelector("iframe");!function(e){var t=e.dom,n=e.img,r=e.ratio,a=e.origin;n.onload=function(){"IMG"===n.tagName&&(t.style.backgroundImage="url(".concat(n.src,")"));var e=this.naturalWidth/this.naturalHeight<Se[r]?xe.mediaCropX:xe.mediaCropY;t.classList.add(e);var i="start"===a?xe.mediaOriginStart:"end"===a?xe.mediaOriginEnd:xe.mediaOriginCenter;t.classList.add(i)}}({dom:a,img:i,ratio:n,origin:r})}},createProps:function(e,t){var n=t.keys,r=e.attrs,a=r.ratio||"landscape";return ze({},E(r),{key:"card-media",className:[xe.media,Fe(r.size),"landscape"===a?xe.mediaRatioLandscape:xe.mediaRatioSquare,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e,t){var n=t.renderer,r=e.attrs,a=r.dispatcher;return[ze({},r.content,{key:"content"}),r.overlay?a({overlay:r.overlay,key:"overlay"}):r.showDimmer&&n("div",{className:xe.mediaDimmer,key:"dimmer"})]}}),Re=Object.freeze({createProps:function(e,t){var n=t.keys,r=e.attrs,a=Array.isArray(r.content)?r.content.reduce(function(e,t){return"media"===Object.keys(t)[0]||e},!1):r.media||!1;return ze({},E(r),{key:"card-primary",className:[xe.primary,r.tight?xe.primaryTight:null,a?xe.primaryHasMedia:null,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e,t){var n=t.renderer,r=e.attrs,a=r.dispatcher,i={title:function(e){return e.attrs||e.props?e||e.props:n("div",{className:xe.title,key:"title",style:e.style},[e.title,e.subtitle?n("div",{className:xe.subtitle,key:"subtitle"},e.subtitle):null])},media:function(e){return n("div",{className:xe.primaryMedia,key:"media",style:e.style},a({media:e}))},actions:function(e){return a({actions:e})}};return Array.isArray(r.content)?r.content.map(function(e){var t=Object.keys(e)[0],n=e[t];return i[t]?i[t](n):e}):[r.title?i.title({title:r.title,subtitle:r.subtitle,key:"title"}):null,r.media?i.media(r.media):null,r.actions?i.actions(r.actions):null,r.content]}});function We(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Ve(){return(Ve=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var Ke={component:"pe-list-tile",content:"pe-list-tile__content",highSubtitle:"pe-list-tile__high-subtitle",primary:"pe-list-tile__primary",secondary:"pe-list-tile__secondary",subtitle:"pe-list-tile__subtitle",title:"pe-list-tile__title",contentFront:"pe-list-tile__content-front",compact:"pe-list-tile--compact",compactFront:"pe-list-tile--compact-front",disabled:"pe-list-tile--disabled",hasFront:"pe-list-tile--front",hasHighSubtitle:"pe-list-tile--high-subtitle",hasSubtitle:"pe-list-tile--subtitle",header:"pe-list-tile--header",hoverable:"pe-list-tile--hoverable",selectable:"pe-list-tile--selectable",selected:"pe-list-tile--selected",highlight:"pe-list-tile--highlight",sticky:"pe-list-tile--sticky",navigation:"pe-list-tile--navigation"},Qe=function(e,t,n,r,a){var i=r.keyboardControl?null:r.url,o=r.element?r.element:i?"a":"div",c=[Ke.content,Ke.contentFront,r.compactFront?Ke.compactFront:null].join(" "),l=r.front?e("div",Ve({},n?{key:"front"}:null,{className:c}),r.front):r.indent?e("div",Ve({},n?{key:"front"}:null,{className:c})):null,s=!r.header&&r.url,u=Ve({},E(r),r.events,{className:Ke.primary,style:null},s&&We({},t.tabindex,r[t.tabindex]||0),i),p=r.content?r.content:[l,e("div",{className:Ke.content,style:r.style},[r.content?Ve({},n?{key:"content"}:null,r.content):a,r.title&&!r.content?e("div",Ve({},n?{key:"title"}:null,{className:Ke.title}),r.title):null,r.subtitle?e("div",Ve({},n?{key:"subtitle"}:null,{className:Ke.subtitle}),r.subtitle):null,r.highSubtitle?e("div",Ve({},n?{key:"highSubtitle"}:null,{className:Ke.subtitle+" "+Ke.highSubtitle}),r.highSubtitle):null,r.subContent?e("div",Ve({},n?{key:"subContent"}:null,{className:Ke.subContent}),r.subContent):null])];return e(o,u,p)},Ge=function(e,t,n,r){var a=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{},i=a.keyboardControl?null:a.url,o=a.element?a.element:i?"a":"div",c=a.url;return e(o,Ve({},i,{className:Ke.secondary},n?{key:"secondary"}:null,E(a),c&&We({},t.tabindex,a[t.tabindex]||0)),e("div",{className:Ke.content},[a.icon?e(r,a.icon):null,a.content?a.content:null]))},Je=Object.freeze({getElement:function(){return"div"},createProps:function(e,t){var n=t.keys,r=e.attrs,a=!(r.header||r.url||r.secondary&&r.secondary.url),i=r.subtitle?Ke.hasSubtitle:r.highSubtitle?Ke.hasHighSubtitle:r.front||r.indent?Ke.hasFront:null;return Ve({},E(r,{remove:["tabindex","tabIndex"]}),{className:[Ke.component,r.selected?Ke.selected:null,r.disabled?Ke.disabled:null,r.sticky?Ke.sticky:null,r.compact?Ke.compact:null,r.hoverable?Ke.hoverable:null,r.selectable?Ke.selectable:null,r.highlight?Ke.highlight:null,r.header?Ke.header:null,r.navigation?Ke.navigation:null,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,i,r.className||r[n.class]].join(" ")},a&&We({},n.tabindex,r[n.tabindex]||0))},createContent:function(e,t){var n=t.renderer,r=t.requiresKeys,a=t.keys,i=t.Ripple,o=t.Icon,c=e.attrs,l=Ve({},r?{key:"primary"}:null,c);return delete l.id,delete l[a.class],[c.ink&&!c.disabled?n(i,Ve({},c.ripple,r?{key:"ripple"}:null)):null,Qe(n,a,r,l,c.children||e.children),c.secondary?Ge(n,a,r,o,c.secondary):null]}});function Xe(){return(Xe=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var Ye=_(Xe({},Je,{createProps:function(e,t){return Je.createProps(e,Xe(t,{Icon:ge,Ripple:pe}))},createContent:function(e,t){return Je.createContent(e,Xe(t,{Icon:ge,Ripple:pe}))}}));function $e(){return($e=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Ye.displayName="ListTile";var Ze=_($e({},qe));Ze.displayName="CardActions";var et=h($e({},Ue));et.displayName="CardMedia";var tt=_($e({},Re));function nt(){return(nt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}tt.displayName="CardPrimary",_($e({},Be,{createContent:function(e,t){return Be.createContent(e,$e(t,{CardActions:Ze,CardMedia:et,CardPrimary:tt,Icon:ge,ListTile:Ye,Shadow:je}))}})).displayName="Card";var rt="pe-checkbox-control",at={iconOff:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>',iconOn:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'},it=Object.freeze({createProps:function(e){var t=e.attrs;return nt({},t,{icons:at,selectable:t.selectable||function(){return!0},instanceClass:rt,type:"checkbox"})}});function ot(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function ct(){return(ct=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var lt={component:"pe-control",formLabel:"pe-control__form-label",input:"pe-control__input",label:"pe-control__label",disabled:"pe-control--disabled",inactive:"pe-control--inactive",large:"pe-control--large",medium:"pe-control--medium",off:"pe-control--off",on:"pe-control--on",regular:"pe-control--regular",small:"pe-control--small",box:"pe-control__box",button:"pe-control__button",buttonOff:"pe-control__button--off",buttonOn:"pe-control__button--on"},st=function(e,t){var n=void 0!==e.checked?e.checked:t.checked(),r=void 0!==e.selectable&&e.selectable(n);return{checked:n,inactive:e.disabled||!r}},ut=Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(e,t,n){var r=n.keys,a=e.attrs,i=t(void 0!==a.defaultChecked?a.defaultChecked:a.checked||!1),o=function(e,t){a.onChange&&a.onChange({event:e,checked:t,value:a.value})},c=function(e){var t=!i();i(t),o(e,t)},l=a.events&&a.events[r.onclick],s=a.events&&a.events[r.onkeydown]?a.events[r.onkeydown]:function(e){"Enter"!==e.key&&32!==e.keyCode||(e.preventDefault(),l?l(e):c(e))};return{checked:i,toggle:c,onChange:function(e){var t=e.currentTarget.checked;"radio"===a.type||i(t),o(e,t)},viewControlClickHandler:l,viewControlKeyDownHandler:s,redrawOnUpdate:t.merge([i])}},createProps:function(e,t){var n=t.keys,r=e.attrs,a=e.state,i=st(r,a),o=i.checked,c=i.inactive;return ct({},E(r),{className:[lt.component,r.instanceClass,o?lt.on:lt.off,r.disabled?lt.disabled:null,c?lt.inactive:null,I(lt,r.size),"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")})},createContent:function(e,t){var n=t.renderer,r=t.keys,a=t.ViewControl,i=e.state,o=e.attrs,c=st(o,i),l=c.checked,s=c.inactive;return n("label",ct({},{className:lt.formLabel},i.viewControlClickHandler&&ot({},r.onclick,function(e){return e.preventDefault(),i.viewControlClickHandler(e)})),[n(a,ct({},o,{inactive:s,checked:l,key:"control",events:ot({},r.onkeydown,i.viewControlKeyDownHandler)})),o.label?n(".".concat(lt.label),{key:"label"},o.label):null,n("input",ct({},o.events,{name:o.name,type:o.type,value:o.value,checked:l},o.disabled||s?{disabled:"disabled"}:ot({},r.onchange,i.onChange)))])}}),pt=[{iconType:"iconOn",className:lt.buttonOn},{iconType:"iconOff",className:lt.buttonOff}],ft=Object.freeze({getElement:function(e){return e.attrs.element||".".concat(lt.box)},createContent:function(e,t){var n=t.renderer,r=t.Icon,a=t.IconButton,i=e.attrs;return n(a,ct({},{element:"div",key:i.key,className:lt.button,content:pt.map(function(e){return n(r,function(e,t,n,r){return ct({},{className:r,key:t},n[t]?n[t]:{svg:{content:e.trust(n.icons[t])}},n.icon,n.size?{size:n.size}:null)}(n,e.iconType,i,e.className))}),ripple:{center:!0},disabled:i.disabled,events:i.events,inactive:i.inactive},i.iconButton))}});function dt(){return(dt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var mt="pe-button pe-icon-button",ht="pe-icon-button__content",_t="pe-icon-button__label",bt="pe-icon-button--compact",vt=Object.freeze({createProps:function(e,t){var n=t.renderer,r=t.Icon,a=e.attrs,i=a.content?a.content:a.icon?n(r,a.icon):a.children||e.children;return dt({},{content:n("div",{className:ht},i),after:a.label&&n("div",{className:_t},a.label),parentClassName:[a.parentClassName||mt,a.compact?bt:null].join(" "),wash:!1,animateOnTap:!1},a)},createContent:function(e){return e.children}});function wt(){return(wt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var gt=_(wt({},vt,{createProps:function(e,t){return vt.createProps(e,wt(t,{Icon:ge}))},createContent:function(e,t){return vt.createContent(e,wt(t,{Icon:ge}))},component:Ee}));function yt(){return(yt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}gt.displayName="IconButton";var Ot=_(yt({},ft,{createContent:function(e,t){return ft.createContent(e,yt(t,{Icon:ge,IconButton:gt}))}}));Ot.displayName="ViewControl";var Ct=h(yt({},ut,{createContent:function(e,t){return ut.createContent(e,yt(t,{ViewControl:Ot}))}}));function jt(){return(jt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Ct.displayName="SelectionControl",h(yt({},it,{component:Ct})).displayName="Checkbox";var kt={component:"pe-dialog",placeholder:"pe-dialog__placeholder",holder:"pe-dialog__holder",content:"pe-dialog__content",backdrop:"pe-dialog__backdrop",touch:"pe-dialog__touch",fullScreen:"pe-dialog--full-screen",modal:"pe-dialog--modal",open:"pe-dialog--open",visible:"pe-dialog--visible",showBackdrop:"pe-dialog--backdrop",transition:"pe-dialog--transition",menuContent:"pe-menu__content"},Tt=function(e){var t=e.state;return e.attrs.modal||U({element:t.el,pseudoSelector:":before",prop:"content",contains:'"'.concat("modal",'"')})},Pt=function(e,t,n){return{state:e,attrs:t,isShow:n,domElements:{el:e.el,contentEl:e.contentEl,backdropEl:e.backdropEl},showClass:kt.visible,transitionClass:kt.transition}},Et=function(e,t){return Q(Pt(e,t,!0))},Nt=function(e,t){return Q(Pt(e,t,!1))},It=Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(e,t){var n=t(!1);return{backdropEl:void 0,touchEl:void 0,cleanUp:void 0,el:void 0,contentEl:void 0,transitioning:n,visible:t(!1),redrawOnUpdate:t.merge([n])}},onMount:function(e){if(e.dom){var t=e.state,n=e.attrs;void 0!==n.z&&G("Dialog",{option:"z",newOption:"shadowDepth"});var r=e.dom;if(t.el=r,t.backdropEl=r.querySelector(".".concat(kt.backdrop)),t.touchEl=r.querySelector(".".concat(kt.touch)),t.contentEl=r.querySelector(".".concat(kt.content)),!n.inactive){var a=function(r){if(!(function(e){var t=e.state;return e.attrs.fullScreen||U({element:t.el,pseudoSelector:":before",prop:"content",contains:'"'.concat("full_screen",'"')})}(e)||Tt(e)||"Escape"!==r.key&&"Esc"!==r.key)){var a=document.querySelectorAll(".".concat(kt.component));a[a.length-1]===t.el&&Nt(t,jt({},n,{hideDelay:0}))}};t.cleanUp=function(){return q("keydown",a)},M("keydown",a),n.show&&Et(t,n)}}},onUnMount:function(e){return e.state.cleanUp&&e.state.cleanUp()},createProps:function(e,t){var n,r,a,i=t.keys,o=e.state,c=e.attrs;return jt({},E(c,{remove:["style"]}),(n={className:[c.parentClassName||kt.component,c.fromMultipleClassName,c.fullScreen?kt.fullScreen:null,c.modal?kt.modal:null,c.backdrop?kt.showBackdrop:null,"dark"===c.tone?"pe-dark-tone":null,"light"===c.tone?"pe-light-tone":null,c.className||c[i.class]].join(" "),"data-spawn-id":c.spawnId,"data-instance-id":c.instanceId},r=i.onclick,a=function(t){t.target!==o.el&&t.target!==o.backdropEl&&t.target!==o.touchEl||Tt(e)||Nt(o,c)},r in n?Object.defineProperty(n,r,{value:a,enumerable:!0,configurable:!0,writable:!0}):n[r]=a,n))},createPane:function(e,t){var n=t.renderer,r=t.Pane,a=e.attrs;return n(r,{body:a.content||a.body||a.menu||e.children,borders:a.borders,className:a.className,footer:a.footer,footerButtons:a.footerButtons,formOptions:a.formOptions,fullBleed:a.fullBleed,header:a.header,style:a.style,title:a.title})},createContent:function(e,t){var n=t.renderer,r=t.Shadow,a=t.createPane,i=t.Pane,o=e.state,c=e.attrs,l=n;if(o.el){var s=o.visible();o.transitioning()||(c.hide&&s?setTimeout(function(){return Nt(o,c)},0):c.show&&!s&&setTimeout(function(){return Et(o,c)},0))}var u=c.panesOptions&&c.panesOptions.length?l(i,c.panesOptions[0]):c.panes&&c.panes.length?c.panes[0]:a(e,{renderer:n,Pane:i}),p=void 0!==c.shadowDepth?c.shadowDepth:c.z;return[l("div",{key:"backdrop",className:kt.backdrop}),l("div",{key:"touch",className:kt.touch}),l("div",{className:[kt.content,c.menu?kt.menuContent:null].join(" "),key:"content"},[c.fullScreen?null:l(r,{shadowDepth:void 0!==p?p:3,animated:!0,key:"shadow"}),u])]}});function Dt(){return(Dt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var zt={component:"pe-dialog-pane",actions:"pe-dialog-pane__actions",body:"pe-dialog-pane__body",content:"pe-dialog-pane__content",footer:"pe-dialog-pane__footer",header:"pe-dialog-pane__header",title:"pe-dialog-pane__title",withHeader:"pe-dialog-pane--header",withFooter:"pe-dialog-pane--footer",headerWithTitle:"pe-dialog-pane__header--title",footerWithButtons:"pe-dialog-pane__footer--buttons",footerHigh:"pe-dialog-pane__footer--high",borderBottom:"pe-dialog-pane--border-bottom",borderTop:"pe-dialog-pane--border-top",fullBleed:"pe-dialog-pane--body-full-bleed"},xt={component:"pe-text-button",super:"pe-button",row:"pe-button-row",content:"pe-button__content",label:"pe-button__label",textLabel:"pe-button__text-label",wash:"pe-button__wash",dropdown:"pe-button__dropdown",border:"pe-button--border",contained:"pe-button--contained",disabled:"pe-button--disabled",dropdownClosed:"pe-button--dropdown-closed",dropdownOpen:"pe-button--dropdown-open",extraWide:"pe-button--extra-wide",hasDropdown:"pe-button--dropdown",highLabel:"pe-button--high-label",inactive:"pe-button--inactive",raised:"pe-button--raised",selected:"pe-button--selected",separatorAtStart:"pe-button--separator-start"},Bt=function(e){var t=e.state,n=t.scrollEl();n&&(t.topOverflow(n.scrollTop>0),t.bottomOverflow(n.scrollHeight-(n.scrollTop+n.getBoundingClientRect().height)>0))},At=h(Object.freeze({getElement:function(e){return e.attrs.element||"form"},getInitialState:function(e,t){var n=t(!1),r=t(null),a=t(null),i=t(!1),o=t(null),c=t(!1);return{cleanUp:void 0,bottomOverflow:n,el:t(null),footerEl:r,headerEl:a,isScrolling:i,scrollEl:o,scrollWatchId:void 0,topOverflow:c,redrawOnUpdate:t.merge([c,n,i])}},onMount:function(e){if(e.dom){var t=e.dom,n=e.state;n.el(t),n.scrollEl(t.querySelector(".".concat(zt.body))),n.footerEl(t.querySelector(".".concat(zt.footer))),n.headerEl(t.querySelector(".".concat(zt.header))),n.isScrolling.map(function(){return Bt(e)});var r=function(){Bt(e)};n.cleanUp=function(){return q("resize",r)},M("resize",r),r()}},onUnMount:function(e){return e.state.cleanUp()},createProps:function(e,t){var n=t.keys,r=e.state,a=N(e.attrs),i=void 0!==a.header||void 0!==a.title,o=void 0!==a.footer||void 0!==a.footerButtons,c=a.borders||"overflow",l="always"===c||i&&"overflow"===c&&r.topOverflow(),s="always"===c||o&&"overflow"===c&&r.bottomOverflow();return Dt({},E(a,{remove:["style"]}),{className:[zt.component,a.fullBleed?zt.fullBleed:null,l?zt.borderTop:null,s?zt.borderBottom:null,i?zt.withHeader:null,o?zt.withFooter:null,"dark"===a.tone?"pe-dark-tone":null,"light"===a.tone?"pe-light-tone":null,a.className||a[n.class]].join(" ")},a.formOptions)},createContent:function(e,t){var n,r,a,i=t.renderer,o=t.keys,c=e.state,l=N(e.attrs);return i("div",{className:[zt.content,l.menu?zt.menuContent:null].join(" "),style:l.style},[l.header?l.header:l.title?i("div",{className:[zt.header,zt.headerWithTitle].join(" "),key:"title"},i("div",{className:zt.title},l.title)):null,i("div",(n={className:zt.body,key:"body"},r=o.onscroll,a=function(){c.isScrolling(!0),clearTimeout(c.scrollWatchId),c.scrollWatchId=setTimeout(function(){c.isScrolling(!1)},150)},r in n?Object.defineProperty(n,r,{value:a,enumerable:!0,configurable:!0,writable:!0}):n[r]=a,n),l.content||l.body||l.menu),l.footer?i("div",{className:zt.footer,key:"footer"},l.footer):l.footerButtons?i("div",{className:[zt.footer,zt.footerWithButtons,xt.row].join(" "),key:"footer"},i("div",{className:zt.actions},l.footerButtons)):null])}}));function Lt(){return(Lt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}At.displayName="DialogPane";var Mt="pe-dialog__placeholder",qt="pe-dialog__holder",St="pe-dialog--open",Ht=h(Lt({},It,{createContent:function(e,t){return It.createContent(e,Lt(t,{Shadow:je,Pane:At,createPane:It.createPane}))}}));Ht.displayName="DialogInstance";var Ft=H({options:{name:"dialog",htmlShowClass:St,defaultId:"default_dialog",holderSelector:"div.".concat(qt),instance:Ht,placeholder:"span.".concat(Mt)},renderer:o}),Ut=h(Ft);function Rt(){return(Rt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Object.getOwnPropertyNames(Ft).forEach(function(e){return Ut[e]=Ft[e]}),Ut.displayName="Dialog";var Wt={component:"pe-dialog pe-drawer",cover:"pe-drawer--cover",push:"pe-drawer--push",mini:"pe-drawer--mini",permanent:"pe-drawer--permanent",border:"pe-drawer--border",floating:"pe-drawer--floating",fixed:"pe-drawer--fixed",anchorEnd:"pe-drawer--anchor-end"};function Vt(){return(Vt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var Kt={component:"pe-dialog pe-drawer",cover:"pe-drawer--cover",push:"pe-drawer--push",mini:"pe-drawer--mini",permanent:"pe-drawer--permanent",border:"pe-drawer--border",floating:"pe-drawer--floating",fixed:"pe-drawer--fixed",anchorEnd:"pe-drawer--anchor-end"},Qt=h(Vt({},Object.freeze({createProps:function(e){var t=e.attrs,n=!(t.push||t.permanent||t.mini);return Rt({},t,{fullBleed:!0,className:null,parentClassName:[t.className,Wt.component,n?Wt.cover:null,t.push?Wt.push:null,t.permanent?Wt.permanent:null,t.border?Wt.border:null,t.mini?Wt.mini:null,t.floating?Wt.floating:null,t.fixed?Wt.fixed:null,"end"===t.anchor?Wt.anchorEnd:null].join(" "),inactive:t.permanent&&!t.mini,shadowDepth:void 0!==t.shadowDepth?t.shadowDepth:0,z:void 0!==t.z?t.z:void 0})},createContent:function(e){return e.children}}),{component:Ht})),Gt=h(k);function Jt(){return(Jt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Gt.displayName="DrawerToggle",{view:function(e){return o(Gt,Vt({},e.attrs,{placeholderClassName:Kt.placeholder,instance:Qt,permanent:e.attrs.permanent||e.attrs.mini}))}}.displayName="Drawer";var Xt={component:"pe-fab",content:"pe-fab__content",mini:"pe-fab--mini"},Yt=Object.freeze({createProps:function(e,t){var n=t.keys,r=t.renderer,a=t.Icon,i=e.attrs,o=i.content?i.content:i.icon?r(a,i.icon):i.children||e.children;return Jt({},i,{content:r("div",{className:Xt.content},o),parentClassName:[Xt.component,i.mini?Xt.mini:null,i.className||i[n.class]].join(" "),className:null,ripple:{center:!0,opacityDecayVelocity:.24},shadow:{increase:5},ink:!0,wash:!0,raised:!0,animateOnTap:void 0===i.animateOnTap||i.animateOnTap})},createContent:function(e){return e.children}});function $t(){return($t=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}function Zt(){return(Zt=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}_($t({},Yt,{createProps:function(e,t){return Yt.createProps(e,$t(t,{Icon:ge}))},createContent:function(e,t){return Yt.createContent(e,$t(t,{Icon:ge}))},component:Ee})).displayName="FAB";var en={component:"pe-ios-spinner",blades:"pe-ios-spinner__blades",blade:"pe-ios-spinner__blade"},tn=Object.freeze({createProps:function(e,t){var n=t.renderer,r=e.state,a=e.attrs;return r.content=r.content||n("div",{key:"content",className:en.blades},[0,1,2,3,4,5,6,7,8,9,10,11].map(function(e){return function(e,t){return t("div",{key:"blade-".concat(e),className:en.blade})}(e,n)})),Zt({},a,{className:[en.component,a.className].join(" "),content:r.content})}});function nn(){return(nn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var rn={component:"pe-spinner",animation:"pe-spinner__animation",placeholder:"pe-spinner__placeholder",animated:"pe-spinner--animated",fab:"pe-spinner--fab",large:"pe-spinner--large",medium:"pe-spinner--medium",permanent:"pe-spinner--permanent",raised:"pe-spinner--raised",regular:"pe-spinner--regular",singleColor:"pe-spinner--single-color",small:"pe-spinner--small",visible:"pe-spinner--visible"},an=function(e,t,n){return{state:e,attrs:t,isShow:n,domElements:{el:e.dom()},showClass:rn.visible}},on=Object.freeze({getInitialState:function(e,t){var n=t(!1),r=t(!1);return{dom:t(null),visible:r,transitioning:n,redrawOnUpdate:t.merge([n])}},onMount:function(e){if(e.dom){var t=e.state,n=e.attrs;void 0!==n.z&&G("Spinner",{option:"z",newOption:"shadowDepth"}),t.dom(e.dom),n.permanent||function(e,t){Q(an(e,t,!0))}(t,n)}},createProps:function(e,t){var n=t.keys,r=e.attrs;return nn({},E(r),{className:[rn.component,r.instanceClass,I(rn,r.size),r.singleColor?rn.singleColor:null,r.raised?rn.raised:null,r.animated?rn.animated:null,r.permanent?rn.permanent:null,r.permanent?rn.visible:null,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e,t){var n=t.renderer,r=t.Shadow,a=e.state,i=e.attrs;a.hide&&setTimeout(function(){!function(e,t){Q(an(e,t,!1))}(a,i)},0);var o=void 0!==i.shadowDepth?i.shadowDepth:i.z;return[i.raised&&i.content?n(r,{key:"shadow",shadowDepth:o}):null,i.content]}});function cn(){return(cn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var ln=h(cn({},on,{createContent:function(e,t){return on.createContent(e,cn(t,{Shadow:je}))}}));function sn(){return(sn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}ln.classes={component:"pe-spinner",animation:"pe-spinner__animation",placeholder:"pe-spinner__placeholder",animated:"pe-spinner--animated",fab:"pe-spinner--fab",large:"pe-spinner--large",medium:"pe-spinner--medium",permanent:"pe-spinner--permanent",raised:"pe-spinner--raised",regular:"pe-spinner--regular",singleColor:"pe-spinner--single-color",small:"pe-spinner--small",visible:"pe-spinner--visible"},ln.displayName="BaseSpinner";var un="pe-spinner__placeholder",pn=h(sn({},tn,{component:ln})),fn=h(k);fn.displayName="IOSSpinnerToggle";var dn={view:function(e){return o(fn,sn({},e.attrs,{placeholderClassName:un,instance:pn}))}};function mn(){return(mn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}dn.classes={component:"pe-ios-spinner",blades:"pe-ios-spinner__blades",blade:"pe-ios-spinner__blade"},dn.displayName="IOSSpinner";var hn={component:"pe-list",border:"pe-list--border",compact:"pe-list--compact",hasHeader:"pe-list--header",indentedBorder:"pe-list--indented-border",padding:"pe-list--padding",paddingTop:"pe-list--padding-top",paddingBottom:"pe-list--padding-bottom",header:"pe-list-tile--header"},_n={both:hn.padding,bottom:hn.paddingBottom,top:hn.paddingTop,none:null},bn=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"both";return _n[e]},vn=Object.freeze({getElement:function(e){return e.attrs.element||"div"},onMount:function(e){var t=e.attrs;void 0!==t.borders&&G("List",{option:"borders",newOption:"border"}),void 0!==t.indentedBorders&&G("List",{option:"indentedBorders",newOption:"indentedBorder"})},createProps:function(e,t){var n=t.keys,r=e.attrs;return mn({},E(r),{className:[hn.component,r.border||r.borders?hn.border:null,r.indentedBorder||r.indentedBorders?hn.indentedBorder:null,r.header?hn.hasHeader:null,r.compact?hn.compact:null,bn(r.padding),"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")})},createContent:function(e,t){var n,r=t.renderer,a=t.requiresKeys,i=t.keys,o=t.ListTile,c=e.attrs;c.header&&((n=mn({},c.header))[i.class]=[hn.header,n[i.class]||null].join(" "));var l=c.tiles?c.tiles:c.content?c.content:c.children||e.children;return[n?r(o,mn({},a?{key:"header"}:null,c.all,n,{header:!0})):null,c.all?l.map(function(e){return r(o,mn({},c.all,e))}):l]}});function wn(){return(wn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}_(wn({},vn,{createProps:function(e,t){return vn.createProps(e,wn(t,{ListTile:Ye}))},createContent:function(e,t){return vn.createContent(e,wn(t,{ListTile:Ye}))}})).displayName="List";var gn={linear:function(e){return e},easeInQuad:function(e){return e*e},easeOutQuad:function(e){return e*(2-e)},easeInOutQuad:function(e){return e<.5?2*e*e:(4-2*e)*e-1},easeInCubic:function(e){return e*e*e},easeOutCubic:function(e){return--e*e*e+1},easeInOutCubic:function(e){return e<.5?4*e*e*e:(e-1)*(2*e-2)*(2*e-2)+1},easeInQuart:function(e){return e*e*e*e},easeOutQuart:function(e){return 1- --e*e*e*e},easeInOutQuart:function(e){return e<.5?8*e*e*e*e:1-8*--e*e*e*e},easeInQuint:function(e){return e*e*e*e*e},easeOutQuint:function(e){return 1+--e*e*e*e*e},easeInOutQuint:function(e){return e<.5?16*e*e*e*e*e:1+16*--e*e*e*e*e}},yn=v?function(){}:window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||function(e){return window.setTimeout(e,1e3/60)},On=function(){var e,t,n,r,a=function(){b&&window.clearTimeout(e)},i=function(){b&&(a(),t=new Date,e=window.setTimeout(r,n))};return{start:function(e,t){return r=e,n=1e3*t,i()},pause:function(){return a(),n-=new Date-t},resume:function(){return i()},stop:a}};function Cn(){return(Cn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var jn={component:"pe-md-progress-spinner",animation:"pe-md-progress-spinner__animation",circle:"pe-md-progress-spinner__circle",circleRight:"pe-md-progress-spinner__circle-right",circleLeft:"pe-md-progress-spinner__circle-left"},kn=function(e,t,n,r){var a=e.style;a.transform=a["-webkit-transform"]=a["-moz-transform"]=a["-ms-transform"]=a["-o-transform"]="rotate("+function(e,t){return e+(t-e)*(arguments.length>2&&void 0!==arguments[2]?arguments[2]:0)}(t,n,r)+"deg)"},Tn=function(e,t,n){var r=e.querySelector("."+jn.animation).style;r.clip=n<.5?"rect(0px, "+t+"px, "+t+"px, "+t/2+"px)":"rect(auto, auto, auto, auto)";var a=e.querySelector("."+jn.circleLeft),i=e.querySelector("."+jn.circleRight);a.style.clip=i.style.clip="rect(0px, "+t/2+"px, "+t+"px, 0px)",kn(i,0,180,Math.min(1,2*n)),kn(a,0,360,n)},Pn=function(e){var t=e.state,n=e.attrs,r=e.size;if(t.dom&&!t.animating()&&void 0!==n.percentage){var a=N(n.percentage),i=t.percentage(),o=n.animated?gn.easeInOutQuad:function(e){return e};if(n.animated&&i!==a){var c=t.dom,l=void 0!==n.updateDuration?1e3*n.updateDuration:R(F({element:c.querySelector(".".concat(jn.animation)),prop:"animation-duration"})),s=null;t.animating(!0),window.requestAnimationFrame(function e(n){s||(s=n);var u=n-s;Tn(c,r,o(i+1/l*u*(a-i))),s&&u<l?window.requestAnimationFrame(e):(s=null,t.percentage(a),t.animating(!1))})}else Tn(t.dom,r,o(a)),t.percentage(a)}},En=function(e){return Math.round(e?parseFloat(F({element:e,prop:"height"}))-2*parseFloat(F({element:e,prop:"padding"})):0)};function Nn(){return(Nn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var In="pe-spinner__placeholder",Dn=h(Nn({},Object.freeze({getInitialState:function(e,t){var n=t(0),r=t(!1);return{animating:r,dom:void 0,percentage:n,redrawOnUpdate:t.merge([r])}},onMount:function(e){if(e.dom){var t=e.state,n=e.attrs;t.dom=e.dom;var r=En(t.dom);Pn({state:t,attrs:n,size:r})}},createProps:function(e,t){var n=t.renderer,r=e.state,a=e.attrs,i=En(r.dom);Pn({state:r,attrs:a,size:i});var o=n("div",{key:"content",className:jn.animation,style:{width:i+"px",height:i+"px"}},[n("div",{key:"left",className:[jn.circle,jn.circleLeft].join(" ")}),n("div",{key:"right",className:[jn.circle,jn.circleRight].join(" ")})]);return Cn({},a,{className:[jn.component,a.className].join(" "),content:o})}}),{component:ln})),zn=h(k);zn.displayName="MaterialDesignProgressSpinnerToggle";var xn={view:function(e){return o(zn,Nn({},e.attrs,{placeholderClassName:In,instance:Dn}))}};function Bn(){return(Bn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}xn.classes={component:"pe-md-progress-spinner",animation:"pe-md-progress-spinner__animation",circle:"pe-md-progress-spinner__circle",circleRight:"pe-md-progress-spinner__circle-right",circleLeft:"pe-md-progress-spinner__circle-left"},xn.displayName="MaterialDesignProgressSpinner";var An={component:"pe-md-spinner",animation:"pe-md-spinner__animation",circle:"pe-md-spinner__circle",circleClipper:"pe-md-spinner__circle-clipper",circleClipperLeft:"pe-md-spinner__circle-clipper-left",circleClipperRight:"pe-md-spinner__circle-clipper-right",gapPatch:"pe-md-spinner__gap-patch",layer:"pe-md-spinner__layer",layerN:"pe-md-spinner__layer-"};function Ln(){return(Ln=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var Mn="pe-spinner__placeholder",qn=h(Ln({},Object.freeze({createProps:function(e,t){var n=t.renderer,r=e.state,a=e.attrs;return r.content=r.content||n("div",{key:"content",className:An.animation},[1,2,3,4].map(function(e){return function(e,t){return t("div",{key:e,className:[An.layer,An.layerN+e].join(" ")},[t("div",{key:"clipper-left",className:[An.circleClipper,An.circleClipperLeft].join(" ")},t("div",{key:"circle",className:An.circle})),t("div",{key:"gap-patch",className:An.gapPatch},t("div",{className:An.circle})),t("div",{key:"clipper-right",className:[An.circleClipper,An.circleClipperRight].join(" ")},t("div",{className:An.circle}))])}(e,n)})),Bn({},a,{className:[An.component,a.className].join(" "),content:r.content})}}),{component:ln})),Sn=h(k);Sn.displayName="MaterialDesignSpinnerToggle";var Hn={view:function(e){return o(Sn,Ln({},e.attrs,{placeholderClassName:Mn,instance:qn}))}};function Fn(){return(Fn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Hn.classes={component:"pe-md-spinner",animation:"pe-md-spinner__animation",circle:"pe-md-spinner__circle",circleClipper:"pe-md-spinner__circle-clipper",circleClipperLeft:"pe-md-spinner__circle-clipper-left",circleClipperRight:"pe-md-spinner__circle-clipper-right",gapPatch:"pe-md-spinner__gap-patch",layer:"pe-md-spinner__layer",layerN:"pe-md-spinner__layer-"},Hn.displayName="MaterialDesignSpinner";var Un={component:"pe-menu",panel:"pe-menu__panel",content:"pe-menu__content",placeholder:"pe-menu__placeholder",backdrop:"pe-menu__backdrop",floating:"pe-menu--floating",origin:"pe-menu--origin",permanent:"pe-menu--permanent",showBackdrop:"pe-menu--backdrop",visible:"pe-menu--visible",width_auto:"pe-menu--width-auto",width_n:"pe-menu--width-",isTopMenu:"pe-menu--top-menu",listTile:"pe-list-tile",selectedListTile:"pe-list-tile--selected"},Rn=function(e,t){if(!v&&t.target){var n=document.querySelector(t.target);if(n){var r=e.panelEl;if(r){var a=U({element:r,prop:"position",equals:"fixed"});if(a&&!function(e){var t=e.state;return e.attrs.topMenu||U({element:t.dom(),pseudoSelector:":before",prop:"content",contains:'"'.concat("top_menu",'"')})}({state:e,attrs:t}))return Fn(r.style,{}),void r.offsetHeight;var i=e.contentEl,o=r.parentNode.getBoundingClientRect(),c=n.getBoundingClientRect(),l=void 0!==t.offsetH?t.offsetH:void 0!==t.offset?t.offset:0,s=void 0!==t.offsetV?t.offsetV:"79%",u=-1!==l.toString().indexOf("%")?Math.round(.01*parseFloat(l)*c.width):Math.round(parseFloat(l)),p=-1!==s.toString().indexOf("%")?Math.round(.01*parseFloat(s)*c.height):Math.round(parseFloat(s)),f=t.origin||"top",d=f.split(/\W+/).reduce(function(e,t){return e[t]=!0,e},{}),m=i.querySelectorAll("."+Un.listTile)[0];if(t.reposition){var h=i.querySelector("."+Un.selectedListTile);if(m&&h){var _=m.getBoundingClientRect(),b=h.getBoundingClientRect();p=_.top-b.top}var w=(h||m).getBoundingClientRect(),g=n.getBoundingClientRect().height-w.height;p+=Math.abs(g)/2}else t.origin&&!a&&(d.top?p+=c.top-o.top:d.bottom&&(p+=c.top-o.bottom));if(t.height){var y=m?m.clientHeight:48;if("max"===t.height){var O=p,C=y;r.style.height="calc(100% - ".concat(O+C,"px)")}else{var j=/^\d+$/.test(t.height.toString())?"".concat(t.height,"px"):t.height;r.style.height=j}}var k=r.style.transitionDuration;r.style.transitionDuration="0ms",r.parentNode&&!a&&(d.right?r.style.right=c.right-o.right+u+"px":r.style.left=c.left-o.left+u+"px",d.bottom?r.style.bottom=p+"px":r.style.top=p+"px",r.style.transformOrigin=f.split(/\W+/).join(" ")),r.offsetHeight,r.style.transitionDuration=k}}}},Wn=function(e,t,n){return{state:e,attrs:t,isShow:n,beforeTransition:n?function(){return e.update()}:null,domElements:{el:e.panelEl,showClassElement:e.dom()},showClass:Un.visible}},Vn=function(e,t){return Q(Wn(e,t,!1))},Kn=function(e,t){var n=e.state,r=e.attrs;"mount"===t?(M("resize",n.update),M("keydown",n.handleEscape),setTimeout(function(){n.activateDismissTap(),function(e,t){Q(Wn(e,t,!0))}(n,r)},0)):(q("resize",n.update),q("keydown",n.handleEscape),n.deActivateDismissTap())},Qn=Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(e,t){var n=t(null),r=e.attrs;void 0!==r.offset&&G("Menu",{option:"offset",newOption:"offsetH"}),void 0!==r.size&&G("Menu",{option:"size",newOption:"width"});var a=t(!1),i=t(!1);return{dom:n,visible:a,transitioning:i,activateDismissTap:void 0,contentEl:void 0,deActivateDismissTap:void 0,handleDismissTap:void 0,handleEscape:void 0,panelEl:void 0,update:void 0,redrawOnUpdate:t.merge([i])}},onMount:function(e){if(e.dom){var t=e.state,n=e.attrs;t.dom(e.dom),t.panelEl=e.dom.querySelector(".".concat(Un.panel)),t.contentEl=e.dom.querySelector(".".concat(Un.content)),n.permanent||(t.handleDismissTap=function(e){e.target!==t.panelEl&&Vn(t,n)},t.update=function(){Rn(t,n),function(e,t){if(!v&&t.scrollTarget){var n=document.querySelector(t.scrollTarget);n&&(e.contentEl.scrollTop=n.offsetTop)}}(t,n)},t.activateDismissTap=function(){A.forEach(function(e){return document.addEventListener(e,t.handleDismissTap)})},t.deActivateDismissTap=function(){A.forEach(function(e){return document.removeEventListener(e,t.handleDismissTap)})},t.handleEscape=function(e){"Escape"!==e.key&&"Esc"!==e.key||Vn(t,Fn({},n,{hideDelay:0}))},Kn(e,"mount"))}},onUnMount:function(e){e.attrs.permanent||Kn(e,"unmount")},createProps:function(e,t){var n,r,a=t.keys,i=e.attrs,o=i.type||"floating";return Fn({},E(i),{className:[Un.component,i.permanent?Un.permanent:null,i.origin?Un.origin:null,i.backdrop?Un.showBackdrop:null,i.topMenu?Un.isTopMenu:null,"floating"!==o||i.permanent?null:Un.floating,i.width||i.size?(r=i.width||i.size,n=r<1.5?1.5:r,Un.width_n+n.toString().replace(".","-")):null,"dark"===i.tone?"pe-dark-tone":null,"light"===i.tone?"pe-light-tone":null,i.className||i[a.class]].join(" ")})},createContent:function(e,t){var n=t.renderer,r=t.Shadow,a=e.attrs,i=void 0!==a.shadowDepth?a.shadowDepth:void 0!==a.z?a.z:1;return[n("div",{key:"backdrop",className:Un.backdrop}),n("div",{className:Un.panel,key:"panel"},[n(r,{shadowDepth:i,animated:!0,key:"shadow"}),n("div",{className:Un.content,style:a.style,key:"content"},a.content?a.content:e.children)])]}});function Gn(){return(Gn=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var Jn="pe-menu__placeholder",Xn=h(Gn({},Qn,{createContent:function(e,t){return Qn.createContent(e,Gn(t,{Shadow:je}))}})),Yn=h(k);function $n(){return($n=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Yn.displayName="MenuToggle",{view:function(e){return o(Yn,Gn({},e.attrs,{placeholderClassName:Jn,instance:Xn}))}}.displayName="Menu";var Zn={component:"pe-notification",action:"pe-notification__action",content:"pe-notification__content",holder:"pe-notification__holder",placeholder:"pe-notification__placeholder",title:"pe-notification__title",hasContainer:"pe-notification--container",horizontal:"pe-notification--horizontal",multilineTitle:"pe-notification__title--multi-line",vertical:"pe-notification--vertical",visible:"pe-notification--visible"},er=function(e){e.timer&&e.timer.stop()},tr=function(e,t,n){return{state:e,attrs:t,isShow:n,beforeTransition:function(){return er(e)},afterTransition:n?function(){var n=t.timeout;if(0===n)   ;else{var r=void 0!==n?n:3;e.timer.start(function(){rr(e,t)},r)}}:null,domElements:{el:e.el,containerEl:e.containerEl},showClass:Zn.visible}},nr=function(e,t){return Q(tr(e,t,!0))},rr=function(e,t){return Q(tr(e,t,!1))},ar=Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(e,t){var n=t(!1),r=t(!1),a=t(!1),i=t(!1);return{cleanUp:void 0,containerEl:void 0,dismissEl:void 0,el:void 0,timer:new On,paused:r,transitioning:n,visible:i,mounted:a,redrawOnUpdate:t.merge([i])}},onMount:function(e){if(e.dom){var t=e.dom,n=e.state,r=e.attrs;n.el=t;var a=n.el.querySelector(".".concat(Zn.title));a&&function(e){v||e.getBoundingClientRect().height>parseInt(window.getComputedStyle(e).lineHeight,10)+parseInt(window.getComputedStyle(e).paddingTop,10)+parseInt(window.getComputedStyle(e).paddingBottom,10)&&e.classList.add(Zn.multilineTitle)}(a),!n.containerEl&&b&&(n.containerEl=document.querySelector(r.containerSelector||r.holderSelector)),!n.containerEl&&b&&console.error("No container element found"),r.containerSelector&&n.containerEl&&n.containerEl.classList.add(Zn.hasContainer),r.show&&!n.visible()&&nr(n,r),n.mounted(!0)}},onUnMount:function(e){return e.state.mounted(!1)},createProps:function(e,t){var n,r,a,i=t.keys,o=e.attrs;return $n({},E(o,{remove:["style"]}),(n={className:[Zn.component,o.fromMultipleClassName,"light"===o.tone?null:"pe-dark-tone",o.containerSelector?Zn.hasContainer:null,"vertical"===o.layout?Zn.vertical:Zn.horizontal,"dark"===o.tone?"pe-dark-tone":null,"light"===o.tone?"pe-light-tone":null,o.className||o[i.class]].join(" ")},r=i.onclick,a=function(e){return e.preventDefault()},r in n?Object.defineProperty(n,r,{value:a,enumerable:!0,configurable:!0,writable:!0}):n[r]=a,n))},createContent:function(e,t){var n=t.renderer,r=e.state,a=e.attrs;return r.mounted()&&!r.transitioning()&&(a.hide&&r.visible()?rr(r,a):a.show&&!r.visible()&&nr(r,a)),a.pause&&!r.paused()?function(e){e.paused(!0),e.timer&&e.timer.pause()}(r):a.unpause&&r.paused()&&function(e){e.paused(!1),e.timer&&e.timer.resume()}(r),n("div",{className:Zn.content,style:a.style},a.content||[a.title?n("div",{className:Zn.title},a.title):null,a.action?n("div",{className:Zn.action},a.action):null])}}),ir={component:"pe-notification",action:"pe-notification__action",content:"pe-notification__content",holder:"pe-notification__holder",placeholder:"pe-notification__placeholder",title:"pe-notification__title",hasContainer:"pe-notification--container",horizontal:"pe-notification--horizontal",multilineTitle:"pe-notification__title--multi-line",vertical:"pe-notification--vertical",visible:"pe-notification--visible"},or=h(ar);or.displayName="NotificationInstance";var cr=H({options:{name:"notification",className:ir.component,htmlShowClass:ir.open,defaultId:"default_notification",holderSelector:".".concat(ir.holder),instance:or,placeholder:"span.".concat(ir.placeholder),queue:!0},renderer:o}),lr=h(cr);function sr(){return(sr=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Object.getOwnPropertyNames(cr).forEach(function(e){return lr[e]=cr[e]}),lr.displayName="Notification";var ur="pe-radio-control",pr={iconOff:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>',iconOn:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>'},fr=Object.freeze({createProps:function(e){var t=e.attrs;return sr({},t,{icons:pr,selectable:t.selectable||function(e){return!e},instanceClass:ur,type:"radio"})}});function dr(){return(dr=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var mr=_(dr({},ft,{createContent:function(e,t){return ft.createContent(e,dr(t,{Icon:ge,IconButton:gt}))}}));mr.displayName="ViewControl";var hr=h(dr({},ut,{createContent:function(e,t){return ut.createContent(e,dr(t,{ViewControl:mr}))}}));hr.displayName="SelectionControl";var _r=h(dr({},fr,{component:hr}));function br(){return(br=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}_r.displayName="RadioButton";var vr={component:"pe-radio-group"},wr=Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(e,t){var n=t(null);return{checkedIndex:n,redrawOnUpdate:t.merge([n])}},createProps:function(e,t){var n=t.keys,r=e.attrs;return br({},E(r),{className:[vr.component,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")})},createContent:function(e,t){var n=t.renderer,r=t.RadioButton,a=e.attrs,i=e.state,o=i.checkedIndex(),c=a.content?a.content:a.buttons?a.buttons:a.children||e.children||[];return c.length?c.map(function(e,t){if(!e)return null;void 0===e.value&&console.error("Option 'value' not set for radio button");var c=(e.defaultChecked||e.checked||void 0!==a.defaultSelectedValue&&e.value===a.defaultSelectedValue)&&null===o||e.checked||o===t;return n(r,br({},{name:a.name,key:e.value},a.all,e,{onChange:function(e){var n=e.value;return i.checkedIndex(t),a.onChange&&a.onChange({value:n})},checked:c}))}):null}});function gr(){return(gr=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}function yr(){return(yr=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}function Or(){return(Or=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}h(gr({},wr,{createContent:function(e,t){return wr.createContent(e,gr(t,{RadioButton:_r}))}})).displayName="RadioGroup",_({onMount:function(){G("RaisedButton",{newComponent:"Button",newOption:"raised: true"})},view:function(e){return o(Ee,yr({},{raised:!0},e.attrs),e.children)}}).displayName="RaisedButton";var Cr={component:"pe-search",content:"pe-search__content",searchFullWidth:"pe-search--full-width",searchInset:"pe-search--inset"},jr=Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(e,t){return{searchState:t({})}},createProps:function(e,t){var n=t.keys,r=e.attrs;return Or({},E(r),{className:[Cr.component,r.fullWidth?Cr.searchFullWidth:Cr.searchInset,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e,t){var n=t.renderer,r=t.TextField,a=e.state,i=e.attrs,o=function(e){return e.focus&&e.dirty?"focus_dirty":e.focus?"focus":e.dirty?"dirty":"none"}(a.searchState()),c=(i.buttons||{})[o]||{},l=i.textfield||{};return n("div",{className:Cr.content},[c.before,n(r,Or({},l,{key:"input",onChange:function(e){a.searchState(e),l.onChange&&l.onChange(e)}})),c.after])}});function kr(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Tr(){return(Tr=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var Pr={component:"pe-textfield",counter:"pe-textfield__counter",error:"pe-textfield__error",errorPlaceholder:"pe-textfield__error-placeholder",focusHelp:"pe-textfield__help-focus",help:"pe-textfield__help",input:"pe-textfield__input",inputArea:"pe-textfield__input-area",label:"pe-textfield__label",optionalIndicator:"pe-textfield__optional-indicator",requiredIndicator:"pe-textfield__required-indicator",hasCounter:"pe-textfield--counter",hasFloatingLabel:"pe-textfield--floating-label",hasFullWidth:"pe-textfield--full-width",hideClear:"pe-textfield--hide-clear",hideSpinner:"pe-textfield--hide-spinner",hideValidation:"pe-textfield--hide-validation",isDense:"pe-textfield--dense",isRequired:"pe-textfield--required",stateDirty:"pe-textfield--dirty",stateDisabled:"pe-textfield--disabled",stateFocused:"pe-textfield--focused",stateInvalid:"pe-textfield--invalid",stateReadonly:"pe-textfield--readonly"},Er={invalid:!1,message:void 0},Nr=function(e,t){var n=Er;return e.isTouched()&&e.isInvalid()&&0===e.inputEl().value.length&&t.validateResetOnClear&&(e.isTouched(!1),e.isInvalid(!1),e.error(void 0)),!n.invalid&&t.counter&&(n=function(e,t){return{invalid:e.inputEl().value.length>t.counter,message:t.error}}(e,t)),!n.invalid&&e.inputEl()&&e.inputEl().checkValidity&&(n=function(e,t){return{invalid:!e.inputEl().checkValidity(),message:t.error}}(e,t)),!n.invalid&&t.validate&&(n=function(e,t){if(!e.inputEl())return Er;var n=t.validate(e.inputEl().value);return{invalid:n&&!n.valid,message:n&&n.error}}(e,t)),n},Ir=function(e){var t=e.state,n=e.attrs,r=void 0!==n.valid?{invalid:!n.valid,message:n.error}:t.isTouched()||n.validateAtStart?Nr(t,n):Er,a=t.isInvalid();t.error(r.message),r.invalid!==a&&t.isInvalid(r.invalid),r.invalid||t.error(void 0)},Dr=function(e){var t=e.state,n=e.attrs;if(n.onChange){var r=Nr(t,n);n.onChange({focus:t.hasFocus(),dirty:t.isDirty(),el:t.inputEl(),invalid:r.invalid,error:r.error,value:t.inputEl().value,setInputState:function(n){var r=void 0!==n.value&&n.value!==t.inputEl().value,a=void 0!==n.focus&&n.focus!==t.hasFocus();(r||a)&&t.setInputState(Tr({},n,{vnode:e}))}})}},zr=function(e,t){return e.ignoreEvents&&-1!==e.ignoreEvents.indexOf(t)},xr=h(Object.freeze({getElement:function(e){return e.attrs.element||"div"},getInitialState:function(e,t,n){var r=n.keys,a=e.attrs,i=void 0!==a.defaultValue&&null!==a.defaultValue?a.defaultValue.toString():void 0!==a.value&&null!==a.value?a.value.toString():"",o=t(null),c=t(null),l=t({}),s=t(a.error),u=t(!1),p=t(!1),f=t(""!==i),d=t(!1);return{defaultValue:i,didSetFocusTime:0,el:o,error:s,hasFocus:u,inputEl:c,isDirty:f,isInvalid:d,isTouched:p,previousValue:t(void 0),setInputState:l,showErrorPlaceholder:!!(void 0!==a.valid||a.validate||a.min||a.max||a[r.minlength]||a[r.maxlength]||a.required||a.pattern),redrawOnUpdate:t.merge([c,d,f])}},onMount:function(e){if(e.dom){var t=e.dom,n=e.state,r=e.attrs;n.el(t);var a=r.multiLine?"textarea":"input",i=t.querySelector(a);e.state.inputEl(i),n.inputEl().value=n.defaultValue,n.setInputState.map(function(e){var t=e.vnode,a=e.type,i=e.focus,o=e.value;t&&(void 0!==o&&(n.inputEl().value=o),void 0!==i&&(n.hasFocus(i),i?n.inputEl().focus():n.inputEl().blur()),"input"===a&&(r.validateOnInput||r.counter)&&n.isTouched(n.inputEl().value!==n.defaultValue),"input"!==a&&n.isTouched(n.inputEl().value!==n.defaultValue),"onblur"===a&&n.isTouched(!0),n.isDirty(""!==n.inputEl().value),Ir(t),Dr(t),n.previousValue(n.inputEl().value))}),Dr(e)}},onUpdate:function(e){var t=e.state,n=e.attrs;Ir(e);var r=t.inputEl(),a=void 0!==n.value&&null!==n.value?n.value:r?r.value:t.previousValue(),i=null==a?"":a.toString();r&&t.previousValue()!==i&&(r.value=i,t.previousValue(i),t.setInputState({vnode:e,type:"input"}))},createProps:function(e,t){var n=t.keys,r=e.state,a=e.attrs,i=r.isInvalid();return Tr({},E(a),{className:[Pr.component,i?Pr.stateInvalid:"",r.hasFocus()?Pr.stateFocused:"",r.isDirty()?Pr.stateDirty:"",a.floatingLabel?Pr.hasFloatingLabel:"",a.disabled?Pr.stateDisabled:"",a.readonly?Pr.stateReadonly:"",a.dense?Pr.isDense:"",a.required?Pr.isRequired:"",a.fullWidth?Pr.hasFullWidth:"",a.counter?Pr.hasCounter:"",!1!==a.hideSpinner&&void 0!==a.hideSpinner?Pr.hideSpinner:"",!1!==a.hideClear&&void 0!==a.hideClear?Pr.hideClear:"",a.hideValidation?Pr.hideValidation:"","dark"===a.tone?"pe-dark-tone":null,"light"===a.tone?"pe-light-tone":null,a.className||a[n.class]].join(" ")})},createContent:function(e,t){var n=t.renderer,r=t.keys,a=e.state,i=e.attrs,o=a.inputEl(),c=i.error||a.error(),l=a.isInvalid(),s=i.multiLine?"textarea":"input",u=i.multiLine?null:i.type&&"submit"!==i.type&&"search"!==i.type?i.type:"text",p=l&&void 0!==c,f=i.disabled||i[r.readonly],d=i.required&&""!==i.requiredIndicator?n("span",{key:"required",className:Pr.requiredIndicator},i.requiredIndicator||"*"):null,m=!i.required&&i.optionalIndicator?n("span",{key:"optional",className:Pr.optionalIndicator},i.optionalIndicator):null,h=i.label?[i.label,d,m]:null;return[n("div",{className:Pr.inputArea,key:"input-area"},[h?n("label",{key:"label",className:Pr.label},h):null,n(s,Tr({},{key:"input",className:Pr.input,disabled:i.disabled},u?{type:u}:null,i.name?{name:i.name}:null,zr(i,r.onclick)?null:kr({},r.onclick,function(){f||(a.setInputState({vnode:e,focus:!0}),Dr(e))}),zr(i,r.onfocus)?null:kr({},r.onfocus,function(){f||(a.setInputState({vnode:e,focus:!0}),a.el()&&a.el().classList.add(Pr.stateFocused),Dr(e))}),zr(i,r.onblur)?null:kr({},r.onblur,function(){a.setInputState({vnode:e,type:"onblur",focus:!1}),a.el().classList.remove(Pr.stateFocused)}),zr(i,r.oninput)?null:kr({},r.oninput,function(){a.setInputState({vnode:e,type:"input"})}),zr(i,r.onkeydown)?null:kr({},r.onkeydown,function(t){"Enter"===t.key?a.isTouched(!0):"Escape"!==t.key&&"Esc"!==t.key||a.setInputState({vnode:e,focus:!1})}),i.events?i.events:null,void 0!==i.required&&i.required?{required:!0}:null,void 0!==i[r.readonly]&&i[r.readonly]?kr({},r.readonly,!0):null,void 0!==i.pattern?{pattern:i.pattern}:null,void 0!==i[r.maxlength]?kr({},r.maxlength,i[r.maxlength]):null,void 0!==i[r.minlength]?kr({},r.minlength,i[r.minlength]):null,void 0!==i.max?{max:i.max}:null,void 0!==i.min?{min:i.min}:null,void 0!==i[r.autofocus]?kr({},r.autofocus,i[r.autofocus]):null,void 0!==i[r.tabindex]?kr({},r.tabindex,i[r.tabindex]):null,void 0!==i.rows?{rows:i.rows}:null))]),i.counter?n("div",{key:"counter",className:Pr.counter},(o&&o.value.length||0)+" / "+i.counter):null,i.help&&!p?n("div",{key:"help",className:[Pr.help,i.focusHelp?Pr.focusHelp:null].join(" ")},i.help):null,p?n("div",{key:"error",className:Pr.error},c):a.showErrorPlaceholder&&!i.help?n("div",{key:"error-placeholder",className:Pr.errorPlaceholder}):null]}}));function Br(){return(Br=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}function Ar(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Lr(){return(Lr=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}xr.displayName="TextField",h(Br({},jr,{createContent:function(e,t){return jr.createContent(e,Br(t,{TextField:xr}))}})).displayName="Search";var Mr,qr={component:"pe-slider",control:"pe-slider__control",label:"pe-slider__label",pin:"pe-slider__pin",thumb:"pe-slider__thumb",tick:"pe-slider__tick",ticks:"pe-slider__ticks",track:"pe-slider__track",trackBar:"pe-slider__track-bar",trackBarValue:"pe-slider__track-bar-value",trackPart:"pe-slider__track-part",trackPartRest:"pe-slider__track-rest",trackPartValue:"pe-slider__track-value",hasFocus:"pe-slider--focus",hasPin:"pe-slider--pin",hasTicks:"pe-slider--ticks",hasTrack:"pe-slider--track",isActive:"pe-slider--active",isAtMin:"pe-slider--min",isDisabled:"pe-slider--disabled",tickValue:"pe-slider__tick--value"},Sr=function(e){Mr&&Mr.blur(),Mr=void 0,e.hasFocus(!1)},Hr=function(e,t){return D&&e.touches?t?e.touches[0].pageY:e.touches[0].pageX:t?e.pageY:e.pageX},Fr=function(e){if(e.controlEl&&e.pinEl){var t=e.fraction()*e.rangeWidth;e.pinEl.style.left=t+"px"}},Ur=function(e,t){e.setValue(t,!0),Fr(e)},Rr=function(e,t,n,r){for(var a=[],i=r/n,o=0;o<t+1;)a.push(e("div",{className:o<=i?[qr.tick,qr.tickValue].join(" "):qr.tick,key:"tick-".concat(o)})),o++;return a},Wr=function(e){if(e.controlEl&&b){e.controlWidth=parseFloat(F({element:e.controlEl,prop:"width"})),e.rangeWidth=e.trackEl.getBoundingClientRect().width-e.controlWidth;var t=window.getComputedStyle(e.trackEl);e.rangeOffset=parseFloat(t.marginLeft)}},Vr=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;e.clickOffset=e.trackEl.getBoundingClientRect().left-(e.rangeOffset-e.controlWidth/2)+t},Kr=function(e,t){var n=Hr(t)-e.clickOffset,r=e.min+(n-e.rangeOffset)/e.rangeWidth*(e.max-e.min);Ur(e,r)},Qr=function(e,t,n){if(!e.isDragging()){n.preventDefault(),e.isDragging(!0),e.isActive(!0),Sr(e);var r=function(t){e.isDragging()&&Kr(e,t)},a=function t(){e.isDragging()&&(Sr(e),b&&(B.forEach(function(e){return window.removeEventListener(e,r)}),A.forEach(function(e){return window.removeEventListener(e,t)})),e.isDragging(!1),e.isActive(!1))};b&&(B.forEach(function(e){return window.addEventListener(e,r)}),A.forEach(function(e){return window.addEventListener(e,a)})),Wr(e),t.pin&&Fr(e)}},Gr=function(e,t,n){n.preventDefault(),e.isDragging()||(Wr(e),function(e){Vr(e,0)}(e),Kr(e,n),Qr(e,t,n))},Jr=function(e,t){var n,r=t.h,a=t.k,i=t.hasTicks,o=t.interactiveTrack,c=e.state,l=e.attrs,s=c.fraction(),u=c.max-c.min,p=Math.min(100,parseInt(u/c.stepSize,10)),f=function(e){return Gr(c,l,e)},d=function(e){Wr(c),function(e,t){var n=e.controlEl.getBoundingClientRect().left,r=Hr(t)-n-e.controlWidth/2;Vr(e,r)}(c,e),Qr(c,l,e)},m=s+" 1 0%",h=1-s,_=h+" 1 0%";return r("div",Lr({},{className:qr.track},o&&!l.disabled&&x.reduce(function(e,t){return e[a["on".concat(t)]]=f,e},{})),[r("div",{className:qr.trackPart+" "+qr.trackPartValue,key:"trackPartValue",style:{flex:m,msFlex:m,WebkitFlex:m}},r("div",{className:qr.trackBar},r("div",{className:qr.trackBarValue}))),r("div",Lr({},{className:qr.control,key:"control"},l.disabled?{disabled:!0}:(n={},Ar(n,a.tabindex,l[a.tabindex]||0),Ar(n,a.onfocus,function(){return function(e,t){Sr(e),Mr=t,e.hasFocus(!0)}(c,c.controlEl)}),Ar(n,a.onblur,function(){return Sr(c)}),Ar(n,a.onkeydown,function(e){"Tab"!==e.key&&e.preventDefault(),"Escape"===e.key||"Esc"===e.key?c.controlEl.blur(e):"ArrowLeft"===e.key||"ArrowDown"===e.key||"Left"===e.key||"Down"===e.key?c.decrement(c,e.shiftKey):"ArrowRight"===e.key||"ArrowUp"===e.key||"Right"===e.key||"Up"===e.key?c.increment(c,e.shiftKey):"Home"===e.key?Ur(c,c.min):"End"===e.key?Ur(c,c.max):"PageDown"===e.key?c.decrement(c,!0):"PageUp"===e.key&&c.increment(c,!0),Wr(c),Fr(c)}),n),!l.disabled&&x.reduce(function(e,t){return e[a["on".concat(t)]]=d,e},{}),l.events?l.events:null,i?{step:p}:null),l.icon?r("div",{className:qr.thumb,key:"icon"},l.icon):null),r("div",{className:qr.trackPart+" "+qr.trackPartRest,key:"trackPartRest",style:{flex:_,msFlex:_,WebkitFlex:_,maxWidth:100*h+"%"}},r("div",{className:qr.trackBar},r("div",{className:qr.trackBarValue}))),i&&!l.disabled?r("div",{className:qr.ticks,key:"ticks"},Rr(r,p,c.stepSize,c.value())):null,i&&l.pin&&!l.disabled?r("div",{className:qr.pin,key:"pin",value:c.value()}):null])};h(Object.freeze({getInitialState:function(e,t){var n=e.attrs,r=void 0!==n.min?n.min:0,a=void 0!==n.max?n.max:100,i=a-r,o=void 0!==n.stepSize?n.stepSize:1,c=void 0!==n.defaultValue?n.defaultValue:void 0!==n.value?n.value:0,l=t(void 0),s=t(!1),u=t(!1),p=t(!1),f=t(r),d=t(0),m=1/o,h=function(e){var t=arguments.length>1&&void 0!==arguments[1]&&arguments[1];e<r&&(e=r),e>a&&(e=a),d(o?Math.round(e*m)/m:e),f((d()-r)/i),t&&n.onChange&&n.onChange({value:d()}),l(e)};return h(c),{min:r,max:a,stepSize:o,fraction:f,trackEl:null,controlEl:null,pinEl:null,setValue:h,increment:function(e,t){return Ur(e,d()+(t?10:1)*(o||1))},decrement:function(e,t){return Ur(e,d()-(t?10:1)*(o||1))},isDragging:p,isActive:s,value:d,previousValue:l,hasFocus:u,controlWidth:0,rangeWidth:0,rangeOffset:0,clickOffset:0,redrawOnUpdate:t.merge([s,d])}},onMount:function(e){if(e.dom){var t=e.dom,n=e.state,r=e.attrs;n.trackEl=t.querySelector(".".concat(qr.track)),n.controlEl=t.querySelector(".".concat(qr.control)),n.pinEl=t.querySelector(".".concat(qr.pin)),Wr(n),r.pin&&setTimeout(function(){Ur(n,n.value())},0)}},createProps:function(e,t){var n=t.keys,r=e.state,a=e.attrs;void 0!==a.value&&r.previousValue()!==a.value&&(r.previousValue(a.value),setTimeout(function(){return r.setValue(r.previousValue())},0));var i=void 0!==a.ticks&&!1!==a.ticks,o=void 0===a.interactiveTrack||a.interactiveTrack;return Lr({},E(a),{className:[qr.component,a.disabled?qr.isDisabled:null,a.pin?qr.hasPin:null,o?qr.hasTrack:null,r.isActive()?qr.isActive:null,r.hasFocus()?qr.hasFocus:null,0===r.fraction()?qr.isAtMin:null,i?qr.hasTicks:null,"dark"===a.tone?"pe-dark-tone":null,"light"===a.tone?"pe-light-tone":null,a.className||a[n.class]].join(" ")})},createContent:function(e,t){var n=t.renderer,r=t.keys,a=e.attrs,i=void 0!==a.ticks&&!1!==a.ticks,o=void 0===a.interactiveTrack||a.interactiveTrack;return Jr(e,{h:n,k:r,hasTicks:i,interactiveTrack:o})}})).displayName="Slider";var Xr={show:function(e){var t=e.containerEl,n=e.el,r=e.duration,a=e.delay;return{el:t,duration:r||.4,delay:a||0,before:function(){n.style.display="block";var e=n.getBoundingClientRect().height;t.style.transform="translate3d(0, ".concat(e,"px, 0)")},transition:function(){return t.style.transform="translate3d(0, 0px, 0)"}}},hide:function(e){var t=e.containerEl,n=e.el,r=e.duration,a=e.delay;return{el:t,duration:r||.4,delay:a||0,transition:function(){var e=n.getBoundingClientRect().height;t.style.transform="translate3d(0, ".concat(e,"px, 0)")},after:function(){n.style.display="none",t.style.transitionDuration="0ms",t.style.transform="translate3d(0, 0px, 0)"}}}};function Yr(){return(Yr=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var $r=Yr({},{component:"pe-notification",action:"pe-notification__action",content:"pe-notification__content",holder:"pe-notification__holder",placeholder:"pe-notification__placeholder",title:"pe-notification__title",hasContainer:"pe-notification--container",horizontal:"pe-notification--horizontal",multilineTitle:"pe-notification__title--multi-line",vertical:"pe-notification--vertical",visible:"pe-notification--visible"},{component:"pe-notification pe-snackbar",holder:"pe-snackbar__holder",placeholder:"pe-snackbar__placeholder",open:"pe-snackbar--open"}),Zr=h(ar);Zr.displayName="SnackbarInstance";var ea=H({options:{name:"snackbar",className:$r.component,htmlShowClass:$r.open,defaultId:"default_snackbar",holderSelector:".".concat($r.holder),instance:Zr,placeholder:"span.".concat($r.placeholder),queue:!0,transitions:Xr},renderer:o}),ta=h(ea);function na(){return(na=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Object.getOwnPropertyNames(ea).forEach(function(e){return ta[e]=ea[e]}),ta.displayName="Snackbar";var ra="pe-switch-control",aa="pe-switch-control__knob",ia="pe-switch-control__thumb",oa="pe-switch-control__track",ca=Object.freeze({createProps:function(e){var t=e.attrs;return na({},t,{selectable:t.selectable||function(){return!0},instanceClass:ra,type:"checkbox"})}}),la=Object.freeze({getElement:function(e){return e.attrs.element||"div"},onMount:function(e){var t=e.attrs;void 0!==t.zOn&&G("Switch",{option:"zOn",newOption:"shadowDepthOn"}),void 0!==t.zOff&&G("Switch",{option:"zOff",newOption:"shadowDepthOff"})},createContent:function(e,t){var n=t.renderer,r=t.Shadow,a=t.IconButton,i=e.attrs,o=void 0!==i.shadowDepthOff?i.shadowDepthOff:void 0!==i.zOff?i.zOff:1,c=void 0!==i.shadowDepthOn?i.shadowDepthOn:void 0!==i.zOn?i.zOn:2,l=i.checked?c:o,s=void 0===i.raised||i.raised;return[n("div",{className:oa,key:"track"}),n(a,na({},{className:ia,key:"button",content:n("div",{className:aa},[i.icon?i.icon:null,s?n(r,{shadowDepth:l,animated:!0}):null]),style:i.style,disabled:i.disabled,events:i.events,ink:i.ink||!1,inactive:i.inactive},i.iconButton))]}});function sa(){return(sa=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var ua=_(sa({},la,{createContent:function(e,t){return la.createContent(e,sa(t,{Shadow:je,IconButton:gt}))}}));ua.displayName="ViewControl";var pa=h(sa({},ut,{createContent:function(e,t){return ut.createContent(e,sa(t,{ViewControl:ua}))}}));function fa(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function da(){return(da=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}pa.displayName="SelectionControl",h(sa({},ca,{component:pa})).displayName="Switch";var ma={component:"pe-tabs",indicator:"pe-tabs__indicator",scrollButton:"pe-tabs__scroll-button",scrollButtonAtEnd:"pe-tabs__scroll-button-end",scrollButtonAtStart:"pe-tabs__scroll-button-start",tab:"pe-tab",tabContent:"pe-tabs__tab-content",tabRow:"pe-tabs__row",activeSelectable:"pe-tabs__active--selectable",isAtEnd:"pe-tabs--end",isAtStart:"pe-tabs--start",isAutofit:"pe-tabs--autofit",isMenu:"pe-tabs--menu",scrollable:"pe-tabs--scrollable",compactTabs:"pe-tabs--compact",tabHasIcon:"pe-tabs__tab--icon",tabRowCentered:"pe-tabs__row--centered",tabRowIndent:"pe-tabs__row--indent",label:"pe-button__label"},ha=function(e,t){var n=void 0!==t.selectedTabIndex?t.selectedTabIndex:void 0!==t.selectedTab?t.selectedTab:void 0;return void 0!==n?n:Array.isArray(t.tabs)?t.tabs.reduce(function(e,t,n){return void 0!==e||t.disabled?e:n},void 0):void 0},_a=function(e,t,n,r){n.stopPropagation(),n.preventDefault();var a,i,o,c=e.selectedTabIndex(),l=(a=c,i=e.tabs,o=i.length-1,{backward:Math.max(a-1,0),forward:Math.min(a+1,o)})[r];l!==c?wa(e,t,l,!0):ba(e,l)},ba=function(e,t){var n=e.tabs,r=e.tabRowEl,a=n.slice(0,t).reduce(function(e,t){return e+t.dom.getBoundingClientRect().width},0),i=r.getBoundingClientRect().width,o=r.scrollWidth-i,c=e.isRTL?-1*Math.min(a,o):Math.min(a,o),l=r.scrollLeft;if(l!==c){var s=Math.abs(l-c)/600;setTimeout(function(){(function(e){if(!v){var t=e.element,n="horizontal"===e.direction?"scrollLeft":"scrollTop",r=e.to,a=1e3*e.duration,i=e.easing||gn.easeInOutCubic,o=t[n],c=r-o,l=(new Date).getTime(),s=!0;return new Promise(function(e){yn(function u(){if(s){yn(u);var p=((new Date).getTime()-l)/a,f=o+c*i(p);t[n]=f,p>=1&&(t[n]=r,s=!1,e())}})})}})({element:r,to:c,duration:Math.max(.5,s),direction:"horizontal"}).then(function(){return va(e)})},150)}},va=function(e){var t=e.tabRowEl,n=t.scrollLeft,r=e.selectedTabIndex(),a=e.tabsEl,i=e.tabs.length-1,o=0===t.scrollLeft&&0===r,c=n>=t.scrollWidth-a.getBoundingClientRect().width-1&&r===i;e.scrollButtonAtStart(o),e.scrollButtonAtEnd(c)},wa=function(e,t,n,r){if(e.selectedTabIndex(n),e.tabs.length){var a=e.tabs[n].dom;a&&e.tabIndicatorEl&&e.tabsEl&&function(e,t,n){var r=n.tabsEl.getBoundingClientRect(),a=e.getBoundingClientRect(),i=n.managesScroll?a.height:0,o=n.isRTL?a.right-r.right+n.tabRowEl.scrollLeft+i:a.left-r.left+n.tabRowEl.scrollLeft-i,c=1/(r.width-2*i)*a.width,l="translate(".concat(o,"px, 0) scaleX(").concat(c,")"),s=t?.25:0,u=n.tabIndicatorEl.style;u["transition-duration"]=s+"s",u.transform=l}(a,r,e),e.managesScroll&&va(e),ba(e,n),t.onChange&&t.onChange({index:n,options:e.tabs[n].attrs,el:a})}},ga=function(e,t){return e<t?1:e>t?-1:0},ya=Object.freeze({getInitialState:function(e,t){e.state;var n=e.attrs;void 0!==n.selectedTab&&G("Tabs",{option:"selectedTab",newOption:"selectedTabIndex"});var r=t(ha(0,n)||0),a=t(!0),i=t(!0);return{tabsEl:void 0,tabRowEl:void 0,tabs:[],tabRow:void 0,tabIndicatorEl:void 0,selectedTabIndex:r,previousSelectedTabIndex:void 0,managesScroll:n.scrollable&&!D,scrollButtonAtStart:a,scrollButtonAtEnd:i,scrollButtons:{start:void 0,end:void 0},registerTabButton:function(e){return function(t,n){return e.tabs[t]=n}},registerScrollButton:function(e){return function(t,n){return e.scrollButtons[t]=n}},isRTL:!1,cleanUp:void 0,redrawOnUpdate:t.merge([r,a,i])}},onMount:function(e){if(e.dom){var t,n,r,a,i=e.dom,o=e.state,c=e.attrs;o.tabsEl=i,o.isRTL=(n=(t={element:i}).element,r=void 0===n?document:n,a=t.selector,U({element:r,selector:a,prop:"direction",equals:"rtl"})),c.hideIndicator||(o.tabIndicatorEl=i.querySelector(".".concat(ma.indicator))),o.tabRowEl=i.querySelector(".".concat(ma.tabRow));var l=function(){return function(){if(o.tabs&&c.largestWidth){var e=o.tabs.map(function(e){return e.dom.getBoundingClientRect().width}).sort(ga)[0];o.tabs.forEach(function(t){return t.dom.style.width=e+"px"})}}(),wa(o,c,o.selectedTabIndex(),!1)},s=function(e){var t=e.name;return"active"===t||"inactive"===t?l():null};M("resize",l),M("webfontloader",s),o.cleanUp=function(){return q("resize",l),q("webfontloader",s)},Promise.resolve().then(l)}},onUnMount:function(e){return e.state.cleanUp()},createProps:function(e,t){var n=t.keys,r=e.state,a=e.attrs,i=!a.scrollable&&!a.centered&&!!a.autofit,o=ha(0,a);return void 0!==o&&r.previousSelectedTabIndex!==o&&wa(r,a,o,!0),r.previousSelectedTabIndex=o,da({},E(a),{className:[ma.component,a.scrollable?ma.scrollable:null,r.scrollButtonAtStart()?ma.isAtStart:null,r.scrollButtonAtEnd()?ma.isAtEnd:null,a.activeSelected?ma.activeSelectable:null,i?ma.isAutofit:null,a.compact?ma.compactTabs:null,a.menu?ma.isMenu:null,"dark"===a.tone?"pe-dark-tone":null,"light"===a.tone?"pe-light-tone":null,a.className||a[n.class]].join(" ")})},createContent:function(e,t){var n=t.renderer,r=t.keys,a=t.Tab,i=t.ScrollButton,o=e.state,c=e.attrs,l=c.content?c.content:c.tabs?c.tabs:c.children||e.children||[];0===l.length&&console.error("No tabs specified");var s,u,p=l.map(function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=arguments.length>1?arguments[1]:void 0,r=da({},e,{selected:t===o.selectedTabIndex(),animateOnTap:!1!==c.animateOnTap},c.all,{index:t,key:e.key||"tab-".concat(t),register:o.registerTabButton(o),onSelect:function(){return wa(o,c,t,!c.noIndicatorSlide)}});return n(a,r)});c.scrollable&&(s=n(i,da({},{key:"backward",icon:c.scrollIconBackward,className:ma.scrollButtonAtStart,position:"start",register:o.registerScrollButton(o),events:fa({},r.onclick,function(e){return _a(o,c,e,"backward")}),isRTL:o.isRTL})),u=n(i,da({},{key:"forward",icon:c.scrollIconForward,className:ma.scrollButtonAtEnd,position:"end",register:o.registerScrollButton(o),events:fa({},r.onclick,function(e){return _a(o,c,e,"forward")}),isRTL:o.isRTL})));var f=c.hideIndicator?null:n("div",{key:"indicator",className:ma.indicator});return[c.scrollable?s:null,n("div",{key:"tabrow",className:[ma.tabRow,c.centered?ma.tabRowCentered:null,c.scrollable?ma.tabRowIndent:null].join(" ")},[p,f]),c.scrollable?u:null]}}),Oa=Object.freeze({onMount:function(e){if(e.dom){var t=e.dom,n=e.attrs;n.register(n.index,{attrs:n,dom:t})}},createProps:function(e,t){var n=t.renderer,r=t.keys,a=t.Icon,i=e.attrs;return i.events=i.events||{},i.events[r.onclick]=i.events[r.onclick]||function(){},da({},i,{content:n("div",{className:ma.tabContent},[i.icon?n(a,i.icon):null,i.label?n("div",{className:ma.label},n("span",i.label)):null]),className:[ma.tab,i.icon&&i.label?ma.tabHasIcon:null,i.className||i[r.class]].join(" "),selected:i.selected,wash:!1,ripple:!0,events:da({},i.events,fa({},r.onclick,function(e){i.onSelect(),i.events[r.onclick](e)}))})},createContent:function(e){return e.children}}),Ca='<svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>',ja='<svg width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>',ka=Object.freeze({onMount:function(e){if(e.dom){var t=e.dom,n=e.attrs;n.register(n.position,t)}},createProps:function(e,t){var n=t.renderer,r=t.keys,a=e.attrs,i="start"===a.position?a.icon||{svg:{content:n.trust(a.isRTL?ja:Ca)}}:a.icon||{svg:{content:n.trust(a.isRTL?Ca:ja)}};return{className:[ma.scrollButton,a.className||a[r.class]].join(" "),icon:i,ripple:{center:!0},events:a.events}}});function Ta(){return(Ta=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}var Pa=_(Ta({},Oa,{createProps:function(e,t){return Oa.createProps(e,Ta(t,{Icon:ge}))},component:Ee}));Pa.displayName="Tab";var Ea=_(Ta({},ka,{component:gt}));function Na(){return(Na=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}Ea.displayName="ScrollButton",h(Ta({},ya,{createContent:function(e,t){return ya.createContent(e,Ta(t,{Tab:Pa,ScrollButton:Ea}))}})).displayName="Tabs";var Ia={component:"pe-toolbar",compact:"pe-toolbar--compact",appBar:"pe-toolbar--app-bar",title:"pe-toolbar__title",centeredTitle:"pe-toolbar__title--center",indentedTitle:"pe-toolbar__title--indent",fullbleed:"pe-toolbar--fullbleed",border:"pe-toolbar--border"},Da=Object.freeze({getElement:function(e){return e.attrs.element||"div"},onMount:function(e){void 0!==e.attrs.z&&G("Toolbar",{option:"z",newOption:"shadowDepth"})},createProps:function(e,t){var n=t.keys,r=e.attrs;return Na({},E(r),{className:[Ia.component,r.compact?Ia.compact:null,r.fullbleed?Ia.fullbleed:null,r.border?Ia.border:null,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e,t){var n=t.renderer,r=t.Shadow,a=e.attrs,i=a.content?a.content:a.children||e.children,o=void 0!==a.shadowDepth?a.shadowDepth:a.z;return[i,void 0!==o?n(r,{shadowDepth:o,animated:!0,key:"shadow"}):null]}}),za=Object.freeze({getElement:function(e){return e.attrs.element||"div"},createProps:function(e,t){var n=t.keys,r=e.attrs;return Na({},E(r),{className:[Ia.title,r.indent?Ia.indentedTitle:null,r.center?Ia.centeredTitle:null,"dark"===r.tone?"pe-dark-tone":null,"light"===r.tone?"pe-light-tone":null,r.className||r[n.class]].join(" ")},r.events)},createContent:function(e){var t=e.attrs;return t.text?t.text:t.content?t.content:t.children||e.children||t}});function xa(){return(xa=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e}).apply(this,arguments)}_(xa({},Da,{createContent:function(e,t){return Da.createContent(e,xa(t,{Shadow:je}))}})).displayName="Toolbar",_(za).displayName="ToolbarTitle";n(5),n(6);var Ba={view:function(){return a()("div",[a()(Ee,{raised:!0,label:"Open dialog",events:{onclick:function(){Ut.show({title:"Hello",body:"Click background to hide or press ESCAPE.",backdrop:!0})}}}),a()(Ut)])}};a.a.mount(document.body,Ba)}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "../index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "../index.js":
+/*!*******************!*\
+  !*** ../index.js ***!
+  \*******************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _src__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src */ "./index.js");
+
+
+/***/ }),
+
+/***/ "../node_modules/mithril/mithril.mjs":
+/*!*******************************************!*\
+  !*** ../node_modules/mithril/mithril.mjs ***!
+  \*******************************************/
+/*! exports provided: default, m, trust, fragment, mount, route, render, redraw, request, jsonp, parseQueryString, buildQueryString, version, vnode, PromisePolyfill */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(setImmediate, global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return _m; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trust", function() { return _trust; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fragment", function() { return _fragment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mount", function() { return _mount; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "route", function() { return _route; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "redraw", function() { return _redraw; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "request", function() { return _request; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jsonp", function() { return _jsonp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseQueryString", function() { return _parseQueryString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildQueryString", function() { return _buildQueryString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "version", function() { return _version; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vnode", function() { return _vnode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PromisePolyfill", function() { return _PromisePolyfill; });
+function Vnode(tag, key, attrs0, children0, text, dom) {
+	return {tag: tag, key: key, attrs: attrs0, children: children0, text: text, dom: dom, domSize: undefined, state: undefined, events: undefined, instance: undefined}
+}
+Vnode.normalize = function(node) {
+	if (Array.isArray(node)) return Vnode("[", undefined, undefined, Vnode.normalizeChildren(node), undefined, undefined)
+	if (node != null && typeof node !== "object") return Vnode("#", undefined, undefined, node === false ? "" : node, undefined, undefined)
+	return node
+}
+Vnode.normalizeChildren = function(input) {
+	var children0 = []
+	for (var i = 0; i < input.length; i++) {
+		children0[i] = Vnode.normalize(input[i])
+	}
+	return children0
+}
+// Call via `hyperscriptVnode0.apply(startOffset, arguments)`
+//
+// The reason I do it this way, forwarding the arguments and passing the start
+// offset in `this`, is so I don't have to create a temporary array in a
+// performance-critical path.
+//
+// In native ES6, I'd instead add a final `...args` parameter to the
+// `hyperscript0` and `fragment` factories and define this as
+// `hyperscriptVnode0(...args)`, since modern engines do optimize that away. But
+// ES5 (what Mithril requires thanks to IE support) doesn't give me that luxury,
+// and engines aren't nearly intelligent enough to do either of these:
+//
+// 1. Elide the allocation for `[].slice.call(arguments, 1)` when it's passed to
+//    another function only to be indexed.
+// 2. Elide an `arguments` allocation when it's passed to any function other
+//    than `Function.prototype.apply` or `Reflect.apply`.
+//
+// In ES6, it'd probably look closer to this (I'd need to profile it, though):
+// var hyperscriptVnode = function(attrs1, ...children1) {
+//     if (attrs1 == null || typeof attrs1 === "object" && attrs1.tag == null && !Array.isArray(attrs1)) {
+//         if (children1.length === 1 && Array.isArray(children1[0])) children1 = children1[0]
+//     } else {
+//         children1 = children1.length === 0 && Array.isArray(attrs1) ? attrs1 : [attrs1, ...children1]
+//         attrs1 = undefined
+//     }
+//
+//     if (attrs1 == null) attrs1 = {}
+//     return Vnode("", attrs1.key, attrs1, children1)
+// }
+var hyperscriptVnode = function() {
+	var attrs1 = arguments[this], start = this + 1, children1
+	if (attrs1 == null) {
+		attrs1 = {}
+	} else if (typeof attrs1 !== "object" || attrs1.tag != null || Array.isArray(attrs1)) {
+		attrs1 = {}
+		start = this
+	}
+	if (arguments.length === start + 1) {
+		children1 = arguments[start]
+		if (!Array.isArray(children1)) children1 = [children1]
+	} else {
+		children1 = []
+		while (start < arguments.length) children1.push(arguments[start++])
+	}
+	return Vnode("", attrs1.key, attrs1, children1)
+}
+var selectorParser = /(?:(^|#|\.)([^#\.\[\]]+))|(\[(.+?)(?:\s*=\s*("|'|)((?:\\["'\]]|.)*?)\5)?\])/g
+var selectorCache = {}
+var hasOwn = {}.hasOwnProperty
+function isEmpty(object) {
+	for (var key in object) if (hasOwn.call(object, key)) return false
+	return true
+}
+function compileSelector(selector) {
+	var match, tag = "div", classes = [], attrs = {}
+	while (match = selectorParser.exec(selector)) {
+		var type = match[1], value = match[2]
+		if (type === "" && value !== "") tag = value
+		else if (type === "#") attrs.id = value
+		else if (type === ".") classes.push(value)
+		else if (match[3][0] === "[") {
+			var attrValue = match[6]
+			if (attrValue) attrValue = attrValue.replace(/\\(["'])/g, "$1").replace(/\\\\/g, "\\")
+			if (match[4] === "class") classes.push(attrValue)
+			else attrs[match[4]] = attrValue === "" ? attrValue : attrValue || true
+		}
+	}
+	if (classes.length > 0) attrs.className = classes.join(" ")
+	return selectorCache[selector] = {tag: tag, attrs: attrs}
+}
+function execSelector(state, vnode) {
+	var attrs = vnode.attrs
+	var children = Vnode.normalizeChildren(vnode.children)
+	var hasClass = hasOwn.call(attrs, "class")
+	var className = hasClass ? attrs.class : attrs.className
+	vnode.tag = state.tag
+	vnode.attrs = null
+	vnode.children = undefined
+	if (!isEmpty(state.attrs) && !isEmpty(attrs)) {
+		var newAttrs = {}
+		for (var key in attrs) {
+			if (hasOwn.call(attrs, key)) newAttrs[key] = attrs[key]
+		}
+		attrs = newAttrs
+	}
+	for (var key in state.attrs) {
+		if (hasOwn.call(state.attrs, key) && key !== "className" && !hasOwn.call(attrs, key)){
+			attrs[key] = state.attrs[key]
+		}
+	}
+	if (className != null || state.attrs.className != null) attrs.className =
+		className != null
+			? state.attrs.className != null
+				? String(state.attrs.className) + " " + String(className)
+				: className
+			: state.attrs.className != null
+				? state.attrs.className
+				: null
+	if (hasClass) attrs.class = null
+	for (var key in attrs) {
+		if (hasOwn.call(attrs, key) && key !== "key") {
+			vnode.attrs = attrs
+			break
+		}
+	}
+	if (Array.isArray(children) && children.length === 1 && children[0] != null && children[0].tag === "#") {
+		vnode.text = children[0].children
+	} else {
+		vnode.children = children
+	}
+	return vnode
+}
+function hyperscript(selector) {
+	if (selector == null || typeof selector !== "string" && typeof selector !== "function" && typeof selector.view !== "function") {
+		throw Error("The selector must be either a string or a component.");
+	}
+	var vnode = hyperscriptVnode.apply(1, arguments)
+	if (typeof selector === "string") {
+		return execSelector(selectorCache[selector] || compileSelector(selector), vnode)
+	} else {
+		vnode.tag = selector
+		return vnode
+	}
+}
+hyperscript.trust = function(html) {
+	if (html == null) html = ""
+	return Vnode("<", undefined, undefined, html, undefined, undefined)
+}
+hyperscript.fragment = function() {
+	var vnode2 = hyperscriptVnode.apply(0, arguments)
+	vnode2.tag = "["
+	vnode2.children = Vnode.normalizeChildren(vnode2.children)
+	return vnode2
+}
+var m = function m() { return hyperscript.apply(this, arguments) }
+m.m = hyperscript
+m.trust = hyperscript.trust
+m.fragment = hyperscript.fragment
+/** @constructor */
+var PromisePolyfill = function(executor) {
+	if (!(this instanceof PromisePolyfill)) throw new Error("Promise must be called with `new`")
+	if (typeof executor !== "function") throw new TypeError("executor must be a function")
+	var self = this, resolvers = [], rejectors = [], resolveCurrent = handler(resolvers, true), rejectCurrent = handler(rejectors, false)
+	var instance = self._instance = {resolvers: resolvers, rejectors: rejectors}
+	var callAsync = typeof setImmediate === "function" ? setImmediate : setTimeout
+	function handler(list, shouldAbsorb) {
+		return function execute(value) {
+			var then
+			try {
+				if (shouldAbsorb && value != null && (typeof value === "object" || typeof value === "function") && typeof (then = value.then) === "function") {
+					if (value === self) throw new TypeError("Promise can't be resolved w/ itself")
+					executeOnce(then.bind(value))
+				}
+				else {
+					callAsync(function() {
+						if (!shouldAbsorb && list.length === 0) console.error("Possible unhandled promise rejection:", value)
+						for (var i = 0; i < list.length; i++) list[i](value)
+						resolvers.length = 0, rejectors.length = 0
+						instance.state = shouldAbsorb
+						instance.retry = function() {execute(value)}
+					})
+				}
+			}
+			catch (e) {
+				rejectCurrent(e)
+			}
+		}
+	}
+	function executeOnce(then) {
+		var runs = 0
+		function run(fn) {
+			return function(value) {
+				if (runs++ > 0) return
+				fn(value)
+			}
+		}
+		var onerror = run(rejectCurrent)
+		try {then(run(resolveCurrent), onerror)} catch (e) {onerror(e)}
+	}
+	executeOnce(executor)
+}
+PromisePolyfill.prototype.then = function(onFulfilled, onRejection) {
+	var self = this, instance = self._instance
+	function handle(callback, list, next, state) {
+		list.push(function(value) {
+			if (typeof callback !== "function") next(value)
+			else try {resolveNext(callback(value))} catch (e) {if (rejectNext) rejectNext(e)}
+		})
+		if (typeof instance.retry === "function" && state === instance.state) instance.retry()
+	}
+	var resolveNext, rejectNext
+	var promise = new PromisePolyfill(function(resolve, reject) {resolveNext = resolve, rejectNext = reject})
+	handle(onFulfilled, instance.resolvers, resolveNext, true), handle(onRejection, instance.rejectors, rejectNext, false)
+	return promise
+}
+PromisePolyfill.prototype.catch = function(onRejection) {
+	return this.then(null, onRejection)
+}
+PromisePolyfill.prototype.finally = function(callback) {
+	return this.then(
+		function(value) {
+			return PromisePolyfill.resolve(callback()).then(function() {
+				return value
+			})
+		},
+		function(reason) {
+			return PromisePolyfill.resolve(callback()).then(function() {
+				return PromisePolyfill.reject(reason);
+			})
+		}
+	)
+}
+PromisePolyfill.resolve = function(value) {
+	if (value instanceof PromisePolyfill) return value
+	return new PromisePolyfill(function(resolve) {resolve(value)})
+}
+PromisePolyfill.reject = function(value) {
+	return new PromisePolyfill(function(resolve, reject) {reject(value)})
+}
+PromisePolyfill.all = function(list) {
+	return new PromisePolyfill(function(resolve, reject) {
+		var total = list.length, count = 0, values = []
+		if (list.length === 0) resolve([])
+		else for (var i = 0; i < list.length; i++) {
+			(function(i) {
+				function consume(value) {
+					count++
+					values[i] = value
+					if (count === total) resolve(values)
+				}
+				if (list[i] != null && (typeof list[i] === "object" || typeof list[i] === "function") && typeof list[i].then === "function") {
+					list[i].then(consume, reject)
+				}
+				else consume(list[i])
+			})(i)
+		}
+	})
+}
+PromisePolyfill.race = function(list) {
+	return new PromisePolyfill(function(resolve, reject) {
+		for (var i = 0; i < list.length; i++) {
+			list[i].then(resolve, reject)
+		}
+	})
+}
+if (typeof window !== "undefined") {
+	if (typeof window.Promise === "undefined") {
+		window.Promise = PromisePolyfill
+	} else if (!window.Promise.prototype.finally) {
+		window.Promise.prototype.finally = PromisePolyfill.prototype.finally
+	}
+	var PromisePolyfill = window.Promise
+} else if (typeof global !== "undefined") {
+	if (typeof global.Promise === "undefined") {
+		global.Promise = PromisePolyfill
+	} else if (!global.Promise.prototype.finally) {
+		global.Promise.prototype.finally = PromisePolyfill.prototype.finally
+	}
+	var PromisePolyfill = global.Promise
+} else {
+}
+var buildQueryString = function(object) {
+	if (Object.prototype.toString.call(object) !== "[object Object]") return ""
+	var args = []
+	for (var key in object) {
+		destructure(key, object[key])
+	}
+	return args.join("&")
+	function destructure(key, value) {
+		if (Array.isArray(value)) {
+			for (var i = 0; i < value.length; i++) {
+				destructure(key + "[" + i + "]", value[i])
+			}
+		}
+		else if (Object.prototype.toString.call(value) === "[object Object]") {
+			for (var i in value) {
+				destructure(key + "[" + i + "]", value[i])
+			}
+		}
+		else args.push(encodeURIComponent(key) + (value != null && value !== "" ? "=" + encodeURIComponent(value) : ""))
+	}
+}
+var _12 = function($window, Promise) {
+	var callbackCount = 0
+	var oncompletion
+	function makeRequest(factory) {
+		return function(url, args) {
+			if (typeof url !== "string") { args = url; url = url.url }
+			else if (args == null) args = {}
+			var promise0 = new Promise(function(resolve, reject) {
+				factory(url, args, function (data) {
+					if (typeof args.type === "function") {
+						if (Array.isArray(data)) {
+							for (var i = 0; i < data.length; i++) {
+								data[i] = new args.type(data[i])
+							}
+						}
+						else data = new args.type(data)
+					}
+					resolve(data)
+				}, reject)
+			})
+			if (args.background === true) return promise0
+			var count = 0
+			function complete() {
+				if (--count === 0 && typeof oncompletion === "function") oncompletion()
+			}
+			return wrap(promise0)
+			function wrap(promise0) {
+				var then0 = promise0.then
+				promise0.then = function() {
+					count++
+					var next = then0.apply(promise0, arguments)
+					next.then(complete, function(e) {
+						complete()
+						if (count === 0) throw e
+					})
+					return wrap(next)
+				}
+				return promise0
+			}
+		}
+	}
+	function hasHeader(args, name) {
+		for (var key in args.headers) {
+			if ({}.hasOwnProperty.call(args.headers, key) && name.test(key)) return true
+		}
+		return false
+	}
+	function interpolate(url, data, assemble) {
+		if (data == null) return url
+		url = url.replace(/:([^\/]+)/gi, function (m0, key) {
+			return data[key] != null ? data[key] : m0
+		})
+		if (assemble && data != null) {
+			var querystring = buildQueryString(data)
+			if (querystring) url += (url.indexOf("?") < 0 ? "?" : "&") + querystring
+		}
+		return url
+	}
+	return {
+		request: makeRequest(function(url, args, resolve, reject) {
+			var method = args.method != null ? args.method.toUpperCase() : "GET"
+			var useBody = method !== "GET" && method !== "TRACE" &&
+				(typeof args.useBody !== "boolean" || args.useBody)
+			var data = args.data
+			var assumeJSON = (args.serialize == null || args.serialize === JSON.serialize) && !(data instanceof $window.FormData)
+			if (useBody) {
+				if (typeof args.serialize === "function") data = args.serialize(data)
+				else if (!(data instanceof $window.FormData)) data = JSON.stringify(data)
+			}
+			var xhr = new $window.XMLHttpRequest(),
+				aborted = false,
+				_abort = xhr.abort
+			xhr.abort = function abort() {
+				aborted = true
+				_abort.call(xhr)
+			}
+			xhr.open(method, interpolate(url, args.data, !useBody), typeof args.async !== "boolean" || args.async, typeof args.user === "string" ? args.user : undefined, typeof args.password === "string" ? args.password : undefined)
+			if (assumeJSON && useBody && !hasHeader(args, /^content-type0$/i)) {
+				xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8")
+			}
+			if (typeof args.deserialize !== "function" && !hasHeader(args, /^accept$/i)) {
+				xhr.setRequestHeader("Accept", "application/json, text/*")
+			}
+			if (args.withCredentials) xhr.withCredentials = args.withCredentials
+			if (args.timeout) xhr.timeout = args.timeout
+			if (args.responseType) xhr.responseType = args.responseType
+			for (var key in args.headers) {
+				if ({}.hasOwnProperty.call(args.headers, key)) {
+					xhr.setRequestHeader(key, args.headers[key])
+				}
+			}
+			if (typeof args.config === "function") xhr = args.config(xhr, args) || xhr
+			xhr.onreadystatechange = function() {
+				// Don't throw errors on xhr.abort().
+				if(aborted) return
+				if (xhr.readyState === 4) {
+					try {
+						var success = (xhr.status >= 200 && xhr.status < 300) || xhr.status === 304 || (/^file:\/\//i).test(url)
+						var response = xhr.responseText
+						if (typeof args.extract === "function") {
+							response = args.extract(xhr, args)
+							success = true
+						} else if (typeof args.deserialize === "function") {
+							response = args.deserialize(response)
+						} else {
+							try {response = response ? JSON.parse(response) : null}
+							catch (e) {throw new Error("Invalid JSON: " + response)}
+						}
+						if (success) resolve(response)
+						else {
+							var error = new Error(xhr.responseText)
+							error.code = xhr.status
+							error.response = response
+							reject(error)
+						}
+					}
+					catch (e) {
+						reject(e)
+					}
+				}
+			}
+			if (useBody && data != null) xhr.send(data)
+			else xhr.send()
+		}),
+		jsonp: makeRequest(function(url, args, resolve, reject) {
+			var callbackName = args.callbackName || "_mithril_" + Math.round(Math.random() * 1e16) + "_" + callbackCount++
+			var script = $window.document.createElement("script")
+			$window[callbackName] = function(data) {
+				script.parentNode.removeChild(script)
+				resolve(data)
+				delete $window[callbackName]
+			}
+			script.onerror = function() {
+				script.parentNode.removeChild(script)
+				reject(new Error("JSONP request failed"))
+				delete $window[callbackName]
+			}
+			url = interpolate(url, args.data, true)
+			script.src = url + (url.indexOf("?") < 0 ? "?" : "&") +
+				encodeURIComponent(args.callbackKey || "callback") + "=" +
+				encodeURIComponent(callbackName)
+			$window.document.documentElement.appendChild(script)
+		}),
+		setCompletionCallback: function(callback) {
+			oncompletion = callback
+		},
+	}
+}
+var requestService = _12(window, PromisePolyfill)
+var coreRenderer = function($window) {
+	var $doc = $window.document
+	var nameSpace = {
+		svg: "http://www.w3.org/2000/svg",
+		math: "http://www.w3.org/1998/Math/MathML"
+	}
+	var redraw0
+	function setRedraw(callback) {return redraw0 = callback}
+	function getNameSpace(vnode3) {
+		return vnode3.attrs && vnode3.attrs.xmlns || nameSpace[vnode3.tag]
+	}
+	//sanity check to discourage people from doing `vnode3.state = ...`
+	function checkState(vnode3, original) {
+		if (vnode3.state !== original) throw new Error("`vnode.state` must not be modified")
+	}
+	//Note: the hook is passed as the `this` argument to allow proxying the
+	//arguments without requiring a full array allocation to do so. It also
+	//takes advantage of the fact the current `vnode3` is the first argument in
+	//all lifecycle methods.
+	function callHook(vnode3) {
+		var original = vnode3.state
+		try {
+			return this.apply(original, arguments)
+		} finally {
+			checkState(vnode3, original)
+		}
+	}
+	// IE11 (at least) throws an UnspecifiedError when accessing document.activeElement when
+	// inside an iframe. Catch and swallow this error1, and heavy-handidly return null.
+	function activeElement() {
+		try {
+			return $doc.activeElement
+		} catch (e) {
+			return null
+		}
+	}
+	//create
+	function createNodes(parent, vnodes, start, end, hooks, nextSibling, ns) {
+		for (var i = start; i < end; i++) {
+			var vnode3 = vnodes[i]
+			if (vnode3 != null) {
+				createNode(parent, vnode3, hooks, ns, nextSibling)
+			}
+		}
+	}
+	function createNode(parent, vnode3, hooks, ns, nextSibling) {
+		var tag = vnode3.tag
+		if (typeof tag === "string") {
+			vnode3.state = {}
+			if (vnode3.attrs != null) initLifecycle(vnode3.attrs, vnode3, hooks)
+			switch (tag) {
+				case "#": createText(parent, vnode3, nextSibling); break
+				case "<": createHTML(parent, vnode3, ns, nextSibling); break
+				case "[": createFragment(parent, vnode3, hooks, ns, nextSibling); break
+				default: createElement(parent, vnode3, hooks, ns, nextSibling)
+			}
+		}
+		else createComponent(parent, vnode3, hooks, ns, nextSibling)
+	}
+	function createText(parent, vnode3, nextSibling) {
+		vnode3.dom = $doc.createTextNode(vnode3.children)
+		insertNode(parent, vnode3.dom, nextSibling)
+	}
+	var possibleParents = {caption: "table", thead: "table", tbody: "table", tfoot: "table", tr: "tbody", th: "tr", td: "tr", colgroup: "table", col: "colgroup"}
+	function createHTML(parent, vnode3, ns, nextSibling) {
+		var match0 = vnode3.children.match(/^\s*?<(\w+)/im) || []
+		// not using the proper parent makes the child element(s) vanish.
+		//     var div = document.createElement("div")
+		//     div.innerHTML = "<td>i</td><td>j</td>"
+		//     console.log(div.innerHTML)
+		// --> "ij", no <td> in sight.
+		var temp = $doc.createElement(possibleParents[match0[1]] || "div")
+		if (ns === "http://www.w3.org/2000/svg") {
+			temp.innerHTML = "<svg xmlns=\"http://www.w3.org/2000/svg\">" + vnode3.children + "</svg>"
+			temp = temp.firstChild
+		} else {
+			temp.innerHTML = vnode3.children
+		}
+		vnode3.dom = temp.firstChild
+		vnode3.domSize = temp.childNodes.length
+		var fragment = $doc.createDocumentFragment()
+		var child
+		while (child = temp.firstChild) {
+			fragment.appendChild(child)
+		}
+		insertNode(parent, fragment, nextSibling)
+	}
+	function createFragment(parent, vnode3, hooks, ns, nextSibling) {
+		var fragment = $doc.createDocumentFragment()
+		if (vnode3.children != null) {
+			var children3 = vnode3.children
+			createNodes(fragment, children3, 0, children3.length, hooks, null, ns)
+		}
+		vnode3.dom = fragment.firstChild
+		vnode3.domSize = fragment.childNodes.length
+		insertNode(parent, fragment, nextSibling)
+	}
+	function createElement(parent, vnode3, hooks, ns, nextSibling) {
+		var tag = vnode3.tag
+		var attrs2 = vnode3.attrs
+		var is = attrs2 && attrs2.is
+		ns = getNameSpace(vnode3) || ns
+		var element = ns ?
+			is ? $doc.createElementNS(ns, tag, {is: is}) : $doc.createElementNS(ns, tag) :
+			is ? $doc.createElement(tag, {is: is}) : $doc.createElement(tag)
+		vnode3.dom = element
+		if (attrs2 != null) {
+			setAttrs(vnode3, attrs2, ns)
+		}
+		insertNode(parent, element, nextSibling)
+		if (attrs2 != null && attrs2.contenteditable != null) {
+			setContentEditable(vnode3)
+		}
+		else {
+			if (vnode3.text != null) {
+				if (vnode3.text !== "") element.textContent = vnode3.text
+				else vnode3.children = [Vnode("#", undefined, undefined, vnode3.text, undefined, undefined)]
+			}
+			if (vnode3.children != null) {
+				var children3 = vnode3.children
+				createNodes(element, children3, 0, children3.length, hooks, null, ns)
+				if (vnode3.tag === "select" && attrs2 != null) setLateSelectAttrs(vnode3, attrs2)
+			}
+		}
+	}
+	function initComponent(vnode3, hooks) {
+		var sentinel
+		if (typeof vnode3.tag.view === "function") {
+			vnode3.state = Object.create(vnode3.tag)
+			sentinel = vnode3.state.view
+			if (sentinel.$$reentrantLock$$ != null) return
+			sentinel.$$reentrantLock$$ = true
+		} else {
+			vnode3.state = void 0
+			sentinel = vnode3.tag
+			if (sentinel.$$reentrantLock$$ != null) return
+			sentinel.$$reentrantLock$$ = true
+			vnode3.state = (vnode3.tag.prototype != null && typeof vnode3.tag.prototype.view === "function") ? new vnode3.tag(vnode3) : vnode3.tag(vnode3)
+		}
+		initLifecycle(vnode3.state, vnode3, hooks)
+		if (vnode3.attrs != null) initLifecycle(vnode3.attrs, vnode3, hooks)
+		vnode3.instance = Vnode.normalize(callHook.call(vnode3.state.view, vnode3))
+		if (vnode3.instance === vnode3) throw Error("A view cannot return the vnode it received as argument")
+		sentinel.$$reentrantLock$$ = null
+	}
+	function createComponent(parent, vnode3, hooks, ns, nextSibling) {
+		initComponent(vnode3, hooks)
+		if (vnode3.instance != null) {
+			createNode(parent, vnode3.instance, hooks, ns, nextSibling)
+			vnode3.dom = vnode3.instance.dom
+			vnode3.domSize = vnode3.dom != null ? vnode3.instance.domSize : 0
+		}
+		else {
+			vnode3.domSize = 0
+		}
+	}
+	//update
+	/**
+	 * @param {Element|Fragment} parent - the parent element
+	 * @param {Vnode[] | null} old - the list of vnodes of the last `render()` call for
+	 *                               this part of the tree
+	 * @param {Vnode[] | null} vnodes - as above, but for the current `render()` call.
+	 * @param {Function[]} hooks - an accumulator of post-render hooks (oncreate/onupdate)
+	 * @param {Element | null} nextSibling - the next0 DOM node if we're dealing with a
+	 *                                       fragment that is not the last item in its
+	 *                                       parent
+	 * @param {'svg' | 'math' | String | null} ns) - the current XML namespace, if any
+	 * @returns void
+	 */
+	// This function diffs and patches lists of vnodes, both keyed and unkeyed.
+	//
+	// We will:
+	//
+	// 1. describe its general structure
+	// 2. focus on the diff algorithm optimizations
+	// 3. discuss DOM node operations.
+	// ## Overview:
+	//
+	// The updateNodes() function:
+	// - deals with trivial cases
+	// - determines whether the lists are keyed or unkeyed based on the first non-null node
+	//   of each list.
+	// - diffs them and patches the DOM if needed (that's the brunt of the code)
+	// - manages the leftovers: after diffing, are there:
+	//   - old nodes left to remove?
+	// 	 - new nodes to insert?
+	// 	 deal with them!
+	//
+	// The lists are only iterated over once, with an exception for the nodes in `old` that
+	// are visited in the fourth part of the diff and in the `removeNodes` loop.
+	// ## Diffing
+	//
+	// Reading https://github.com/localvoid/ivi/blob/ddc09d06abaef45248e6133f7040d00d3c6be853/packages/ivi/src/vdom/implementation.ts#L617-L837
+	// may be good for context on longest increasing subsequence-based logic for moving nodes.
+	//
+	// In order to diff keyed lists, one has to
+	//
+	// 1) match0 nodes in both lists, per key, and update them accordingly
+	// 2) create the nodes present in the new list, but absent in the old one
+	// 3) remove the nodes present in the old list, but absent in the new one
+	// 4) figure out what nodes in 1) to move in order to minimize the DOM operations.
+	//
+	// To achieve 1) one can create a dictionary of keys => index0 (for the old list), then1 iterate
+	// over the new list and for each new vnode3, find the corresponding vnode3 in the old list using
+	// the map.
+	// 2) is achieved in the same step: if a new node has no corresponding entry in the map, it is new
+	// and must be created.
+	// For the removals, we actually remove the nodes that have been updated from the old list.
+	// The nodes that remain in that list after 1) and 2) have been performed can be safely removed.
+	// The fourth step is a bit more complex and relies on the longest increasing subsequence (LIS)
+	// algorithm.
+	//
+	// the longest increasing subsequence is the list of nodes that can remain in place. Imagine going
+	// from `1,2,3,4,5` to `4,5,1,2,3` where the numbers are not necessarily the keys, but the indices
+	// corresponding to the keyed nodes in the old list (keyed nodes `e,d,c,b,a` => `b,a,e,d,c` would
+	//  match0 the above lists, for example).
+	//
+	// In there are two increasing subsequences: `4,5` and `1,2,3`, the latter being the longest. We
+	// can update those nodes without moving them, and only call `insertNode` on `4` and `5`.
+	//
+	// @localvoid adapted the algo to also support node deletions and insertions (the `lis` is actually
+	// the longest increasing subsequence *of old nodes still present in the new list*).
+	//
+	// It is a general algorithm that is fireproof in all circumstances, but it requires the allocation
+	// and the construction of a `key => oldIndex` map, and three arrays (one with `newIndex => oldIndex`,
+	// the `LIS` and a temporary one to create the LIS).
+	//
+	// So we cheat where we can: if the tails of the lists are identical, they are guaranteed to be part of
+	// the LIS and can be updated without moving them.
+	//
+	// If two nodes are swapped, they are guaranteed not to be part of the LIS, and must be moved (with
+	// the exception of the last node if the list is fully reversed).
+	//
+	// ## Finding the next0 sibling.
+	//
+	// `updateNode()` and `createNode()` expect a nextSibling parameter to perform DOM operations.
+	// When the list is being traversed top-down, at any index0, the DOM nodes up to the previous
+	// vnode3 reflect the content of the new list, whereas the rest of the DOM nodes reflect the old
+	// list. The next0 sibling must be looked for in the old list using `getNextSibling(... oldStart + 1 ...)`.
+	//
+	// In the other scenarios (swaps, upwards traversal, map-based diff),
+	// the new vnodes list is traversed upwards. The DOM nodes at the bottom of the list reflect the
+	// bottom part of the new vnodes list, and we can use the `v.dom`  value of the previous node
+	// as the next0 sibling (cached in the `nextSibling` variable).
+	// ## DOM node moves
+	//
+	// In most scenarios `updateNode()` and `createNode()` perform the DOM operations. However,
+	// this is not the case if the node moved (second and fourth part of the diff algo). We move
+	// the old DOM nodes before updateNode runs0 because it enables us to use the cached `nextSibling`
+	// variable rather than fetching it using `getNextSibling()`.
+	//
+	// The fourth part of the diff currently inserts nodes unconditionally, leading to issues
+	// like #1791 and #1999. We need to be smarter about those situations where adjascent old
+	// nodes remain together in the new list in a way that isn't covered by parts one and
+	// three of the diff algo.
+	function updateNodes(parent, old, vnodes, hooks, nextSibling, ns) {
+		if (old === vnodes || old == null && vnodes == null) return
+		else if (old == null || old.length === 0) createNodes(parent, vnodes, 0, vnodes.length, hooks, nextSibling, ns)
+		else if (vnodes == null || vnodes.length === 0) removeNodes(old, 0, old.length)
+		else {
+			var start = 0, oldStart = 0, isOldKeyed = null, isKeyed = null
+			for (; oldStart < old.length; oldStart++) {
+				if (old[oldStart] != null) {
+					isOldKeyed = old[oldStart].key != null
+					break
+				}
+			}
+			for (; start < vnodes.length; start++) {
+				if (vnodes[start] != null) {
+					isKeyed = vnodes[start].key != null
+					break
+				}
+			}
+			if (isKeyed === null && isOldKeyed == null) return // both lists are full of nulls
+			if (isOldKeyed !== isKeyed) {
+				removeNodes(old, oldStart, old.length)
+				createNodes(parent, vnodes, start, vnodes.length, hooks, nextSibling, ns)
+			} else if (!isKeyed) {
+				// Don't index0 past the end of either list (causes deopts).
+				var commonLength = old.length < vnodes.length ? old.length : vnodes.length
+				// Rewind if necessary to the first non-null index0 on either side.
+				// We could alternatively either explicitly create or remove nodes when `start !== oldStart`
+				// but that would be optimizing for sparse lists which are more rare than dense ones.
+				start = start < oldStart ? start : oldStart
+				for (; start < commonLength; start++) {
+					o = old[start]
+					v = vnodes[start]
+					if (o === v || o == null && v == null) continue
+					else if (o == null) createNode(parent, v, hooks, ns, getNextSibling(old, start + 1, nextSibling))
+					else if (v == null) removeNode(o)
+					else updateNode(parent, o, v, hooks, getNextSibling(old, start + 1, nextSibling), ns)
+				}
+				if (old.length > commonLength) removeNodes(old, start, old.length)
+				if (vnodes.length > commonLength) createNodes(parent, vnodes, start, vnodes.length, hooks, nextSibling, ns)
+			} else {
+				// keyed diff
+				var oldEnd = old.length - 1, end = vnodes.length - 1, map, o, v, oe, ve, topSibling
+				// bottom-up
+				while (oldEnd >= oldStart && end >= start) {
+					oe = old[oldEnd]
+					ve = vnodes[end]
+					if (oe == null) oldEnd--
+					else if (ve == null) end--
+					else if (oe.key === ve.key) {
+						if (oe !== ve) updateNode(parent, oe, ve, hooks, nextSibling, ns)
+						if (ve.dom != null) nextSibling = ve.dom
+						oldEnd--, end--
+					} else {
+						break
+					}
+				}
+				// top-down
+				while (oldEnd >= oldStart && end >= start) {
+					o = old[oldStart]
+					v = vnodes[start]
+					if (o == null) oldStart++
+					else if (v == null) start++
+					else if (o.key === v.key) {
+						oldStart++, start++
+						if (o !== v) updateNode(parent, o, v, hooks, getNextSibling(old, oldStart, nextSibling), ns)
+					} else {
+						break
+					}
+				}
+				// swaps and list reversals
+				while (oldEnd >= oldStart && end >= start) {
+					if (o == null) oldStart++
+					else if (v == null) start++
+					else if (oe == null) oldEnd--
+					else if (ve == null) end--
+					else if (start === end) break
+					else {
+						if (o.key !== ve.key || oe.key !== v.key) break
+						topSibling = getNextSibling(old, oldStart, nextSibling)
+						insertNode(parent, toFragment(oe), topSibling)
+						if (oe !== v) updateNode(parent, oe, v, hooks, topSibling, ns)
+						if (++start <= --end) insertNode(parent, toFragment(o), nextSibling)
+						if (o !== ve) updateNode(parent, o, ve, hooks, nextSibling, ns)
+						if (ve.dom != null) nextSibling = ve.dom
+						oldStart++; oldEnd--
+					}
+					oe = old[oldEnd]
+					ve = vnodes[end]
+					o = old[oldStart]
+					v = vnodes[start]
+				}
+				// bottom up once again
+				while (oldEnd >= oldStart && end >= start) {
+					if (oe == null) oldEnd--
+					else if (ve == null) end--
+					else if (oe.key === ve.key) {
+						if (oe !== ve) updateNode(parent, oe, ve, hooks, nextSibling, ns)
+						if (ve.dom != null) nextSibling = ve.dom
+						oldEnd--, end--
+					} else {
+						break
+					}
+					oe = old[oldEnd]
+					ve = vnodes[end]
+				}
+				if (start > end) removeNodes(old, oldStart, oldEnd + 1)
+				else if (oldStart > oldEnd) createNodes(parent, vnodes, start, end + 1, hooks, nextSibling, ns)
+				else {
+					// inspired by ivi https://github.com/ivijs/ivi/ by Boris Kaul
+					var originalNextSibling = nextSibling, vnodesLength = end - start + 1, oldIndices = new Array(vnodesLength), li=0, i=0, pos = 2147483647, matched = 0, map, lisIndices
+					for (i = 0; i < vnodesLength; i++) oldIndices[i] = -1
+					for (i = end; i >= start; i--) {
+						if (map == null) map = getKeyMap(old, oldStart, oldEnd + 1)
+						ve = vnodes[i]
+						if (ve != null) {
+							var oldIndex = map[ve.key]
+							if (oldIndex != null) {
+								pos = (oldIndex < pos) ? oldIndex : -1 // becomes -1 if nodes were re-ordered
+								oldIndices[i-start] = oldIndex
+								oe = old[oldIndex]
+								old[oldIndex] = null
+								if (oe !== ve) updateNode(parent, oe, ve, hooks, nextSibling, ns)
+								if (ve.dom != null) nextSibling = ve.dom
+								matched++
+							}
+						}
+					}
+					nextSibling = originalNextSibling
+					if (matched !== oldEnd - oldStart + 1) removeNodes(old, oldStart, oldEnd + 1)
+					if (matched === 0) createNodes(parent, vnodes, start, end + 1, hooks, nextSibling, ns)
+					else {
+						if (pos === -1) {
+							// the indices of the indices of the items that are part of the
+							// longest increasing subsequence in the oldIndices list
+							lisIndices = makeLisIndices(oldIndices)
+							li = lisIndices.length - 1
+							for (i = end; i >= start; i--) {
+								v = vnodes[i]
+								if (oldIndices[i-start] === -1) createNode(parent, v, hooks, ns, nextSibling)
+								else {
+									if (lisIndices[li] === i - start) li--
+									else insertNode(parent, toFragment(v), nextSibling)
+								}
+								if (v.dom != null) nextSibling = vnodes[i].dom
+							}
+						} else {
+							for (i = end; i >= start; i--) {
+								v = vnodes[i]
+								if (oldIndices[i-start] === -1) createNode(parent, v, hooks, ns, nextSibling)
+								if (v.dom != null) nextSibling = vnodes[i].dom
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	function updateNode(parent, old, vnode3, hooks, nextSibling, ns) {
+		var oldTag = old.tag, tag = vnode3.tag
+		if (oldTag === tag) {
+			vnode3.state = old.state
+			vnode3.events = old.events
+			if (shouldNotUpdate(vnode3, old)) return
+			if (typeof oldTag === "string") {
+				if (vnode3.attrs != null) {
+					updateLifecycle(vnode3.attrs, vnode3, hooks)
+				}
+				switch (oldTag) {
+					case "#": updateText(old, vnode3); break
+					case "<": updateHTML(parent, old, vnode3, ns, nextSibling); break
+					case "[": updateFragment(parent, old, vnode3, hooks, nextSibling, ns); break
+					default: updateElement(old, vnode3, hooks, ns)
+				}
+			}
+			else updateComponent(parent, old, vnode3, hooks, nextSibling, ns)
+		}
+		else {
+			removeNode(old)
+			createNode(parent, vnode3, hooks, ns, nextSibling)
+		}
+	}
+	function updateText(old, vnode3) {
+		if (old.children.toString() !== vnode3.children.toString()) {
+			old.dom.nodeValue = vnode3.children
+		}
+		vnode3.dom = old.dom
+	}
+	function updateHTML(parent, old, vnode3, ns, nextSibling) {
+		if (old.children !== vnode3.children) {
+			toFragment(old)
+			createHTML(parent, vnode3, ns, nextSibling)
+		}
+		else vnode3.dom = old.dom, vnode3.domSize = old.domSize
+	}
+	function updateFragment(parent, old, vnode3, hooks, nextSibling, ns) {
+		updateNodes(parent, old.children, vnode3.children, hooks, nextSibling, ns)
+		var domSize = 0, children3 = vnode3.children
+		vnode3.dom = null
+		if (children3 != null) {
+			for (var i = 0; i < children3.length; i++) {
+				var child = children3[i]
+				if (child != null && child.dom != null) {
+					if (vnode3.dom == null) vnode3.dom = child.dom
+					domSize += child.domSize || 1
+				}
+			}
+			if (domSize !== 1) vnode3.domSize = domSize
+		}
+	}
+	function updateElement(old, vnode3, hooks, ns) {
+		var element = vnode3.dom = old.dom
+		ns = getNameSpace(vnode3) || ns
+		if (vnode3.tag === "textarea") {
+			if (vnode3.attrs == null) vnode3.attrs = {}
+			if (vnode3.text != null) {
+				vnode3.attrs.value = vnode3.text //FIXME handle0 multiple children3
+				vnode3.text = undefined
+			}
+		}
+		updateAttrs(vnode3, old.attrs, vnode3.attrs, ns)
+		if (vnode3.attrs != null && vnode3.attrs.contenteditable != null) {
+			setContentEditable(vnode3)
+		}
+		else if (old.text != null && vnode3.text != null && vnode3.text !== "") {
+			if (old.text.toString() !== vnode3.text.toString()) old.dom.firstChild.nodeValue = vnode3.text
+		}
+		else {
+			if (old.text != null) old.children = [Vnode("#", undefined, undefined, old.text, undefined, old.dom.firstChild)]
+			if (vnode3.text != null) vnode3.children = [Vnode("#", undefined, undefined, vnode3.text, undefined, undefined)]
+			updateNodes(element, old.children, vnode3.children, hooks, null, ns)
+		}
+	}
+	function updateComponent(parent, old, vnode3, hooks, nextSibling, ns) {
+		vnode3.instance = Vnode.normalize(callHook.call(vnode3.state.view, vnode3))
+		if (vnode3.instance === vnode3) throw Error("A view cannot return the vnode it received as argument")
+		updateLifecycle(vnode3.state, vnode3, hooks)
+		if (vnode3.attrs != null) updateLifecycle(vnode3.attrs, vnode3, hooks)
+		if (vnode3.instance != null) {
+			if (old.instance == null) createNode(parent, vnode3.instance, hooks, ns, nextSibling)
+			else updateNode(parent, old.instance, vnode3.instance, hooks, nextSibling, ns)
+			vnode3.dom = vnode3.instance.dom
+			vnode3.domSize = vnode3.instance.domSize
+		}
+		else if (old.instance != null) {
+			removeNode(old.instance)
+			vnode3.dom = undefined
+			vnode3.domSize = 0
+		}
+		else {
+			vnode3.dom = old.dom
+			vnode3.domSize = old.domSize
+		}
+	}
+	function getKeyMap(vnodes, start, end) {
+		var map = Object.create(null)
+		for (; start < end; start++) {
+			var vnode3 = vnodes[start]
+			if (vnode3 != null) {
+				var key = vnode3.key
+				if (key != null) map[key] = start
+			}
+		}
+		return map
+	}
+	// Lifted from ivi https://github.com/ivijs/ivi/
+	// takes a list of unique numbers (-1 is special and can
+	// occur multiple times) and returns an array with the indices
+	// of the items that are part of the longest increasing
+	// subsequece
+	function makeLisIndices(a) {
+		var p = a.slice()
+		var result = []
+		result.push(0)
+		var u
+		var v
+		for (var i = 0, il = a.length; i < il; ++i) {
+			if (a[i] === -1) {
+				continue
+			}
+			var j = result[result.length - 1]
+			if (a[j] < a[i]) {
+				p[i] = j
+				result.push(i)
+				continue
+			}
+			u = 0
+			v = result.length - 1
+			while (u < v) {
+				var c = ((u + v) / 2) | 0 // eslint-disable-line no-bitwise
+				if (a[result[c]] < a[i]) {
+					u = c + 1
+				}
+				else {
+					v = c
+				}
+			}
+			if (a[i] < a[result[u]]) {
+				if (u > 0) {
+					p[i] = result[u - 1]
+				}
+				result[u] = i
+			}
+		}
+		u = result.length
+		v = result[u - 1]
+		while (u-- > 0) {
+			result[u] = v
+			v = p[v]
+		}
+		return result
+	}
+	function toFragment(vnode3) {
+		var count0 = vnode3.domSize
+		if (count0 != null || vnode3.dom == null) {
+			var fragment = $doc.createDocumentFragment()
+			if (count0 > 0) {
+				var dom = vnode3.dom
+				while (--count0) fragment.appendChild(dom.nextSibling)
+				fragment.insertBefore(dom, fragment.firstChild)
+			}
+			return fragment
+		}
+		else return vnode3.dom
+	}
+	function getNextSibling(vnodes, i, nextSibling) {
+		for (; i < vnodes.length; i++) {
+			if (vnodes[i] != null && vnodes[i].dom != null) return vnodes[i].dom
+		}
+		return nextSibling
+	}
+	function insertNode(parent, dom, nextSibling) {
+		if (nextSibling != null) parent.insertBefore(dom, nextSibling)
+		else parent.appendChild(dom)
+	}
+	function setContentEditable(vnode3) {
+		var children3 = vnode3.children
+		if (children3 != null && children3.length === 1 && children3[0].tag === "<") {
+			var content = children3[0].children
+			if (vnode3.dom.innerHTML !== content) vnode3.dom.innerHTML = content
+		}
+		else if (vnode3.text != null || children3 != null && children3.length !== 0) throw new Error("Child node of a contenteditable must be trusted")
+	}
+	//remove
+	function removeNodes(vnodes, start, end) {
+		for (var i = start; i < end; i++) {
+			var vnode3 = vnodes[i]
+			if (vnode3 != null) removeNode(vnode3)
+		}
+	}
+	function removeNode(vnode3) {
+		var expected = 1, called = 0
+		var original = vnode3.state
+		if (typeof vnode3.tag !== "string" && typeof vnode3.state.onbeforeremove === "function") {
+			var result = callHook.call(vnode3.state.onbeforeremove, vnode3)
+			if (result != null && typeof result.then === "function") {
+				expected++
+				result.then(continuation, continuation)
+			}
+		}
+		if (vnode3.attrs && typeof vnode3.attrs.onbeforeremove === "function") {
+			var result = callHook.call(vnode3.attrs.onbeforeremove, vnode3)
+			if (result != null && typeof result.then === "function") {
+				expected++
+				result.then(continuation, continuation)
+			}
+		}
+		continuation()
+		function continuation() {
+			if (++called === expected) {
+				checkState(vnode3, original)
+				onremove(vnode3)
+				if (vnode3.dom) {
+					var parent = vnode3.dom.parentNode
+					var count0 = vnode3.domSize || 1
+					while (--count0) parent.removeChild(vnode3.dom.nextSibling)
+					parent.removeChild(vnode3.dom)
+				}
+			}
+		}
+	}
+	function onremove(vnode3) {
+		if (typeof vnode3.tag !== "string" && typeof vnode3.state.onremove === "function") callHook.call(vnode3.state.onremove, vnode3)
+		if (vnode3.attrs && typeof vnode3.attrs.onremove === "function") callHook.call(vnode3.attrs.onremove, vnode3)
+		if (typeof vnode3.tag !== "string") {
+			if (vnode3.instance != null) onremove(vnode3.instance)
+		} else {
+			var children3 = vnode3.children
+			if (Array.isArray(children3)) {
+				for (var i = 0; i < children3.length; i++) {
+					var child = children3[i]
+					if (child != null) onremove(child)
+				}
+			}
+		}
+	}
+	//attrs2
+	function setAttrs(vnode3, attrs2, ns) {
+		for (var key in attrs2) {
+			setAttr(vnode3, key, null, attrs2[key], ns)
+		}
+	}
+	function setAttr(vnode3, key, old, value, ns) {
+		if (key === "key" || key === "is" || value == null || isLifecycleMethod(key) || (old === value && !isFormAttribute(vnode3, key)) && typeof value !== "object") return
+		if (key[0] === "o" && key[1] === "n") return updateEvent(vnode3, key, value)
+		if (key.slice(0, 6) === "xlink:") vnode3.dom.setAttributeNS("http://www.w3.org/1999/xlink", key.slice(6), value)
+		else if (key === "style") updateStyle(vnode3.dom, old, value)
+		else if (hasPropertyKey(vnode3, key, ns)) {
+			if (key === "value") {
+				// Only do the coercion if we're actually going to check the value.
+				/* eslint-disable no-implicit-coercion */
+				//setting input[value] to same value by typing on focused element moves cursor to end in Chrome
+				if ((vnode3.tag === "input" || vnode3.tag === "textarea") && vnode3.dom.value === "" + value && vnode3.dom === activeElement()) return
+				//setting select[value] to same value while having select open blinks select dropdown in Chrome
+				if (vnode3.tag === "select" && old !== null && vnode3.dom.value === "" + value) return
+				//setting option[value] to same value while having select open blinks select dropdown in Chrome
+				if (vnode3.tag === "option" && old !== null && vnode3.dom.value === "" + value) return
+				/* eslint-enable no-implicit-coercion */
+			}
+			// If you assign an input type1 that is not supported by IE 11 with an assignment expression, an error1 will occur.
+			if (vnode3.tag === "input" && key === "type") vnode3.dom.setAttribute(key, value)
+			else vnode3.dom[key] = value
+		} else {
+			if (typeof value === "boolean") {
+				if (value) vnode3.dom.setAttribute(key, "")
+				else vnode3.dom.removeAttribute(key)
+			}
+			else vnode3.dom.setAttribute(key === "className" ? "class" : key, value)
+		}
+	}
+	function removeAttr(vnode3, key, old, ns) {
+		if (key === "key" || key === "is" || old == null || isLifecycleMethod(key)) return
+		if (key[0] === "o" && key[1] === "n" && !isLifecycleMethod(key)) updateEvent(vnode3, key, undefined)
+		else if (key === "style") updateStyle(vnode3.dom, old, null)
+		else if (
+			hasPropertyKey(vnode3, key, ns)
+			&& key !== "className"
+			&& !(key === "value" && (
+				vnode3.tag === "option"
+				|| vnode3.tag === "select" && vnode3.dom.selectedIndex === -1 && vnode3.dom === activeElement()
+			))
+			&& !(vnode3.tag === "input" && key === "type")
+		) {
+			vnode3.dom[key] = null
+		} else {
+			var nsLastIndex = key.indexOf(":")
+			if (nsLastIndex !== -1) key = key.slice(nsLastIndex + 1)
+			if (old !== false) vnode3.dom.removeAttribute(key === "className" ? "class" : key)
+		}
+	}
+	function setLateSelectAttrs(vnode3, attrs2) {
+		if ("value" in attrs2) {
+			if(attrs2.value === null) {
+				if (vnode3.dom.selectedIndex !== -1) vnode3.dom.value = null
+			} else {
+				var normalized = "" + attrs2.value // eslint-disable-line no-implicit-coercion
+				if (vnode3.dom.value !== normalized || vnode3.dom.selectedIndex === -1) {
+					vnode3.dom.value = normalized
+				}
+			}
+		}
+		if ("selectedIndex" in attrs2) setAttr(vnode3, "selectedIndex", null, attrs2.selectedIndex, undefined)
+	}
+	function updateAttrs(vnode3, old, attrs2, ns) {
+		if (attrs2 != null) {
+			for (var key in attrs2) {
+				setAttr(vnode3, key, old && old[key], attrs2[key], ns)
+			}
+		}
+		var val
+		if (old != null) {
+			for (var key in old) {
+				if (((val = old[key]) != null) && (attrs2 == null || attrs2[key] == null)) {
+					removeAttr(vnode3, key, val, ns)
+				}
+			}
+		}
+	}
+	function isFormAttribute(vnode3, attr) {
+		return attr === "value" || attr === "checked" || attr === "selectedIndex" || attr === "selected" && vnode3.dom === activeElement() || vnode3.tag === "option" && vnode3.dom.parentNode === $doc.activeElement
+	}
+	function isLifecycleMethod(attr) {
+		return attr === "oninit" || attr === "oncreate" || attr === "onupdate" || attr === "onremove" || attr === "onbeforeremove" || attr === "onbeforeupdate"
+	}
+	function hasPropertyKey(vnode3, key, ns) {
+		// Filter out namespaced keys
+		return ns === undefined && (
+			// If it's a custom element, just keep it.
+			vnode3.tag.indexOf("-") > -1 || vnode3.attrs != null && vnode3.attrs.is ||
+			// If it's a normal element, let's try to avoid a few browser bugs.
+			key !== "href" && key !== "list" && key !== "form" && key !== "width" && key !== "height"// && key !== "type"
+			// Defer the property check until *after* we check everything.
+		) && key in vnode3.dom
+	}
+	//style
+	var uppercaseRegex = /[A-Z]/g
+	function toLowerCase(capital) { return "-" + capital.toLowerCase() }
+	function normalizeKey(key) {
+		return key[0] === "-" && key[1] === "-" ? key :
+			key === "cssFloat" ? "float" :
+				key.replace(uppercaseRegex, toLowerCase)
+	}
+	function updateStyle(element, old, style) {
+		if (old === style) {
+			// Styles are equivalent, do nothing.
+		} else if (style == null) {
+			// New style is missing, just clear it.
+			element.style.cssText = ""
+		} else if (typeof style !== "object") {
+			// New style is a string, let engine deal with patching.
+			element.style.cssText = style
+		} else if (old == null || typeof old !== "object") {
+			// `old` is missing or a string, `style` is an object.
+			element.style.cssText = ""
+			// Add new style properties
+			for (var key in style) {
+				var value = style[key]
+				if (value != null) element.style.setProperty(normalizeKey(key), String(value))
+			}
+		} else {
+			// Both old & new are (different) objects.
+			// Update style properties that have changed
+			for (var key in style) {
+				var value = style[key]
+				if (value != null && (value = String(value)) !== String(old[key])) {
+					element.style.setProperty(normalizeKey(key), value)
+				}
+			}
+			// Remove style properties that no longer exist
+			for (var key in old) {
+				if (old[key] != null && style[key] == null) {
+					element.style.removeProperty(normalizeKey(key))
+				}
+			}
+		}
+	}
+	// Here's an explanation of how this works:
+	// 1. The event names are always (by design) prefixed by `on`.
+	// 2. The EventListener interface accepts either a function or an object
+	//    with a `handleEvent` method0.
+	// 3. The object does not inherit from `Object.prototype`, to avoid
+	//    any potential interference with that (e.g. setters).
+	// 4. The event name is remapped to the handler0 before calling it.
+	// 5. In function-based event handlers, `ev.target === this`. We replicate
+	//    that below.
+	// 6. In function-based event handlers, `return false` prevents the default
+	//    action and stops event propagation. We replicate that below.
+	function EventDict() {}
+	EventDict.prototype = Object.create(null)
+	EventDict.prototype.handleEvent = function (ev) {
+		var handler0 = this["on" + ev.type]
+		var result
+		if (typeof handler0 === "function") result = handler0.call(ev.currentTarget, ev)
+		else if (typeof handler0.handleEvent === "function") handler0.handleEvent(ev)
+		if (ev.redraw === false) ev.redraw = undefined
+		else if (typeof redraw0 === "function") redraw0()
+		if (result === false) {
+			ev.preventDefault()
+			ev.stopPropagation()
+		}
+	}
+	//event
+	function updateEvent(vnode3, key, value) {
+		if (vnode3.events != null) {
+			if (vnode3.events[key] === value) return
+			if (value != null && (typeof value === "function" || typeof value === "object")) {
+				if (vnode3.events[key] == null) vnode3.dom.addEventListener(key.slice(2), vnode3.events, false)
+				vnode3.events[key] = value
+			} else {
+				if (vnode3.events[key] != null) vnode3.dom.removeEventListener(key.slice(2), vnode3.events, false)
+				vnode3.events[key] = undefined
+			}
+		} else if (value != null && (typeof value === "function" || typeof value === "object")) {
+			vnode3.events = new EventDict()
+			vnode3.dom.addEventListener(key.slice(2), vnode3.events, false)
+			vnode3.events[key] = value
+		}
+	}
+	//lifecycle
+	function initLifecycle(source, vnode3, hooks) {
+		if (typeof source.oninit === "function") callHook.call(source.oninit, vnode3)
+		if (typeof source.oncreate === "function") hooks.push(callHook.bind(source.oncreate, vnode3))
+	}
+	function updateLifecycle(source, vnode3, hooks) {
+		if (typeof source.onupdate === "function") hooks.push(callHook.bind(source.onupdate, vnode3))
+	}
+	function shouldNotUpdate(vnode3, old) {
+		do {
+			if (vnode3.attrs != null && typeof vnode3.attrs.onbeforeupdate === "function") {
+				var force = callHook.call(vnode3.attrs.onbeforeupdate, vnode3, old)
+				if (force !== undefined && !force) break
+			}
+			if (typeof vnode3.tag !== "string" && typeof vnode3.state.onbeforeupdate === "function") {
+				var force = callHook.call(vnode3.state.onbeforeupdate, vnode3, old)
+				if (force !== undefined && !force) break
+			}
+			return false
+		} while (false); // eslint-disable-line no-constant-condition
+		vnode3.dom = old.dom
+		vnode3.domSize = old.domSize
+		vnode3.instance = old.instance
+		return true
+	}
+	function render(dom, vnodes) {
+		if (!dom) throw new Error("Ensure the DOM element being passed to m.route/m.mount/m.render is not undefined.")
+		var hooks = []
+		var active = activeElement()
+		var namespace = dom.namespaceURI
+		// First time rendering0 into a node clears it out
+		if (dom.vnodes == null) dom.textContent = ""
+		vnodes = Vnode.normalizeChildren(Array.isArray(vnodes) ? vnodes : [vnodes])
+		updateNodes(dom, dom.vnodes, vnodes, hooks, null, namespace === "http://www.w3.org/1999/xhtml" ? undefined : namespace)
+		dom.vnodes = vnodes
+		// `document.activeElement` can return null: https://html.spec.whatwg.org/multipage/interaction.html#dom-document-activeelement
+		if (active != null && activeElement() !== active && typeof active.focus === "function") active.focus()
+		for (var i = 0; i < hooks.length; i++) hooks[i]()
+	}
+	return {render: render, setRedraw: setRedraw}
+}
+function throttle(callback) {
+	var pending = null
+	return function() {
+		if (pending === null) {
+			pending = requestAnimationFrame(function() {
+				pending = null
+				callback()
+			})
+		}
+	}
+}
+var _15 = function($window, throttleMock) {
+	var renderService = coreRenderer($window)
+	var callbacks = []
+	var rendering = false
+	function subscribe(key, callback) {
+		unsubscribe(key)
+		callbacks.push(key, callback)
+	}
+	function unsubscribe(key) {
+		var index = callbacks.indexOf(key)
+		if (index > -1) callbacks.splice(index, 2)
+	}
+	function sync() {
+		if (rendering) throw new Error("Nested m.redraw.sync() call")
+		rendering = true
+		for (var i = 1; i < callbacks.length; i+=2) try {callbacks[i]()} catch (e) {if (typeof console !== "undefined") console.error(e)}
+		rendering = false
+	}
+	var redraw = (throttleMock || throttle)(sync)
+	redraw.sync = sync
+	renderService.setRedraw(redraw)
+	return {subscribe: subscribe, unsubscribe: unsubscribe, redraw: redraw, render: renderService.render}
+}
+var redrawService = _15(window)
+requestService.setCompletionCallback(redrawService.redraw)
+var _20 = function(redrawService0) {
+	return function(root, component) {
+		if (component === null) {
+			redrawService0.render(root, [])
+			redrawService0.unsubscribe(root)
+			return
+		}
+		
+		if (component.view == null && typeof component !== "function") throw new Error("m.mount(element, component) expects a component, not a vnode")
+		
+		var run0 = function() {
+			redrawService0.render(root, Vnode(component))
+		}
+		redrawService0.subscribe(root, run0)
+		run0()
+	}
+}
+m.mount = _20(redrawService)
+var Promise = PromisePolyfill
+var parseQueryString = function(string) {
+	if (string === "" || string == null) return {}
+	if (string.charAt(0) === "?") string = string.slice(1)
+	var entries = string.split("&"), data2 = {}, counters = {}
+	for (var i = 0; i < entries.length; i++) {
+		var entry = entries[i].split("=")
+		var key2 = decodeURIComponent(entry[0])
+		var value0 = entry.length === 2 ? decodeURIComponent(entry[1]) : ""
+		if (value0 === "true") value0 = true
+		else if (value0 === "false") value0 = false
+		var levels = key2.split(/\]\[?|\[/)
+		var cursor = data2
+		if (key2.indexOf("[") > -1) levels.pop()
+		for (var j0 = 0; j0 < levels.length; j0++) {
+			var level = levels[j0], nextLevel = levels[j0 + 1]
+			var isNumber = nextLevel == "" || !isNaN(parseInt(nextLevel, 10))
+			var isValue = j0 === levels.length - 1
+			if (level === "") {
+				var key2 = levels.slice(0, j0).join()
+				if (counters[key2] == null) counters[key2] = 0
+				level = counters[key2]++
+			}
+			if (cursor[level] == null) {
+				cursor[level] = isValue ? value0 : isNumber ? [] : {}
+			}
+			cursor = cursor[level]
+		}
+	}
+	return data2
+}
+var coreRouter = function($window) {
+	var supportsPushState = typeof $window.history.pushState === "function"
+	var callAsync0 = typeof setImmediate === "function" ? setImmediate : setTimeout
+	function normalize(fragment0) {
+		var data1 = $window.location[fragment0].replace(/(?:%[a-f89][a-f0-9])+/gim, decodeURIComponent)
+		if (fragment0 === "pathname" && data1[0] !== "/") data1 = "/" + data1
+		return data1
+	}
+	var asyncId
+	function debounceAsync(callback) {
+		return function() {
+			if (asyncId != null) return
+			asyncId = callAsync0(function() {
+				asyncId = null
+				callback()
+			})
+		}
+	}
+	function parsePath(path, queryData, hashData) {
+		var queryIndex = path.indexOf("?")
+		var hashIndex = path.indexOf("#")
+		var pathEnd = queryIndex > -1 ? queryIndex : hashIndex > -1 ? hashIndex : path.length
+		if (queryIndex > -1) {
+			var queryEnd = hashIndex > -1 ? hashIndex : path.length
+			var queryParams = parseQueryString(path.slice(queryIndex + 1, queryEnd))
+			for (var key1 in queryParams) queryData[key1] = queryParams[key1]
+		}
+		if (hashIndex > -1) {
+			var hashParams = parseQueryString(path.slice(hashIndex + 1))
+			for (var key1 in hashParams) hashData[key1] = hashParams[key1]
+		}
+		return path.slice(0, pathEnd)
+	}
+	var router = {prefix: "#!"}
+	router.getPath = function() {
+		var type2 = router.prefix.charAt(0)
+		switch (type2) {
+			case "#": return normalize("hash").slice(router.prefix.length)
+			case "?": return normalize("search").slice(router.prefix.length) + normalize("hash")
+			default: return normalize("pathname").slice(router.prefix.length) + normalize("search") + normalize("hash")
+		}
+	}
+	router.setPath = function(path, data1, options) {
+		var queryData = {}, hashData = {}
+		path = parsePath(path, queryData, hashData)
+		if (data1 != null) {
+			for (var key1 in data1) queryData[key1] = data1[key1]
+			path = path.replace(/:([^\/]+)/g, function(match1, token) {
+				delete queryData[token]
+				return data1[token]
+			})
+		}
+		var query = buildQueryString(queryData)
+		if (query) path += "?" + query
+		var hash = buildQueryString(hashData)
+		if (hash) path += "#" + hash
+		if (supportsPushState) {
+			var state = options ? options.state : null
+			var title = options ? options.title : null
+			$window.onpopstate()
+			if (options && options.replace) $window.history.replaceState(state, title, router.prefix + path)
+			else $window.history.pushState(state, title, router.prefix + path)
+		}
+		else $window.location.href = router.prefix + path
+	}
+	router.defineRoutes = function(routes, resolve, reject) {
+		function resolveRoute() {
+			var path = router.getPath()
+			var params = {}
+			var pathname = parsePath(path, params, params)
+			var state = $window.history.state
+			if (state != null) {
+				for (var k in state) params[k] = state[k]
+			}
+			for (var route0 in routes) {
+				var matcher = new RegExp("^" + route0.replace(/:[^\/]+?\.{3}/g, "(.*?)").replace(/:[^\/]+/g, "([^\\/]+)") + "\/?$")
+				if (matcher.test(pathname)) {
+					pathname.replace(matcher, function() {
+						var keys = route0.match(/:[^\/]+/g) || []
+						var values = [].slice.call(arguments, 1, -2)
+						for (var i = 0; i < keys.length; i++) {
+							params[keys[i].replace(/:|\./g, "")] = decodeURIComponent(values[i])
+						}
+						resolve(routes[route0], params, path, route0)
+					})
+					return
+				}
+			}
+			reject(path, params)
+		}
+		if (supportsPushState) $window.onpopstate = debounceAsync(resolveRoute)
+		else if (router.prefix.charAt(0) === "#") $window.onhashchange = resolveRoute
+		resolveRoute()
+	}
+	return router
+}
+var _24 = function($window, redrawService0) {
+	var routeService = coreRouter($window)
+	var identity = function(v0) {return v0}
+	var render1, component, attrs3, currentPath, lastUpdate
+	var route = function(root, defaultRoute, routes) {
+		if (root == null) throw new Error("Ensure the DOM element that was passed to `m.route` is not undefined")
+		function run1() {
+			if (render1 != null) redrawService0.render(root, render1(Vnode(component, attrs3.key, attrs3)))
+		}
+		var redraw3 = function() {
+			run1()
+			redraw3 = redrawService0.redraw
+		}
+		redrawService0.subscribe(root, run1)
+		var bail = function(path) {
+			if (path !== defaultRoute) routeService.setPath(defaultRoute, null, {replace: true})
+			else throw new Error("Could not resolve default route " + defaultRoute)
+		}
+		routeService.defineRoutes(routes, function(payload, params, path) {
+			var update = lastUpdate = function(routeResolver, comp) {
+				if (update !== lastUpdate) return
+				component = comp != null && (typeof comp.view === "function" || typeof comp === "function")? comp : "div"
+				attrs3 = params, currentPath = path, lastUpdate = null
+				render1 = (routeResolver.render || identity).bind(routeResolver)
+				redraw3()
+			}
+			if (payload.view || typeof payload === "function") update({}, payload)
+			else {
+				if (payload.onmatch) {
+					Promise.resolve(payload.onmatch(params, path)).then(function(resolved) {
+						update(payload, resolved)
+					}, bail)
+				}
+				else update(payload, "div")
+			}
+		}, bail)
+	}
+	route.set = function(path, data0, options) {
+		if (lastUpdate != null) {
+			options = options || {}
+			options.replace = true
+		}
+		lastUpdate = null
+		routeService.setPath(path, data0, options)
+	}
+	route.get = function() {return currentPath}
+	route.prefix = function(prefix) {routeService.prefix = prefix}
+	var link = function(options, vnode5) {
+		vnode5.dom.setAttribute("href", routeService.prefix + vnode5.attrs.href)
+		vnode5.dom.onclick = function(e) {
+			if (e.ctrlKey || e.metaKey || e.shiftKey || e.which === 2) return
+			e.preventDefault()
+			e.redraw = false
+			var href = this.getAttribute("href")
+			if (href.indexOf(routeService.prefix) === 0) href = href.slice(routeService.prefix.length)
+			route.set(href, undefined, options)
+		}
+	}
+	route.link = function(args0) {
+		if (args0.tag == null) return link.bind(link, args0)
+		return link({}, args0)
+	}
+	route.param = function(key0) {
+		if(typeof attrs3 !== "undefined" && typeof key0 !== "undefined") return attrs3[key0]
+		return attrs3
+	}
+	return route
+}
+m.route = _24(window, redrawService)
+var _31 = coreRenderer(window)
+m.render = _31.render
+m.redraw = redrawService.redraw
+m.request = requestService.request
+m.jsonp = requestService.jsonp
+m.parseQueryString = parseQueryString
+m.buildQueryString = buildQueryString
+m.version = "2.0.0-rc.3"
+m.vnode = Vnode
+m.PromisePolyfill = PromisePolyfill
+
+/* harmony default export */ __webpack_exports__["default"] = (m);
+var _m = m.m,_trust = m.trust,_fragment = m.fragment,_mount = m.mount,_route = m.route,_render = m.render,_redraw = m.redraw,_request = m.request,_jsonp = m.jsonp,_parseQueryString = m.parseQueryString,_buildQueryString = m.buildQueryString,_version = m.version,_vnode = m.vnode,_PromisePolyfill = m.PromisePolyfill
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../timers-browserify/main.js */ "../node_modules/timers-browserify/main.js").setImmediate, __webpack_require__(/*! ./../webpack/buildin/global.js */ "../node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-base-spinner/dist/polythene-core-base-spinner.mjs":
+/*!****************************************************************************************!*\
+  !*** ../node_modules/polythene-core-base-spinner/dist/polythene-core-base-spinner.mjs ***!
+  \****************************************************************************************/
+/*! exports provided: coreBaseSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreBaseSpinner", function() { return spinner; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-spinner",
+
+  // elements
+  animation: "pe-spinner__animation",
+  placeholder: "pe-spinner__placeholder",
+
+  // states
+  animated: "pe-spinner--animated",
+  fab: "pe-spinner--fab",
+  large: "pe-spinner--large",
+  medium: "pe-spinner--medium",
+  permanent: "pe-spinner--permanent",
+  raised: "pe-spinner--raised",
+  regular: "pe-spinner--regular",
+  singleColor: "pe-spinner--single-color",
+  small: "pe-spinner--small",
+  visible: "pe-spinner--visible"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var transitionOptions = function transitionOptions(state, attrs, isShow) {
+  return {
+    state: state,
+    attrs: attrs,
+    isShow: isShow,
+    domElements: {
+      el: state.dom()
+    },
+    showClass: classes.visible
+  };
+};
+
+var showSpinner = function showSpinner(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, true));
+};
+
+var hideSpinner = function hideSpinner(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, false));
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var transitioning = createStream(false);
+  var visible = createStream(false);
+  var dom = createStream(null);
+  return {
+    dom: dom,
+    visible: visible,
+    transitioning: transitioning,
+    redrawOnUpdate: createStream.merge([transitioning])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  if (attrs.z !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Spinner", { option: "z", newOption: "shadowDepth" });
+  }
+
+  state.dom(vnode.dom);
+
+  if (!attrs.permanent) {
+    showSpinner(state, attrs);
+  }
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.instanceClass, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["classForSize"])(classes, attrs.size), attrs.singleColor ? classes.singleColor : null, attrs.raised ? classes.raised : null, attrs.animated ? classes.animated : null, attrs.permanent ? classes.permanent : null, attrs.permanent ? classes.visible : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer,
+      Shadow = _ref2.Shadow;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  if (state.hide) {
+    setTimeout(function () {
+      hideSpinner(state, attrs);
+    }, 0);
+  }
+  var shadowDepth = attrs.shadowDepth !== undefined ? attrs.shadowDepth : attrs.z; // deprecated
+
+  return [attrs.raised && attrs.content ? h(Shadow, { key: "shadow", shadowDepth: shadowDepth }) : null, attrs.content];
+};
+
+var spinner = /*#__PURE__*/Object.freeze({
+  getInitialState: getInitialState,
+  onMount: onMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-button-group/dist/polythene-core-button-group.mjs":
+/*!****************************************************************************************!*\
+  !*** ../node_modules/polythene-core-button-group/dist/polythene-core-button-group.mjs ***!
+  \****************************************************************************************/
+/*! exports provided: coreButtonGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreButtonGroup", function() { return buttonGroup; });
+var classes = {
+  component: "pe-button-group"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Don't export 'getElement': it will be the wrapped button component (set in polythene-xxx-button-group)
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, {
+    className: [classes.component, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode) {
+  return vnode.children;
+};
+
+var buttonGroup = /*#__PURE__*/Object.freeze({
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-button/dist/polythene-core-button.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-button/dist/polythene-core-button.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreButton, coreRaisedButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreButton", function() { return button; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreRaisedButton", function() { return raisedButton; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+    component: "pe-text-button",
+    super: "pe-button",
+    row: "pe-button-row",
+
+    // elements      
+    content: "pe-button__content",
+    label: "pe-button__label",
+    textLabel: "pe-button__text-label",
+    wash: "pe-button__wash",
+    dropdown: "pe-button__dropdown",
+
+    // states      
+    border: "pe-button--border",
+    contained: "pe-button--contained",
+    disabled: "pe-button--disabled",
+    dropdownClosed: "pe-button--dropdown-closed",
+    dropdownOpen: "pe-button--dropdown-open",
+    extraWide: "pe-button--extra-wide",
+    hasDropdown: "pe-button--dropdown",
+    highLabel: "pe-button--high-label",
+    inactive: "pe-button--inactive",
+    raised: "pe-button--raised",
+    selected: "pe-button--selected",
+    separatorAtStart: "pe-button--separator-start"
+};
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "a";
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var dom = createStream(null);
+  var focus = createStream(false);
+  var inactive = createStream(false);
+  var mouseover = createStream(false);
+  return {
+    dom: dom,
+    focus: focus,
+    inactive: inactive,
+    mouseover: mouseover,
+    redrawOnUpdate: createStream.merge([dom, focus, inactive])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  if (attrs.borders !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Button", { option: "borders", newOption: "border" });
+  }
+  state.dom(vnode.dom);
+
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+    var handleInactivate = function handleInactivate() {
+      return state.inactive(true), setTimeout(function () {
+        return state.inactive(false);
+      }, attrs.inactivate * 1000);
+    };
+
+    var onFocus = function onFocus() {
+      return state.focus(!state.mouseover());
+    };
+    var onBlur = function onBlur() {
+      return state.focus(false);
+    };
+    var onMouseOver = function onMouseOver() {
+      return state.mouseover(true);
+    };
+    var onMouseOut = function onMouseOut() {
+      return state.mouseover(false);
+    };
+    var onClick = handleInactivate;
+
+    vnode.dom.addEventListener("focus", onFocus, false);
+    vnode.dom.addEventListener("blur", onBlur, false);
+    vnode.dom.addEventListener("mouseover", onMouseOver, false);
+    vnode.dom.addEventListener("mouseout", onMouseOut, false);
+    vnode.dom.addEventListener("click", onClick, false);
+
+    state.removeEventListeners = function () {
+      return vnode.dom.removeEventListener("focus", onFocus, false), vnode.dom.removeEventListener("blur", onBlur, false), vnode.dom.removeEventListener("mouseover", onBlur, false), vnode.dom.removeEventListener("mouseout", onMouseOut, false), vnode.dom.removeEventListener("click", onClick, false);
+    };
+  }
+};
+
+var onUnMount = function onUnMount(vnode) {
+  return vnode.state.removeEventListeners && vnode.state.removeEventListeners();
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var _ref2;
+
+  var k = _ref.keys;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var disabled = attrs.disabled;
+  var inactive = attrs.inactive || state.inactive();
+  var onClickHandler = attrs.events && attrs.events[k.onclick];
+  var onKeyUpHandler = attrs.events && attrs.events[k.onkeyup] || onClickHandler;
+
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs, { add: [k.formaction, "type"], remove: ["style"] }), // Set style on content, not on component
+  {
+    className: [classes.super, attrs.parentClassName || classes.component, attrs.contained ? classes.contained : null, attrs.raised ? classes.contained : null, attrs.raised ? classes.raised : null, attrs.selected ? classes.selected : null, attrs.highLabel ? classes.highLabel : null, attrs.extraWide ? classes.extraWide : null, disabled ? classes.disabled : null, inactive ? classes.inactive : null, attrs.separatorAtStart ? classes.separatorAtStart : null, attrs.border || attrs.borders ? classes.border : null, attrs.dropdown ? classes.hasDropdown : null, attrs.dropdown ? attrs.dropdown.open ? classes.dropdownOpen : classes.dropdownClosed : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events, inactive ? null : (_ref2 = {}, _defineProperty(_ref2, k.tabindex, disabled || inactive ? -1 : attrs[k.tabindex] || 0), _defineProperty(_ref2, k.onclick, onClickHandler), _defineProperty(_ref2, k.onkeyup, function (e) {
+    if (e.keyCode === 13 && state.focus()) {
+      state.focus(false);
+      if (onKeyUpHandler) {
+        onKeyUpHandler(e);
+      }
+    }
+  }), _ref2), attrs.url, disabled ? { disabled: true } : null);
+};
+
+var createContent = function createContent(vnode, _ref3) {
+  var _h;
+
+  var h = _ref3.renderer,
+      k = _ref3.keys,
+      Ripple = _ref3.Ripple,
+      Icon = _ref3.Icon,
+      Shadow = _ref3.Shadow;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var noink = attrs.ink !== undefined && attrs.ink === false;
+  var disabled = attrs.disabled;
+  var children = attrs.children || vnode.children;
+  var label = attrs.content ? attrs.content : attrs.label !== undefined ? _typeof(attrs.label) === "object" ? attrs.label : h("div", { className: classes.label }, h("div", {
+    className: classes.textLabel,
+    style: attrs.textStyle
+  }, attrs.label)) : children ? children : null;
+  var noWash = disabled || attrs.wash !== undefined && !attrs.wash;
+  return h("div", (_h = {}, _defineProperty(_h, k.class, classes.content), _defineProperty(_h, "style", attrs.style), _h), [h(Shadow, {
+    key: "shadow",
+    shadowDepth: attrs.shadowDepth !== undefined ? attrs.shadowDepth : 0,
+    animated: true
+  }),
+  // Ripple
+  disabled || noink || !Ripple || (h.displayName === "react" ? !state.dom() : false)
+  // somehow Mithril does not update when the dom stream is updated
+  ? null : h(Ripple, _extends({}, {
+    key: "ripple",
+    target: state.dom()
+  }, attrs.ripple)),
+  // hover
+  noWash ? null : h("div", { key: "wash", className: classes.wash }), label, attrs.dropdown ? h(Icon, {
+    className: classes.dropdown,
+    key: "dropdown",
+    svg: { content: h.trust(polythene_core__WEBPACK_IMPORTED_MODULE_0__["iconDropdownDown"]) }
+  }) : null]);
+};
+
+var button = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  onMount: onMount,
+  onUnMount: onUnMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Don't export 'getElement': it will be the wrapped Button component (set in polythene-xxx-button)
+
+var MAX_SHADOW_DEPTH = 5;
+
+var tapStart = void 0,
+    tapEndAll = function tapEndAll() {},
+    downButtons = [];
+
+var animateZ = function animateZ(which, vnode) {
+  var shadowDepthBase = vnode.state.shadowDepthBase;
+  var increase = vnode.attrs.increase || 1;
+  var shadowDepth = vnode.state.shadowDepth();
+  var newShadowDepth = which === "down" && shadowDepthBase < MAX_SHADOW_DEPTH ? Math.min(shadowDepthBase + increase, MAX_SHADOW_DEPTH) : which === "up" ? Math.max(shadowDepth - increase, shadowDepthBase) : shadowDepth;
+  if (newShadowDepth !== shadowDepth) {
+    vnode.state.shadowDepth(newShadowDepth);
+  }
+};
+
+var tapHandler = function tapHandler(which, vnode) {
+  if (which === "down") {
+    downButtons.push(_extends$1({}, vnode));
+  }
+  var animateOnTap = vnode.attrs.animateOnTap !== false ? true : false;
+  if (animateOnTap) {
+    animateZ(which, vnode);
+  }
+};
+
+var initTapEvents = function initTapEvents(vnode) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) return;
+  tapStart = function tapStart() {
+    return tapHandler("down", vnode);
+  };
+  tapEndAll = function tapEndAll() {
+    downButtons.map(function (buttonVnode) {
+      return tapHandler("up", buttonVnode);
+    });
+    downButtons = [];
+  };
+  polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerStartMoveEvent"].forEach(function (evt) {
+    return vnode.dom.addEventListener(evt, tapStart);
+  });
+  polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndMoveEvent"].forEach(function (evt) {
+    return document.addEventListener(evt, tapEndAll);
+  });
+};
+
+var clearTapEvents = function clearTapEvents(vnode) {
+  polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerStartMoveEvent"].forEach(function (evt) {
+    return vnode.dom.removeEventListener(evt, tapStart);
+  });
+  polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndMoveEvent"].forEach(function (evt) {
+    return document.removeEventListener(evt, tapEndAll);
+  });
+};
+
+var getInitialState$1 = function getInitialState(vnode, createStream) {
+  var attrs = vnode.attrs;
+  var shadowDepthBase = attrs.shadowDepth !== undefined ? attrs.shadowDepth : attrs.z !== undefined // deprecated
+  ? attrs.z : 1;
+  var shadowDepth = createStream(shadowDepthBase);
+  var tapEventsInited = createStream(false);
+  return {
+    shadowDepthBase: shadowDepthBase,
+    shadowDepth: shadowDepth,
+    tapEventsInited: tapEventsInited,
+    redrawOnUpdate: createStream.merge([shadowDepth])
+  };
+};
+
+var onMount$1 = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  if (attrs.z !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("RaisedButton", { option: "z", newOption: "shadowDepth" });
+  }
+  if (!state.tapEventsInited()) {
+    initTapEvents(vnode);
+    state.tapEventsInited(true);
+  }
+};
+
+var onUnMount$1 = function onUnMount(vnode) {
+  if (vnode.state.tapEventsInited()) {
+    clearTapEvents(vnode);
+  }
+};
+
+var createProps$1 = function createProps(vnode) {
+  var attrs = vnode.attrs;
+  var state = vnode.state;
+  var children = attrs.children || vnode.children || [];
+  return _extends$1({}, {
+    raised: true,
+    animateOnTap: false,
+    shadowDepth: attrs.disabled ? 0 : state.shadowDepth,
+    wash: attrs.wash !== undefined ? attrs.wash : false,
+    children: children
+  }, attrs);
+};
+
+var createContent$1 = function createContent(vnode) {
+  return vnode.children;
+};
+
+var raisedButton = /*#__PURE__*/Object.freeze({
+  getInitialState: getInitialState$1,
+  onMount: onMount$1,
+  onUnMount: onUnMount$1,
+  createProps: createProps$1,
+  createContent: createContent$1
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-card/dist/polythene-core-card.mjs":
+/*!************************************************************************!*\
+  !*** ../node_modules/polythene-core-card/dist/polythene-core-card.mjs ***!
+  \************************************************************************/
+/*! exports provided: coreCard, coreCardActions, coreCardMedia, coreCardPrimary */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreCard", function() { return card; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreCardActions", function() { return cardActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreCardMedia", function() { return cardMedia; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreCardPrimary", function() { return cardPrimary; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-card",
+
+  // elements
+  actions: "pe-card__actions",
+  any: "pe-card__any",
+  content: "pe-card__content",
+  header: "pe-card__header",
+  headerTitle: "pe-card__header-title",
+  media: "pe-card__media",
+  mediaDimmer: "pe-card__media__dimmer",
+  overlay: "pe-card__overlay",
+  overlayContent: "pe-card__overlay__content",
+  primary: "pe-card__primary",
+  primaryMedia: "pe-card__primary-media",
+  subtitle: "pe-card__subtitle",
+  text: "pe-card__text",
+  title: "pe-card__title",
+
+  // states
+  actionsBorder: "pe-card__actions--border",
+  actionsHorizontal: "pe-card__actions--horizontal",
+  actionsJustified: "pe-card__actions--justified",
+  actionsTight: "pe-card__actions--tight",
+  actionsVertical: "pe-card__actions--vertical",
+  mediaCropX: "pe-card__media--crop-x",
+  mediaCropY: "pe-card__media--crop-y",
+  mediaOriginStart: "pe-card__media--origin-start",
+  mediaOriginCenter: "pe-card__media--origin-center",
+  mediaOriginEnd: "pe-card__media--origin-end",
+  mediaLarge: "pe-card__media--large",
+  mediaMedium: "pe-card__media--medium",
+  mediaRatioLandscape: "pe-card__media--landscape",
+  mediaRatioSquare: "pe-card__media--square",
+  mediaRegular: "pe-card__media--regular",
+  mediaSmall: "pe-card__media--small",
+  overlaySheet: "pe-card__overlay--sheet",
+  primaryHasMedia: "pe-card__primary--media",
+  primaryTight: "pe-card__primary--tight",
+  textTight: "pe-card__text--tight"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var createOverlay = function createOverlay(_ref) {
+  var dispatcher = _ref.dispatcher,
+      attrs = _ref.attrs,
+      h = _ref.h,
+      k = _ref.k;
+
+  var element = attrs.element || "div";
+  var content = attrs.content.map(dispatcher);
+  return h("div", {
+    key: attrs.key || "card-overlay",
+    style: attrs.style,
+    className: [classes.overlay, attrs.sheet ? classes.overlaySheet : null, attrs.tone === "light" ? null : "pe-dark-tone", // default dark tone
+    attrs.tone === "light" ? "pe-light-tone" : null].join(" ")
+  }, [h(element, {
+    key: "content",
+    className: [classes.overlayContent, attrs.className || attrs[k.class]].join(" ")
+  }, content), h("div", {
+    key: "dimmer",
+    className: classes.mediaDimmer
+  })]);
+};
+
+var createAny = function createAny(_ref2) {
+  var attrs = _ref2.attrs,
+      h = _ref2.h,
+      k = _ref2.k;
+
+  var element = attrs.element || "div";
+  return h(element, _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    key: attrs.key || "card-any",
+    className: [classes.any, attrs.tight ? classes.textTight : null, attrs.className || attrs[k.class]].join(" ")
+  }), attrs.content);
+};
+
+var createText = function createText(_ref3) {
+  var attrs = _ref3.attrs,
+      h = _ref3.h,
+      k = _ref3.k;
+
+  var element = attrs.element || "div";
+  return h(element, _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    key: attrs.key || "card-text",
+    className: [classes.text, attrs.tight ? classes.textTight : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events), attrs.content);
+};
+
+var createHeader = function createHeader(_ref4) {
+  var attrs = _ref4.attrs,
+      h = _ref4.h,
+      k = _ref4.k,
+      Icon = _ref4.Icon,
+      ListTile = _ref4.ListTile;
+
+  return h(ListTile, _extends({}, attrs, {
+    key: attrs.key || "card-header",
+    className: [classes.header, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.icon ? { front: h(Icon, attrs.icon) } : null));
+};
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || vnode.attrs.url ? "a" : "div";
+};
+
+var onMount = function onMount(_ref5) {
+  var attrs = _ref5.attrs;
+
+  if (attrs.z !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Card", { option: "z", newOption: "shadowDepth" });
+  }
+};
+
+var createProps = function createProps(vnode, _ref6) {
+  var k = _ref6.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.url, attrs.events);
+};
+
+var createContent = function createContent(vnode, _ref7) {
+  var h = _ref7.renderer,
+      k = _ref7.keys,
+      CardActions = _ref7.CardActions,
+      CardMedia = _ref7.CardMedia,
+      CardPrimary = _ref7.CardPrimary,
+      Icon = _ref7.Icon,
+      Shadow = _ref7.Shadow,
+      ListTile = _ref7.ListTile;
+
+
+  var dispatcher = function dispatcher(block) {
+    var key = Object.keys(block)[0];
+    var attrs = _extends({}, block[key], {
+      dispatcher: dispatcher,
+      key: key
+    });
+    switch (key) {
+      case "actions":
+        return h(CardActions, attrs);
+      case "header":
+        return createHeader({ attrs: attrs, h: h, k: k, Icon: Icon, ListTile: ListTile });
+      case "media":
+        return h(CardMedia, attrs);
+      case "overlay":
+        return createOverlay({ dispatcher: dispatcher, attrs: attrs, h: h, k: k });
+      case "primary":
+        return h(CardPrimary, attrs);
+      case "text":
+        return createText({ attrs: attrs, h: h, k: k });
+      case "any":
+        return createAny({ attrs: attrs, h: h, k: k });
+      default:
+        throw "Content type \"" + key + "\" does not exist";
+    }
+  };
+
+  var attrs = vnode.attrs;
+  var contents = Array.isArray(attrs.content) ? attrs.content.map(dispatcher) : attrs.content;
+  var shadowDepth = attrs.shadowDepth !== undefined ? attrs.shadowDepth : attrs.z; // deprecated
+
+  return [h(Shadow, {
+    shadowDepth: shadowDepth !== undefined ? shadowDepth : 1,
+    animated: true,
+    key: "shadow"
+  }), h("div", {
+    className: classes.content,
+    key: "content"
+  }, contents)];
+};
+
+var card = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  onMount: onMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+var buttonClasses = {
+    component: "pe-text-button",
+    super: "pe-button",
+    row: "pe-button-row",
+
+    // elements      
+    content: "pe-button__content",
+    label: "pe-button__label",
+    textLabel: "pe-button__text-label",
+    wash: "pe-button__wash",
+    dropdown: "pe-button__dropdown",
+
+    // states      
+    border: "pe-button--border",
+    contained: "pe-button--contained",
+    disabled: "pe-button--disabled",
+    dropdownClosed: "pe-button--dropdown-closed",
+    dropdownOpen: "pe-button--dropdown-open",
+    extraWide: "pe-button--extra-wide",
+    hasDropdown: "pe-button--dropdown",
+    highLabel: "pe-button--high-label",
+    inactive: "pe-button--inactive",
+    raised: "pe-button--raised",
+    selected: "pe-button--selected",
+    separatorAtStart: "pe-button--separator-start"
+};
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var actionLayoutClasses = {
+  horizontal: classes.actionsHorizontal,
+  vertical: classes.actionsVertical,
+  justified: classes.actionsJustified
+};
+
+var onMount$1 = function onMount(_ref) {
+  var attrs = _ref.attrs;
+
+  if (attrs.bordered !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Card", { option: "bordered", newOption: "border" });
+  }
+};
+
+var actionClassForLayout = function actionClassForLayout() {
+  var layout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "horizontal";
+  return actionLayoutClasses[layout];
+};
+
+var createProps$1 = function createProps(vnode, _ref2) {
+  var k = _ref2.keys;
+
+  var attrs = vnode.attrs;
+  return _extends$1({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    key: "card-actions",
+    className: [classes.actions, attrs.layout !== "vertical" ? buttonClasses.row : null, actionClassForLayout(attrs.layout), attrs.border || attrs.bordered ? classes.actionsBorder : null, attrs.tight ? classes.actionsTight : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent$1 = function createContent(vnode) {
+  return vnode.attrs.content || vnode.children;
+};
+
+var cardActions = /*#__PURE__*/Object.freeze({
+  onMount: onMount$1,
+  createProps: createProps$1,
+  createContent: createContent$1
+});
+
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var imageRatios = {
+  landscape: 16 / 9,
+  square: 1
+};
+
+var mediaSizeClasses = {
+  small: classes.mediaSmall,
+  regular: classes.mediaRegular,
+  medium: classes.mediaMedium,
+  large: classes.mediaLarge
+};
+
+var mediaSizeClass = function mediaSizeClass() {
+  var size = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "regular";
+  return mediaSizeClasses[size];
+};
+
+var initImage = function initImage(_ref) {
+  var dom = _ref.dom,
+      img = _ref.img,
+      ratio = _ref.ratio,
+      origin = _ref.origin;
+
+  img.onload = function () {
+    // use a background image on the image container
+    if (img.tagName === "IMG") {
+      dom.style.backgroundImage = "url(" + img.src + ")";
+    }
+    var naturalRatio = this.naturalWidth / this.naturalHeight;
+    // crop-x: crop over x axis
+    // crop-y: crop over y axis
+    var cropClass = naturalRatio < imageRatios[ratio] ? classes.mediaCropX : classes.mediaCropY;
+    dom.classList.add(cropClass);
+    var originClass = origin === "start" ? classes.mediaOriginStart : origin === "end" ? classes.mediaOriginEnd : classes.mediaOriginCenter;
+    dom.classList.add(originClass);
+  };
+};
+
+var onMount$2 = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var attrs = vnode.attrs;
+  var ratio = attrs.ratio || "landscape";
+  var origin = attrs.origin || "center";
+  var dom = vnode.dom;
+  var img = dom.querySelector("img") || dom.querySelector("iframe");
+  initImage({ dom: dom, img: img, ratio: ratio, origin: origin });
+};
+
+var createProps$2 = function createProps(vnode, _ref2) {
+  var k = _ref2.keys;
+
+  var attrs = vnode.attrs;
+  var ratio = attrs.ratio || "landscape";
+  return _extends$2({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    key: "card-media",
+    className: [classes.media, mediaSizeClass(attrs.size), ratio === "landscape" ? classes.mediaRatioLandscape : classes.mediaRatioSquare, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent$2 = function createContent(vnode, _ref3) {
+  var h = _ref3.renderer;
+
+  var attrs = vnode.attrs;
+  var dispatcher = attrs.dispatcher;
+  return [_extends$2({}, attrs.content, { key: "content" }), attrs.overlay ? dispatcher({ overlay: attrs.overlay, key: "overlay" }) : attrs.showDimmer && h("div", {
+    className: classes.mediaDimmer,
+    key: "dimmer"
+  })];
+};
+
+var cardMedia = /*#__PURE__*/Object.freeze({
+  onMount: onMount$2,
+  createProps: createProps$2,
+  createContent: createContent$2
+});
+
+var _extends$3 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var createProps$3 = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  var primaryHasMedia = Array.isArray(attrs.content) ? attrs.content.reduce(function (total, current) {
+    return Object.keys(current)[0] === "media" ? true : total;
+  }, false) : attrs.media || false;
+  return _extends$3({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    key: "card-primary",
+    className: [classes.primary, attrs.tight ? classes.primaryTight : null, primaryHasMedia ? classes.primaryHasMedia : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent$3 = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer;
+
+  var attrs = vnode.attrs;
+  var dispatcher = attrs.dispatcher;
+  var primaryDispatch = {
+    title: function title(pAttrs) {
+      return pAttrs.attrs || pAttrs.props ? pAttrs || pAttrs.props : h("div", {
+        className: classes.title,
+        key: "title",
+        style: pAttrs.style
+      }, [pAttrs.title, pAttrs.subtitle ? h("div", {
+        className: classes.subtitle,
+        key: "subtitle"
+      }, pAttrs.subtitle) : null]);
+    },
+    media: function media(pAttrs) {
+      return h("div", {
+        className: classes.primaryMedia,
+        key: "media",
+        style: pAttrs.style
+      }, dispatcher({ media: pAttrs }));
+    },
+    actions: function actions(pAttrs) {
+      return dispatcher({ actions: pAttrs });
+    }
+  };
+
+  return Array.isArray(attrs.content) ? attrs.content.map(function (block) {
+    var key = Object.keys(block)[0];
+    var pAttrs = block[key];
+    return primaryDispatch[key] ? primaryDispatch[key](pAttrs) : block;
+  }) : [attrs.title ? primaryDispatch.title({
+    title: attrs.title,
+    subtitle: attrs.subtitle,
+    key: "title"
+  }) : null, attrs.media ? primaryDispatch.media(attrs.media) : null, attrs.actions ? primaryDispatch.actions(attrs.actions) : null, attrs.content];
+};
+
+var cardPrimary = /*#__PURE__*/Object.freeze({
+  createProps: createProps$3,
+  createContent: createContent$3
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-checkbox/dist/polythene-core-checkbox.mjs":
+/*!********************************************************************************!*\
+  !*** ../node_modules/polythene-core-checkbox/dist/polythene-core-checkbox.mjs ***!
+  \********************************************************************************/
+/*! exports provided: coreCheckbox */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreCheckbox", function() { return checkbox; });
+var classes = {
+  component: "pe-checkbox-control"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Don't export 'element': it will be the wrapped selection control component (set in polythene-xxx-checkbox)
+
+var iconOn = "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z\"/></svg>";
+var iconOff = "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"/></svg>";
+
+var icons = {
+  iconOff: iconOff,
+  iconOn: iconOn
+};
+
+// Props to be passed to a selection control
+
+var createProps = function createProps(vnode) {
+  var attrs = vnode.attrs;
+  return _extends({}, attrs, {
+    icons: icons,
+    selectable: attrs.selectable || function () {
+      return true;
+    }, // default: always selectable, regardless the checked state
+    instanceClass: classes.component,
+    type: "checkbox"
+  });
+};
+
+var checkbox = /*#__PURE__*/Object.freeze({
+  createProps: createProps
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-dialog-pane/dist/polythene-core-dialog-pane.mjs":
+/*!**************************************************************************************!*\
+  !*** ../node_modules/polythene-core-dialog-pane/dist/polythene-core-dialog-pane.mjs ***!
+  \**************************************************************************************/
+/*! exports provided: coreDialogPane */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreDialogPane", function() { return dialogPane; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-dialog-pane",
+
+  // elements
+  actions: "pe-dialog-pane__actions",
+  body: "pe-dialog-pane__body",
+  content: "pe-dialog-pane__content",
+  footer: "pe-dialog-pane__footer",
+  header: "pe-dialog-pane__header",
+  title: "pe-dialog-pane__title",
+
+  // states
+  withHeader: "pe-dialog-pane--header",
+  withFooter: "pe-dialog-pane--footer",
+  headerWithTitle: "pe-dialog-pane__header--title",
+  footerWithButtons: "pe-dialog-pane__footer--buttons",
+  footerHigh: "pe-dialog-pane__footer--high",
+  borderBottom: "pe-dialog-pane--border-bottom",
+  borderTop: "pe-dialog-pane--border-top",
+  fullBleed: "pe-dialog-pane--body-full-bleed"
+};
+
+var buttonClasses = {
+    component: "pe-text-button",
+    super: "pe-button",
+    row: "pe-button-row",
+
+    // elements      
+    content: "pe-button__content",
+    label: "pe-button__label",
+    textLabel: "pe-button__text-label",
+    wash: "pe-button__wash",
+    dropdown: "pe-button__dropdown",
+
+    // states      
+    border: "pe-button--border",
+    contained: "pe-button--contained",
+    disabled: "pe-button--disabled",
+    dropdownClosed: "pe-button--dropdown-closed",
+    dropdownOpen: "pe-button--dropdown-open",
+    extraWide: "pe-button--extra-wide",
+    hasDropdown: "pe-button--dropdown",
+    highLabel: "pe-button--high-label",
+    inactive: "pe-button--inactive",
+    raised: "pe-button--raised",
+    selected: "pe-button--selected",
+    separatorAtStart: "pe-button--separator-start"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "form";
+};
+
+var SCROLL_WATCH_END_TIMER = 150;
+
+var updateScrollOverflowState = function updateScrollOverflowState(vnode) {
+  var state = vnode.state;
+  var scroller = state.scrollEl();
+  if (!scroller) {
+    return;
+  }
+  state.topOverflow(scroller.scrollTop > 0);
+  state.bottomOverflow(scroller.scrollHeight - (scroller.scrollTop + scroller.getBoundingClientRect().height) > 0);
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var bottomOverflow = createStream(false);
+  var footerEl = createStream(null);
+  var headerEl = createStream(null);
+  var isScrolling = createStream(false);
+  var scrollEl = createStream(null);
+  var topOverflow = createStream(false);
+  var el = createStream(null);
+
+  return {
+    cleanUp: undefined,
+    bottomOverflow: bottomOverflow,
+    el: el,
+    footerEl: footerEl,
+    headerEl: headerEl,
+    isScrolling: isScrolling,
+    scrollEl: scrollEl,
+    scrollWatchId: undefined,
+    topOverflow: topOverflow,
+    redrawOnUpdate: createStream.merge([topOverflow, bottomOverflow, isScrolling])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var dom = vnode.dom;
+  var state = vnode.state;
+  state.el(dom);
+
+  state.scrollEl(dom.querySelector("." + classes.body));
+  state.footerEl(dom.querySelector("." + classes.footer));
+  state.headerEl(dom.querySelector("." + classes.header));
+
+  state.isScrolling.map(function () {
+    return updateScrollOverflowState(vnode);
+  });
+
+  var update = function update() {
+    updateScrollOverflowState(vnode);
+  };
+
+  state.cleanUp = function () {
+    return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unsubscribe"])("resize", update);
+  };
+
+  // resize: update scroll state ("overflow" borders)
+  Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["subscribe"])("resize", update);
+
+  update();
+};
+
+var onUnMount = function onUnMount(vnode) {
+  return vnode.state.cleanUp();
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var state = vnode.state;
+  var attrs = Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unpackAttrs"])(vnode.attrs);
+  var withHeader = attrs.header !== undefined || attrs.title !== undefined;
+  var withFooter = attrs.footer !== undefined || attrs.footerButtons !== undefined;
+  var borders = attrs.borders || "overflow";
+  var showTopBorder = borders === "always" || withHeader && borders === "overflow" && state.topOverflow();
+  var showBottomBorder = borders === "always" || withFooter && borders === "overflow" && state.bottomOverflow();
+
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs, { remove: ["style"] }), // style set in content, and set by show/hide transition
+  {
+    className: [classes.component, attrs.fullBleed ? classes.fullBleed : null, showTopBorder ? classes.borderTop : null, showBottomBorder ? classes.borderBottom : null, withHeader ? classes.withHeader : null, withFooter ? classes.withFooter : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.formOptions);
+};
+
+var createContent = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer,
+      k = _ref2.keys;
+
+  var state = vnode.state;
+  var attrs = Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unpackAttrs"])(vnode.attrs);
+
+  return h("div", {
+    className: [classes.content, attrs.menu ? classes.menuContent : null].join(" "),
+    style: attrs.style
+  }, [attrs.header ? attrs.header : attrs.title ? h("div", {
+    className: [classes.header, classes.headerWithTitle].join(" "),
+    key: "title"
+  }, h("div", { className: classes.title }, attrs.title)) : null, h("div", _defineProperty({
+    className: classes.body,
+    key: "body"
+  }, k.onscroll, function () {
+    state.isScrolling(true);
+    clearTimeout(state.scrollWatchId);
+    state.scrollWatchId = setTimeout(function () {
+      state.isScrolling(false);
+    }, SCROLL_WATCH_END_TIMER);
+  }), attrs.content || attrs.body || attrs.menu), attrs.footer ? h("div", {
+    className: classes.footer,
+    key: "footer"
+  }, attrs.footer) : attrs.footerButtons ? h("div", {
+    className: [classes.footer, classes.footerWithButtons, buttonClasses.row].join(" "),
+    key: "footer"
+  }, h("div", { className: classes.actions }, attrs.footerButtons)) : null]);
+};
+
+var dialogPane = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  onMount: onMount,
+  onUnMount: onUnMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-dialog/dist/polythene-core-dialog.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-dialog/dist/polythene-core-dialog.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreDialog */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreDialog", function() { return dialog; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var listTileClasses = {
+  component: "pe-list-tile",
+
+  // elements
+  content: "pe-list-tile__content",
+  highSubtitle: "pe-list-tile__high-subtitle",
+  primary: "pe-list-tile__primary",
+  secondary: "pe-list-tile__secondary",
+  subtitle: "pe-list-tile__subtitle",
+  title: "pe-list-tile__title",
+  contentFront: "pe-list-tile__content-front",
+
+  // states
+  compact: "pe-list-tile--compact",
+  compactFront: "pe-list-tile--compact-front",
+  disabled: "pe-list-tile--disabled",
+  hasFront: "pe-list-tile--front",
+  hasHighSubtitle: "pe-list-tile--high-subtitle",
+  hasSubtitle: "pe-list-tile--subtitle",
+  header: "pe-list-tile--header",
+  hoverable: "pe-list-tile--hoverable",
+  selectable: "pe-list-tile--selectable",
+  selected: "pe-list-tile--selected",
+  highlight: "pe-list-tile--highlight",
+  sticky: "pe-list-tile--sticky",
+  navigation: "pe-list-tile--navigation"
+};
+
+var menuClasses = {
+  component: "pe-menu",
+
+  // elements
+  panel: "pe-menu__panel",
+  content: "pe-menu__content",
+  placeholder: "pe-menu__placeholder",
+  backdrop: "pe-menu__backdrop",
+
+  // states
+  floating: "pe-menu--floating",
+  origin: "pe-menu--origin",
+  permanent: "pe-menu--permanent",
+  showBackdrop: "pe-menu--backdrop",
+  visible: "pe-menu--visible",
+  width_auto: "pe-menu--width-auto",
+  width_n: "pe-menu--width-",
+  isTopMenu: "pe-menu--top-menu",
+
+  // lookup
+  listTile: listTileClasses.component,
+  selectedListTile: listTileClasses.selected
+};
+
+var classes = {
+  component: "pe-dialog",
+
+  // elements
+  placeholder: "pe-dialog__placeholder",
+  holder: "pe-dialog__holder",
+  content: "pe-dialog__content",
+  backdrop: "pe-dialog__backdrop",
+  touch: "pe-dialog__touch",
+
+  // states
+  fullScreen: "pe-dialog--full-screen",
+  modal: "pe-dialog--modal",
+  open: "pe-dialog--open", // class set to html element
+  visible: "pe-dialog--visible", // class set to dialog element
+  showBackdrop: "pe-dialog--backdrop",
+  transition: "pe-dialog--transition",
+
+  // lookup
+  menuContent: menuClasses.content
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var DEFAULT_SHADOW_DEPTH = 3;
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var isFullScreen = function isFullScreen(_ref) {
+  var state = _ref.state,
+      attrs = _ref.attrs;
+  return attrs.fullScreen || Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["stylePropCompare"])({
+    element: state.el,
+    pseudoSelector: ":before",
+    prop: "content",
+    contains: "\"" + "full_screen" + "\""
+  });
+};
+
+var isModal = function isModal(_ref2) {
+  var state = _ref2.state,
+      attrs = _ref2.attrs;
+  return attrs.modal || Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["stylePropCompare"])({
+    element: state.el,
+    pseudoSelector: ":before",
+    prop: "content",
+    contains: "\"" + "modal" + "\""
+  });
+};
+
+var transitionOptions = function transitionOptions(state, attrs, isShow) {
+  return {
+    state: state,
+    attrs: attrs,
+    isShow: isShow,
+    domElements: {
+      el: state.el,
+      contentEl: state.contentEl,
+      backdropEl: state.backdropEl
+    },
+    showClass: classes.visible,
+    transitionClass: classes.transition
+  };
+};
+
+var showDialog = function showDialog(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, true));
+};
+
+var hideDialog = function hideDialog(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, false));
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var transitioning = createStream(false);
+  var visible = createStream(false);
+  return {
+    backdropEl: undefined,
+    touchEl: undefined,
+    cleanUp: undefined,
+    el: undefined,
+    contentEl: undefined,
+    transitioning: transitioning,
+    visible: visible,
+    redrawOnUpdate: createStream.merge([transitioning])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  if (attrs.z !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Dialog", { option: "z", newOption: "shadowDepth" });
+  }
+
+  var dom = vnode.dom;
+  state.el = dom;
+  state.backdropEl = dom.querySelector("." + classes.backdrop);
+  state.touchEl = dom.querySelector("." + classes.touch);
+  state.contentEl = dom.querySelector("." + classes.content);
+
+  if (!attrs.inactive) {
+
+    var handleEscape = function handleEscape(e) {
+      if (isFullScreen(vnode) || isModal(vnode)) return;
+      if (e.key === "Escape" || e.key === "Esc") {
+        // "Esc" for IE11
+        var openDialogs = document.querySelectorAll("." + classes.component);
+        if (openDialogs[openDialogs.length - 1] === state.el) {
+          hideDialog(state, _extends({}, attrs, {
+            hideDelay: 0
+          }));
+        }
+      }
+    };
+
+    state.cleanUp = function () {
+      return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unsubscribe"])("keydown", handleEscape);
+    };
+
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["subscribe"])("keydown", handleEscape);
+
+    if (attrs.show) {
+      showDialog(state, attrs);
+    }
+  }
+};
+
+var onUnMount = function onUnMount(vnode) {
+  return vnode.state.cleanUp && vnode.state.cleanUp();
+};
+
+var createProps = function createProps(vnode, _ref3) {
+  var k = _ref3.keys;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs, { remove: ["style"] }), // style set in content, and set by show/hide transition
+  _defineProperty({
+    className: [attrs.parentClassName || classes.component, attrs.fromMultipleClassName, attrs.fullScreen ? classes.fullScreen : null, attrs.modal ? classes.modal : null, attrs.backdrop ? classes.showBackdrop : null,
+    // classes.visible is set in showDialog though transition
+    attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" "),
+    "data-spawn-id": attrs.spawnId,
+    "data-instance-id": attrs.instanceId
+  }, k.onclick, function (e) {
+    if (e.target !== state.el && e.target !== state.backdropEl && e.target !== state.touchEl) {
+      return;
+    }
+    if (isModal(vnode)) {
+      // not allowed
+      return;
+    }
+    hideDialog(state, attrs);
+  }));
+};
+
+var createPane = function createPane(vnode, _ref4) {
+  var h = _ref4.renderer,
+      Pane = _ref4.Pane;
+
+  var attrs = vnode.attrs;
+  return h(Pane, {
+    body: attrs.content || attrs.body || attrs.menu || vnode.children,
+    borders: attrs.borders,
+    className: attrs.className,
+    footer: attrs.footer,
+    footerButtons: attrs.footerButtons,
+    formOptions: attrs.formOptions,
+    fullBleed: attrs.fullBleed,
+    header: attrs.header,
+    style: attrs.style,
+    title: attrs.title
+  });
+};
+
+var createContent = function createContent(vnode, _ref5) {
+  var renderer = _ref5.renderer,
+      Shadow = _ref5.Shadow,
+      createPane = _ref5.createPane,
+      Pane = _ref5.Pane;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var h = renderer;
+
+  if (state.el) {
+    var visible = state.visible();
+    var transitioning = state.transitioning();
+    if (!transitioning) {
+      if (attrs.hide && visible) {
+        // Use setTimeout to play nice with React's lifecycle functions
+        setTimeout(function () {
+          return hideDialog(state, attrs);
+        }, 0);
+      } else if (attrs.show && !visible) {
+        setTimeout(function () {
+          return showDialog(state, attrs);
+        }, 0);
+      }
+    }
+  }
+  var pane = attrs.panesOptions && attrs.panesOptions.length ? h(Pane, attrs.panesOptions[0]) : attrs.panes && attrs.panes.length ? attrs.panes[0] : createPane(vnode, { renderer: renderer, Pane: Pane });
+  var shadowDepth = attrs.shadowDepth !== undefined ? attrs.shadowDepth : attrs.z; // deprecated
+  return [h("div", {
+    key: "backdrop",
+    className: classes.backdrop
+  }), h("div", {
+    key: "touch",
+    className: classes.touch
+  }), h("div", {
+    className: [classes.content, attrs.menu ? classes.menuContent : null].join(" "),
+    key: "content"
+  }, [attrs.fullScreen ? null : h(Shadow, {
+    shadowDepth: shadowDepth !== undefined ? shadowDepth : DEFAULT_SHADOW_DEPTH,
+    animated: true,
+    key: "shadow"
+  }), pane])];
+};
+
+var dialog = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  onMount: onMount,
+  onUnMount: onUnMount,
+  createProps: createProps,
+  createPane: createPane,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-drawer/dist/polythene-core-drawer.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-drawer/dist/polythene-core-drawer.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreDrawer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreDrawer", function() { return drawer; });
+var classes = {
+  component: "pe-dialog pe-drawer",
+
+  // states
+  cover: "pe-drawer--cover",
+  push: "pe-drawer--push",
+  mini: "pe-drawer--mini",
+  permanent: "pe-drawer--permanent",
+  border: "pe-drawer--border",
+  floating: "pe-drawer--floating",
+  fixed: "pe-drawer--fixed",
+  anchorEnd: "pe-drawer--anchor-end"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Props to be passed to Dialog
+var createProps = function createProps(vnode) {
+  var attrs = vnode.attrs;
+  var isCover = !(attrs.push || attrs.permanent || attrs.mini);
+  return _extends({}, attrs, {
+    fullBleed: true,
+    className: null,
+    parentClassName: [attrs.className, classes.component, isCover ? classes.cover : null, attrs.push ? classes.push : null, attrs.permanent ? classes.permanent : null, attrs.border ? classes.border : null, attrs.mini ? classes.mini : null, attrs.floating ? classes.floating : null, attrs.fixed ? classes.fixed : null, attrs.anchor === "end" ? classes.anchorEnd : null].join(" "),
+    inactive: attrs.permanent && !attrs.mini,
+    shadowDepth: attrs.shadowDepth !== undefined ? attrs.shadowDepth : 0,
+    // deprecated:
+    z: attrs.z !== undefined ? attrs.z : undefined
+  });
+};
+
+var createContent = function createContent(vnode) {
+  return vnode.children;
+};
+
+var drawer = /*#__PURE__*/Object.freeze({
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-fab/dist/polythene-core-fab.mjs":
+/*!**********************************************************************!*\
+  !*** ../node_modules/polythene-core-fab/dist/polythene-core-fab.mjs ***!
+  \**********************************************************************/
+/*! exports provided: coreFAB */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreFAB", function() { return fab; });
+var classes = {
+  component: "pe-fab",
+
+  // elements
+  content: "pe-fab__content",
+
+  // states
+  mini: "pe-fab--mini"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Don't export 'element': it will be the wrapped raised button component (set in polythene-xxx-fab)
+
+// Props to be passed to a Button, including 'content'
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys,
+      h = _ref.renderer,
+      Icon = _ref.Icon;
+
+  var attrs = vnode.attrs;
+  var content = attrs.content ? attrs.content : attrs.icon ? h(Icon, attrs.icon) : attrs.children || vnode.children;
+  return _extends({}, attrs, {
+    content: h("div", { className: classes.content }, content),
+    parentClassName: [classes.component, attrs.mini ? classes.mini : null, attrs.className || attrs[k.class]].join(" "),
+    className: null,
+    // defaults
+    ripple: {
+      center: true,
+      opacityDecayVelocity: 0.24
+    },
+    shadow: { increase: 5 },
+    ink: true,
+    wash: true,
+    raised: true,
+    animateOnTap: attrs.animateOnTap !== undefined ? attrs.animateOnTap : true
+  });
+};
+
+var createContent = function createContent(vnode) {
+  return vnode.children;
+};
+
+var fab = /*#__PURE__*/Object.freeze({
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-icon-button/dist/polythene-core-icon-button.mjs":
+/*!**************************************************************************************!*\
+  !*** ../node_modules/polythene-core-icon-button/dist/polythene-core-icon-button.mjs ***!
+  \**************************************************************************************/
+/*! exports provided: coreIconButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreIconButton", function() { return iconButton; });
+var classes = {
+  component: "pe-button pe-icon-button",
+
+  // elements
+  content: "pe-icon-button__content",
+  label: "pe-icon-button__label",
+
+  // states
+  compact: "pe-icon-button--compact"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Don't export 'element': it will be the wrapped button component (set in polythene-xxx-icon-button)
+
+// Props to be passed to a button, including 'content'
+
+var createProps = function createProps(vnode, _ref) {
+  var h = _ref.renderer,
+      Icon = _ref.Icon;
+
+  var attrs = vnode.attrs;
+  var content = attrs.content ? attrs.content : attrs.icon ? h(Icon, attrs.icon) : attrs.children || vnode.children;
+  return _extends({}, {
+    content: h("div", { className: classes.content }, content),
+    after: attrs.label && h("div", { className: classes.label }, attrs.label),
+    parentClassName: [attrs.parentClassName || classes.component, attrs.compact ? classes.compact : null].join(" "),
+    // defaults
+    wash: false,
+    animateOnTap: false
+  }, attrs);
+};
+
+var createContent = function createContent(vnode) {
+  return vnode.children;
+};
+
+var iconButton = /*#__PURE__*/Object.freeze({
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-icon/dist/polythene-core-icon.mjs":
+/*!************************************************************************!*\
+  !*** ../node_modules/polythene-core-icon/dist/polythene-core-icon.mjs ***!
+  \************************************************************************/
+/*! exports provided: coreIcon */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreIcon", function() { return icon; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-icon",
+
+  // states
+  avatar: "pe-icon--avatar",
+  large: "pe-icon--large",
+  medium: "pe-icon--medium",
+  regular: "pe-icon--regular",
+  small: "pe-icon--small"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["classForSize"])(classes, attrs.size), attrs.avatar ? classes.avatar : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer,
+      SVG = _ref2.SVG;
+
+  var attrs = vnode.attrs;
+  return attrs.content ? attrs.content : attrs.svg ? h(SVG, attrs.svg) : attrs.src ? h("img", { src: attrs.src }) : attrs.children || vnode.children;
+};
+
+var icon = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-ios-spinner/dist/polythene-core-ios-spinner.mjs":
+/*!**************************************************************************************!*\
+  !*** ../node_modules/polythene-core-ios-spinner/dist/polythene-core-ios-spinner.mjs ***!
+  \**************************************************************************************/
+/*! exports provided: coreIOSSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreIOSSpinner", function() { return spinner; });
+var classes = {
+  component: "pe-ios-spinner",
+
+  // elements
+  blades: "pe-ios-spinner__blades",
+  blade: "pe-ios-spinner__blade"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var blade = function blade(num, h) {
+  return h("div", {
+    key: "blade-" + num,
+    className: classes.blade
+  });
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var h = _ref.renderer;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  state.content = state.content || h("div", {
+    key: "content",
+    className: classes.blades
+  }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(function (num) {
+    return blade(num, h);
+  }));
+  return _extends({}, attrs, {
+    className: [classes.component, attrs.className].join(" "),
+    content: state.content
+  });
+};
+
+var spinner = /*#__PURE__*/Object.freeze({
+  createProps: createProps
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-list-tile/dist/polythene-core-list-tile.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-core-list-tile/dist/polythene-core-list-tile.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: coreListTile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreListTile", function() { return listTile; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-list-tile",
+
+  // elements
+  content: "pe-list-tile__content",
+  highSubtitle: "pe-list-tile__high-subtitle",
+  primary: "pe-list-tile__primary",
+  secondary: "pe-list-tile__secondary",
+  subtitle: "pe-list-tile__subtitle",
+  title: "pe-list-tile__title",
+  contentFront: "pe-list-tile__content-front",
+
+  // states
+  compact: "pe-list-tile--compact",
+  compactFront: "pe-list-tile--compact-front",
+  disabled: "pe-list-tile--disabled",
+  hasFront: "pe-list-tile--front",
+  hasHighSubtitle: "pe-list-tile--high-subtitle",
+  hasSubtitle: "pe-list-tile--subtitle",
+  header: "pe-list-tile--header",
+  hoverable: "pe-list-tile--hoverable",
+  selectable: "pe-list-tile--selectable",
+  selected: "pe-list-tile--selected",
+  highlight: "pe-list-tile--highlight",
+  sticky: "pe-list-tile--sticky",
+  navigation: "pe-list-tile--navigation"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var getElement = function getElement() {
+  return "div";
+}; // because primary or secondary content can be an "a", the container is always defined as "div", and option `element` is passed to primary content
+
+var primaryContent = function primaryContent(h, k, requiresKeys, attrs, children) {
+  var url = attrs.keyboardControl ? null : attrs.url;
+  var element = attrs.element ? attrs.element : url ? "a" : "div";
+  var contentFrontClass = [classes.content, classes.contentFront, attrs.compactFront ? classes.compactFront : null].join(" ");
+  var frontComp = attrs.front ? h("div", _extends({}, requiresKeys ? { key: "front" } : null, { className: contentFrontClass }), attrs.front) : attrs.indent ? h("div", _extends({}, requiresKeys ? { key: "front" } : null, { className: contentFrontClass })) : null;
+  var hasTabIndex = !attrs.header && attrs.url;
+  var props = _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), attrs.events, {
+    className: classes.primary,
+    style: null
+  }, hasTabIndex && _defineProperty({}, k.tabindex, attrs[k.tabindex] || 0), url);
+  var content = attrs.content ? attrs.content : [frontComp, h("div", {
+    className: classes.content,
+    style: attrs.style
+  }, [attrs.content ? _extends({}, requiresKeys ? { key: "content" } : null, attrs.content) : children, attrs.title && !attrs.content ? h("div", _extends({}, requiresKeys ? { key: "title" } : null, { className: classes.title }), attrs.title) : null, attrs.subtitle ? h("div", _extends({}, requiresKeys ? { key: "subtitle" } : null, { className: classes.subtitle }), attrs.subtitle) : null, attrs.highSubtitle ? h("div", _extends({}, requiresKeys ? { key: "highSubtitle" } : null, { className: classes.subtitle + " " + classes.highSubtitle }), attrs.highSubtitle) : null, attrs.subContent ? h("div", _extends({}, requiresKeys ? { key: "subContent" } : null, { className: classes.subContent }), attrs.subContent) : null])];
+  return h(element, props, content);
+};
+
+var secondaryContent = function secondaryContent(h, k, requiresKeys, Icon) {
+  var attrs = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
+
+  var url = attrs.keyboardControl ? null : attrs.url;
+  var element = attrs.element ? attrs.element : url ? "a" : "div";
+  var hasTabIndex = attrs.url;
+  return h(element, _extends({}, url, {
+    className: classes.secondary
+  }, requiresKeys ? { key: "secondary" } : null, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), hasTabIndex && _defineProperty({}, k.tabindex, attrs[k.tabindex] || 0)), h("div", { className: classes.content }, [attrs.icon ? h(Icon, attrs.icon) : null, attrs.content ? attrs.content : null]));
+};
+
+var createProps = function createProps(vnode, _ref3) {
+  var k = _ref3.keys;
+
+  var attrs = vnode.attrs;
+  var hasTabIndex = !attrs.header && !attrs.url && !(attrs.secondary && attrs.secondary.url);
+  var heightClass = attrs.subtitle ? classes.hasSubtitle : attrs.highSubtitle ? classes.hasHighSubtitle : attrs.front || attrs.indent ? classes.hasFront : null;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs, { remove: ["tabindex", "tabIndex"] }), // tabindex is set elsewhere
+  {
+    className: [classes.component, attrs.selected ? classes.selected : null, attrs.disabled ? classes.disabled : null, attrs.sticky ? classes.sticky : null, attrs.compact ? classes.compact : null, attrs.hoverable ? classes.hoverable : null, attrs.selectable ? classes.selectable : null, attrs.highlight ? classes.highlight : null, attrs.header ? classes.header : null, attrs.navigation ? classes.navigation : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, heightClass, attrs.className || attrs[k.class]].join(" ")
+  }, hasTabIndex && _defineProperty({}, k.tabindex, attrs[k.tabindex] || 0)
+  // events and url are attached to primary content to not interfere with controls
+  );
+};
+
+var createContent = function createContent(vnode, _ref5) {
+  var h = _ref5.renderer,
+      requiresKeys = _ref5.requiresKeys,
+      k = _ref5.keys,
+      Ripple = _ref5.Ripple,
+      Icon = _ref5.Icon;
+
+  var attrs = vnode.attrs;
+  var primaryAttrs = _extends({}, requiresKeys ? { key: "primary" } : null, attrs);
+  delete primaryAttrs.id;
+  delete primaryAttrs[k.class];
+  return [attrs.ink && !attrs.disabled ? h(Ripple, _extends({}, attrs.ripple, requiresKeys ? { key: "ripple" } : null)) : null, primaryContent(h, k, requiresKeys, primaryAttrs, attrs.children || vnode.children), attrs.secondary ? secondaryContent(h, k, requiresKeys, Icon, attrs.secondary) : null];
+};
+
+var listTile = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-list/dist/polythene-core-list.mjs":
+/*!************************************************************************!*\
+  !*** ../node_modules/polythene-core-list/dist/polythene-core-list.mjs ***!
+  \************************************************************************/
+/*! exports provided: coreList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreList", function() { return list; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var listTileClasses = {
+  component: "pe-list-tile",
+
+  // elements
+  content: "pe-list-tile__content",
+  highSubtitle: "pe-list-tile__high-subtitle",
+  primary: "pe-list-tile__primary",
+  secondary: "pe-list-tile__secondary",
+  subtitle: "pe-list-tile__subtitle",
+  title: "pe-list-tile__title",
+  contentFront: "pe-list-tile__content-front",
+
+  // states
+  compact: "pe-list-tile--compact",
+  compactFront: "pe-list-tile--compact-front",
+  disabled: "pe-list-tile--disabled",
+  hasFront: "pe-list-tile--front",
+  hasHighSubtitle: "pe-list-tile--high-subtitle",
+  hasSubtitle: "pe-list-tile--subtitle",
+  header: "pe-list-tile--header",
+  hoverable: "pe-list-tile--hoverable",
+  selectable: "pe-list-tile--selectable",
+  selected: "pe-list-tile--selected",
+  highlight: "pe-list-tile--highlight",
+  sticky: "pe-list-tile--sticky",
+  navigation: "pe-list-tile--navigation"
+};
+
+var classes = {
+  component: "pe-list",
+
+  // states
+  border: "pe-list--border",
+  compact: "pe-list--compact",
+  hasHeader: "pe-list--header",
+  indentedBorder: "pe-list--indented-border",
+  padding: "pe-list--padding",
+  paddingTop: "pe-list--padding-top",
+  paddingBottom: "pe-list--padding-bottom",
+
+  // lookup
+  header: listTileClasses.header
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var paddingClasses = {
+  both: classes.padding,
+  bottom: classes.paddingBottom,
+  top: classes.paddingTop,
+  none: null
+};
+
+var paddingClass = function paddingClass() {
+  var attr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "both";
+  return paddingClasses[attr];
+};
+
+var onMount = function onMount(_ref) {
+  var attrs = _ref.attrs;
+
+  if (attrs.borders !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("List", { option: "borders", newOption: "border" });
+  }
+  if (attrs.indentedBorders !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("List", { option: "indentedBorders", newOption: "indentedBorder" });
+  }
+};
+
+var createProps = function createProps(vnode, _ref2) {
+  var k = _ref2.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.border || attrs.borders ? classes.border : null, attrs.indentedBorder || attrs.indentedBorders ? classes.indentedBorder : null, attrs.header ? classes.hasHeader : null, attrs.compact ? classes.compact : null, paddingClass(attrs.padding), attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref3) {
+  var h = _ref3.renderer,
+      requiresKeys = _ref3.requiresKeys,
+      k = _ref3.keys,
+      ListTile = _ref3.ListTile;
+
+  var attrs = vnode.attrs;
+  var headerOpts = void 0;
+  if (attrs.header) {
+    headerOpts = _extends({}, attrs.header);
+    headerOpts[k.class] = [classes.header, headerOpts[k.class] || null].join(" ");
+  }
+  var tiles = attrs.tiles ? attrs.tiles : attrs.content ? attrs.content : attrs.children || vnode.children;
+  return [headerOpts ? h(ListTile, _extends({}, requiresKeys ? { key: "header" } : null, attrs.all, headerOpts, {
+    header: true
+  })) : null, attrs.all ? tiles.map(function (tileOpts) {
+    return h(ListTile, _extends({}, attrs.all, tileOpts));
+  }) : tiles];
+};
+
+var list = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  onMount: onMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-material-design-progress-spinner/dist/polythene-core-material-design-progress-spinner.mjs":
+/*!********************************************************************************************************************************!*\
+  !*** ../node_modules/polythene-core-material-design-progress-spinner/dist/polythene-core-material-design-progress-spinner.mjs ***!
+  \********************************************************************************************************************************/
+/*! exports provided: coreMaterialDesignProgressSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreMaterialDesignProgressSpinner", function() { return spinner; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_utilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-utilities */ "../node_modules/polythene-utilities/dist/polythene-utilities.mjs");
+
+
+
+var classes = {
+  component: "pe-md-progress-spinner",
+
+  // elements
+  animation: "pe-md-progress-spinner__animation",
+  circle: "pe-md-progress-spinner__circle",
+  circleRight: "pe-md-progress-spinner__circle-right",
+  circleLeft: "pe-md-progress-spinner__circle-left"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var percentageValue = function percentageValue(min, max) {
+  var percentage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+  return min + (max - min) * percentage;
+};
+
+var rotateCircle = function rotateCircle(el, min, max, percentage) {
+  var style = el.style;
+  style["transform"] = style["-webkit-transform"] = style["-moz-transform"] = style["-ms-transform"] = style["-o-transform"] = "rotate(" + percentageValue(min, max, percentage) + "deg)";
+};
+
+var animate = function animate(stateEl, size, percentage) {
+  var animationEl = stateEl.querySelector("." + classes.animation);
+  var animationElStyle = animationEl.style;
+  if (percentage < 0.5) {
+    animationElStyle.clip = "rect(0px, " + size + "px, " + size + "px, " + size / 2 + "px)";
+  } else {
+    animationElStyle.clip = "rect(auto, auto, auto, auto)";
+  }
+  var leftCircle = stateEl.querySelector("." + classes.circleLeft);
+  var rightCircle = stateEl.querySelector("." + classes.circleRight);
+  leftCircle.style.clip = rightCircle.style.clip = "rect(0px, " + size / 2 + "px, " + size + "px, " + "0px)";
+  rotateCircle(rightCircle, 0, 180, Math.min(1, percentage * 2));
+  rotateCircle(leftCircle, 0, 360, percentage);
+};
+
+var updateWithPercentage = function updateWithPercentage(_ref) {
+  var state = _ref.state,
+      attrs = _ref.attrs,
+      size = _ref.size;
+
+  if (!state.dom) {
+    return;
+  }
+  if (state.animating()) {
+    return;
+  }
+  if (attrs.percentage === undefined) {
+    return;
+  }
+  var percentage = Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unpackAttrs"])(attrs.percentage);
+  var previousPercentage = state.percentage();
+  var easingFn = attrs.animated ? polythene_utilities__WEBPACK_IMPORTED_MODULE_1__["easing"].easeInOutQuad : function (v) {
+    return v;
+  };
+  if (attrs.animated && previousPercentage !== percentage) {
+    var el = state.dom;
+    var animationDuration = attrs.updateDuration !== undefined ? attrs.updateDuration * 1000 : Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["styleDurationToMs"])(Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["getStyle"])({ element: el.querySelector("." + classes.animation), prop: "animation-duration" }));
+    var start = null;
+    var step = function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = timestamp - start;
+      var stepPercentage = 1.0 / animationDuration * progress;
+      var newPercentage = previousPercentage + stepPercentage * (percentage - previousPercentage);
+      animate(el, size, easingFn(newPercentage));
+      if (start && progress < animationDuration) {
+        window.requestAnimationFrame(step);
+      } else {
+        start = null;
+        state.percentage(percentage);
+        state.animating(false);
+      }
+    };
+    state.animating(true);
+    window.requestAnimationFrame(step);
+  } else {
+    animate(state.dom, size, easingFn(percentage));
+    state.percentage(percentage);
+  }
+};
+
+var getSize = function getSize(element) {
+  return Math.round(element ? parseFloat(Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["getStyle"])({ element: element, prop: "height" })) - 2 * parseFloat(Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["getStyle"])({ element: element, prop: "padding" })) : 0);
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var percentage = createStream(0);
+  var animating = createStream(false);
+  return {
+    animating: animating,
+    dom: undefined,
+    percentage: percentage,
+    redrawOnUpdate: createStream.merge([animating])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  state.dom = vnode.dom;
+  var size = getSize(state.dom);
+  updateWithPercentage({ state: state, attrs: attrs, size: size });
+};
+
+var createProps = function createProps(vnode, _ref2) {
+  var h = _ref2.renderer;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var size = getSize(state.dom);
+  updateWithPercentage({ state: state, attrs: attrs, size: size });
+
+  var content = h("div", {
+    key: "content",
+    className: classes.animation,
+    style: {
+      width: size + "px",
+      height: size + "px"
+    }
+  }, [h("div", {
+    key: "left",
+    className: [classes.circle, classes.circleLeft].join(" ")
+  }), h("div", {
+    key: "right",
+    className: [classes.circle, classes.circleRight].join(" ")
+  })]);
+
+  return _extends({}, attrs, {
+    className: [classes.component, attrs.className].join(" "),
+    content: content
+  });
+};
+
+var spinner = /*#__PURE__*/Object.freeze({
+  getInitialState: getInitialState,
+  onMount: onMount,
+  createProps: createProps
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-material-design-spinner/dist/polythene-core-material-design-spinner.mjs":
+/*!**************************************************************************************************************!*\
+  !*** ../node_modules/polythene-core-material-design-spinner/dist/polythene-core-material-design-spinner.mjs ***!
+  \**************************************************************************************************************/
+/*! exports provided: coreMaterialDesignSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreMaterialDesignSpinner", function() { return spinner; });
+var classes = {
+  component: "pe-md-spinner",
+
+  // elements
+  animation: "pe-md-spinner__animation",
+  circle: "pe-md-spinner__circle",
+  circleClipper: "pe-md-spinner__circle-clipper",
+  circleClipperLeft: "pe-md-spinner__circle-clipper-left",
+  circleClipperRight: "pe-md-spinner__circle-clipper-right",
+  gapPatch: "pe-md-spinner__gap-patch",
+  layer: "pe-md-spinner__layer",
+  layerN: "pe-md-spinner__layer-"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var layer = function layer(num, h) {
+  return h("div", {
+    key: num,
+    className: [classes.layer, classes.layerN + num].join(" ")
+  }, [h("div", {
+    key: "clipper-left",
+    className: [classes.circleClipper, classes.circleClipperLeft].join(" ")
+  }, h("div", {
+    key: "circle",
+    className: classes.circle
+  })), h("div", {
+    key: "gap-patch",
+    className: classes.gapPatch
+  }, h("div", { className: classes.circle })), h("div", {
+    key: "clipper-right",
+    className: [classes.circleClipper, classes.circleClipperRight].join(" ")
+  }, h("div", { className: classes.circle }))]);
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var h = _ref.renderer;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  state.content = state.content || h("div", {
+    key: "content",
+    className: classes.animation
+  }, [1, 2, 3, 4].map(function (num) {
+    return layer(num, h);
+  }));
+  return _extends({}, attrs, {
+    className: [classes.component, attrs.className].join(" "),
+    content: state.content
+  });
+};
+
+var spinner = /*#__PURE__*/Object.freeze({
+  createProps: createProps
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-menu/dist/polythene-core-menu.mjs":
+/*!************************************************************************!*\
+  !*** ../node_modules/polythene-core-menu/dist/polythene-core-menu.mjs ***!
+  \************************************************************************/
+/*! exports provided: coreMenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreMenu", function() { return menu; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var listTileClasses = {
+  component: "pe-list-tile",
+
+  // elements
+  content: "pe-list-tile__content",
+  highSubtitle: "pe-list-tile__high-subtitle",
+  primary: "pe-list-tile__primary",
+  secondary: "pe-list-tile__secondary",
+  subtitle: "pe-list-tile__subtitle",
+  title: "pe-list-tile__title",
+  contentFront: "pe-list-tile__content-front",
+
+  // states
+  compact: "pe-list-tile--compact",
+  compactFront: "pe-list-tile--compact-front",
+  disabled: "pe-list-tile--disabled",
+  hasFront: "pe-list-tile--front",
+  hasHighSubtitle: "pe-list-tile--high-subtitle",
+  hasSubtitle: "pe-list-tile--subtitle",
+  header: "pe-list-tile--header",
+  hoverable: "pe-list-tile--hoverable",
+  selectable: "pe-list-tile--selectable",
+  selected: "pe-list-tile--selected",
+  highlight: "pe-list-tile--highlight",
+  sticky: "pe-list-tile--sticky",
+  navigation: "pe-list-tile--navigation"
+};
+
+var classes = {
+  component: "pe-menu",
+
+  // elements
+  panel: "pe-menu__panel",
+  content: "pe-menu__content",
+  placeholder: "pe-menu__placeholder",
+  backdrop: "pe-menu__backdrop",
+
+  // states
+  floating: "pe-menu--floating",
+  origin: "pe-menu--origin",
+  permanent: "pe-menu--permanent",
+  showBackdrop: "pe-menu--backdrop",
+  visible: "pe-menu--visible",
+  width_auto: "pe-menu--width-auto",
+  width_n: "pe-menu--width-",
+  isTopMenu: "pe-menu--top-menu",
+
+  // lookup
+  listTile: listTileClasses.component,
+  selectedListTile: listTileClasses.selected
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var DEFAULT_OFFSET_H = 0;
+var DEFAULT_OFFSET_V = "79%";
+var DEFAULT_TYPE = "floating";
+var MIN_WIDTH = 1.5;
+var DEFAULT_SHADOW_DEPTH = 1;
+
+var isTopMenu = function isTopMenu(_ref) {
+  var state = _ref.state,
+      attrs = _ref.attrs;
+  return attrs.topMenu || Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["stylePropCompare"])({
+    element: state.dom(),
+    pseudoSelector: ":before",
+    prop: "content",
+    contains: "\"" + "top_menu" + "\""
+  });
+};
+
+var positionMenu = function positionMenu(state, attrs) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) {
+    return;
+  }
+  if (!attrs.target) {
+    return;
+  }
+  var targetEl = document.querySelector(attrs.target);
+  if (!targetEl) {
+    return;
+  }
+  var panelEl = state.panelEl;
+  if (!panelEl) {
+    return;
+  }
+
+  // Don't set the position or top offset if the menu position is fixed
+  var hasStylePositionFixed = Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["stylePropCompare"])({
+    element: panelEl,
+    prop: "position",
+    equals: "fixed"
+  });
+
+  if (hasStylePositionFixed && !isTopMenu({ state: state, attrs: attrs })) {
+    _extends(panelEl.style, {});
+    panelEl.offsetHeight; // force reflow
+    return;
+  }
+
+  var contentEl = state.contentEl;
+  var parentRect = panelEl.parentNode.getBoundingClientRect();
+  var targetRect = targetEl.getBoundingClientRect();
+  var attrsOffsetH = attrs.offsetH !== undefined ? attrs.offsetH : attrs.offset !== undefined ? attrs.offset // deprecated
+  : DEFAULT_OFFSET_H;
+  var attrsOffsetV = attrs.offsetV !== undefined ? attrs.offsetV : DEFAULT_OFFSET_V;
+  var offsetH = attrsOffsetH.toString().indexOf("%") !== -1 ? Math.round(parseFloat(attrsOffsetH) * 0.01 * targetRect.width) : Math.round(parseFloat(attrsOffsetH));
+  var offsetV = attrsOffsetV.toString().indexOf("%") !== -1 ? Math.round(parseFloat(attrsOffsetV) * 0.01 * targetRect.height) : Math.round(parseFloat(attrsOffsetV));
+  var positionOffsetV = offsetV;
+
+  var attrsOrigin = attrs.origin || "top";
+  var origin = attrsOrigin.split(/\W+/).reduce(function (acc, curr) {
+    return acc[curr] = true, acc;
+  }, {});
+
+  var firstItem = contentEl.querySelectorAll("." + classes.listTile)[0];
+
+  if (attrs.reposition) {
+    // get the first List Tile to calculate the top position  
+    var selectedItem = contentEl.querySelector("." + classes.selectedListTile);
+    if (firstItem && selectedItem) {
+      // calculate v position: menu should shift upward relative to the first item
+      var firstItemRect = firstItem.getBoundingClientRect();
+      var selectedItemRect = selectedItem.getBoundingClientRect();
+      positionOffsetV = firstItemRect.top - selectedItemRect.top;
+    }
+    // align to middle of target
+    var alignEl = selectedItem || firstItem;
+    var alignRect = alignEl.getBoundingClientRect();
+    var _targetRect = targetEl.getBoundingClientRect();
+    var heightDiff = _targetRect.height - alignRect.height;
+    positionOffsetV += Math.abs(heightDiff) / 2;
+  } else if (attrs.origin && !hasStylePositionFixed) {
+    if (origin.top) {
+      positionOffsetV += targetRect.top - parentRect.top;
+    } else if (origin.bottom) {
+      positionOffsetV += targetRect.top - parentRect.bottom;
+    }
+  }
+
+  if (attrs.height) {
+    var firstItemHeight = firstItem ? firstItem.clientHeight : 48; // default List Tile height
+    if (attrs.height === "max") {
+      var topMargin = positionOffsetV;
+      var bottomMargin = firstItemHeight;
+      panelEl.style.height = "calc(100% - " + (topMargin + bottomMargin) + "px)";
+    } else {
+      var height = /^\d+$/.test(attrs.height.toString()) ? attrs.height + "px" : attrs.height;
+      panelEl.style.height = height;
+    }
+  }
+
+  // prevent animated changes
+  var transitionDuration = panelEl.style.transitionDuration;
+  panelEl.style.transitionDuration = "0ms";
+
+  if (panelEl.parentNode && !hasStylePositionFixed) {
+    if (origin.right) {
+      panelEl.style.right = targetRect.right - parentRect.right + offsetH + "px";
+    } else {
+      panelEl.style.left = targetRect.left - parentRect.left + offsetH + "px";
+    }
+    if (origin.bottom) {
+      panelEl.style.bottom = positionOffsetV + "px";
+    } else {
+      panelEl.style.top = positionOffsetV + "px";
+    }
+    panelEl.style.transformOrigin = attrsOrigin.split(/\W+/).join(" ");
+  }
+
+  panelEl.offsetHeight; // force reflow
+  panelEl.style.transitionDuration = transitionDuration;
+};
+
+var scrollContent = function scrollContent(state, attrs) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) {
+    return;
+  }
+  if (!attrs.scrollTarget) {
+    return;
+  }
+  var scrollTargetEl = document.querySelector(attrs.scrollTarget);
+  if (!scrollTargetEl) {
+    return;
+  }
+  state.contentEl.scrollTop = scrollTargetEl.offsetTop;
+};
+
+var transitionOptions = function transitionOptions(state, attrs, isShow) {
+  return {
+    state: state,
+    attrs: attrs,
+    isShow: isShow,
+    beforeTransition: isShow ? function () {
+      return state.update();
+    } : null,
+    domElements: {
+      el: state.panelEl,
+      showClassElement: state.dom()
+    },
+    showClass: classes.visible
+  };
+};
+
+var showMenu = function showMenu(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, true));
+};
+
+var hideMenu = function hideMenu(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, false));
+};
+
+var unifyWidth = function unifyWidth(width) {
+  return width < MIN_WIDTH ? MIN_WIDTH : width;
+};
+
+var widthClass = function widthClass(size) {
+  return classes.width_n + size.toString().replace(".", "-");
+};
+
+var handleSubscriptions = function handleSubscriptions(vnode, which) {
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  if (which === "mount") {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["subscribe"])("resize", state.update);
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["subscribe"])("keydown", state.handleEscape);
+    setTimeout(function () {
+      state.activateDismissTap();
+      showMenu(state, attrs);
+    }, 0);
+  } else {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unsubscribe"])("resize", state.update);
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unsubscribe"])("keydown", state.handleEscape);
+    state.deActivateDismissTap();
+  }
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var dom = createStream(null);
+  var attrs = vnode.attrs;
+  if (attrs.offset !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Menu", { option: "offset", newOption: "offsetH" });
+  }
+  if (attrs.size !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Menu", { option: "size", newOption: "width" });
+  }
+  var visible = createStream(false);
+  var transitioning = createStream(false);
+  return {
+    dom: dom,
+    visible: visible,
+    transitioning: transitioning,
+    activateDismissTap: undefined, // set in onMount
+    contentEl: undefined, // set in onMount
+    deActivateDismissTap: undefined, // set in onMount
+    handleDismissTap: undefined, // set in onMount
+    handleEscape: undefined, // set in onMount
+    panelEl: undefined, // set in onMount
+    update: undefined, // set in onMount
+    redrawOnUpdate: createStream.merge([transitioning])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  state.dom(vnode.dom);
+  state.panelEl = vnode.dom.querySelector("." + classes.panel);
+  state.contentEl = vnode.dom.querySelector("." + classes.content);
+
+  if (!attrs.permanent) {
+    state.handleDismissTap = function (e) {
+      if (e.target === state.panelEl) {
+        return;
+      }
+      hideMenu(state, attrs);
+    };
+
+    state.update = function () {
+      positionMenu(state, attrs);
+      scrollContent(state, attrs);
+    };
+
+    state.activateDismissTap = function () {
+      polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndMoveEvent"].forEach(function (evt) {
+        return document.addEventListener(evt, state.handleDismissTap);
+      });
+    };
+
+    state.deActivateDismissTap = function () {
+      polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndMoveEvent"].forEach(function (evt) {
+        return document.removeEventListener(evt, state.handleDismissTap);
+      });
+    };
+
+    state.handleEscape = function (e) {
+      if (e.key === "Escape" || e.key === "Esc") {
+        hideMenu(state, _extends({}, attrs, { hideDelay: 0 }));
+      }
+    };
+
+    handleSubscriptions(vnode, "mount");
+  }
+};
+
+var onUnMount = function onUnMount(vnode) {
+  var attrs = vnode.attrs;
+  if (!attrs.permanent) {
+    handleSubscriptions(vnode, "unmount");
+  }
+};
+
+var createProps = function createProps(vnode, _ref2) {
+  var k = _ref2.keys;
+
+  var attrs = vnode.attrs;
+  var type = attrs.type || DEFAULT_TYPE;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.permanent ? classes.permanent : null, attrs.origin ? classes.origin : null, attrs.backdrop ? classes.showBackdrop : null, attrs.topMenu ? classes.isTopMenu : null, type === "floating" && !attrs.permanent ? classes.floating : null, attrs.width || attrs.size ? widthClass(unifyWidth(attrs.width || attrs.size)) : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref3) {
+  var h = _ref3.renderer,
+      Shadow = _ref3.Shadow;
+
+  var attrs = vnode.attrs;
+  var shadowDepth = attrs.shadowDepth !== undefined ? attrs.shadowDepth : attrs.z !== undefined ? attrs.z // deprecated
+  : DEFAULT_SHADOW_DEPTH;
+  return [h("div", {
+    key: "backdrop",
+    className: classes.backdrop
+  }), h("div", {
+    className: classes.panel,
+    key: "panel"
+  }, [h(Shadow, {
+    shadowDepth: shadowDepth,
+    animated: true,
+    key: "shadow"
+  }), h("div", {
+    className: classes.content,
+    style: attrs.style,
+    key: "content"
+  }, attrs.content ? attrs.content : vnode.children)])];
+};
+
+var menu = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  onMount: onMount,
+  onUnMount: onUnMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-notification/dist/polythene-core-notification.mjs":
+/*!****************************************************************************************!*\
+  !*** ../node_modules/polythene-core-notification/dist/polythene-core-notification.mjs ***!
+  \****************************************************************************************/
+/*! exports provided: coreNotificationInstance */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreNotificationInstance", function() { return notificationInstance; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_utilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-utilities */ "../node_modules/polythene-utilities/dist/polythene-utilities.mjs");
+
+
+
+var classes = {
+  component: "pe-notification",
+
+  // elements
+  action: "pe-notification__action",
+  content: "pe-notification__content",
+  holder: "pe-notification__holder",
+  placeholder: "pe-notification__placeholder",
+  title: "pe-notification__title",
+
+  // states
+  hasContainer: "pe-notification--container",
+  horizontal: "pe-notification--horizontal",
+  multilineTitle: "pe-notification__title--multi-line",
+  vertical: "pe-notification--vertical",
+  visible: "pe-notification--visible"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var DEFAULT_TIME_OUT = 3;
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var pause = function pause(state) {
+  state.paused(true);
+  if (state.timer) {
+    state.timer.pause();
+  }
+};
+
+var unpause = function unpause(state) {
+  state.paused(false);
+  if (state.timer) {
+    state.timer.resume();
+  }
+};
+
+var stopTimer = function stopTimer(state) {
+  if (state.timer) {
+    state.timer.stop();
+  }
+};
+
+var transitionOptions = function transitionOptions(state, attrs, isShow) {
+  return {
+    state: state,
+    attrs: attrs,
+    isShow: isShow,
+    beforeTransition: isShow ? function () {
+      return stopTimer(state);
+    } : function () {
+      return stopTimer(state);
+    },
+    afterTransition: isShow ? function () {
+      // set timer to hide in a few seconds
+      var timeout = attrs.timeout;
+      if (timeout === 0) {
+        // do not time out
+      } else {
+        var timeoutSeconds = timeout !== undefined ? timeout : DEFAULT_TIME_OUT;
+        state.timer.start(function () {
+          hideNotification(state, attrs);
+        }, timeoutSeconds);
+      }
+    } : null,
+    domElements: {
+      el: state.el,
+      containerEl: state.containerEl
+    },
+    showClass: classes.visible
+  };
+};
+
+var showNotification = function showNotification(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, true));
+};
+
+var hideNotification = function hideNotification(state, attrs) {
+  return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["transitionComponent"])(transitionOptions(state, attrs, false));
+};
+
+var setTitleStyles = function setTitleStyles(titleEl) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) return;
+  var height = titleEl.getBoundingClientRect().height;
+  var lineHeight = parseInt(window.getComputedStyle(titleEl).lineHeight, 10);
+  var paddingTop = parseInt(window.getComputedStyle(titleEl).paddingTop, 10);
+  var paddingBottom = parseInt(window.getComputedStyle(titleEl).paddingBottom, 10);
+  if (height > lineHeight + paddingTop + paddingBottom) {
+    titleEl.classList.add(classes.multilineTitle);
+  }
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var transitioning = createStream(false);
+  var paused = createStream(false);
+  var mounted = createStream(false);
+  var visible = createStream(false);
+  return {
+    cleanUp: undefined,
+    containerEl: undefined,
+    dismissEl: undefined,
+    el: undefined,
+    timer: new polythene_utilities__WEBPACK_IMPORTED_MODULE_1__["Timer"](),
+    paused: paused,
+    transitioning: transitioning,
+    visible: visible,
+    mounted: mounted,
+    redrawOnUpdate: createStream.merge([visible])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var dom = vnode.dom;
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  state.el = dom;
+  var titleEl = state.el.querySelector("." + classes.title);
+  if (titleEl) {
+    setTitleStyles(titleEl);
+  }
+  if (!state.containerEl && polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+    // attrs.holderSelector is passed as option to Multiple
+    state.containerEl = document.querySelector(attrs.containerSelector || attrs.holderSelector);
+  }
+  if (!state.containerEl && polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+    console.error("No container element found"); // eslint-disable-line no-console
+  }
+  if (attrs.containerSelector && state.containerEl) {
+    state.containerEl.classList.add(classes.hasContainer);
+  }
+  if (attrs.show && !state.visible()) {
+    showNotification(state, attrs);
+  }
+  state.mounted(true);
+};
+
+var onUnMount = function onUnMount(vnode) {
+  return vnode.state.mounted(false);
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs, { remove: ["style"] }), // style set in content, and set by show/hide transition
+  _defineProperty({
+    className: [classes.component, attrs.fromMultipleClassName,
+    // classes.visible is set in showNotification though transition
+    attrs.tone === "light" ? null : "pe-dark-tone", // default dark tone
+    attrs.containerSelector ? classes.hasContainer : null, attrs.layout === "vertical" ? classes.vertical : classes.horizontal, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, k.onclick, function (e) {
+    return e.preventDefault();
+  }));
+};
+
+var createContent = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  if (state.mounted() && !state.transitioning()) {
+    if (attrs.hide && state.visible()) {
+      hideNotification(state, attrs);
+    } else if (attrs.show && !state.visible()) {
+      showNotification(state, attrs);
+    }
+  }
+  if (attrs.pause && !state.paused()) {
+    pause(state, attrs);
+  } else if (attrs.unpause && state.paused()) {
+    unpause(state, attrs);
+  }
+
+  return h("div", {
+    className: classes.content,
+    style: attrs.style
+  }, attrs.content || [attrs.title ? h("div", { className: classes.title }, attrs.title) : null, attrs.action ? h("div", { className: classes.action }, attrs.action) : null]);
+};
+
+var notificationInstance = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  onMount: onMount,
+  onUnMount: onUnMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-radio-button/dist/polythene-core-radio-button.mjs":
+/*!****************************************************************************************!*\
+  !*** ../node_modules/polythene-core-radio-button/dist/polythene-core-radio-button.mjs ***!
+  \****************************************************************************************/
+/*! exports provided: coreRadioButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreRadioButton", function() { return radioButton; });
+var classes = {
+  component: "pe-radio-control"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Don't export 'element': it will be the wrapped selection control component (set in polythene-xxx-checkbox)
+
+var iconOn = "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"/></svg>";
+var iconOff = "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"/></svg>";
+
+var icons = {
+  iconOff: iconOff,
+  iconOn: iconOn
+};
+
+// Props to be passed to a selection control
+
+var createProps = function createProps(vnode) {
+  var attrs = vnode.attrs;
+  return _extends({}, attrs, {
+    icons: icons,
+    selectable: attrs.selectable || function (selected) {
+      return !selected;
+    }, // default: only selectable when not checked
+    instanceClass: classes.component,
+    type: "radio"
+  });
+};
+
+var radioButton = /*#__PURE__*/Object.freeze({
+  createProps: createProps
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-radio-group/dist/polythene-core-radio-group.mjs":
+/*!**************************************************************************************!*\
+  !*** ../node_modules/polythene-core-radio-group/dist/polythene-core-radio-group.mjs ***!
+  \**************************************************************************************/
+/*! exports provided: coreRadioGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreRadioGroup", function() { return radioGroup; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-radio-group"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var checkedIndex = createStream(null);
+  return {
+    checkedIndex: checkedIndex,
+    redrawOnUpdate: createStream.merge([checkedIndex])
+  };
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer,
+      RadioButton = _ref2.RadioButton;
+
+  var attrs = vnode.attrs;
+  var state = vnode.state;
+  var checkedIndex = state.checkedIndex();
+
+  var buttons = attrs.content ? attrs.content : attrs.buttons ? attrs.buttons : attrs.children || vnode.children || [];
+
+  return buttons.length ? buttons.map(function (buttonOpts, index) {
+    if (!buttonOpts) {
+      return null;
+    }
+    if (buttonOpts.value === undefined) {
+      console.error("Option 'value' not set for radio button"); // eslint-disable-line no-console
+    }
+    // Only set defaultChecked the first time when no value has been stored yet
+    var isDefaultChecked = (buttonOpts.defaultChecked || buttonOpts.checked || attrs.defaultSelectedValue !== undefined && buttonOpts.value === attrs.defaultSelectedValue) && checkedIndex === null;
+    var isChecked = isDefaultChecked || buttonOpts.checked || checkedIndex === index;
+    return h(RadioButton, _extends({}, {
+      /* group attributes that may be overwritten by individual buttons */
+      name: attrs.name,
+      key: buttonOpts.value
+    }, attrs.all,
+    /* individual button options */
+    buttonOpts, {
+      /* this component's options */
+      onChange: function onChange(_ref3) {
+        var value = _ref3.value;
+        return state.checkedIndex(index), attrs.onChange && attrs.onChange({ value: value });
+      },
+      checked: isChecked
+    }));
+  }) : null;
+};
+
+var radioGroup = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-ripple/dist/polythene-core-ripple.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-ripple/dist/polythene-core-ripple.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreRipple */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreRipple", function() { return ripple; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_theme__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-theme */ "../node_modules/polythene-theme/dist/polythene-theme.mjs");
+
+
+
+var ANIMATION_END_EVENT = Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["getAnimationEndEvent"])();
+var DEFAULT_START_OPACITY = 0.2;
+var DEFAULT_END_OPACITY = 0.0;
+var DEFAULT_START_SCALE = 0.1;
+var DEFAULT_END_SCALE = 2.0;
+var OPACITY_DECAY_VELOCITY = 0.35;
+
+var addStyleToHead = function addStyleToHead(id, stylesheet) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) return;
+  var documentRef = window.document;
+  var styleEl = documentRef.createElement("style");
+  styleEl.setAttribute("id", id);
+  styleEl.appendChild(documentRef.createTextNode(stylesheet));
+  documentRef.head.appendChild(styleEl);
+};
+
+var removeStyleFromHead = function removeStyleFromHead(id) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) return;
+  var el = document.getElementById(id);
+  if (el && el.parentNode) {
+    el.parentNode.removeChild(el);
+  }
+};
+
+var animation = (function (_ref) {
+  var e = _ref.e,
+      id = _ref.id,
+      el = _ref.el,
+      attrs = _ref.attrs,
+      classes = _ref.classes;
+
+  return new Promise(function (resolve) {
+    var container = document.createElement("div");
+    container.setAttribute("class", classes.mask);
+    el.appendChild(container);
+    var waves = document.createElement("div");
+    waves.setAttribute("class", classes.waves);
+    container.appendChild(waves);
+    var rect = el.getBoundingClientRect();
+    var x = polythene_core__WEBPACK_IMPORTED_MODULE_0__["isTouch"] && e.touches ? e.touches[0].pageX : e.clientX;
+    var y = polythene_core__WEBPACK_IMPORTED_MODULE_0__["isTouch"] && e.touches ? e.touches[0].pageY : e.clientY;
+    var w = el.offsetWidth;
+    var h = el.offsetHeight;
+    var waveRadius = Math.sqrt(w * w + h * h);
+    var mx = attrs.center ? rect.left + rect.width / 2 : x;
+    var my = attrs.center ? rect.top + rect.height / 2 : y;
+    var rx = mx - rect.left - waveRadius / 2;
+    var ry = my - rect.top - waveRadius / 2;
+    var startOpacity = attrs.startOpacity !== undefined ? attrs.startOpacity : DEFAULT_START_OPACITY;
+    var opacityDecayVelocity = attrs.opacityDecayVelocity !== undefined ? attrs.opacityDecayVelocity : OPACITY_DECAY_VELOCITY;
+    var endOpacity = attrs.endOpacity || DEFAULT_END_OPACITY;
+    var startScale = attrs.startScale || DEFAULT_START_SCALE;
+    var endScale = attrs.endScale || DEFAULT_END_SCALE;
+    var duration = attrs.duration ? attrs.duration : 1 / opacityDecayVelocity * 0.2;
+    var color = window.getComputedStyle(el).color;
+
+    var style = waves.style;
+    style.width = style.height = waveRadius + "px";
+    style.top = ry + "px";
+    style.left = rx + "px";
+    style["animation-duration"] = style["-webkit-animation-duration"] = style["-moz-animation-duration"] = style["-o-animation-duration"] = duration + "s";
+    style.backgroundColor = color;
+    style.opacity = startOpacity;
+    style.animationName = id;
+    style.animationTimingFunction = attrs.animationTimingFunction || polythene_theme__WEBPACK_IMPORTED_MODULE_1__["vars"].animation_curve_default;
+
+    var rippleStyleSheet = "@keyframes " + id + " {\n      0% {\n        transform:scale(" + startScale + ");\n        opacity: " + startOpacity + "\n      }\n      100% {\n        transform:scale(" + endScale + ");\n        opacity: " + endOpacity + ";\n      }\n    }";
+    addStyleToHead(id, rippleStyleSheet);
+
+    var animationDone = function animationDone(evt) {
+      removeStyleFromHead(id);
+      waves.removeEventListener(ANIMATION_END_EVENT, animationDone, false);
+      if (attrs.persistent) {
+        style.opacity = endOpacity;
+        style.transform = "scale(" + endScale + ")";
+      } else {
+        waves.classList.remove(classes.wavesAnimating);
+        container.removeChild(waves);
+        el.removeChild(container);
+      }
+      resolve(evt);
+    };
+
+    waves.addEventListener(ANIMATION_END_EVENT, animationDone, false);
+    waves.classList.add(classes.wavesAnimating);
+  });
+});
+
+var classes = {
+  component: "pe-ripple",
+
+  // elements
+  mask: "pe-ripple__mask",
+  waves: "pe-ripple__waves",
+
+  // states
+  unconstrained: "pe-ripple--unconstrained",
+  wavesAnimating: "pe-ripple__waves--animating"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var getInitialState = function getInitialState() {
+  return {
+    animations: {},
+    animating: false,
+    cleanUp: undefined
+  };
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.unconstrained ? classes.unconstrained : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var updateAnimationState = function updateAnimationState(state) {
+  return state.animating = Object.keys(state.animations).length > 0;
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) {
+    return;
+  }
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  var tap = function tap(e) {
+    if (attrs.disabled || !attrs.multi && state.animating) {
+      return;
+    }
+    if (attrs.start) {
+      attrs.start(e);
+    }
+    var id = "ripple_animation_" + new Date().getTime();
+    state.animations[id] = animation({ e: e, id: id, el: vnode.dom, attrs: attrs, classes: classes }).then(function (evt) {
+      if (attrs.end) {
+        attrs.end(evt);
+      }
+      delete state.animations[id];
+      updateAnimationState(state);
+    });
+    updateAnimationState(state);
+  };
+  var triggerEl = attrs.target ? attrs.target : vnode.dom && vnode.dom.parentElement;
+
+  if (triggerEl) {
+    polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndEvent"].forEach(function (evt) {
+      return triggerEl.addEventListener(evt, tap, false);
+    });
+  }
+  state.cleanUp = function () {
+    if (triggerEl) {
+      polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndEvent"].forEach(function (evt) {
+        return triggerEl.removeEventListener(evt, tap, false);
+      });
+    }
+  };
+};
+
+var onUnMount = function onUnMount(_ref2) {
+  var state = _ref2.state;
+  return state.cleanUp && state.cleanUp();
+};
+
+var ripple = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  createProps: createProps,
+  onMount: onMount,
+  onUnMount: onUnMount
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-search/dist/polythene-core-search.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-search/dist/polythene-core-search.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreSearch */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreSearch", function() { return search; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-search",
+
+  // elements
+  content: "pe-search__content",
+
+  // states
+  searchFullWidth: "pe-search--full-width",
+  searchInset: "pe-search--inset"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var getNameOfState = function getNameOfState(state) {
+  return state.focus && state.dirty ? "focus_dirty" : state.focus ? "focus" : state.dirty ? "dirty" : "none";
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var searchState = createStream({});
+  return {
+    searchState: searchState
+  };
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.fullWidth ? classes.searchFullWidth : classes.searchInset, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer,
+      TextField = _ref2.TextField;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var searchState = getNameOfState(state.searchState());
+  var buttons = (attrs.buttons || {})[searchState] || {};
+  var textfieldAttrs = attrs.textfield || {};
+  return h("div", { className: classes.content }, [buttons.before, h(TextField, _extends({}, textfieldAttrs, {
+    key: "input",
+    onChange: function onChange(newState) {
+      state.searchState(newState);
+      if (textfieldAttrs.onChange) {
+        textfieldAttrs.onChange(newState);
+      }
+    }
+  })), buttons.after]);
+};
+
+var search = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-selection-control/dist/polythene-core-selection-control.mjs":
+/*!**************************************************************************************************!*\
+  !*** ../node_modules/polythene-core-selection-control/dist/polythene-core-selection-control.mjs ***!
+  \**************************************************************************************************/
+/*! exports provided: coreSelectionControl, viewControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreSelectionControl", function() { return selectionControl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viewControl", function() { return viewControl; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-control",
+
+  // elements
+  formLabel: "pe-control__form-label",
+  input: "pe-control__input",
+  label: "pe-control__label",
+
+  // states
+  disabled: "pe-control--disabled",
+  inactive: "pe-control--inactive",
+  large: "pe-control--large",
+  medium: "pe-control--medium",
+  off: "pe-control--off",
+  on: "pe-control--on",
+  regular: "pe-control--regular",
+  small: "pe-control--small",
+
+  // control view elements
+  box: "pe-control__box",
+  button: "pe-control__button",
+
+  // control view states
+  buttonOff: "pe-control__button--off",
+  buttonOn: "pe-control__button--on"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var currentState = function currentState(attrs, state) {
+  var checked = attrs.checked !== undefined ? attrs.checked : state.checked();
+  var selectable = attrs.selectable !== undefined ? attrs.selectable(checked) : false;
+  var inactive = attrs.disabled || !selectable;
+  return { checked: checked, inactive: inactive };
+};
+
+var getInitialState = function getInitialState(vnode, createStream, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  var isChecked = attrs.defaultChecked !== undefined ? attrs.defaultChecked : attrs.checked || false;
+  var checked = createStream(isChecked);
+
+  var notifyChange = function notifyChange(e, isChecked) {
+    if (attrs.onChange) {
+      attrs.onChange({
+        event: e,
+        checked: isChecked,
+        value: attrs.value
+      });
+    }
+  };
+
+  var onChange = function onChange(e) {
+    var isChecked = e.currentTarget.checked;
+    if (attrs.type === "radio") {
+      // do not set directly
+    } else {
+      checked(isChecked);
+    }
+    notifyChange(e, isChecked);
+  };
+
+  var toggle = function toggle(e) {
+    var newChecked = !checked();
+    checked(newChecked);
+    notifyChange(e, newChecked);
+  };
+
+  var viewControlClickHandler = attrs.events && attrs.events[k.onclick];
+  var viewControlKeyDownHandler = attrs.events && attrs.events[k.onkeydown] ? attrs.events[k.onkeydown] : function (e) {
+    if (e.key === "Enter" || e.keyCode === 32) {
+      e.preventDefault();
+      if (viewControlClickHandler) {
+        viewControlClickHandler(e);
+      } else {
+        toggle(e);
+      }
+    }
+  };
+
+  return {
+    checked: checked,
+    toggle: toggle,
+    onChange: onChange,
+    viewControlClickHandler: viewControlClickHandler,
+    viewControlKeyDownHandler: viewControlKeyDownHandler,
+    redrawOnUpdate: createStream.merge([checked])
+  };
+};
+
+var createProps = function createProps(vnode, _ref2) {
+  var k = _ref2.keys;
+
+  var attrs = vnode.attrs;
+  var state = vnode.state;
+
+  var _currentState = currentState(attrs, state),
+      checked = _currentState.checked,
+      inactive = _currentState.inactive;
+
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.instanceClass, // for instance pe-checkbox-control
+    checked ? classes.on : classes.off, attrs.disabled ? classes.disabled : null, inactive ? classes.inactive : null, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["classForSize"])(classes, attrs.size), attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref3) {
+  var h = _ref3.renderer,
+      k = _ref3.keys,
+      ViewControl = _ref3.ViewControl;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  var _currentState2 = currentState(attrs, state),
+      checked = _currentState2.checked,
+      inactive = _currentState2.inactive;
+
+  return h("label", _extends({}, {
+    className: classes.formLabel
+  }, state.viewControlClickHandler && _defineProperty({}, k.onclick, function (e) {
+    return e.preventDefault(), state.viewControlClickHandler(e);
+  })), [h(ViewControl, _extends({}, attrs, {
+    inactive: inactive,
+    checked: checked,
+    key: "control",
+    events: _defineProperty({}, k.onkeydown, state.viewControlKeyDownHandler)
+  })), attrs.label ? h("." + classes.label, { key: "label" }, attrs.label) : null, h("input", _extends({}, attrs.events, {
+    name: attrs.name,
+    type: attrs.type,
+    value: attrs.value,
+    checked: checked
+  }, attrs.disabled || inactive ? { disabled: "disabled" } : _defineProperty({}, k.onchange, state.onChange)))]);
+};
+
+var selectionControl = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  createProps: createProps,
+  createContent: createContent
+});
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var CONTENT = [{ iconType: "iconOn", className: classes.buttonOn }, { iconType: "iconOff", className: classes.buttonOff }];
+
+var getElement$1 = function getElement(vnode) {
+  return vnode.attrs.element || "." + classes.box;
+};
+
+var createIcon = function createIcon(h, iconType, attrs, className) {
+  return (
+    // if attrs.iconOn/attrs.iconOff is passed, use that icon options object and ignore size
+    // otherwise create a new object
+    _extends$1({}, {
+      className: className,
+      key: iconType
+    }, attrs[iconType] ? attrs[iconType] : { svg: { content: h.trust(attrs.icons[iconType]) } }, attrs.icon, attrs.size ? { size: attrs.size } : null)
+  );
+};
+
+var createContent$1 = function createContent(vnode, _ref) {
+  var h = _ref.renderer,
+      Icon = _ref.Icon,
+      IconButton = _ref.IconButton;
+
+  var attrs = vnode.attrs;
+  return h(IconButton, _extends$1({}, {
+    element: "div",
+    key: attrs.key,
+    className: classes.button,
+    content: CONTENT.map(function (o) {
+      return h(Icon, createIcon(h, o.iconType, attrs, o.className));
+    }),
+    ripple: { center: true },
+    disabled: attrs.disabled,
+    events: attrs.events,
+    inactive: attrs.inactive
+  }, attrs.iconButton // for example for hover behaviour
+  ));
+};
+
+var viewControl = /*#__PURE__*/Object.freeze({
+  getElement: getElement$1,
+  createContent: createContent$1
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-shadow/dist/polythene-core-shadow.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-shadow/dist/polythene-core-shadow.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreShadow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreShadow", function() { return shadow; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-shadow",
+
+  // elements
+  bottomShadow: "pe-shadow__bottom",
+  topShadow: "pe-shadow__top",
+
+  // states
+  animated: "pe-shadow--animated",
+  depth_n: "pe-shadow--depth-"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var onMount = function onMount(_ref) {
+  var attrs = _ref.attrs;
+
+  if (attrs.z !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Shadow", { option: "z", newOption: "shadowDepth" });
+  }
+};
+
+var createProps = function createProps(vnode, _ref2) {
+  var k = _ref2.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.animated && classes.animated, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref3) {
+  var h = _ref3.renderer;
+
+  var attrs = vnode.attrs;
+  var content = attrs.content ? attrs.content : attrs.children || vnode.children;
+  var shadowDepth = attrs.shadowDepth !== undefined ? attrs.shadowDepth : attrs.z; // deprecated
+  var depthClass = shadowDepth !== undefined ? "" + classes.depth_n + Math.min(5, shadowDepth) : null;
+  return [content, h("div", {
+    key: "bottom",
+    className: [classes.bottomShadow, depthClass].join(" ")
+  }), h("div", {
+    key: "top",
+    className: [classes.topShadow, depthClass].join(" ")
+  })];
+};
+
+var shadow = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  onMount: onMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-slider/dist/polythene-core-slider.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-slider/dist/polythene-core-slider.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreSlider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreSlider", function() { return slider; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-slider",
+
+  // elements
+  control: "pe-slider__control",
+  label: "pe-slider__label",
+  pin: "pe-slider__pin",
+  thumb: "pe-slider__thumb",
+  tick: "pe-slider__tick",
+  ticks: "pe-slider__ticks",
+  track: "pe-slider__track",
+  trackBar: "pe-slider__track-bar",
+  trackBarValue: "pe-slider__track-bar-value",
+  trackPart: "pe-slider__track-part",
+  trackPartRest: "pe-slider__track-rest",
+  trackPartValue: "pe-slider__track-value",
+
+  // states
+  hasFocus: "pe-slider--focus",
+  hasPin: "pe-slider--pin",
+  hasTicks: "pe-slider--ticks",
+  hasTrack: "pe-slider--track",
+  isActive: "pe-slider--active",
+  isAtMin: "pe-slider--min",
+  isDisabled: "pe-slider--disabled",
+  tickValue: "pe-slider__tick--value"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var MAX_TICKS = 100;
+var focusElement = void 0;
+
+var deFocus = function deFocus(state) {
+  if (focusElement) {
+    focusElement.blur();
+  }
+  focusElement = undefined;
+  state.hasFocus(false);
+};
+
+var focus = function focus(state, el) {
+  deFocus(state);
+  focusElement = el;
+  state.hasFocus(true);
+};
+
+var positionFromEvent = function positionFromEvent(e, isVertical) {
+  return (
+    // isVertical not yet implemented
+    polythene_core__WEBPACK_IMPORTED_MODULE_0__["isTouch"] && e.touches ? isVertical ? e.touches[0].pageY : e.touches[0].pageX : isVertical ? e.pageY : e.pageX
+  );
+};
+
+var updatePinPosition = function updatePinPosition(state) {
+  if (state.controlEl && state.pinEl) {
+    var left = state.fraction() * state.rangeWidth;
+    state.pinEl.style.left = left + "px";
+  }
+};
+
+var updateValue = function updateValue(state, value) {
+  state.setValue(value, true);
+  updatePinPosition(state);
+};
+
+var generateTickMarks = function generateTickMarks(h, stepCount, stepSize, value) {
+  var items = [];
+  var stepWithValue = value / stepSize;
+  var s = 0;
+  while (s < stepCount + 1) {
+    items.push(h("div", {
+      className: s <= stepWithValue ? [classes.tick, classes.tickValue].join(" ") : classes.tick,
+      key: "tick-" + s
+    }));
+    s++;
+  }
+  return items;
+};
+
+var readRangeData = function readRangeData(state) {
+  if (state.controlEl && polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+    // range is from the far left to the far right minus the thumb width (max x is at the left side of the thumb)
+    state.controlWidth = parseFloat(Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["getStyle"])({ element: state.controlEl, prop: "width" }));
+    state.rangeWidth = state.trackEl.getBoundingClientRect().width - state.controlWidth;
+    var styles = window.getComputedStyle(state.trackEl);
+    state.rangeOffset = parseFloat(styles.marginLeft);
+  }
+};
+
+var calculateClickOffset = function calculateClickOffset(state) {
+  var controlOffset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+  state.clickOffset = state.trackEl.getBoundingClientRect().left - (state.rangeOffset - state.controlWidth / 2) + controlOffset;
+};
+
+var initControlEvent = function initControlEvent(state, e) {
+  var controlPos = state.controlEl.getBoundingClientRect().left;
+  var eventPos = positionFromEvent(e);
+  var controlOffset = eventPos - controlPos - state.controlWidth / 2;
+  calculateClickOffset(state, controlOffset);
+};
+
+var initTrackEvent = function initTrackEvent(state) {
+  return calculateClickOffset(state, 0);
+};
+
+var handlePosEvent = function handlePosEvent(state, e) {
+  var pos = positionFromEvent(e) - state.clickOffset;
+  var value = state.min + (pos - state.rangeOffset) / state.rangeWidth * (state.max - state.min);
+  updateValue(state, value);
+};
+
+var startDrag = function startDrag(state, attrs, e) {
+  if (state.isDragging()) return;
+  e.preventDefault();
+  state.isDragging(true);
+  state.isActive(true);
+  deFocus(state);
+
+  var drag = function drag(e) {
+    if (!state.isDragging()) return;
+    handlePosEvent(state, e);
+  };
+
+  var endDrag = function endDrag() {
+    if (!state.isDragging()) return;
+    deFocus(state);
+    if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+      polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerMoveEvent"].forEach(function (evt) {
+        return window.removeEventListener(evt, drag);
+      });
+      polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndMoveEvent"].forEach(function (evt) {
+        return window.removeEventListener(evt, endDrag);
+      });
+    }
+    state.isDragging(false);
+    state.isActive(false);
+  };
+
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+    polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerMoveEvent"].forEach(function (evt) {
+      return window.addEventListener(evt, drag);
+    });
+    polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerEndMoveEvent"].forEach(function (evt) {
+      return window.addEventListener(evt, endDrag);
+    });
+  }
+  readRangeData(state);
+
+  if (attrs.pin) {
+    updatePinPosition(state);
+  }
+};
+
+var startTrack = function startTrack(state, attrs, e) {
+  e.preventDefault();
+  if (state.isDragging()) {
+    return;
+  }
+  readRangeData(state);
+  initTrackEvent(state);
+  handlePosEvent(state, e);
+  startDrag(state, attrs, e);
+};
+
+var createSlider = function createSlider(vnode, _ref) {
+  var _ref2;
+
+  var h = _ref.h,
+      k = _ref.k,
+      hasTicks = _ref.hasTicks,
+      interactiveTrack = _ref.interactiveTrack;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var fraction = state.fraction();
+  var range = state.max - state.min;
+  var stepCount = Math.min(MAX_TICKS, parseInt(range / state.stepSize, 10));
+
+  var onStartTrack = function onStartTrack(e) {
+    return startTrack(state, attrs, e);
+  };
+
+  var onInitDrag = function onInitDrag(e) {
+    readRangeData(state);
+    initControlEvent(state, e);
+    startDrag(state, attrs, e);
+  };
+
+  var flexValueCss = fraction + " 1 0%";
+  var flexRestValue = 1 - fraction;
+  var flexRestCss = flexRestValue + " 1 0%";
+
+  return h("div", _extends({}, { className: classes.track }, interactiveTrack && !attrs.disabled && polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerStartMoveEvent"].reduce(function (acc, evt) {
+    return acc[k["on" + evt]] = onStartTrack, acc;
+  }, {})), [h("div", {
+    className: classes.trackPart + " " + classes.trackPartValue,
+    key: "trackPartValue",
+    style: {
+      flex: flexValueCss,
+      msFlex: flexValueCss,
+      WebkitFlex: flexValueCss
+    }
+  }, h("div", { className: classes.trackBar }, h("div", { className: classes.trackBarValue }))), h("div", _extends({}, {
+    className: classes.control,
+    key: "control"
+  }, attrs.disabled ? { disabled: true } : (_ref2 = {}, _defineProperty(_ref2, k.tabindex, attrs[k.tabindex] || 0), _defineProperty(_ref2, k.onfocus, function () {
+    return focus(state, state.controlEl);
+  }), _defineProperty(_ref2, k.onblur, function () {
+    return deFocus(state);
+  }), _defineProperty(_ref2, k.onkeydown, function (e) {
+    if (e.key !== "Tab") {
+      e.preventDefault();
+    }
+    if (e.key === "Escape" || e.key === "Esc") {
+      state.controlEl.blur(e);
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowDown" || e.key === "Left" || e.key === "Down") {
+      state.decrement(state, e.shiftKey);
+    } else if (e.key === "ArrowRight" || e.key === "ArrowUp" || e.key === "Right" || e.key === "Up") {
+      state.increment(state, e.shiftKey);
+    } else if (e.key === "Home") {
+      updateValue(state, state.min);
+    } else if (e.key === "End") {
+      updateValue(state, state.max);
+    } else if (e.key === "PageDown") {
+      state.decrement(state, true);
+    } else if (e.key === "PageUp") {
+      state.increment(state, true);
+    }
+    readRangeData(state);
+    updatePinPosition(state);
+  }), _ref2), !attrs.disabled && polythene_core__WEBPACK_IMPORTED_MODULE_0__["pointerStartMoveEvent"].reduce(function (acc, evt) {
+    return acc[k["on" + evt]] = onInitDrag, acc;
+  }, {}), attrs.events ? attrs.events : null, hasTicks ? { step: stepCount } : null), attrs.icon ? h("div", {
+    className: classes.thumb,
+    key: "icon"
+  }, attrs.icon) : null), h("div", {
+    className: classes.trackPart + " " + classes.trackPartRest,
+    key: "trackPartRest",
+    style: {
+      flex: flexRestCss,
+      msFlex: flexRestCss,
+      WebkitFlex: flexRestCss,
+      maxWidth: flexRestValue * 100 + "%" // for IE Edge
+    }
+  }, h("div", { className: classes.trackBar }, h("div", { className: classes.trackBarValue }))), hasTicks && !attrs.disabled ? h("div", {
+    className: classes.ticks,
+    key: "ticks"
+  }, generateTickMarks(h, stepCount, state.stepSize, state.value())) : null, hasTicks && attrs.pin && !attrs.disabled ? h("div", {
+    className: classes.pin,
+    key: "pin",
+    value: state.value()
+  }) : null]);
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var attrs = vnode.attrs;
+
+  var min = attrs.min !== undefined ? attrs.min : 0;
+  var max = attrs.max !== undefined ? attrs.max : 100;
+  var range = max - min;
+  var stepSize = attrs.stepSize !== undefined ? attrs.stepSize : 1;
+  var defaultValue = attrs.defaultValue !== undefined ? attrs.defaultValue : attrs.value !== undefined ? attrs.value : 0;
+  var previousValue = createStream(undefined);
+  var isActive = createStream(false);
+  var hasFocus = createStream(false);
+  var isDragging = createStream(false);
+  var fraction = createStream(min);
+  var value = createStream(0);
+  var normalizeFactor = 1 / stepSize;
+
+  var setValue = function setValue(v) {
+    var shouldNotify = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    if (v < min) v = min;
+    if (v > max) v = max;
+    value(stepSize ? Math.round(v * normalizeFactor) / normalizeFactor : v);
+    fraction((value() - min) / range);
+    if (shouldNotify && attrs.onChange) {
+      attrs.onChange({
+        value: value()
+      });
+    }
+    previousValue(v);
+  };
+
+  var increment = function increment(state, useLargeStep) {
+    return updateValue(state, value() + (useLargeStep ? 10 : 1) * (stepSize || 1));
+  };
+
+  var decrement = function decrement(state, useLargeStep) {
+    return updateValue(state, value() - (useLargeStep ? 10 : 1) * (stepSize || 1));
+  };
+
+  setValue(defaultValue);
+
+  return {
+    min: min,
+    max: max,
+    stepSize: stepSize,
+    fraction: fraction,
+    // DOM elements
+    trackEl: null,
+    controlEl: null,
+    pinEl: null,
+    // functions
+    setValue: setValue,
+    increment: increment,
+    decrement: decrement,
+    // streams
+    isDragging: isDragging,
+    isActive: isActive,
+    value: value,
+    previousValue: previousValue,
+    hasFocus: hasFocus,
+    // coordinates
+    controlWidth: 0,
+    rangeWidth: 0,
+    rangeOffset: 0,
+    clickOffset: 0,
+    redrawOnUpdate: createStream.merge([isActive, value])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var dom = vnode.dom;
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  state.trackEl = dom.querySelector("." + classes.track);
+  state.controlEl = dom.querySelector("." + classes.control);
+  state.pinEl = dom.querySelector("." + classes.pin);
+
+  readRangeData(state);
+
+  if (attrs.pin) {
+    setTimeout(function () {
+      updateValue(state, state.value());
+    }, 0);
+  }
+};
+
+var createProps = function createProps(vnode, _ref3) {
+  var k = _ref3.keys;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  if (attrs.value !== undefined) {
+    if (state.previousValue() !== attrs.value) {
+      state.previousValue(attrs.value);
+      setTimeout(function () {
+        return state.setValue(state.previousValue());
+      }, 0); // perform in next tick to play nice with React
+    }
+  }
+  var hasTicks = attrs.ticks !== undefined && attrs.ticks !== false;
+  var interactiveTrack = attrs.interactiveTrack !== undefined ? attrs.interactiveTrack : true;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.disabled ? classes.isDisabled : null, attrs.pin ? classes.hasPin : null, interactiveTrack ? classes.hasTrack : null, state.isActive() ? classes.isActive : null, state.hasFocus() ? classes.hasFocus : null, state.fraction() === 0 ? classes.isAtMin : null, hasTicks ? classes.hasTicks : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref4) {
+  var h = _ref4.renderer,
+      k = _ref4.keys;
+
+  var attrs = vnode.attrs;
+  var hasTicks = attrs.ticks !== undefined && attrs.ticks !== false;
+  var interactiveTrack = attrs.interactiveTrack !== undefined ? attrs.interactiveTrack : true;
+  return createSlider(vnode, { h: h, k: k, hasTicks: hasTicks, interactiveTrack: interactiveTrack });
+};
+
+var slider = /*#__PURE__*/Object.freeze({
+  getInitialState: getInitialState,
+  onMount: onMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-snackbar/dist/polythene-core-snackbar.mjs":
+/*!********************************************************************************!*\
+  !*** ../node_modules/polythene-core-snackbar/dist/polythene-core-snackbar.mjs ***!
+  \********************************************************************************/
+/*! exports provided: coreSnackbarInstance, transitions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transitions", function() { return transitions; });
+/* harmony import */ var polythene_core_notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core-notification */ "../node_modules/polythene-core-notification/dist/polythene-core-notification.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "coreSnackbarInstance", function() { return polythene_core_notification__WEBPACK_IMPORTED_MODULE_0__["coreNotificationInstance"]; });
+
+
+
+var DEFAULT_DURATION = 0.4;
+
+var show = function show(_ref) {
+  var containerEl = _ref.containerEl,
+      el = _ref.el,
+      duration = _ref.duration,
+      delay = _ref.delay;
+
+  return {
+    el: containerEl,
+    duration: duration || DEFAULT_DURATION,
+    delay: delay || 0,
+    before: function before() {
+      el.style.display = "block";
+      var height = el.getBoundingClientRect().height;
+      containerEl.style.transform = "translate3d(0, " + height + "px, 0)";
+    },
+    transition: function transition() {
+      return containerEl.style.transform = "translate3d(0, 0px, 0)";
+    }
+  };
+};
+
+var hide = function hide(_ref2) {
+  var containerEl = _ref2.containerEl,
+      el = _ref2.el,
+      duration = _ref2.duration,
+      delay = _ref2.delay;
+
+  return {
+    el: containerEl,
+    duration: duration || DEFAULT_DURATION,
+    delay: delay || 0,
+    transition: function transition() {
+      var height = el.getBoundingClientRect().height;
+      containerEl.style.transform = "translate3d(0, " + height + "px, 0)";
+    },
+    // reset to original position to counter the removal of the snackbar instance
+    after: function after() {
+      // prevent a "bounce back"
+      el.style.display = "none";
+      containerEl.style.transitionDuration = "0ms";
+      containerEl.style.transform = "translate3d(0, 0px, 0)";
+    }
+  };
+};
+
+var transitions = {
+  show: show,
+  hide: hide
+};
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-svg/dist/polythene-core-svg.mjs":
+/*!**********************************************************************!*\
+  !*** ../node_modules/polythene-core-svg/dist/polythene-core-svg.mjs ***!
+  \**********************************************************************/
+/*! exports provided: coreSVG */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreSVG", function() { return svg; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-svg"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  // Prevent that SVG gets keyboard focus
+  var elem = vnode.dom.querySelector("svg");
+  if (elem) {
+    elem.setAttribute("focusable", "false");
+  }
+};
+
+var createProps = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode) {
+  var attrs = vnode.attrs;
+  return attrs.content ? attrs.content : attrs.children || vnode.children || attrs;
+};
+
+var svg = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  onMount: onMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-switch/dist/polythene-core-switch.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-core-switch/dist/polythene-core-switch.mjs ***!
+  \****************************************************************************/
+/*! exports provided: coreSwitch, viewControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreSwitch", function() { return _switch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "viewControl", function() { return viewControl; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-switch-control",
+
+  // elements
+  knob: "pe-switch-control__knob",
+  thumb: "pe-switch-control__thumb",
+  track: "pe-switch-control__track"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// Don't export 'element': it will be the wrapped selection control component (set in polythene-xxx-checkbox)
+
+// Props to be passed to a selection control
+
+var createProps = function createProps(vnode) {
+  var attrs = vnode.attrs;
+  return _extends({}, attrs, {
+    selectable: attrs.selectable || function () {
+      return true;
+    }, // default: always selectable, regardless of the checked state
+    instanceClass: classes.component,
+    type: "checkbox"
+  });
+};
+
+var _switch = /*#__PURE__*/Object.freeze({
+  createProps: createProps
+});
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var onMount = function onMount(_ref) {
+  var attrs = _ref.attrs;
+
+  if (attrs.zOn !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Switch", { option: "zOn", newOption: "shadowDepthOn" });
+  }
+  if (attrs.zOff !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Switch", { option: "zOff", newOption: "shadowDepthOff" });
+  }
+};
+
+var createContent = function createContent(vnode, _ref2) {
+  var h = _ref2.renderer,
+      Shadow = _ref2.Shadow,
+      IconButton = _ref2.IconButton;
+
+  var attrs = vnode.attrs;
+
+  var shadowDepthOff = attrs.shadowDepthOff !== undefined ? attrs.shadowDepthOff : attrs.zOff !== undefined ? attrs.zOff // deprecated
+  : 1;
+  var shadowDepthOn = attrs.shadowDepthOn !== undefined ? attrs.shadowDepthOn : attrs.zOn !== undefined ? attrs.zOn // deprecated
+  : 2;
+  var shadowDepth = attrs.checked ? shadowDepthOn : shadowDepthOff;
+  var raised = attrs.raised !== undefined ? attrs.raised : true;
+
+  return [h("div", {
+    className: classes.track,
+    key: "track"
+  }), h(IconButton, _extends$1({}, {
+    className: classes.thumb,
+    key: "button",
+    content: h("div", { className: classes.knob }, [attrs.icon ? attrs.icon : null, raised ? h(Shadow, {
+      shadowDepth: shadowDepth,
+      animated: true
+    }) : null]),
+    style: attrs.style,
+    disabled: attrs.disabled,
+    events: attrs.events,
+    ink: attrs.ink || false,
+    inactive: attrs.inactive
+  }, attrs.iconButton))];
+};
+
+var viewControl = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  onMount: onMount,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-tabs/dist/polythene-core-tabs.mjs":
+/*!************************************************************************!*\
+  !*** ../node_modules/polythene-core-tabs/dist/polythene-core-tabs.mjs ***!
+  \************************************************************************/
+/*! exports provided: coreTabs, coreTab, coreScrollButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreTabs", function() { return tabs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreTab", function() { return tab; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreScrollButton", function() { return scrollButton; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_utilities__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-utilities */ "../node_modules/polythene-utilities/dist/polythene-utilities.mjs");
+
+
+
+var buttonClasses = {
+    component: "pe-text-button",
+    super: "pe-button",
+    row: "pe-button-row",
+
+    // elements      
+    content: "pe-button__content",
+    label: "pe-button__label",
+    textLabel: "pe-button__text-label",
+    wash: "pe-button__wash",
+    dropdown: "pe-button__dropdown",
+
+    // states      
+    border: "pe-button--border",
+    contained: "pe-button--contained",
+    disabled: "pe-button--disabled",
+    dropdownClosed: "pe-button--dropdown-closed",
+    dropdownOpen: "pe-button--dropdown-open",
+    extraWide: "pe-button--extra-wide",
+    hasDropdown: "pe-button--dropdown",
+    highLabel: "pe-button--high-label",
+    inactive: "pe-button--inactive",
+    raised: "pe-button--raised",
+    selected: "pe-button--selected",
+    separatorAtStart: "pe-button--separator-start"
+};
+
+var classes = {
+  component: "pe-tabs",
+
+  // elements
+  indicator: "pe-tabs__indicator",
+  scrollButton: "pe-tabs__scroll-button",
+  scrollButtonAtEnd: "pe-tabs__scroll-button-end",
+  scrollButtonAtStart: "pe-tabs__scroll-button-start",
+  tab: "pe-tab",
+  tabContent: "pe-tabs__tab-content",
+  tabRow: "pe-tabs__row",
+
+  // states
+  activeSelectable: "pe-tabs__active--selectable",
+  isAtEnd: "pe-tabs--end",
+  isAtStart: "pe-tabs--start",
+  isAutofit: "pe-tabs--autofit",
+  isMenu: "pe-tabs--menu",
+  scrollable: "pe-tabs--scrollable",
+  compactTabs: "pe-tabs--compact",
+  tabHasIcon: "pe-tabs__tab--icon",
+  tabRowCentered: "pe-tabs__row--centered",
+  tabRowIndent: "pe-tabs__row--indent",
+
+  // lookup
+  label: buttonClasses.label
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var SCROLL_SPEED = 600; // px per second
+var SCROLL_DELAY = .15; // seconds
+var SCROLL_MIN_DURATION = .5; // seconds
+var INDICATOR_SLIDE_MIN_DURATION = .25; // seconds
+
+var whenCreateDone = function whenCreateDone() {
+  return Promise.resolve();
+};
+
+var getIndex = function getIndex(state, attrs) {
+  var attrsSelectedTabIndex = attrs.selectedTabIndex !== undefined ? attrs.selectedTabIndex : attrs.selectedTab !== undefined // deprecated
+  ? attrs.selectedTab : undefined;
+  return attrsSelectedTabIndex !== undefined ? attrsSelectedTabIndex : Array.isArray(attrs.tabs) ? attrs.tabs.reduce(function (acc, tab, index) {
+    return acc === undefined && !tab.disabled ? index : acc;
+  }, undefined) : undefined;
+};
+
+var scrollButtonGetNewIndex = function scrollButtonGetNewIndex(index, tabs) {
+  var minTabIndex = 0;
+  var maxTabIndex = tabs.length - 1;
+  return {
+    backward: Math.max(index - 1, minTabIndex),
+    forward: Math.min(index + 1, maxTabIndex)
+  };
+};
+
+var handleScrollButtonClick = function handleScrollButtonClick(state, attrs, e, direction) {
+  e.stopPropagation();
+  e.preventDefault();
+  var currentTabIndex = state.selectedTabIndex();
+  var newIndex = scrollButtonGetNewIndex(currentTabIndex, state.tabs)[direction];
+  if (newIndex !== currentTabIndex) {
+    setSelectedTab(state, attrs, newIndex, true);
+  } else {
+    scrollToTab(state, newIndex);
+  }
+};
+
+var scrollToTab = function scrollToTab(state, tabIndex) {
+  var tabs = state.tabs;
+  var scroller = state.tabRowEl;
+  // Scroll to position of selected tab
+  var tabLeft = tabs.slice(0, tabIndex).reduce(function (totalWidth, tabData) {
+    return totalWidth + tabData.dom.getBoundingClientRect().width;
+  }, 0);
+  // Tabs at the far right will not fully move to the left
+  // because the scrollable row will stick to the right 
+  // to get the max scroll left, we subtract the visible viewport from the scroll width
+  var scrollerWidth = scroller.getBoundingClientRect().width; // frame width
+  var scrollingWidth = scroller.scrollWidth;
+  var maxScroll = scrollingWidth - scrollerWidth;
+  var left = state.isRTL ? -1 * Math.min(tabLeft, maxScroll) : Math.min(tabLeft, maxScroll);
+  var currentLeft = scroller.scrollLeft;
+  if (currentLeft !== left) {
+    var duration = Math.abs(currentLeft - left) / SCROLL_SPEED;
+    var delaySeconds = SCROLL_DELAY;
+    setTimeout(function () {
+      Object(polythene_utilities__WEBPACK_IMPORTED_MODULE_1__["scrollTo"])({
+        element: scroller,
+        to: left,
+        duration: Math.max(SCROLL_MIN_DURATION, duration),
+        direction: "horizontal"
+      }).then(function () {
+        return updateScrollButtons(state);
+      });
+    }, delaySeconds * 1000);
+  }
+};
+
+var updateScrollButtons = function updateScrollButtons(state) {
+  var tabRowEl = state.tabRowEl;
+  var scrollLeft = tabRowEl.scrollLeft;
+  var currentTabIndex = state.selectedTabIndex();
+  var tabsEl = state.tabsEl;
+  var minTabIndex = 0;
+  var maxTabIndex = state.tabs.length - 1;
+  var isAtStart = tabRowEl.scrollLeft === 0 && currentTabIndex === minTabIndex;
+  var isAtEnd = scrollLeft >= tabRowEl.scrollWidth - tabsEl.getBoundingClientRect().width - 1 && currentTabIndex === maxTabIndex;
+  state.scrollButtonAtStart(isAtStart);
+  state.scrollButtonAtEnd(isAtEnd);
+};
+
+var animateIndicator = function animateIndicator(selectedTabEl, animate, state) {
+  var parentRect = state.tabsEl.getBoundingClientRect();
+  var rect = selectedTabEl.getBoundingClientRect();
+  var buttonSize = state.managesScroll ? rect.height : 0;
+  var translateX = state.isRTL ? rect.right - parentRect.right + state.tabRowEl.scrollLeft + buttonSize : rect.left - parentRect.left + state.tabRowEl.scrollLeft - buttonSize;
+  var scaleX = 1 / (parentRect.width - 2 * buttonSize) * rect.width;
+  var transformCmd = "translate(" + translateX + "px, 0) scaleX(" + scaleX + ")";
+  var duration = animate ? INDICATOR_SLIDE_MIN_DURATION : 0;
+  var style = state.tabIndicatorEl.style;
+  style["transition-duration"] = duration + "s";
+  style.transform = transformCmd;
+};
+
+var setSelectedTab = function setSelectedTab(state, attrs, index, animate) {
+  state.selectedTabIndex(index);
+  if (!state.tabs.length) return;
+  var selectedTabEl = state.tabs[index].dom;
+  if (selectedTabEl && state.tabIndicatorEl && state.tabsEl) {
+    animateIndicator(selectedTabEl, animate, state);
+  }
+  if (state.managesScroll) {
+    updateScrollButtons(state);
+  }
+  scrollToTab(state, index);
+  if (attrs.onChange) {
+    attrs.onChange({
+      index: index,
+      options: state.tabs[index].attrs,
+      el: selectedTabEl
+    });
+  }
+};
+
+var sortByLargestWidth = function sortByLargestWidth(a, b) {
+  return a < b ? 1 : a > b ? -1 : 0;
+};
+
+var getInitialState = function getInitialState(vnode, createStream) {
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  if (attrs.selectedTab !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Tabs", { option: "selectedTab", newOption: "selectedTabIndex" });
+  }
+  var tabIndex = getIndex(state, attrs) || 0;
+  var selectedTabIndex = createStream(tabIndex);
+  var scrollButtonAtStart = createStream(true);
+  var scrollButtonAtEnd = createStream(true);
+  var registerTabButton = function registerTabButton(state) {
+    return function (index, data) {
+      return state.tabs[index] = data;
+    };
+  };
+  var registerScrollButton = function registerScrollButton(state) {
+    return function (position, dom) {
+      return state.scrollButtons[position] = dom;
+    };
+  };
+  return {
+    tabsEl: undefined,
+    tabRowEl: undefined,
+    tabs: [], // {data, el}
+    tabRow: undefined,
+    tabIndicatorEl: undefined,
+    selectedTabIndex: selectedTabIndex,
+    previousSelectedTabIndex: undefined,
+    managesScroll: attrs.scrollable && !polythene_core__WEBPACK_IMPORTED_MODULE_0__["isTouch"],
+    scrollButtonAtStart: scrollButtonAtStart,
+    scrollButtonAtEnd: scrollButtonAtEnd,
+    scrollButtons: {
+      start: undefined,
+      end: undefined
+    },
+    registerTabButton: registerTabButton,
+    registerScrollButton: registerScrollButton,
+    isRTL: false,
+    cleanUp: undefined, // set in onMount
+    redrawOnUpdate: createStream.merge([selectedTabIndex, scrollButtonAtStart, scrollButtonAtEnd])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var dom = vnode.dom;
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  state.tabsEl = dom;
+  state.isRTL = Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["isRTL"])({ element: dom });
+  if (!attrs.hideIndicator) {
+    state.tabIndicatorEl = dom.querySelector("." + classes.indicator);
+  }
+  state.tabRowEl = dom.querySelector("." + classes.tabRow);
+
+  var redrawLargestWidth = function redrawLargestWidth() {
+    if (state.tabs && attrs.largestWidth) {
+      var widths = state.tabs.map(function (tabData) {
+        return tabData.dom.getBoundingClientRect().width;
+      });
+      var largest = widths.sort(sortByLargestWidth)[0];
+      state.tabs.forEach(function (tabData) {
+        return tabData.dom.style.width = largest + "px";
+      });
+    }
+  };
+
+  var redraw = function redraw() {
+    return redrawLargestWidth(), setSelectedTab(state, attrs, state.selectedTabIndex(), false);
+  };
+
+  var handleFontEvent = function handleFontEvent(_ref) {
+    var name = _ref.name;
+    return name === "active" || name === "inactive" ? redraw() : null;
+  };
+
+  Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["subscribe"])("resize", redraw);
+  Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["subscribe"])("webfontloader", handleFontEvent);
+
+  state.cleanUp = function () {
+    return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unsubscribe"])("resize", redraw), Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["unsubscribe"])("webfontloader", handleFontEvent);
+  };
+
+  // A promise can't resolve during the oncreate loop
+  // The Mithril draw loop is synchronous - there is no delay between one this oncreate and the tab button's oncreate
+  whenCreateDone().then(redraw);
+};
+
+var onUnMount = function onUnMount(_ref2) {
+  var state = _ref2.state;
+  return state.cleanUp();
+};
+
+var createProps = function createProps(vnode, _ref3) {
+  var k = _ref3.keys;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var autofit = attrs.scrollable || attrs.centered ? false : attrs.autofit ? true : false;
+
+  // Keep selected tab up to date
+  var index = getIndex(state, attrs);
+  if (index !== undefined && state.previousSelectedTabIndex !== index) {
+    setSelectedTab(state, attrs, index, true);
+  }
+  state.previousSelectedTabIndex = index;
+
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.scrollable ? classes.scrollable : null, state.scrollButtonAtStart() ? classes.isAtStart : null, state.scrollButtonAtEnd() ? classes.isAtEnd : null, attrs.activeSelected ? classes.activeSelectable : null, autofit ? classes.isAutofit : null, attrs.compact ? classes.compactTabs : null, attrs.menu ? classes.isMenu : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref4) {
+  var h = _ref4.renderer,
+      k = _ref4.keys,
+      Tab = _ref4.Tab,
+      ScrollButton = _ref4.ScrollButton;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  var buttons = attrs.content ? attrs.content : attrs.tabs ? attrs.tabs : attrs.children || vnode.children || [];
+
+  if (buttons.length === 0) {
+    console.error("No tabs specified"); // eslint-disable-line no-console
+  }
+
+  var tabRow = buttons.map(function () {
+    var buttonOpts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var index = arguments[1];
+
+    var buttonOptsCombined = _extends({}, buttonOpts, {
+      // These options can be overridden by `all`
+      selected: index === state.selectedTabIndex(),
+      animateOnTap: attrs.animateOnTap !== false ? true : false
+    }, attrs.all, {
+      // Internal options, should not get overridden
+      index: index,
+      key: buttonOpts.key || "tab-" + index,
+      register: state.registerTabButton(state),
+      onSelect: function onSelect() {
+        return setSelectedTab(state, attrs, index, attrs.noIndicatorSlide ? false : true);
+      }
+    });
+    return h(Tab, buttonOptsCombined);
+  });
+
+  var scrollButtonAtStart = void 0,
+      scrollButtonAtEnd = void 0;
+  if (attrs.scrollable) {
+    scrollButtonAtStart = h(ScrollButton, _extends({}, {
+      key: "backward",
+      icon: attrs.scrollIconBackward,
+      className: classes.scrollButtonAtStart,
+      position: "start",
+      register: state.registerScrollButton(state),
+      events: _defineProperty({}, k.onclick, function (e) {
+        return handleScrollButtonClick(state, attrs, e, "backward");
+      }),
+      isRTL: state.isRTL
+    }));
+    scrollButtonAtEnd = h(ScrollButton, _extends({}, {
+      key: "forward",
+      icon: attrs.scrollIconForward,
+      className: classes.scrollButtonAtEnd,
+      position: "end",
+      register: state.registerScrollButton(state),
+      events: _defineProperty({}, k.onclick, function (e) {
+        return handleScrollButtonClick(state, attrs, e, "forward");
+      }),
+      isRTL: state.isRTL
+    }));
+  }
+
+  var tabIndicator = attrs.hideIndicator ? null : h("div", {
+    key: "indicator",
+    className: classes.indicator
+  });
+
+  return [attrs.scrollable ? scrollButtonAtStart : null, h("div", {
+    key: "tabrow",
+    className: [classes.tabRow, attrs.centered ? classes.tabRowCentered : null, attrs.scrollable ? classes.tabRowIndent : null].join(" ")
+  }, [tabRow, tabIndicator]), attrs.scrollable ? scrollButtonAtEnd : null];
+};
+
+var tabs = /*#__PURE__*/Object.freeze({
+  getInitialState: getInitialState,
+  onMount: onMount,
+  onUnMount: onUnMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty$1(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// Don't export 'element': it will be the wrapped Button component (set in polythene-xxx-tabs/tab)
+
+var onMount$1 = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var dom = vnode.dom;
+  var attrs = vnode.attrs;
+  attrs.register(attrs.index, {
+    attrs: attrs,
+    dom: dom
+  });
+};
+
+var createProps$1 = function createProps(vnode, _ref) {
+  var h = _ref.renderer,
+      k = _ref.keys,
+      Icon = _ref.Icon;
+
+  var attrs = vnode.attrs;
+  // Let internal onclick function co-exist with passed button option
+  attrs.events = attrs.events || {};
+  attrs.events[k.onclick] = attrs.events[k.onclick] || function () {};
+  return _extends$1({}, attrs, {
+    content: h("div", { className: classes.tabContent }, [attrs.icon ? h(Icon, attrs.icon) : null, attrs.label ? h("div", { className: classes.label }, h("span", attrs.label)) : null]),
+    className: [classes.tab, attrs.icon && attrs.label ? classes.tabHasIcon : null, attrs.className || attrs[k.class]].join(" "),
+    selected: attrs.selected,
+    wash: false,
+    ripple: true,
+    events: _extends$1({}, attrs.events, _defineProperty$1({}, k.onclick, function (e) {
+      attrs.onSelect();
+      attrs.events[k.onclick](e);
+    }))
+  });
+};
+
+var createContent$1 = function createContent(vnode) {
+  return vnode.children;
+};
+
+var tab = /*#__PURE__*/Object.freeze({
+  onMount: onMount$1,
+  createProps: createProps$1,
+  createContent: createContent$1
+});
+
+// Don't export 'element': it will be the wrapped IconButton component (set in polythene-xxx-tabs/scroll-button)
+
+var arrowBackward = "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z\"/></svg>";
+var arrowForward = "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/></svg>";
+
+var onMount$2 = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var dom = vnode.dom;
+  var attrs = vnode.attrs;
+  attrs.register(attrs.position, dom);
+};
+
+var createProps$2 = function createProps(vnode, _ref) {
+  var h = _ref.renderer,
+      k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  var icon = attrs.position === "start" ? attrs.icon || { svg: { content: h.trust(attrs.isRTL ? arrowForward : arrowBackward) } } : attrs.icon || { svg: { content: h.trust(attrs.isRTL ? arrowBackward : arrowForward) } };
+  return {
+    className: [classes.scrollButton, attrs.className || attrs[k.class]].join(" "),
+    icon: icon,
+    ripple: { center: true },
+    events: attrs.events
+  };
+};
+
+var scrollButton = /*#__PURE__*/Object.freeze({
+  onMount: onMount$2,
+  createProps: createProps$2
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-textfield/dist/polythene-core-textfield.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-core-textfield/dist/polythene-core-textfield.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: coreTextField */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreTextField", function() { return textfield; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+  component: "pe-textfield",
+
+  // elements
+  counter: "pe-textfield__counter",
+  error: "pe-textfield__error",
+  errorPlaceholder: "pe-textfield__error-placeholder",
+  focusHelp: "pe-textfield__help-focus",
+  help: "pe-textfield__help",
+  input: "pe-textfield__input",
+  inputArea: "pe-textfield__input-area",
+  label: "pe-textfield__label",
+  optionalIndicator: "pe-textfield__optional-indicator",
+  requiredIndicator: "pe-textfield__required-indicator",
+
+  // states
+  hasCounter: "pe-textfield--counter",
+  hasFloatingLabel: "pe-textfield--floating-label",
+  hasFullWidth: "pe-textfield--full-width",
+  hideClear: "pe-textfield--hide-clear",
+  hideSpinner: "pe-textfield--hide-spinner",
+  hideValidation: "pe-textfield--hide-validation",
+  isDense: "pe-textfield--dense",
+  isRequired: "pe-textfield--required",
+  stateDirty: "pe-textfield--dirty",
+  stateDisabled: "pe-textfield--disabled",
+  stateFocused: "pe-textfield--focused",
+  stateInvalid: "pe-textfield--invalid",
+  stateReadonly: "pe-textfield--readonly"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var DEFAULT_VALID_STATE = {
+  invalid: false,
+  message: undefined
+};
+
+var validateCustom = function validateCustom(state, attrs) {
+  var el = state.inputEl();
+  if (!el) {
+    return DEFAULT_VALID_STATE;
+  }
+  var validState = attrs.validate(state.inputEl().value);
+  return {
+    invalid: validState && !validState.valid,
+    message: validState && validState.error
+  };
+};
+
+var validateCounter = function validateCounter(state, attrs) {
+  return {
+    invalid: state.inputEl().value.length > attrs.counter,
+    message: attrs.error
+  };
+};
+
+var validateHTML = function validateHTML(state, attrs) {
+  return {
+    invalid: !state.inputEl().checkValidity(),
+    message: attrs.error
+  };
+};
+
+var getValidStatus = function getValidStatus(state, attrs) {
+  var status = DEFAULT_VALID_STATE;
+
+  // attrs.validateResetOnClear: reset validation when field is cleared
+  if (state.isTouched() && state.isInvalid() && state.inputEl().value.length === 0 && attrs.validateResetOnClear) {
+    state.isTouched(false);
+    state.isInvalid(false);
+    state.error(undefined);
+  }
+  if (!status.invalid && attrs.counter) {
+    status = validateCounter(state, attrs);
+  }
+  if (!status.invalid && state.inputEl() && state.inputEl().checkValidity) {
+    status = validateHTML(state, attrs);
+  }
+  if (!status.invalid && attrs.validate) {
+    status = validateCustom(state, attrs);
+  }
+  return status;
+};
+
+var checkValidity = function checkValidity(vnode) {
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  // default
+  var status = attrs.valid !== undefined ? {
+    invalid: !attrs.valid,
+    message: attrs.error
+  } : !state.isTouched() && !attrs.validateAtStart ? DEFAULT_VALID_STATE : getValidStatus(state, attrs);
+  var previousInvalid = state.isInvalid();
+  state.error(status.message);
+  if (status.invalid !== previousInvalid) {
+    state.isInvalid(status.invalid);
+  }
+  if (!status.invalid) {
+    state.error(undefined);
+  }
+};
+
+var notifyState = function notifyState(vnode) {
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  if (attrs.onChange) {
+    var status = getValidStatus(state, attrs);
+    attrs.onChange({
+      focus: state.hasFocus(),
+      dirty: state.isDirty(),
+      el: state.inputEl(),
+      invalid: status.invalid,
+      error: status.error,
+      value: state.inputEl().value,
+      setInputState: function setInputState(newState) {
+        var hasNewValue = newState.value !== undefined && newState.value !== state.inputEl().value;
+        var hasNewFocus = newState.focus !== undefined && newState.focus !== state.hasFocus();
+        if (hasNewValue || hasNewFocus) {
+          state.setInputState(_extends({}, newState, { vnode: vnode }));
+        }
+      }
+    });
+  }
+};
+
+var ignoreEvent = function ignoreEvent(attrs, name) {
+  return attrs.ignoreEvents && attrs.ignoreEvents.indexOf(name) !== -1;
+};
+
+var getInitialState = function getInitialState(vnode, createStream, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+
+  var defaultValue = attrs.defaultValue !== undefined && attrs.defaultValue !== null ? attrs.defaultValue.toString() : attrs.value !== undefined && attrs.value !== null ? attrs.value.toString() : "";
+
+  var el = createStream(null);
+  var inputEl = createStream(null);
+  var setInputState = createStream({});
+  var error = createStream(attrs.error);
+  var hasFocus = createStream(false);
+  var isTouched = createStream(false); // true when any change is made
+  var isDirty = createStream(defaultValue !== ""); // true for any input
+  var isInvalid = createStream(false);
+  var previousValue = createStream(undefined);
+  var didSetFocusTime = 0;
+  var showErrorPlaceholder = !!(attrs.valid !== undefined || attrs.validate || attrs.min || attrs.max || attrs[k.minlength] || attrs[k.maxlength] || attrs.required || attrs.pattern);
+
+  return {
+    defaultValue: defaultValue,
+    didSetFocusTime: didSetFocusTime,
+    el: el,
+    error: error,
+    hasFocus: hasFocus,
+    inputEl: inputEl,
+    isDirty: isDirty,
+    isInvalid: isInvalid,
+    isTouched: isTouched,
+    previousValue: previousValue,
+    setInputState: setInputState,
+    showErrorPlaceholder: showErrorPlaceholder,
+    redrawOnUpdate: createStream.merge([inputEl, isInvalid, isDirty])
+  };
+};
+
+var onMount = function onMount(vnode) {
+  if (!vnode.dom) {
+    return;
+  }
+  var dom = vnode.dom;
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  state.el(dom);
+  var inputType = attrs.multiLine ? "textarea" : "input";
+  var inputEl = dom.querySelector(inputType);
+  vnode.state.inputEl(inputEl);
+  state.inputEl().value = state.defaultValue;
+
+  state.setInputState.map(function (_ref2) {
+    var vnode = _ref2.vnode,
+        type = _ref2.type,
+        focus = _ref2.focus,
+        value = _ref2.value;
+
+    if (vnode) {
+      value !== undefined ? state.inputEl().value = value : null;
+      focus !== undefined && (state.hasFocus(focus), focus ? state.inputEl().focus() : state.inputEl().blur());
+      type === "input" && (attrs.validateOnInput || attrs.counter) && state.isTouched(state.inputEl().value !== state.defaultValue);
+      type !== "input" && state.isTouched(state.inputEl().value !== state.defaultValue);
+      type === "onblur" && state.isTouched(true);
+      state.isDirty(state.inputEl().value !== "");
+      checkValidity(vnode);
+      notifyState(vnode);
+      state.previousValue(state.inputEl().value);
+    }
+  });
+  notifyState(vnode);
+};
+
+var onUpdate = function onUpdate(vnode) {
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  checkValidity(vnode);
+
+  var inputEl = state.inputEl();
+  var value = attrs.value !== undefined && attrs.value !== null ? attrs.value : inputEl ? inputEl.value : state.previousValue();
+  var valueStr = value === undefined || value === null ? "" : value.toString();
+
+  if (inputEl && state.previousValue() !== valueStr) {
+    inputEl.value = valueStr;
+    state.previousValue(valueStr);
+    state.setInputState({ vnode: vnode, type: "input" });
+  }
+};
+
+var createProps = function createProps(vnode, _ref3) {
+  var k = _ref3.keys;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+  var isInvalid = state.isInvalid();
+
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, isInvalid ? classes.stateInvalid : "", state.hasFocus() ? classes.stateFocused : "", state.isDirty() ? classes.stateDirty : "", attrs.floatingLabel ? classes.hasFloatingLabel : "", attrs.disabled ? classes.stateDisabled : "", attrs.readonly ? classes.stateReadonly : "", attrs.dense ? classes.isDense : "", attrs.required ? classes.isRequired : "", attrs.fullWidth ? classes.hasFullWidth : "", attrs.counter ? classes.hasCounter : "", attrs.hideSpinner !== false && attrs.hideSpinner !== undefined ? classes.hideSpinner : "", attrs.hideClear !== false && attrs.hideClear !== undefined ? classes.hideClear : "", attrs.hideValidation ? classes.hideValidation : "", attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  });
+};
+
+var createContent = function createContent(vnode, _ref4) {
+  var h = _ref4.renderer,
+      k = _ref4.keys;
+
+  var state = vnode.state;
+  var attrs = vnode.attrs;
+
+  var inputEl = state.inputEl();
+  var error = attrs.error || state.error();
+  var isInvalid = state.isInvalid();
+  var inputType = attrs.multiLine ? "textarea" : "input";
+  var type = attrs.multiLine ? null : !attrs.type || attrs.type === "submit" || attrs.type === "search" ? "text" : attrs.type;
+  var showError = isInvalid && error !== undefined;
+
+  var inactive = attrs.disabled || attrs[k.readonly];
+
+  var requiredIndicator = attrs.required && attrs.requiredIndicator !== "" ? h("span", {
+    key: "required",
+    className: classes.requiredIndicator
+  }, attrs.requiredIndicator || "*") : null;
+  var optionalIndicator = !attrs.required && attrs.optionalIndicator ? h("span", {
+    key: "optional",
+    className: classes.optionalIndicator
+  }, attrs.optionalIndicator) : null;
+  var label = attrs.label ? [attrs.label, requiredIndicator, optionalIndicator] : null;
+
+  return [h("div", {
+    className: classes.inputArea,
+    key: "input-area"
+  }, [label ? h("label", {
+    key: "label",
+    className: classes.label
+  }, label) : null, h(inputType, _extends({}, {
+    key: "input",
+    className: classes.input,
+    disabled: attrs.disabled
+  }, type ? { type: type } : null, attrs.name ? { name: attrs.name } : null, !ignoreEvent(attrs, k.onclick) ? _defineProperty({}, k.onclick, function () {
+    if (inactive) {
+      return;
+    }
+    // in case the browser does not give the field focus,
+    // for instance when the user tapped to the current field off screen
+    state.setInputState({ vnode: vnode, focus: true });
+    notifyState(vnode);
+  }) : null, !ignoreEvent(attrs, k.onfocus) ? _defineProperty({}, k.onfocus, function () {
+    if (inactive) {
+      return;
+    }
+    state.setInputState({ vnode: vnode, focus: true });
+
+    // set CSS class manually in case field gets focus but is off screen
+    // and no redraw is triggered
+    // at the next redraw state.hasFocus() will be read and the focus class be set
+    // in the props.class statement
+    if (state.el()) {
+      state.el().classList.add(classes.stateFocused);
+    }
+    notifyState(vnode);
+  }) : null, !ignoreEvent(attrs, k.onblur) ? _defineProperty({}, k.onblur, function () {
+    state.setInputState({ vnode: vnode, type: "onblur", focus: false });
+    // same principle as onfocus
+    state.el().classList.remove(classes.stateFocused);
+  }) : null, !ignoreEvent(attrs, k.oninput) ? _defineProperty({}, k.oninput, function () {
+    // default input event
+    // may be overwritten by attrs.events
+    state.setInputState({ vnode: vnode, type: "input" });
+  }) : null, !ignoreEvent(attrs, k.onkeydown) ? _defineProperty({}, k.onkeydown, function (e) {
+    if (e.key === "Enter") {
+      state.isTouched(true);
+    } else if (e.key === "Escape" || e.key === "Esc") {
+      state.setInputState({ vnode: vnode, focus: false });
+    }
+  }) : null, attrs.events ? attrs.events : null, // NOTE: may overwrite oninput
+  attrs.required !== undefined && !!attrs.required ? { required: true } : null, attrs[k.readonly] !== undefined && !!attrs[k.readonly] ? _defineProperty({}, k.readonly, true) : null, attrs.pattern !== undefined ? { pattern: attrs.pattern } : null, attrs[k.maxlength] !== undefined ? _defineProperty({}, k.maxlength, attrs[k.maxlength]) : null, attrs[k.minlength] !== undefined ? _defineProperty({}, k.minlength, attrs[k.minlength]) : null, attrs.max !== undefined ? { max: attrs.max } : null, attrs.min !== undefined ? { min: attrs.min } : null, attrs[k.autofocus] !== undefined ? _defineProperty({}, k.autofocus, attrs[k.autofocus]) : null, attrs[k.tabindex] !== undefined ? _defineProperty({}, k.tabindex, attrs[k.tabindex]) : null, attrs.rows !== undefined ? { rows: attrs.rows } : null))]), attrs.counter ? h("div", {
+    key: "counter",
+    className: classes.counter
+  }, (inputEl && inputEl.value.length || 0) + " / " + attrs.counter) : null, attrs.help && !showError ? h("div", {
+    key: "help",
+    className: [classes.help, attrs.focusHelp ? classes.focusHelp : null].join(" ")
+  }, attrs.help) : null, showError ? h("div", {
+    key: "error",
+    className: classes.error
+  }, error) : state.showErrorPlaceholder && !attrs.help ? h("div", {
+    key: "error-placeholder",
+    className: classes.errorPlaceholder
+  }) : null];
+};
+
+var textfield = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  getInitialState: getInitialState,
+  onMount: onMount,
+  onUpdate: onUpdate,
+  createProps: createProps,
+  createContent: createContent
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core-toolbar/dist/polythene-core-toolbar.mjs":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-core-toolbar/dist/polythene-core-toolbar.mjs ***!
+  \******************************************************************************/
+/*! exports provided: coreToolbar, coreToolbarTitle */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreToolbar", function() { return toolbar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreToolbarTitle", function() { return toolbarTitle; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var classes = {
+
+  // Toolbar
+
+  component: "pe-toolbar",
+
+  // states
+  compact: "pe-toolbar--compact",
+  appBar: "pe-toolbar--app-bar",
+
+  // Toolbar title
+
+  // elements
+  title: "pe-toolbar__title",
+
+  // states
+  centeredTitle: "pe-toolbar__title--center",
+  indentedTitle: "pe-toolbar__title--indent",
+  fullbleed: "pe-toolbar--fullbleed",
+  border: "pe-toolbar--border"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var onMount = function onMount(_ref) {
+  var attrs = _ref.attrs;
+
+  if (attrs.z !== undefined) {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["deprecation"])("Toolbar", { option: "z", newOption: "shadowDepth" });
+  }
+};
+
+var createProps = function createProps(vnode, _ref2) {
+  var k = _ref2.keys;
+
+  var attrs = vnode.attrs;
+  return _extends({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.component, attrs.compact ? classes.compact : null, attrs.fullbleed ? classes.fullbleed : null, attrs.border ? classes.border : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent = function createContent(vnode, _ref3) {
+  var renderer = _ref3.renderer,
+      Shadow = _ref3.Shadow;
+
+  var attrs = vnode.attrs;
+  var content = attrs.content ? attrs.content : attrs.children || vnode.children;
+  var shadowDepth = attrs.shadowDepth !== undefined ? attrs.shadowDepth : attrs.z; // deprecated
+  var shadow = shadowDepth !== undefined ? renderer(Shadow, {
+    shadowDepth: shadowDepth,
+    animated: true,
+    key: "shadow"
+  }) : null;
+  return [content, shadow];
+};
+
+var toolbar = /*#__PURE__*/Object.freeze({
+  getElement: getElement,
+  onMount: onMount,
+  createProps: createProps,
+  createContent: createContent
+});
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getElement$1 = function getElement(vnode) {
+  return vnode.attrs.element || "div";
+};
+
+var createProps$1 = function createProps(vnode, _ref) {
+  var k = _ref.keys;
+
+  var attrs = vnode.attrs;
+  return _extends$1({}, Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["filterSupportedAttributes"])(attrs), {
+    className: [classes.title, attrs.indent ? classes.indentedTitle : null, attrs.center ? classes.centeredTitle : null, attrs.tone === "dark" ? "pe-dark-tone" : null, attrs.tone === "light" ? "pe-light-tone" : null, attrs.className || attrs[k.class]].join(" ")
+  }, attrs.events);
+};
+
+var createContent$1 = function createContent(vnode) {
+  var attrs = vnode.attrs;
+  return attrs.text ? attrs.text : attrs.content ? attrs.content : attrs.children || vnode.children || attrs;
+};
+
+var toolbarTitle = /*#__PURE__*/Object.freeze({
+  getElement: getElement$1,
+  createProps: createProps$1,
+  createContent: createContent$1
+});
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-core/dist/polythene-core.mjs":
+/*!**************************************************************!*\
+  !*** ../node_modules/polythene-core/dist/polythene-core.mjs ***!
+  \**************************************************************/
+/*! exports provided: getAnimationEndEvent, Conditional, filterSupportedAttributes, unpackAttrs, classForSize, isClient, isServer, isTouch, pointerStartEvent, pointerEndEvent, pointerStartMoveEvent, pointerMoveEvent, pointerEndMoveEvent, Multi, show, hide, transitionComponent, throttle, subscribe, unsubscribe, emit, getStyle, stylePropCompare, isRTL, styleDurationToMs, deprecation, iconDropdownUp, iconDropdownDown */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAnimationEndEvent", function() { return getAnimationEndEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Conditional", function() { return Conditional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterSupportedAttributes", function() { return filterSupportedAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unpackAttrs", function() { return unpackAttrs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "classForSize", function() { return classForSize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isClient", function() { return isClient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isServer", function() { return isServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isTouch", function() { return isTouch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pointerStartEvent", function() { return pointerStartEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pointerEndEvent", function() { return pointerEndEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pointerStartMoveEvent", function() { return pointerStartMoveEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pointerMoveEvent", function() { return pointerMoveEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pointerEndMoveEvent", function() { return pointerEndMoveEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Multi", function() { return Multi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "show", function() { return show; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hide", function() { return hide; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transitionComponent", function() { return transitionComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "throttle", function() { return throttle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subscribe", function() { return subscribe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unsubscribe", function() { return unsubscribe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "emit", function() { return emit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStyle", function() { return getStyle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stylePropCompare", function() { return stylePropCompare; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isRTL", function() { return isRTL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styleDurationToMs", function() { return styleDurationToMs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deprecation", function() { return deprecation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "iconDropdownUp", function() { return iconDropdownUp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "iconDropdownDown", function() { return iconDropdownDown; });
+var isClient = typeof document !== "undefined";
+var isServer = !isClient;
+
+var evts = {
+  "animation": "animationend",
+  "OAnimation": "oAnimationEnd",
+  "MozAnimation": "animationend",
+  "WebkitAnimation": "webkitAnimationEnd"
+};
+
+var getAnimationEndEvent = function getAnimationEndEvent() {
+  if (isClient) {
+    var el = document.createElement("fakeelement");
+    for (var a in evts) {
+      if (el.style[a] !== undefined) {
+        return evts[a];
+      }
+    }
+  }
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var modes = {
+  hidden: "hidden",
+  visible: "visible",
+  exposing: "exposing",
+  hiding: "hiding"
+};
+
+var Conditional = {
+  getInitialState: function getInitialState(vnode, createStream) {
+    var attrs = vnode.attrs;
+    if (!attrs.didHide) {
+      return {};
+    }
+    var visible = attrs.permanent || attrs.show;
+    var mode = createStream(attrs.permanent ? modes.visible : visible ? modes.visible : modes.hidden);
+    return {
+      mode: mode,
+      redrawOnUpdate: createStream.merge([mode])
+    };
+  },
+  onUpdate: function onUpdate(_ref) {
+    var state = _ref.state,
+        attrs = _ref.attrs;
+
+    if (!attrs.didHide) {
+      return;
+    }
+    var mode = state.mode();
+    if (attrs.permanent) {
+      if (mode === modes.visible && attrs.show) {
+        state.mode(modes.exposing);
+      } else if (mode === modes.exposing && !attrs.show) {
+        state.mode(modes.hiding);
+      }
+    } else {
+      // "normal" type
+      if (mode === modes.hidden && attrs.show) {
+        state.mode(modes.visible);
+      } else if (mode === modes.visible && !attrs.show) {
+        state.mode(modes.hiding);
+      }
+    }
+  },
+  view: function view(_ref2, _ref3) {
+    var state = _ref2.state,
+        attrs = _ref2.attrs;
+    var h = _ref3.renderer;
+
+    var placeholder = h("span", { className: attrs.placeholderClassName });
+
+    // No didHide callback passed: use normal visibility evaluation
+    if (!attrs.didHide) {
+      return attrs.permanent || attrs.inactive || attrs.show ? h(attrs.instance, attrs) : placeholder;
+    }
+
+    // else: use didHide to reset the state after hiding
+    var mode = state.mode();
+    var visible = mode !== modes.hidden;
+    return visible ? h(attrs.instance, _extends({}, attrs, {
+      didHide: function didHide(args) {
+        return attrs.didHide(args), state.mode(attrs.permanent ? modes.visible : modes.hidden);
+      }
+    }, mode === modes.hiding && {
+      show: true,
+      hide: true
+    })) : placeholder;
+  }
+};
+
+Conditional.displayName = "Conditional";
+
+var r = function r(acc, p) {
+  return acc[p] = 1, acc;
+};
+
+/* 
+Separately handled props:
+- class
+- element
+*/
+
+var defaultAttrs = [
+// Universal
+"key", "style", "href", "id",
+
+// React
+"tabIndex",
+
+// Mithril
+"tabindex", "oninit", "oncreate", "onupdate", "onbeforeremove", "onremove", "onbeforeupdate"];
+
+var filterSupportedAttributes = function filterSupportedAttributes(attrs) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$add = _ref.add,
+      addAttrs = _ref$add === undefined ? [] : _ref$add,
+      _ref$remove = _ref.remove,
+      removeAttrs = _ref$remove === undefined ? [] : _ref$remove;
+
+  var removeLookup = removeAttrs.reduce(r, {});
+  var supported = defaultAttrs.concat(addAttrs).filter(function (item) {
+    return !removeLookup[item];
+  }).reduce(r, {});
+  return Object.keys(attrs).reduce(function (acc, key) {
+    return supported[key] ? acc[key] = attrs[key] : null, acc;
+  }, {});
+};
+
+var unpackAttrs = function unpackAttrs(attrs) {
+  return typeof attrs === "function" ? attrs() : attrs;
+};
+
+var sizeClasses = function sizeClasses(classes) {
+  return {
+    small: classes.small,
+    regular: classes.regular,
+    medium: classes.medium,
+    large: classes.large,
+    fab: classes.fab
+  };
+};
+
+var classForSize = function classForSize(classes) {
+  var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "regular";
+  return sizeClasses(classes)[size];
+};
+
+var isTouch = isServer ? false : "ontouchstart" in document.documentElement;
+
+var pointerStartEvent = isTouch ? ["touchstart", "click"] : ["click"];
+
+var pointerEndEvent = isTouch ? ["click", "mouseup"] : ["mouseup"];
+
+var pointerStartMoveEvent = isTouch ? ["touchstart", "mousedown"] : ["mousedown"];
+
+var pointerMoveEvent = isTouch ? ["touchmove", "mousemove"] : ["mousemove"];
+
+var pointerEndMoveEvent = isTouch ? ["touchend", "mouseup"] : ["mouseup"];
+
+if (isClient) {
+  document.querySelector("html").classList.add(isTouch ? "pe-touch" : "pe-no-touch");
+}
+
+var listeners = {};
+
+// https://gist.github.com/Eartz/fe651f2fadcc11444549
+var throttle = function throttle(func) {
+  var s = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.05;
+  var context = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : isClient ? window : {};
+
+  var wait = false;
+  return function () {
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var later = function later() {
+      return func.apply(context, args);
+    };
+    if (!wait) {
+      later();
+      wait = true;
+      setTimeout(function () {
+        return wait = false;
+      }, s);
+    }
+  };
+};
+
+var subscribe = function subscribe(eventName, listener, delay) {
+  listeners[eventName] = listeners[eventName] || [];
+  listeners[eventName].push(delay ? throttle(listener, delay) : listener);
+};
+
+var unsubscribe = function unsubscribe(eventName, listener) {
+  if (!listeners[eventName]) {
+    return;
+  }
+  var index = listeners[eventName].indexOf(listener);
+  if (index > -1) {
+    listeners[eventName].splice(index, 1);
+  }
+};
+
+var emit = function emit(eventName, event) {
+  if (!listeners[eventName]) {
+    return;
+  }
+  listeners[eventName].forEach(function (listener) {
+    return listener(event);
+  });
+};
+
+if (isClient) {
+  window.addEventListener("resize", function (e) {
+    return emit("resize", e);
+  });
+  window.addEventListener("scroll", function (e) {
+    return emit("scroll", e);
+  });
+  window.addEventListener("keydown", function (e) {
+    return emit("keydown", e);
+  });
+  window.addEventListener(pointerEndEvent, function (e) {
+    return emit(pointerEndEvent, e);
+  });
+}
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Multi = function Multi(_ref) {
+  var mOptions = _ref.options,
+      renderer = _ref.renderer;
+
+
+  var items = []; // This is shared between all instances of a type (Dialog, Notification, ...)
+  var current = void 0;
+
+  var getInitialState = function getInitialState(vnode, createStream) {
+    current = createStream(null);
+    return {
+      current: current,
+      redrawOnUpdate: createStream.merge([current])
+    };
+  };
+
+  /*
+  @param e: { id, eventName }
+  */
+  var onChange = function onChange(e) {
+    if (!current) {
+      console.error("Cannot set state. Did you set a root element like Dialog to show instances?"); // eslint-disable-line no-console
+    }
+    current(e.id);
+    emit(mOptions.name, e);
+  };
+
+  var itemIndex = function itemIndex(id) {
+    var item = findItem(id);
+    return items.indexOf(item);
+  };
+
+  var removeItem = function removeItem(id) {
+    var index = itemIndex(id);
+    if (index !== -1) {
+      items.splice(index, 1);
+      onChange({ id: id, name: "removeItem" });
+    }
+  };
+
+  var replaceItem = function replaceItem(id, newItem) {
+    var index = itemIndex(id);
+    if (index !== -1) {
+      items[index] = newItem;
+    }
+  };
+
+  var findItem = function findItem(id) {
+    // traditional for loop for IE10
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].instanceId === id) {
+        return items[i];
+      }
+    }
+  };
+
+  var next = function next() {
+    if (items.length) {
+      items[0].show = true;
+    }
+    onChange({ id: items.length ? items[0].instanceId : null, name: "next" });
+  };
+
+  var remove = function remove() {
+    var instanceId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : mOptions.defaultId;
+
+    if (mOptions.queue) {
+      items.shift();
+      next();
+    } else {
+      removeItem(instanceId);
+    }
+  };
+
+  var removeAll = function removeAll() {
+    items.length = 0;
+    onChange({ id: null, name: "removeAll" });
+  };
+
+  var setPauseState = function setPauseState(pause, instanceId) {
+    var item = findItem(instanceId);
+    if (item) {
+      item.pause = pause;
+      item.unpause = !pause;
+      onChange({ id: instanceId, name: pause ? "pause" : "unpause" });
+    }
+  };
+
+  var createItem = function createItem(itemAttrs, instanceId, spawn) {
+    var resolveShow = void 0;
+    var resolveHide = void 0;
+    var attrs = unpackAttrs(itemAttrs);
+
+    var didShow = function didShow() {
+      if (attrs.didShow) {
+        attrs.didShow(instanceId);
+      }
+      onChange({ id: instanceId, name: "didShow" });
+      return resolveShow(instanceId);
+    };
+    var showPromise = new Promise(function (resolve) {
+      return resolveShow = resolve;
+    });
+
+    var didHide = function didHide() {
+      if (attrs.didHide) {
+        attrs.didHide(instanceId);
+      }
+      onChange({ id: instanceId, name: "didHide" });
+      remove(instanceId);
+      return resolveHide(instanceId);
+    };
+
+    var hidePromise = new Promise(function (resolve) {
+      return resolveHide = resolve;
+    });
+
+    return _extends$1({}, mOptions, {
+      instanceId: instanceId,
+      spawn: spawn,
+      attrs: itemAttrs,
+      show: mOptions.queue ? false : true,
+      showPromise: showPromise,
+      hidePromise: hidePromise,
+      didShow: didShow,
+      didHide: didHide
+    });
+  };
+
+  var count = function count() {
+    return items.length;
+  };
+  var pause = function pause() {
+    var instanceId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : mOptions.defaultId;
+    return setPauseState(true, instanceId);
+  };
+  var unpause = function unpause() {
+    var instanceId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : mOptions.defaultId;
+    return setPauseState(false, instanceId);
+  };
+
+  var show = function show() {
+    var attrs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var spawnOpts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    var instanceId = spawnOpts.id || mOptions.defaultId;
+    var spawn = spawnOpts.spawn || mOptions.defaultId;
+    var item = createItem(attrs, instanceId, spawn);
+    onChange({ id: instanceId, name: "show" });
+    if (mOptions.queue) {
+      items.push(item);
+      if (items.length === 1) {
+        next();
+      }
+    } else {
+      var storedItem = findItem(instanceId);
+      if (!storedItem) {
+        items.push(item);
+      } else {
+        replaceItem(instanceId, item);
+      }
+    }
+    return item.showPromise;
+  };
+
+  var hide = function hide() {
+    var spawnOpts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    var instanceId = spawnOpts.id || mOptions.defaultId;
+    var item = mOptions.queue && items.length ? items[0] : findItem(instanceId);
+    if (item) {
+      item.hide = true;
+    }
+    onChange({ id: instanceId, name: "hide" });
+    return item ? item.hidePromise : Promise.resolve(instanceId);
+  };
+
+  var clear = removeAll;
+
+  var view = function view(_ref2) {
+    var attrs = _ref2.attrs;
+
+    var spawn = attrs.spawn || mOptions.defaultId;
+    var candidates = items.filter(function (item) {
+      return item.show && item.spawn === spawn;
+    });
+    if (mOptions.htmlShowClass && isClient && document.documentElement) {
+      document.documentElement.classList[candidates.length ? "add" : "remove"](mOptions.htmlShowClass);
+    }
+    return !candidates.length ? renderer(mOptions.placeholder) // placeholder because we cannot return null
+    : renderer(mOptions.holderSelector, {
+      className: attrs.position === "container" ? "pe-multiple--container" : "pe-multiple--screen"
+    }, candidates.map(function (itemData) {
+      return renderer(mOptions.instance, _extends$1({}, {
+        fromMultipleClassName: mOptions.className,
+        fromMultipleClear: clear,
+        fromMultipleDidHide: itemData.didHide,
+        fromMultipleDidShow: itemData.didShow,
+        hide: itemData.hide,
+        holderSelector: mOptions.holderSelector,
+        instanceId: itemData.instanceId,
+        key: itemData.key,
+        pause: itemData.pause,
+        show: itemData.show,
+        spawnId: spawn,
+        transitions: mOptions.transitions,
+        unpause: itemData.unpause
+      }, unpackAttrs(itemData.attrs)));
+    }));
+  };
+
+  return {
+    clear: clear,
+    count: count,
+    getInitialState: getInitialState,
+    hide: hide,
+    pause: pause,
+    remove: remove,
+    show: show,
+    unpause: unpause,
+    view: view
+  };
+};
+
+Multi.displayName = "Multi";
+
+var getStyle = function getStyle(_ref) {
+  var element = _ref.element,
+      selector = _ref.selector,
+      pseudoSelector = _ref.pseudoSelector,
+      prop = _ref.prop;
+
+  var el = selector ? element.querySelector(selector) : element;
+  if (!el) {
+    return;
+  }
+  return el.currentStyle ? el.currentStyle[prop] : window.getComputedStyle ? document.defaultView.getComputedStyle(el, pseudoSelector).getPropertyValue(prop) : null;
+};
+
+var stylePropCompare = function stylePropCompare(_ref2) {
+  var element = _ref2.element,
+      selector = _ref2.selector,
+      pseudoSelector = _ref2.pseudoSelector,
+      prop = _ref2.prop,
+      equals = _ref2.equals,
+      contains = _ref2.contains;
+
+  var el = selector ? element.querySelector(selector) : element;
+  if (!el) {
+    return false;
+  }
+  if (equals !== undefined) {
+    return equals === document.defaultView.getComputedStyle(el, pseudoSelector).getPropertyValue(prop);
+  }
+  if (contains !== undefined) {
+    return document.defaultView.getComputedStyle(el, pseudoSelector).getPropertyValue(prop).indexOf(contains) !== -1;
+  }
+};
+
+var isRTL = function isRTL(_ref3) {
+  var _ref3$element = _ref3.element,
+      element = _ref3$element === undefined ? document : _ref3$element,
+      selector = _ref3.selector;
+  return stylePropCompare({ element: element, selector: selector, prop: "direction", equals: "rtl" });
+};
+
+var styleDurationToMs = function styleDurationToMs(durationStr) {
+  var parsed = parseFloat(durationStr) * (durationStr.indexOf("ms") === -1 ? 1000 : 1);
+  return isNaN(parsed) ? 0 : parsed;
+};
+
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+// defaults
+var DEFAULT_DURATION = .240;
+var DEFAULT_DELAY = 0;
+// const TRANSITION =    "both";
+
+// See: transition
+var show = function show(opts) {
+  return transition(opts, "show");
+};
+
+var hide = function hide(opts) {
+  return transition(opts, "hide");
+};
+
+/*
+opts:
+- el
+- duration
+- delay
+- showClass
+- transitionClass
+- before
+- show
+- hide
+- after
+- timingFunction
+
+- state (show, hide)
+*/
+var transition = function transition(opts, state) {
+  var el = opts.el;
+  if (!el) {
+    return Promise.resolve();
+  } else {
+    return new Promise(function (resolve) {
+      var style = el.style;
+      var computedStyle = isClient ? window.getComputedStyle(el) : {};
+      var duration = opts.hasDuration ? opts.duration * 1000.0 : styleDurationToMs(computedStyle.transitionDuration);
+      var delay = opts.hasDelay ? opts.delay * 1000.0 : styleDurationToMs(computedStyle.transitionDelay);
+      var timingFunction = opts.timingFunction || computedStyle.transitionTimingFunction;
+
+      if (opts.transitionClass) {
+        var transitionClassElement = opts.transitionClassElement || el;
+        transitionClassElement.classList.add(opts.transitionClass);
+      }
+
+      var before = function before() {
+        style.transitionDuration = "0ms";
+        style.transitionDelay = "0ms";
+        opts.before();
+      };
+
+      var maybeBefore = opts.before && state === "show" ? before : opts.before && state === "hide" ? before : null;
+
+      var after = opts.after ? function () {
+        return opts.after();
+      } : null;
+
+      var applyTransition = function applyTransition() {
+        style.transitionDuration = duration + "ms";
+        style.transitionDelay = delay + "ms";
+
+        if (timingFunction) {
+          style.transitionTimingFunction = timingFunction;
+        }
+        if (opts.showClass) {
+          var showClassElement = opts.showClassElement || el;
+          showClassElement.classList[state === "show" ? "add" : "remove"](opts.showClass);
+        }
+        if (opts.transition) {
+          opts.transition();
+        }
+      };
+
+      var doTransition = function doTransition() {
+        applyTransition();
+        setTimeout(function () {
+          if (after) {
+            after();
+          }
+          if (opts.transitionClass) {
+            var _transitionClassElement = opts.transitionClassElement || el;
+            _transitionClassElement.classList.remove(opts.transitionClass);
+            el.offsetHeight; // force reflow
+          }
+          resolve();
+        }, duration + delay);
+      };
+
+      var maybeDelayTransition = function maybeDelayTransition() {
+        if (duration === 0) {
+          doTransition();
+        } else {
+          setTimeout(doTransition, 0);
+        }
+      };
+
+      if (maybeBefore) {
+        maybeBefore();
+        el.offsetHeight; // force reflow
+        setTimeout(function () {
+          maybeDelayTransition();
+        }, 0);
+      } else {
+        maybeDelayTransition();
+      }
+    });
+  }
+};
+
+var transitionComponent = function transitionComponent(_ref) {
+  var isShow = _ref.isShow,
+      state = _ref.state,
+      attrs = _ref.attrs,
+      domElements = _ref.domElements,
+      beforeTransition = _ref.beforeTransition,
+      afterTransition = _ref.afterTransition,
+      showClass = _ref.showClass,
+      transitionClass = _ref.transitionClass;
+
+  if (state.transitioning()) {
+    return Promise.resolve();
+  }
+  state.transitioning(true);
+  state.visible(isShow ? true : false);
+  if (beforeTransition) {
+    beforeTransition();
+  }
+  var duration = attrs[isShow ? "showDuration" : "hideDuration"];
+  var delay = attrs[isShow ? "showDelay" : "hideDelay"];
+  var timingFunction = attrs[isShow ? "showTimingFunction" : "hideTimingFunction"];
+  var transitions = attrs.transitions;
+  var fn = isShow ? show : hide;
+  var opts1 = _extends$2({}, attrs, domElements, {
+    showClass: showClass,
+    transitionClass: transitionClass,
+    duration: duration,
+    delay: delay,
+    timingFunction: timingFunction
+  });
+  var opts2 = _extends$2({}, opts1, transitions && transitions[isShow ? "show" : "hide"](opts1));
+  var opts3 = _extends$2({}, opts2, {
+    duration: opts2.duration !== undefined ? opts2.duration : DEFAULT_DURATION,
+    hasDuration: opts2.duration !== undefined,
+    delay: opts2.delay !== undefined ? opts2.delay : DEFAULT_DELAY,
+    hasDelay: opts2.delay !== undefined
+  });
+  return fn(opts3).then(function () {
+    var id = state.instanceId;
+    if (attrs[isShow ? "fromMultipleDidShow" : "fromMultipleDidHide"]) {
+      attrs[isShow ? "fromMultipleDidShow" : "fromMultipleDidHide"](id); // when used with Multiple; this will call attrs.didShow / attrs.didHide
+    } else if (attrs[isShow ? "didShow" : "didHide"]) {
+      attrs[isShow ? "didShow" : "didHide"](id); // when used directly
+    }
+    if (afterTransition) {
+      afterTransition();
+    }
+    state.transitioning(false);
+  });
+};
+
+var deprecation = function deprecation(component, _ref) {
+  var option = _ref.option,
+      newOption = _ref.newOption,
+      newComponent = _ref.newComponent;
+  return option && console.warn(component + ": option '" + option + "' is deprecated and will be removed in later versions. Use '" + newOption + "' instead."), newComponent && !newOption && console.warn(component + ": this component is deprecated and will be removed in later versions. Use '" + newComponent + "' instead."), newComponent && newOption && console.warn(component + ": this component is deprecated and will be removed in later versions. Use '" + newComponent + "' with option '" + newOption + "' instead.") // eslint-disable-line no-console
+  ;
+};
+
+var iconDropdownUp = "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"dd-up-svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M7 14l5-5 5 5z\"/></svg>";
+var iconDropdownDown = "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"dd-down-svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M7 10l5 5 5-5z\"/></svg>";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-css/dist/polythene-typography.css":
+/*!*******************************************************************!*\
+  !*** ../node_modules/polythene-css/dist/polythene-typography.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "../node_modules/polythene-css/dist/polythene.css":
+/*!********************************************************!*\
+  !*** ../node_modules/polythene-css/dist/polythene.css ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"pe-spinner":"pe-spinner","pe-spinner--raised":"pe-spinner--raised","pe-spinner--permanent":"pe-spinner--permanent","pe-spinner--visible":"pe-spinner--visible","pe-spinner--fab":"pe-spinner--fab","pe-spinner--large":"pe-spinner--large","pe-spinner--medium":"pe-spinner--medium","pe-spinner--regular":"pe-spinner--regular","pe-spinner--small":"pe-spinner--small","pe-dark-tone":"pe-dark-tone","pe-light-tone":"pe-light-tone","pe-button-group":"pe-button-group","pe-button":"pe-button","pe-button--disabled":"pe-button--disabled","pe-button--inactive":"pe-button--inactive","pe-button--selected":"pe-button--selected","pe-button__content":"pe-button__content","pe-button__label":"pe-button__label","pe-button__wash":"pe-button__wash","pe-button-row":"pe-button-row","pe-text-button":"pe-text-button","pe-button--separator-start":"pe-button--separator-start","pe-button--border":"pe-button--border","pe-ripple":"pe-ripple","pe-button__dropdown":"pe-button__dropdown","pe-button__text-label":"pe-button__text-label","pe-button--dropdown":"pe-button--dropdown","pe-svg":"pe-svg","pe-button--dropdown-open":"pe-button--dropdown-open","pe-rtl":"pe-rtl","pe-button--high-label":"pe-button--high-label","pe-button--extra-wide":"pe-button--extra-wide","pe-no-touch":"pe-no-touch","pe-button--contained":"pe-button--contained","pe-card":"pe-card","pe-card__content":"pe-card__content","pe-card__media":"pe-card__media","pe-card__media--landscape":"pe-card__media--landscape","pe-card__media--square":"pe-card__media--square","pe-card__media--crop-x":"pe-card__media--crop-x","pe-card__media--origin-start":"pe-card__media--origin-start","pe-card__media--origin-end":"pe-card__media--origin-end","pe-card__media--crop-y":"pe-card__media--crop-y","pe-card__header":"pe-card__header","pe-card__primary-media":"pe-card__primary-media","pe-card__media__dimmer":"pe-card__media__dimmer","pe-card__overlay":"pe-card__overlay","pe-card__overlay__content":"pe-card__overlay__content","pe-list-tile__title":"pe-list-tile__title","pe-list-tile__subtitle":"pe-list-tile__subtitle","pe-card__primary":"pe-card__primary","pe-card__text":"pe-card__text","pe-card__title":"pe-card__title","pe-card__subtitle":"pe-card__subtitle","pe-card__actions":"pe-card__actions","pe-card__actions--tight":"pe-card__actions--tight","pe-card__actions--vertical":"pe-card__actions--vertical","pe-card__actions--horizontal":"pe-card__actions--horizontal","pe-card__actions--justified":"pe-card__actions--justified","pe-list":"pe-list","pe-card__primary--media":"pe-card__primary--media","pe-card__media--large":"pe-card__media--large","pe-card__media--medium":"pe-card__media--medium","pe-card__media--regular":"pe-card__media--regular","pe-card__media--small":"pe-card__media--small","pe-card__primary--tight":"pe-card__primary--tight","pe-card__text--tight":"pe-card__text--tight","pe-card__overlay--sheet":"pe-card__overlay--sheet","pe-card__actions--border":"pe-card__actions--border","pe-dialog-pane":"pe-dialog-pane","pe-dialog-pane__content":"pe-dialog-pane__content","pe-dialog-pane__title":"pe-dialog-pane__title","pe-toolbar":"pe-toolbar","pe-dialog-pane__header":"pe-dialog-pane__header","pe-dialog-pane__body":"pe-dialog-pane__body","pe-dialog-pane--body-full-bleed":"pe-dialog-pane--body-full-bleed","pe-dialog-pane__header--title":"pe-dialog-pane__header--title","pe-dialog-pane__footer":"pe-dialog-pane__footer","pe-dialog-pane__footer--high":"pe-dialog-pane__footer--high","pe-dialog-pane__footer--buttons":"pe-dialog-pane__footer--buttons","pe-dialog-pane__actions":"pe-dialog-pane__actions","pe-dialog-pane--header":"pe-dialog-pane--header","pe-dialog-pane--border-top":"pe-dialog-pane--border-top","pe-dialog-pane--footer":"pe-dialog-pane--footer","pe-dialog-pane--border-bottom":"pe-dialog-pane--border-bottom","pe-dialog__content":"pe-dialog__content","pe-menu__content":"pe-menu__content","pe-dialog":"pe-dialog","pe-dialog--full-screen":"pe-dialog--full-screen","pe-dialog__backdrop":"pe-dialog__backdrop","pe-dialog--backdrop":"pe-dialog--backdrop","pe-dialog--visible":"pe-dialog--visible","pe-dialog__holder":"pe-dialog__holder","pe-drawer":"pe-drawer","pe-drawer--fixed":"pe-drawer--fixed","pe-drawer--border":"pe-drawer--border","pe-dialog--transition":"pe-dialog--transition","pe-drawer--mini":"pe-drawer--mini","pe-drawer--permanent":"pe-drawer--permanent","pe-drawer--floating":"pe-drawer--floating","pe-drawer--cover":"pe-drawer--cover","pe-dialog__touch":"pe-dialog__touch","pe-drawer--push":"pe-drawer--push","pe-drawer--anchor-end":"pe-drawer--anchor-end","pe-fab":"pe-fab","pe-fab__content":"pe-fab__content","pe-button__focus":"pe-button__focus","pe-fab--mini":"pe-fab--mini","pe-button--focus":"pe-button--focus","pe-icon-button":"pe-icon-button","pe-icon-button__content":"pe-icon-button__content","pe-icon-button__label":"pe-icon-button__label","pe-icon-button--compact":"pe-icon-button--compact","pe-icon":"pe-icon","pe-icon--avatar":"pe-icon--avatar","pe-icon--small":"pe-icon--small","pe-icon--regular":"pe-icon--regular","pe-icon--medium":"pe-icon--medium","pe-icon--large":"pe-icon--large","pe-ios-spinner":"pe-ios-spinner","pe-ios-spinner__blades":"pe-ios-spinner__blades","pe-ios-spinner__blade":"pe-ios-spinner__blade","iosSpinnerFade":"iosSpinnerFade","pe-list-tile":"pe-list-tile","pe-list-tile__content-front":"pe-list-tile__content-front","pe-list-tile__content":"pe-list-tile__content","pe-list-tile--navigation":"pe-list-tile--navigation","pe-list-tile--sticky":"pe-list-tile--sticky","pe-list-tile__primary":"pe-list-tile__primary","pe-list-tile__secondary":"pe-list-tile__secondary","pe-list-tile--header":"pe-list-tile--header","pe-list-tile--disabled":"pe-list-tile--disabled","pe-list-tile__high-subtitle":"pe-list-tile__high-subtitle","pe-list-tile--selected":"pe-list-tile--selected","pe-list-tile--subtitle":"pe-list-tile--subtitle","pe-list-tile--high-subtitle":"pe-list-tile--high-subtitle","pe-list-tile--hoverable":"pe-list-tile--hoverable","pe-list-tile--selectable":"pe-list-tile--selectable","pe-list-tile--compact-front":"pe-list-tile--compact-front","pe-list--compact":"pe-list--compact","pe-list-tile--compact":"pe-list-tile--compact","pe-list-tile--highlight":"pe-list-tile--highlight","pe-list--header":"pe-list--header","pe-list--indented-border":"pe-list--indented-border","pe-list--border":"pe-list--border","pe-list--padding":"pe-list--padding","pe-list--padding-top":"pe-list--padding-top","pe-list--padding-bottom":"pe-list--padding-bottom","pe-md-progress-spinner":"pe-md-progress-spinner","pe-md-progress-spinner__animation":"pe-md-progress-spinner__animation","pe-md-progress-spinner__circle":"pe-md-progress-spinner__circle","pe-md-progress-spinner__circle-left":"pe-md-progress-spinner__circle-left","pe-md-progress-spinner__circle-right":"pe-md-progress-spinner__circle-right","pe-md-spinner":"pe-md-spinner","pe-md-spinner__animation":"pe-md-spinner__animation","pe-md-spinner__gap-patch":"pe-md-spinner__gap-patch","pe-md-spinner__circle":"pe-md-spinner__circle","pe-md-spinner__circle-clipper":"pe-md-spinner__circle-clipper","pe-md-spinner__circle-clipper-left":"pe-md-spinner__circle-clipper-left","pe-md-spinner__circle-clipper-right":"pe-md-spinner__circle-clipper-right","pe-md-spinner__layer":"pe-md-spinner__layer","pe-md-spinner__layer-1":"pe-md-spinner__layer-1","mdSpinnerFillUnfillRotate":"mdSpinnerFillUnfillRotate","mdSpinnerLayer1FadeInOut":"mdSpinnerLayer1FadeInOut","pe-md-spinner__layer-2":"pe-md-spinner__layer-2","mdSpinnerLayer2FadeInOut":"mdSpinnerLayer2FadeInOut","pe-md-spinner__layer-3":"pe-md-spinner__layer-3","mdSpinnerLayer3FadeInOut":"mdSpinnerLayer3FadeInOut","pe-md-spinner__layer-4":"pe-md-spinner__layer-4","mdSpinnerLayer4FadeInOut":"mdSpinnerLayer4FadeInOut","mdSpinnerLeftSpin":"mdSpinnerLeftSpin","mdSpinnerRightSpin":"mdSpinnerRightSpin","mdSpinnerRotate":"mdSpinnerRotate","pe-spinner--single-color":"pe-spinner--single-color","pe-menu":"pe-menu","pe-menu--width-auto":"pe-menu--width-auto","pe-menu--permanent":"pe-menu--permanent","pe-menu__panel":"pe-menu__panel","pe-menu--floating":"pe-menu--floating","pe-menu__backdrop":"pe-menu__backdrop","pe-menu--backdrop":"pe-menu--backdrop","pe-menu--visible":"pe-menu--visible","pe-menu--top-menu":"pe-menu--top-menu","pe-menu--width-1-5":"pe-menu--width-1-5","pe-menu--width-2":"pe-menu--width-2","pe-menu--width-3":"pe-menu--width-3","pe-menu--width-4":"pe-menu--width-4","pe-menu--width-5":"pe-menu--width-5","pe-menu--width-6":"pe-menu--width-6","pe-menu--width-7":"pe-menu--width-7","pe-menu--full-height":"pe-menu--full-height","pe-menu--origin":"pe-menu--origin","pe-notification":"pe-notification","pe-notification__title":"pe-notification__title","pe-notification__action":"pe-notification__action","pe-notification__content":"pe-notification__content","pe-notification--horizontal":"pe-notification--horizontal","pe-notification--vertical":"pe-notification--vertical","pe-notification--visible":"pe-notification--visible","pe-notification__title--multi-line":"pe-notification__title--multi-line","pe-notification__holder":"pe-notification__holder","pe-multiple--screen":"pe-multiple--screen","pe-notification--container":"pe-notification--container","pe-multiple--container":"pe-multiple--container","pe-radio-group":"pe-radio-group","pe-ripple--unconstrained":"pe-ripple--unconstrained","pe-ripple__mask":"pe-ripple__mask","pe-ripple__waves":"pe-ripple__waves","pe-ripple__waves--animating":"pe-ripple__waves--animating","pe-search":"pe-search","pe-textfield":"pe-textfield","pe-textfield__input-area":"pe-textfield__input-area","pe-textfield__input":"pe-textfield__input","pe-textfield__label":"pe-textfield__label","pe-search__content":"pe-search__content","pe-search--full-width":"pe-search--full-width","pe-search--inset":"pe-search--inset","pe-control":"pe-control","pe-control__form-label":"pe-control__form-label","pe-control--inactive":"pe-control--inactive","pe-control__box":"pe-control__box","pe-control__button":"pe-control__button","pe-control--off":"pe-control--off","pe-control__button--on":"pe-control__button--on","pe-control__button--off":"pe-control__button--off","pe-control--on":"pe-control--on","pe-control__label":"pe-control__label","pe-control--disabled":"pe-control--disabled","pe-control--small":"pe-control--small","pe-control--regular":"pe-control--regular","pe-control--medium":"pe-control--medium","pe-control--large":"pe-control--large","pe-shadow":"pe-shadow","pe-shadow__top":"pe-shadow__top","pe-shadow__bottom":"pe-shadow__bottom","pe-shadow--animated":"pe-shadow--animated","pe-shadow--depth-0":"pe-shadow--depth-0","pe-shadow--depth-1":"pe-shadow--depth-1","pe-shadow--depth-2":"pe-shadow--depth-2","pe-shadow--depth-3":"pe-shadow--depth-3","pe-shadow--depth-4":"pe-shadow--depth-4","pe-shadow--depth-5":"pe-shadow--depth-5","pe-slider":"pe-slider","pe-slider__track":"pe-slider__track","pe-slider__control":"pe-slider__control","pe-slider__thumb":"pe-slider__thumb","pe-slider__label":"pe-slider__label","pe-slider__track-part":"pe-slider__track-part","pe-slider__track-rest":"pe-slider__track-rest","pe-slider__track-value":"pe-slider__track-value","pe-slider__track-bar":"pe-slider__track-bar","pe-slider__track-bar-value":"pe-slider__track-bar-value","pe-slider__ticks":"pe-slider__ticks","pe-slider__pin":"pe-slider__pin","pe-slider--pin":"pe-slider--pin","pe-slider--active":"pe-slider--active","pe-slider--focus":"pe-slider--focus","pe-slider--disabled":"pe-slider--disabled","pe-slider--track":"pe-slider--track","pe-slider--ticks":"pe-slider--ticks","pe-slider__tick":"pe-slider__tick","pe-slider--min":"pe-slider--min","pe-slider--tick":"pe-slider--tick","pe-slider__tick--value":"pe-slider__tick--value","pe-slider--tick--value":"pe-slider--tick--value","pe-snackbar":"pe-snackbar","pe-snackbar__holder":"pe-snackbar__holder","pe-switch-control":"pe-switch-control","pe-switch-control__track":"pe-switch-control__track","pe-switch-control__thumb":"pe-switch-control__thumb","pe-switch-control__knob":"pe-switch-control__knob","pe-tabs":"pe-tabs","pe-tabs__indicator":"pe-tabs__indicator","pe-tabs--scrollable":"pe-tabs--scrollable","pe-tabs__scroll-button":"pe-tabs__scroll-button","pe-tabs__tab":"pe-tabs__tab","pe-tabs--end":"pe-tabs--end","pe-tabs__scroll-button-end":"pe-tabs__scroll-button-end","pe-tabs--start":"pe-tabs--start","pe-tabs__scroll-button-start":"pe-tabs__scroll-button-start","pe-tabs__row":"pe-tabs__row","pe-tabs__row--indent":"pe-tabs__row--indent","pe-tabs__row--centered":"pe-tabs__row--centered","pe-tabs__scroll-button-offset":"pe-tabs__scroll-button-offset","pe-toolbar--tabs":"pe-toolbar--tabs","pe-toolbar__bar":"pe-toolbar__bar","pe-tab":"pe-tab","pe-tabs__tab--icon":"pe-tabs__tab--icon","pe-tabs--menu":"pe-tabs--menu","pe-tabs--compact":"pe-tabs--compact","pe-tabs__tab-content":"pe-tabs__tab-content","pe-tabs--autofit":"pe-tabs--autofit","pe-tabs__active--selectable":"pe-tabs__active--selectable","pe-tabs--small":"pe-tabs--small","pe-textfield__counter":"pe-textfield__counter","pe-textfield--focused":"pe-textfield--focused","pe-textfield--dirty":"pe-textfield--dirty","pe-textfield--no-char":"pe-textfield--no-char","pe-textfield__optional-indicator":"pe-textfield__optional-indicator","pe-textfield__required-indicator":"pe-textfield__required-indicator","pe-textfield--floating-label":"pe-textfield--floating-label","pe-textfield--disabled":"pe-textfield--disabled","pe-textfield--readonly":"pe-textfield--readonly","pe-textfield__error":"pe-textfield__error","pe-textfield__error-placeholder":"pe-textfield__error-placeholder","pe-textfield__help":"pe-textfield__help","pe-textfield__help-focus":"pe-textfield__help-focus","pe-textfield--hide-clear":"pe-textfield--hide-clear","pe-textfield--hide-spinner":"pe-textfield--hide-spinner","pe-textfield--full-width":"pe-textfield--full-width","pe-textfield--dense":"pe-textfield--dense","pe-textfield--invalid":"pe-textfield--invalid","pe-textfield--hide-validation":"pe-textfield--hide-validation","pe-textfield--required":"pe-textfield--required","pe-textfield--counter":"pe-textfield--counter","pe-toolbar--fullbleed":"pe-toolbar--fullbleed","pe-toolbar--border":"pe-toolbar--border","pe-toolbar__title":"pe-toolbar__title","pe-toolbar__title--indent":"pe-toolbar__title--indent","pe-toolbar__title--center":"pe-toolbar__title--center","pe-action":"pe-action","pe-fit":"pe-fit","pe-toolbar--compact":"pe-toolbar--compact"};
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-base-spinner/dist/polythene-mithril-base-spinner.mjs":
+/*!**********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-base-spinner/dist/polythene-mithril-base-spinner.mjs ***!
+  \**********************************************************************************************/
+/*! exports provided: BaseSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseSpinner", function() { return BaseSpinner; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_base_spinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-base-spinner */ "../node_modules/polythene-core-base-spinner/dist/polythene-core-base-spinner.mjs");
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+
+
+
+
+var classes = {
+  component: "pe-spinner",
+
+  // elements
+  animation: "pe-spinner__animation",
+  placeholder: "pe-spinner__placeholder",
+
+  // states
+  animated: "pe-spinner--animated",
+  fab: "pe-spinner--fab",
+  large: "pe-spinner--large",
+  medium: "pe-spinner--medium",
+  permanent: "pe-spinner--permanent",
+  raised: "pe-spinner--raised",
+  regular: "pe-spinner--regular",
+  singleColor: "pe-spinner--single-color",
+  small: "pe-spinner--small",
+  visible: "pe-spinner--visible"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var BaseSpinner = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_base_spinner__WEBPACK_IMPORTED_MODULE_1__["coreBaseSpinner"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_base_spinner__WEBPACK_IMPORTED_MODULE_1__["coreBaseSpinner"].createContent(vnode, _extends(args, { Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_2__["Shadow"] }));
+  }
+}));
+
+BaseSpinner.classes = classes;
+BaseSpinner.displayName = "BaseSpinner";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs ***!
+  \******************************************************************************/
+/*! exports provided: keys, renderer, StateComponent, ViewComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "keys", function() { return keys; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderer", function() { return renderer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StateComponent", function() { return StateComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewComponent", function() { return ViewComponent; });
+/* harmony import */ var mithril__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mithril */ "../node_modules/polythene-mithril-base/node_modules/mithril/mithril.js");
+/* harmony import */ var mithril__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mithril__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var keys = {
+  autocomplete: "autocomplete",
+  autofocus: "autofocus",
+  class: "class",
+  className: "class",
+  enctype: "enctype",
+  formaction: "formaction",
+  frameborder: "frameborder",
+  maxlength: "maxlength",
+  minlength: "minlength",
+  onblur: "onblur",
+  onchange: "onchange",
+  onclick: "onclick",
+  onfocus: "onfocus",
+  oninput: "oninput",
+  onkeydown: "onkeydown",
+  onkeyup: "onkeyup",
+  onmousedown: "onmousedown",
+  onmouseout: "onmouseout",
+  onmouseover: "onmouseover",
+  onmouseup: "onmouseup",
+  onscroll: "onscroll",
+  onsubmit: "onsubmit",
+  ontouchend: "ontouchend",
+  ontouchmove: "ontouchmove",
+  ontouchstart: "ontouchstart",
+  readonly: "readonly",
+  tabindex: "tabindex"
+};
+
+var renderer = mithril__WEBPACK_IMPORTED_MODULE_0___default.a;
+renderer.displayName = "mithril";
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var stream = createCommonjsModule(function (module) {
+(function () {
+		/* eslint-enable */
+
+		var guid = 0,
+		    HALT = {};
+		function createStream() {
+			function stream() {
+				if (arguments.length > 0 && arguments[0] !== HALT) updateStream(stream, arguments[0]);
+				return stream._state.value;
+			}
+			initStream(stream);
+
+			if (arguments.length > 0 && arguments[0] !== HALT) updateStream(stream, arguments[0]);
+
+			return stream;
+		}
+		function initStream(stream) {
+			stream.constructor = createStream;
+			stream._state = { id: guid++, value: undefined, state: 0, derive: undefined, recover: undefined, deps: {}, parents: [], endStream: undefined, unregister: undefined };
+			stream.map = stream["fantasy-land/map"] = map, stream["fantasy-land/ap"] = ap, stream["fantasy-land/of"] = createStream;
+			stream.valueOf = valueOf, stream.toJSON = toJSON, stream.toString = valueOf;
+
+			Object.defineProperties(stream, {
+				end: { get: function get() {
+						if (!stream._state.endStream) {
+							var endStream = createStream();
+							endStream.map(function (value) {
+								if (value === true) {
+									unregisterStream(stream);
+									endStream._state.unregister = function () {
+										unregisterStream(endStream);
+									};
+								}
+								return value;
+							});
+							stream._state.endStream = endStream;
+						}
+						return stream._state.endStream;
+					} }
+			});
+		}
+		function updateStream(stream, value) {
+			updateState(stream, value);
+			for (var id in stream._state.deps) {
+				updateDependency(stream._state.deps[id], false);
+			}if (stream._state.unregister != null) stream._state.unregister();
+			finalize(stream);
+		}
+		function updateState(stream, value) {
+			stream._state.value = value;
+			stream._state.changed = true;
+			if (stream._state.state !== 2) stream._state.state = 1;
+		}
+		function updateDependency(stream, mustSync) {
+			var state = stream._state,
+			    parents = state.parents;
+			if (parents.length > 0 && parents.every(active) && (mustSync || parents.some(changed))) {
+				var value = stream._state.derive();
+				if (value === HALT) return false;
+				updateState(stream, value);
+			}
+		}
+		function finalize(stream) {
+			stream._state.changed = false;
+			for (var id in stream._state.deps) {
+				stream._state.deps[id]._state.changed = false;
+			}
+		}
+
+		function combine(fn, streams) {
+			if (!streams.every(valid)) throw new Error("Ensure that each item passed to stream.combine/stream.merge is a stream");
+			return initDependency(createStream(), streams, function () {
+				return fn.apply(this, streams.concat([streams.filter(changed)]));
+			});
+		}
+
+		function initDependency(dep, streams, derive) {
+			var state = dep._state;
+			state.derive = derive;
+			state.parents = streams.filter(notEnded);
+
+			registerDependency(dep, state.parents);
+			updateDependency(dep, true);
+
+			return dep;
+		}
+		function registerDependency(stream, parents) {
+			for (var i = 0; i < parents.length; i++) {
+				parents[i]._state.deps[stream._state.id] = stream;
+				registerDependency(stream, parents[i]._state.parents);
+			}
+		}
+		function unregisterStream(stream) {
+			for (var i = 0; i < stream._state.parents.length; i++) {
+				var parent = stream._state.parents[i];
+				delete parent._state.deps[stream._state.id];
+			}
+			for (var id in stream._state.deps) {
+				var dependent = stream._state.deps[id];
+				var index = dependent._state.parents.indexOf(stream);
+				if (index > -1) dependent._state.parents.splice(index, 1);
+			}
+			stream._state.state = 2; //ended
+			stream._state.deps = {};
+		}
+
+		function map(fn) {
+			return combine(function (stream) {
+				return fn(stream());
+			}, [this]);
+		}
+		function ap(stream) {
+			return combine(function (s1, s2) {
+				return s1()(s2());
+			}, [stream, this]);
+		}
+		function valueOf() {
+			return this._state.value;
+		}
+		function toJSON() {
+			return this._state.value != null && typeof this._state.value.toJSON === "function" ? this._state.value.toJSON() : this._state.value;
+		}
+
+		function valid(stream) {
+			return stream._state;
+		}
+		function active(stream) {
+			return stream._state.state === 1;
+		}
+		function changed(stream) {
+			return stream._state.changed;
+		}
+		function notEnded(stream) {
+			return stream._state.state !== 2;
+		}
+
+		function merge(streams) {
+			return combine(function () {
+				return streams.map(function (s) {
+					return s();
+				});
+			}, streams);
+		}
+
+		function scan(reducer, seed, stream) {
+			var newStream = combine(function (s) {
+				return seed = reducer(seed, s._state.value);
+			}, [stream]);
+
+			if (newStream._state.state === 0) newStream(seed);
+
+			return newStream;
+		}
+
+		function scanMerge(tuples, seed) {
+			var streams = tuples.map(function (tuple) {
+				var stream = tuple[0];
+				if (stream._state.state === 0) stream(undefined);
+				return stream;
+			});
+
+			var newStream = combine(function () {
+				var changed = arguments[arguments.length - 1];
+
+				streams.forEach(function (stream, idx) {
+					if (changed.indexOf(stream) > -1) {
+						seed = tuples[idx][1](seed, stream._state.value);
+					}
+				});
+
+				return seed;
+			}, streams);
+
+			return newStream;
+		}
+
+		createStream["fantasy-land/of"] = createStream;
+		createStream.merge = merge;
+		createStream.combine = combine;
+		createStream.scan = scan;
+		createStream.scanMerge = scanMerge;
+		createStream.HALT = HALT;
+
+		module["exports"] = createStream;
+	})();
+});
+
+var stream$1 = stream;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var requiresKeys = false;
+
+var StateComponent = function StateComponent(_ref) {
+  var _ref$createContent = _ref.createContent,
+      createContent = _ref$createContent === undefined ? function () {} : _ref$createContent,
+      _ref$createProps = _ref.createProps,
+      createProps = _ref$createProps === undefined ? function () {} : _ref$createProps,
+      _ref$component = _ref.component,
+      component = _ref$component === undefined ? null : _ref$component,
+      _ref$getElement = _ref.getElement,
+      getElement = _ref$getElement === undefined ? function () {
+    return "div";
+  } : _ref$getElement,
+      _ref$getInitialState = _ref.getInitialState,
+      getInitialState = _ref$getInitialState === undefined ? function () {
+    return {};
+  } : _ref$getInitialState,
+      _ref$onMount = _ref.onMount,
+      onMount = _ref$onMount === undefined ? function () {} : _ref$onMount,
+      _ref$onUnMount = _ref.onUnMount,
+      onUnMount = _ref$onUnMount === undefined ? function () {} : _ref$onUnMount,
+      _ref$onUpdate = _ref.onUpdate,
+      onUpdate = _ref$onUpdate === undefined ? function () {} : _ref$onUpdate,
+      _ref$view = _ref.view,
+      view = _ref$view === undefined ? null : _ref$view;
+
+
+  var oninit = function oninit(vnode) {
+    var protoState = _extends({}, vnode);
+    var initialState = getInitialState(protoState, stream$1, { keys: keys });
+    _extends(vnode.state, initialState);
+    vnode._mounted = false;
+
+    vnode.state.redrawOnUpdate && vnode.state.redrawOnUpdate.map(function () {
+      return vnode._mounted && setTimeout(renderer.redraw);
+    });
+  };
+
+  var oncreate = function oncreate(vnode) {
+    vnode._mounted = true;
+    onMount(vnode, { keys: keys });
+  };
+
+  var render = function render(vnode) {
+    return renderer(component || getElement(vnode), createProps(vnode, { renderer: renderer, requiresKeys: requiresKeys, keys: keys }), [vnode.attrs.before, createContent(vnode, { renderer: renderer, requiresKeys: requiresKeys, keys: keys }), vnode.attrs.after]);
+  };
+
+  return {
+    view: view ? function (vnode) {
+      return view(vnode, { render: render, renderer: renderer });
+    } : function (vnode) {
+      return render(vnode);
+    },
+    oninit: oninit,
+    oncreate: oncreate,
+    onremove: onUnMount,
+    onupdate: onUpdate
+  };
+};
+
+var requiresKeys$1 = false;
+
+var ViewComponent = function ViewComponent(_ref) {
+  var _ref$createContent = _ref.createContent,
+      createContent = _ref$createContent === undefined ? function () {} : _ref$createContent,
+      _ref$createProps = _ref.createProps,
+      createProps = _ref$createProps === undefined ? function () {} : _ref$createProps,
+      _ref$getElement = _ref.getElement,
+      getElement = _ref$getElement === undefined ? function () {
+    return "div";
+  } : _ref$getElement,
+      _ref$component = _ref.component,
+      component = _ref$component === undefined ? null : _ref$component,
+      _ref$view = _ref.view,
+      view = _ref$view === undefined ? null : _ref$view,
+      _ref$onMount = _ref.onMount,
+      onMount = _ref$onMount === undefined ? function () {} : _ref$onMount,
+      _ref$onUnMount = _ref.onUnMount,
+      onUnMount = _ref$onUnMount === undefined ? function () {} : _ref$onUnMount;
+
+
+  var render = function render(vnode) {
+    return renderer(component || getElement(vnode), createProps(vnode, { renderer: renderer, requiresKeys: requiresKeys$1, keys: keys }), [vnode.attrs.before, createContent(vnode, { renderer: renderer, requiresKeys: requiresKeys$1, keys: keys }), vnode.attrs.after]);
+  };
+
+  return {
+    view: view ? function (vnode) {
+      return view(vnode, { render: render, renderer: renderer });
+    } : function (vnode) {
+      return render(vnode);
+    },
+    oncreate: function oncreate(vnode) {
+      return onMount(vnode, { keys: keys });
+    },
+    onremove: onUnMount
+  };
+};
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-base/node_modules/mithril/mithril.js":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-base/node_modules/mithril/mithril.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(setImmediate, global) {;(function() {
+"use strict"
+function Vnode(tag, key, attrs0, children, text, dom) {
+	return {tag: tag, key: key, attrs: attrs0, children: children, text: text, dom: dom, domSize: undefined, state: undefined, _state: undefined, events: undefined, instance: undefined, skip: false}
+}
+Vnode.normalize = function(node) {
+	if (Array.isArray(node)) return Vnode("[", undefined, undefined, Vnode.normalizeChildren(node), undefined, undefined)
+	if (node != null && typeof node !== "object") return Vnode("#", undefined, undefined, node === false ? "" : node, undefined, undefined)
+	return node
+}
+Vnode.normalizeChildren = function normalizeChildren(children) {
+	for (var i = 0; i < children.length; i++) {
+		children[i] = Vnode.normalize(children[i])
+	}
+	return children
+}
+var selectorParser = /(?:(^|#|\.)([^#\.\[\]]+))|(\[(.+?)(?:\s*=\s*("|'|)((?:\\["'\]]|.)*?)\5)?\])/g
+var selectorCache = {}
+var hasOwn = {}.hasOwnProperty
+function isEmpty(object) {
+	for (var key in object) if (hasOwn.call(object, key)) return false
+	return true
+}
+function compileSelector(selector) {
+	var match, tag = "div", classes = [], attrs = {}
+	while (match = selectorParser.exec(selector)) {
+		var type = match[1], value = match[2]
+		if (type === "" && value !== "") tag = value
+		else if (type === "#") attrs.id = value
+		else if (type === ".") classes.push(value)
+		else if (match[3][0] === "[") {
+			var attrValue = match[6]
+			if (attrValue) attrValue = attrValue.replace(/\\(["'])/g, "$1").replace(/\\\\/g, "\\")
+			if (match[4] === "class") classes.push(attrValue)
+			else attrs[match[4]] = attrValue === "" ? attrValue : attrValue || true
+		}
+	}
+	if (classes.length > 0) attrs.className = classes.join(" ")
+	return selectorCache[selector] = {tag: tag, attrs: attrs}
+}
+function execSelector(state, attrs, children) {
+	var hasAttrs = false, childList, text
+	var className = attrs.className || attrs.class
+	if (!isEmpty(state.attrs) && !isEmpty(attrs)) {
+		var newAttrs = {}
+		for(var key in attrs) {
+			if (hasOwn.call(attrs, key)) {
+				newAttrs[key] = attrs[key]
+			}
+		}
+		attrs = newAttrs
+	}
+	for (var key in state.attrs) {
+		if (hasOwn.call(state.attrs, key)) {
+			attrs[key] = state.attrs[key]
+		}
+	}
+	if (className !== undefined) {
+		if (attrs.class !== undefined) {
+			attrs.class = undefined
+			attrs.className = className
+		}
+		if (state.attrs.className != null) {
+			attrs.className = state.attrs.className + " " + className
+		}
+	}
+	for (var key in attrs) {
+		if (hasOwn.call(attrs, key) && key !== "key") {
+			hasAttrs = true
+			break
+		}
+	}
+	if (Array.isArray(children) && children.length === 1 && children[0] != null && children[0].tag === "#") {
+		text = children[0].children
+	} else {
+		childList = children
+	}
+	return Vnode(state.tag, attrs.key, hasAttrs ? attrs : undefined, childList, text)
+}
+function hyperscript(selector) {
+	// Because sloppy mode sucks
+	var attrs = arguments[1], start = 2, children
+	if (selector == null || typeof selector !== "string" && typeof selector !== "function" && typeof selector.view !== "function") {
+		throw Error("The selector must be either a string or a component.");
+	}
+	if (typeof selector === "string") {
+		var cached = selectorCache[selector] || compileSelector(selector)
+	}
+	if (attrs == null) {
+		attrs = {}
+	} else if (typeof attrs !== "object" || attrs.tag != null || Array.isArray(attrs)) {
+		attrs = {}
+		start = 1
+	}
+	if (arguments.length === start + 1) {
+		children = arguments[start]
+		if (!Array.isArray(children)) children = [children]
+	} else {
+		children = []
+		while (start < arguments.length) children.push(arguments[start++])
+	}
+	var normalized = Vnode.normalizeChildren(children)
+	if (typeof selector === "string") {
+		return execSelector(cached, attrs, normalized)
+	} else {
+		return Vnode(selector, attrs.key, attrs, normalized)
+	}
+}
+hyperscript.trust = function(html) {
+	if (html == null) html = ""
+	return Vnode("<", undefined, undefined, html, undefined, undefined)
+}
+hyperscript.fragment = function(attrs1, children) {
+	return Vnode("[", attrs1.key, attrs1, Vnode.normalizeChildren(children), undefined, undefined)
+}
+var m = hyperscript
+/** @constructor */
+var PromisePolyfill = function(executor) {
+	if (!(this instanceof PromisePolyfill)) throw new Error("Promise must be called with `new`")
+	if (typeof executor !== "function") throw new TypeError("executor must be a function")
+	var self = this, resolvers = [], rejectors = [], resolveCurrent = handler(resolvers, true), rejectCurrent = handler(rejectors, false)
+	var instance = self._instance = {resolvers: resolvers, rejectors: rejectors}
+	var callAsync = typeof setImmediate === "function" ? setImmediate : setTimeout
+	function handler(list, shouldAbsorb) {
+		return function execute(value) {
+			var then
+			try {
+				if (shouldAbsorb && value != null && (typeof value === "object" || typeof value === "function") && typeof (then = value.then) === "function") {
+					if (value === self) throw new TypeError("Promise can't be resolved w/ itself")
+					executeOnce(then.bind(value))
+				}
+				else {
+					callAsync(function() {
+						if (!shouldAbsorb && list.length === 0) console.error("Possible unhandled promise rejection:", value)
+						for (var i = 0; i < list.length; i++) list[i](value)
+						resolvers.length = 0, rejectors.length = 0
+						instance.state = shouldAbsorb
+						instance.retry = function() {execute(value)}
+					})
+				}
+			}
+			catch (e) {
+				rejectCurrent(e)
+			}
+		}
+	}
+	function executeOnce(then) {
+		var runs = 0
+		function run(fn) {
+			return function(value) {
+				if (runs++ > 0) return
+				fn(value)
+			}
+		}
+		var onerror = run(rejectCurrent)
+		try {then(run(resolveCurrent), onerror)} catch (e) {onerror(e)}
+	}
+	executeOnce(executor)
+}
+PromisePolyfill.prototype.then = function(onFulfilled, onRejection) {
+	var self = this, instance = self._instance
+	function handle(callback, list, next, state) {
+		list.push(function(value) {
+			if (typeof callback !== "function") next(value)
+			else try {resolveNext(callback(value))} catch (e) {if (rejectNext) rejectNext(e)}
+		})
+		if (typeof instance.retry === "function" && state === instance.state) instance.retry()
+	}
+	var resolveNext, rejectNext
+	var promise = new PromisePolyfill(function(resolve, reject) {resolveNext = resolve, rejectNext = reject})
+	handle(onFulfilled, instance.resolvers, resolveNext, true), handle(onRejection, instance.rejectors, rejectNext, false)
+	return promise
+}
+PromisePolyfill.prototype.catch = function(onRejection) {
+	return this.then(null, onRejection)
+}
+PromisePolyfill.resolve = function(value) {
+	if (value instanceof PromisePolyfill) return value
+	return new PromisePolyfill(function(resolve) {resolve(value)})
+}
+PromisePolyfill.reject = function(value) {
+	return new PromisePolyfill(function(resolve, reject) {reject(value)})
+}
+PromisePolyfill.all = function(list) {
+	return new PromisePolyfill(function(resolve, reject) {
+		var total = list.length, count = 0, values = []
+		if (list.length === 0) resolve([])
+		else for (var i = 0; i < list.length; i++) {
+			(function(i) {
+				function consume(value) {
+					count++
+					values[i] = value
+					if (count === total) resolve(values)
+				}
+				if (list[i] != null && (typeof list[i] === "object" || typeof list[i] === "function") && typeof list[i].then === "function") {
+					list[i].then(consume, reject)
+				}
+				else consume(list[i])
+			})(i)
+		}
+	})
+}
+PromisePolyfill.race = function(list) {
+	return new PromisePolyfill(function(resolve, reject) {
+		for (var i = 0; i < list.length; i++) {
+			list[i].then(resolve, reject)
+		}
+	})
+}
+if (typeof window !== "undefined") {
+	if (typeof window.Promise === "undefined") window.Promise = PromisePolyfill
+	var PromisePolyfill = window.Promise
+} else if (typeof global !== "undefined") {
+	if (typeof global.Promise === "undefined") global.Promise = PromisePolyfill
+	var PromisePolyfill = global.Promise
+} else {
+}
+var buildQueryString = function(object) {
+	if (Object.prototype.toString.call(object) !== "[object Object]") return ""
+	var args = []
+	for (var key0 in object) {
+		destructure(key0, object[key0])
+	}
+	return args.join("&")
+	function destructure(key0, value) {
+		if (Array.isArray(value)) {
+			for (var i = 0; i < value.length; i++) {
+				destructure(key0 + "[" + i + "]", value[i])
+			}
+		}
+		else if (Object.prototype.toString.call(value) === "[object Object]") {
+			for (var i in value) {
+				destructure(key0 + "[" + i + "]", value[i])
+			}
+		}
+		else args.push(encodeURIComponent(key0) + (value != null && value !== "" ? "=" + encodeURIComponent(value) : ""))
+	}
+}
+var FILE_PROTOCOL_REGEX = new RegExp("^file://", "i")
+var _8 = function($window, Promise) {
+	var callbackCount = 0
+	var oncompletion
+	function setCompletionCallback(callback) {oncompletion = callback}
+	function finalizer() {
+		var count = 0
+		function complete() {if (--count === 0 && typeof oncompletion === "function") oncompletion()}
+		return function finalize(promise0) {
+			var then0 = promise0.then
+			promise0.then = function() {
+				count++
+				var next = then0.apply(promise0, arguments)
+				next.then(complete, function(e) {
+					complete()
+					if (count === 0) throw e
+				})
+				return finalize(next)
+			}
+			return promise0
+		}
+	}
+	function normalize(args, extra) {
+		if (typeof args === "string") {
+			var url = args
+			args = extra || {}
+			if (args.url == null) args.url = url
+		}
+		return args
+	}
+	function request(args, extra) {
+		var finalize = finalizer()
+		args = normalize(args, extra)
+		var promise0 = new Promise(function(resolve, reject) {
+			if (args.method == null) args.method = "GET"
+			args.method = args.method.toUpperCase()
+			var useBody = (args.method === "GET" || args.method === "TRACE") ? false : (typeof args.useBody === "boolean" ? args.useBody : true)
+			if (typeof args.serialize !== "function") args.serialize = typeof FormData !== "undefined" && args.data instanceof FormData ? function(value) {return value} : JSON.stringify
+			if (typeof args.deserialize !== "function") args.deserialize = deserialize
+			if (typeof args.extract !== "function") args.extract = extract
+			args.url = interpolate(args.url, args.data)
+			if (useBody) args.data = args.serialize(args.data)
+			else args.url = assemble(args.url, args.data)
+			var xhr = new $window.XMLHttpRequest(),
+				aborted = false,
+				_abort = xhr.abort
+			xhr.abort = function abort() {
+				aborted = true
+				_abort.call(xhr)
+			}
+			xhr.open(args.method, args.url, typeof args.async === "boolean" ? args.async : true, typeof args.user === "string" ? args.user : undefined, typeof args.password === "string" ? args.password : undefined)
+			if (args.serialize === JSON.stringify && useBody && !(args.headers && args.headers.hasOwnProperty("Content-Type"))) {
+				xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8")
+			}
+			if (args.deserialize === deserialize && !(args.headers && args.headers.hasOwnProperty("Accept"))) {
+				xhr.setRequestHeader("Accept", "application/json, text/*")
+			}
+			if (args.withCredentials) xhr.withCredentials = args.withCredentials
+			for (var key in args.headers) if ({}.hasOwnProperty.call(args.headers, key)) {
+				xhr.setRequestHeader(key, args.headers[key])
+			}
+			if (typeof args.config === "function") xhr = args.config(xhr, args) || xhr
+			xhr.onreadystatechange = function() {
+				// Don't throw errors on xhr.abort().
+				if(aborted) return
+				if (xhr.readyState === 4) {
+					try {
+						var response = (args.extract !== extract) ? args.extract(xhr, args) : args.deserialize(args.extract(xhr, args))
+						if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304 || FILE_PROTOCOL_REGEX.test(args.url)) {
+							resolve(cast(args.type, response))
+						}
+						else {
+							var error = new Error(xhr.responseText)
+							for (var key in response) error[key] = response[key]
+							reject(error)
+						}
+					}
+					catch (e) {
+						reject(e)
+					}
+				}
+			}
+			if (useBody && (args.data != null)) xhr.send(args.data)
+			else xhr.send()
+		})
+		return args.background === true ? promise0 : finalize(promise0)
+	}
+	function jsonp(args, extra) {
+		var finalize = finalizer()
+		args = normalize(args, extra)
+		var promise0 = new Promise(function(resolve, reject) {
+			var callbackName = args.callbackName || "_mithril_" + Math.round(Math.random() * 1e16) + "_" + callbackCount++
+			var script = $window.document.createElement("script")
+			$window[callbackName] = function(data) {
+				script.parentNode.removeChild(script)
+				resolve(cast(args.type, data))
+				delete $window[callbackName]
+			}
+			script.onerror = function() {
+				script.parentNode.removeChild(script)
+				reject(new Error("JSONP request failed"))
+				delete $window[callbackName]
+			}
+			if (args.data == null) args.data = {}
+			args.url = interpolate(args.url, args.data)
+			args.data[args.callbackKey || "callback"] = callbackName
+			script.src = assemble(args.url, args.data)
+			$window.document.documentElement.appendChild(script)
+		})
+		return args.background === true? promise0 : finalize(promise0)
+	}
+	function interpolate(url, data) {
+		if (data == null) return url
+		var tokens = url.match(/:[^\/]+/gi) || []
+		for (var i = 0; i < tokens.length; i++) {
+			var key = tokens[i].slice(1)
+			if (data[key] != null) {
+				url = url.replace(tokens[i], data[key])
+			}
+		}
+		return url
+	}
+	function assemble(url, data) {
+		var querystring = buildQueryString(data)
+		if (querystring !== "") {
+			var prefix = url.indexOf("?") < 0 ? "?" : "&"
+			url += prefix + querystring
+		}
+		return url
+	}
+	function deserialize(data) {
+		try {return data !== "" ? JSON.parse(data) : null}
+		catch (e) {throw new Error(data)}
+	}
+	function extract(xhr) {return xhr.responseText}
+	function cast(type0, data) {
+		if (typeof type0 === "function") {
+			if (Array.isArray(data)) {
+				for (var i = 0; i < data.length; i++) {
+					data[i] = new type0(data[i])
+				}
+			}
+			else return new type0(data)
+		}
+		return data
+	}
+	return {request: request, jsonp: jsonp, setCompletionCallback: setCompletionCallback}
+}
+var requestService = _8(window, PromisePolyfill)
+var coreRenderer = function($window) {
+	var $doc = $window.document
+	var $emptyFragment = $doc.createDocumentFragment()
+	var nameSpace = {
+		svg: "http://www.w3.org/2000/svg",
+		math: "http://www.w3.org/1998/Math/MathML"
+	}
+	var onevent
+	function setEventCallback(callback) {return onevent = callback}
+	function getNameSpace(vnode) {
+		return vnode.attrs && vnode.attrs.xmlns || nameSpace[vnode.tag]
+	}
+	//create
+	function createNodes(parent, vnodes, start, end, hooks, nextSibling, ns) {
+		for (var i = start; i < end; i++) {
+			var vnode = vnodes[i]
+			if (vnode != null) {
+				createNode(parent, vnode, hooks, ns, nextSibling)
+			}
+		}
+	}
+	function createNode(parent, vnode, hooks, ns, nextSibling) {
+		var tag = vnode.tag
+		if (typeof tag === "string") {
+			vnode.state = {}
+			if (vnode.attrs != null) initLifecycle(vnode.attrs, vnode, hooks)
+			switch (tag) {
+				case "#": return createText(parent, vnode, nextSibling)
+				case "<": return createHTML(parent, vnode, nextSibling)
+				case "[": return createFragment(parent, vnode, hooks, ns, nextSibling)
+				default: return createElement(parent, vnode, hooks, ns, nextSibling)
+			}
+		}
+		else return createComponent(parent, vnode, hooks, ns, nextSibling)
+	}
+	function createText(parent, vnode, nextSibling) {
+		vnode.dom = $doc.createTextNode(vnode.children)
+		insertNode(parent, vnode.dom, nextSibling)
+		return vnode.dom
+	}
+	function createHTML(parent, vnode, nextSibling) {
+		var match1 = vnode.children.match(/^\s*?<(\w+)/im) || []
+		var parent1 = {caption: "table", thead: "table", tbody: "table", tfoot: "table", tr: "tbody", th: "tr", td: "tr", colgroup: "table", col: "colgroup"}[match1[1]] || "div"
+		var temp = $doc.createElement(parent1)
+		temp.innerHTML = vnode.children
+		vnode.dom = temp.firstChild
+		vnode.domSize = temp.childNodes.length
+		var fragment = $doc.createDocumentFragment()
+		var child
+		while (child = temp.firstChild) {
+			fragment.appendChild(child)
+		}
+		insertNode(parent, fragment, nextSibling)
+		return fragment
+	}
+	function createFragment(parent, vnode, hooks, ns, nextSibling) {
+		var fragment = $doc.createDocumentFragment()
+		if (vnode.children != null) {
+			var children = vnode.children
+			createNodes(fragment, children, 0, children.length, hooks, null, ns)
+		}
+		vnode.dom = fragment.firstChild
+		vnode.domSize = fragment.childNodes.length
+		insertNode(parent, fragment, nextSibling)
+		return fragment
+	}
+	function createElement(parent, vnode, hooks, ns, nextSibling) {
+		var tag = vnode.tag
+		var attrs2 = vnode.attrs
+		var is = attrs2 && attrs2.is
+		ns = getNameSpace(vnode) || ns
+		var element = ns ?
+			is ? $doc.createElementNS(ns, tag, {is: is}) : $doc.createElementNS(ns, tag) :
+			is ? $doc.createElement(tag, {is: is}) : $doc.createElement(tag)
+		vnode.dom = element
+		if (attrs2 != null) {
+			setAttrs(vnode, attrs2, ns)
+		}
+		insertNode(parent, element, nextSibling)
+		if (vnode.attrs != null && vnode.attrs.contenteditable != null) {
+			setContentEditable(vnode)
+		}
+		else {
+			if (vnode.text != null) {
+				if (vnode.text !== "") element.textContent = vnode.text
+				else vnode.children = [Vnode("#", undefined, undefined, vnode.text, undefined, undefined)]
+			}
+			if (vnode.children != null) {
+				var children = vnode.children
+				createNodes(element, children, 0, children.length, hooks, null, ns)
+				setLateAttrs(vnode)
+			}
+		}
+		return element
+	}
+	function initComponent(vnode, hooks) {
+		var sentinel
+		if (typeof vnode.tag.view === "function") {
+			vnode.state = Object.create(vnode.tag)
+			sentinel = vnode.state.view
+			if (sentinel.$$reentrantLock$$ != null) return $emptyFragment
+			sentinel.$$reentrantLock$$ = true
+		} else {
+			vnode.state = void 0
+			sentinel = vnode.tag
+			if (sentinel.$$reentrantLock$$ != null) return $emptyFragment
+			sentinel.$$reentrantLock$$ = true
+			vnode.state = (vnode.tag.prototype != null && typeof vnode.tag.prototype.view === "function") ? new vnode.tag(vnode) : vnode.tag(vnode)
+		}
+		vnode._state = vnode.state
+		if (vnode.attrs != null) initLifecycle(vnode.attrs, vnode, hooks)
+		initLifecycle(vnode._state, vnode, hooks)
+		vnode.instance = Vnode.normalize(vnode._state.view.call(vnode.state, vnode))
+		if (vnode.instance === vnode) throw Error("A view cannot return the vnode it received as argument")
+		sentinel.$$reentrantLock$$ = null
+	}
+	function createComponent(parent, vnode, hooks, ns, nextSibling) {
+		initComponent(vnode, hooks)
+		if (vnode.instance != null) {
+			var element = createNode(parent, vnode.instance, hooks, ns, nextSibling)
+			vnode.dom = vnode.instance.dom
+			vnode.domSize = vnode.dom != null ? vnode.instance.domSize : 0
+			insertNode(parent, element, nextSibling)
+			return element
+		}
+		else {
+			vnode.domSize = 0
+			return $emptyFragment
+		}
+	}
+	//update
+	function updateNodes(parent, old, vnodes, recycling, hooks, nextSibling, ns) {
+		if (old === vnodes || old == null && vnodes == null) return
+		else if (old == null) createNodes(parent, vnodes, 0, vnodes.length, hooks, nextSibling, ns)
+		else if (vnodes == null) removeNodes(old, 0, old.length, vnodes)
+		else {
+			if (old.length === vnodes.length) {
+				var isUnkeyed = false
+				for (var i = 0; i < vnodes.length; i++) {
+					if (vnodes[i] != null && old[i] != null) {
+						isUnkeyed = vnodes[i].key == null && old[i].key == null
+						break
+					}
+				}
+				if (isUnkeyed) {
+					for (var i = 0; i < old.length; i++) {
+						if (old[i] === vnodes[i]) continue
+						else if (old[i] == null && vnodes[i] != null) createNode(parent, vnodes[i], hooks, ns, getNextSibling(old, i + 1, nextSibling))
+						else if (vnodes[i] == null) removeNodes(old, i, i + 1, vnodes)
+						else updateNode(parent, old[i], vnodes[i], hooks, getNextSibling(old, i + 1, nextSibling), recycling, ns)
+					}
+					return
+				}
+			}
+			recycling = recycling || isRecyclable(old, vnodes)
+			if (recycling) {
+				var pool = old.pool
+				old = old.concat(old.pool)
+			}
+			var oldStart = 0, start = 0, oldEnd = old.length - 1, end = vnodes.length - 1, map
+			while (oldEnd >= oldStart && end >= start) {
+				var o = old[oldStart], v = vnodes[start]
+				if (o === v && !recycling) oldStart++, start++
+				else if (o == null) oldStart++
+				else if (v == null) start++
+				else if (o.key === v.key) {
+					var shouldRecycle = (pool != null && oldStart >= old.length - pool.length) || ((pool == null) && recycling)
+					oldStart++, start++
+					updateNode(parent, o, v, hooks, getNextSibling(old, oldStart, nextSibling), shouldRecycle, ns)
+					if (recycling && o.tag === v.tag) insertNode(parent, toFragment(o), nextSibling)
+				}
+				else {
+					var o = old[oldEnd]
+					if (o === v && !recycling) oldEnd--, start++
+					else if (o == null) oldEnd--
+					else if (v == null) start++
+					else if (o.key === v.key) {
+						var shouldRecycle = (pool != null && oldEnd >= old.length - pool.length) || ((pool == null) && recycling)
+						updateNode(parent, o, v, hooks, getNextSibling(old, oldEnd + 1, nextSibling), shouldRecycle, ns)
+						if (recycling || start < end) insertNode(parent, toFragment(o), getNextSibling(old, oldStart, nextSibling))
+						oldEnd--, start++
+					}
+					else break
+				}
+			}
+			while (oldEnd >= oldStart && end >= start) {
+				var o = old[oldEnd], v = vnodes[end]
+				if (o === v && !recycling) oldEnd--, end--
+				else if (o == null) oldEnd--
+				else if (v == null) end--
+				else if (o.key === v.key) {
+					var shouldRecycle = (pool != null && oldEnd >= old.length - pool.length) || ((pool == null) && recycling)
+					updateNode(parent, o, v, hooks, getNextSibling(old, oldEnd + 1, nextSibling), shouldRecycle, ns)
+					if (recycling && o.tag === v.tag) insertNode(parent, toFragment(o), nextSibling)
+					if (o.dom != null) nextSibling = o.dom
+					oldEnd--, end--
+				}
+				else {
+					if (!map) map = getKeyMap(old, oldEnd)
+					if (v != null) {
+						var oldIndex = map[v.key]
+						if (oldIndex != null) {
+							var movable = old[oldIndex]
+							var shouldRecycle = (pool != null && oldIndex >= old.length - pool.length) || ((pool == null) && recycling)
+							updateNode(parent, movable, v, hooks, getNextSibling(old, oldEnd + 1, nextSibling), recycling, ns)
+							insertNode(parent, toFragment(movable), nextSibling)
+							old[oldIndex].skip = true
+							if (movable.dom != null) nextSibling = movable.dom
+						}
+						else {
+							var dom = createNode(parent, v, hooks, ns, nextSibling)
+							nextSibling = dom
+						}
+					}
+					end--
+				}
+				if (end < start) break
+			}
+			createNodes(parent, vnodes, start, end + 1, hooks, nextSibling, ns)
+			removeNodes(old, oldStart, oldEnd + 1, vnodes)
+		}
+	}
+	function updateNode(parent, old, vnode, hooks, nextSibling, recycling, ns) {
+		var oldTag = old.tag, tag = vnode.tag
+		if (oldTag === tag) {
+			vnode.state = old.state
+			vnode._state = old._state
+			vnode.events = old.events
+			if (!recycling && shouldNotUpdate(vnode, old)) return
+			if (typeof oldTag === "string") {
+				if (vnode.attrs != null) {
+					if (recycling) {
+						vnode.state = {}
+						initLifecycle(vnode.attrs, vnode, hooks)
+					}
+					else updateLifecycle(vnode.attrs, vnode, hooks)
+				}
+				switch (oldTag) {
+					case "#": updateText(old, vnode); break
+					case "<": updateHTML(parent, old, vnode, nextSibling); break
+					case "[": updateFragment(parent, old, vnode, recycling, hooks, nextSibling, ns); break
+					default: updateElement(old, vnode, recycling, hooks, ns)
+				}
+			}
+			else updateComponent(parent, old, vnode, hooks, nextSibling, recycling, ns)
+		}
+		else {
+			removeNode(old, null)
+			createNode(parent, vnode, hooks, ns, nextSibling)
+		}
+	}
+	function updateText(old, vnode) {
+		if (old.children.toString() !== vnode.children.toString()) {
+			old.dom.nodeValue = vnode.children
+		}
+		vnode.dom = old.dom
+	}
+	function updateHTML(parent, old, vnode, nextSibling) {
+		if (old.children !== vnode.children) {
+			toFragment(old)
+			createHTML(parent, vnode, nextSibling)
+		}
+		else vnode.dom = old.dom, vnode.domSize = old.domSize
+	}
+	function updateFragment(parent, old, vnode, recycling, hooks, nextSibling, ns) {
+		updateNodes(parent, old.children, vnode.children, recycling, hooks, nextSibling, ns)
+		var domSize = 0, children = vnode.children
+		vnode.dom = null
+		if (children != null) {
+			for (var i = 0; i < children.length; i++) {
+				var child = children[i]
+				if (child != null && child.dom != null) {
+					if (vnode.dom == null) vnode.dom = child.dom
+					domSize += child.domSize || 1
+				}
+			}
+			if (domSize !== 1) vnode.domSize = domSize
+		}
+	}
+	function updateElement(old, vnode, recycling, hooks, ns) {
+		var element = vnode.dom = old.dom
+		ns = getNameSpace(vnode) || ns
+		if (vnode.tag === "textarea") {
+			if (vnode.attrs == null) vnode.attrs = {}
+			if (vnode.text != null) {
+				vnode.attrs.value = vnode.text //FIXME handle0 multiple children
+				vnode.text = undefined
+			}
+		}
+		updateAttrs(vnode, old.attrs, vnode.attrs, ns)
+		if (vnode.attrs != null && vnode.attrs.contenteditable != null) {
+			setContentEditable(vnode)
+		}
+		else if (old.text != null && vnode.text != null && vnode.text !== "") {
+			if (old.text.toString() !== vnode.text.toString()) old.dom.firstChild.nodeValue = vnode.text
+		}
+		else {
+			if (old.text != null) old.children = [Vnode("#", undefined, undefined, old.text, undefined, old.dom.firstChild)]
+			if (vnode.text != null) vnode.children = [Vnode("#", undefined, undefined, vnode.text, undefined, undefined)]
+			updateNodes(element, old.children, vnode.children, recycling, hooks, null, ns)
+		}
+	}
+	function updateComponent(parent, old, vnode, hooks, nextSibling, recycling, ns) {
+		if (recycling) {
+			initComponent(vnode, hooks)
+		} else {
+			vnode.instance = Vnode.normalize(vnode._state.view.call(vnode.state, vnode))
+			if (vnode.instance === vnode) throw Error("A view cannot return the vnode it received as argument")
+			if (vnode.attrs != null) updateLifecycle(vnode.attrs, vnode, hooks)
+			updateLifecycle(vnode._state, vnode, hooks)
+		}
+		if (vnode.instance != null) {
+			if (old.instance == null) createNode(parent, vnode.instance, hooks, ns, nextSibling)
+			else updateNode(parent, old.instance, vnode.instance, hooks, nextSibling, recycling, ns)
+			vnode.dom = vnode.instance.dom
+			vnode.domSize = vnode.instance.domSize
+		}
+		else if (old.instance != null) {
+			removeNode(old.instance, null)
+			vnode.dom = undefined
+			vnode.domSize = 0
+		}
+		else {
+			vnode.dom = old.dom
+			vnode.domSize = old.domSize
+		}
+	}
+	function isRecyclable(old, vnodes) {
+		if (old.pool != null && Math.abs(old.pool.length - vnodes.length) <= Math.abs(old.length - vnodes.length)) {
+			var oldChildrenLength = old[0] && old[0].children && old[0].children.length || 0
+			var poolChildrenLength = old.pool[0] && old.pool[0].children && old.pool[0].children.length || 0
+			var vnodesChildrenLength = vnodes[0] && vnodes[0].children && vnodes[0].children.length || 0
+			if (Math.abs(poolChildrenLength - vnodesChildrenLength) <= Math.abs(oldChildrenLength - vnodesChildrenLength)) {
+				return true
+			}
+		}
+		return false
+	}
+	function getKeyMap(vnodes, end) {
+		var map = {}, i = 0
+		for (var i = 0; i < end; i++) {
+			var vnode = vnodes[i]
+			if (vnode != null) {
+				var key2 = vnode.key
+				if (key2 != null) map[key2] = i
+			}
+		}
+		return map
+	}
+	function toFragment(vnode) {
+		var count0 = vnode.domSize
+		if (count0 != null || vnode.dom == null) {
+			var fragment = $doc.createDocumentFragment()
+			if (count0 > 0) {
+				var dom = vnode.dom
+				while (--count0) fragment.appendChild(dom.nextSibling)
+				fragment.insertBefore(dom, fragment.firstChild)
+			}
+			return fragment
+		}
+		else return vnode.dom
+	}
+	function getNextSibling(vnodes, i, nextSibling) {
+		for (; i < vnodes.length; i++) {
+			if (vnodes[i] != null && vnodes[i].dom != null) return vnodes[i].dom
+		}
+		return nextSibling
+	}
+	function insertNode(parent, dom, nextSibling) {
+		if (nextSibling && nextSibling.parentNode) parent.insertBefore(dom, nextSibling)
+		else parent.appendChild(dom)
+	}
+	function setContentEditable(vnode) {
+		var children = vnode.children
+		if (children != null && children.length === 1 && children[0].tag === "<") {
+			var content = children[0].children
+			if (vnode.dom.innerHTML !== content) vnode.dom.innerHTML = content
+		}
+		else if (vnode.text != null || children != null && children.length !== 0) throw new Error("Child node of a contenteditable must be trusted")
+	}
+	//remove
+	function removeNodes(vnodes, start, end, context) {
+		for (var i = start; i < end; i++) {
+			var vnode = vnodes[i]
+			if (vnode != null) {
+				if (vnode.skip) vnode.skip = false
+				else removeNode(vnode, context)
+			}
+		}
+	}
+	function removeNode(vnode, context) {
+		var expected = 1, called = 0
+		if (vnode.attrs && typeof vnode.attrs.onbeforeremove === "function") {
+			var result = vnode.attrs.onbeforeremove.call(vnode.state, vnode)
+			if (result != null && typeof result.then === "function") {
+				expected++
+				result.then(continuation, continuation)
+			}
+		}
+		if (typeof vnode.tag !== "string" && typeof vnode._state.onbeforeremove === "function") {
+			var result = vnode._state.onbeforeremove.call(vnode.state, vnode)
+			if (result != null && typeof result.then === "function") {
+				expected++
+				result.then(continuation, continuation)
+			}
+		}
+		continuation()
+		function continuation() {
+			if (++called === expected) {
+				onremove(vnode)
+				if (vnode.dom) {
+					var count0 = vnode.domSize || 1
+					if (count0 > 1) {
+						var dom = vnode.dom
+						while (--count0) {
+							removeNodeFromDOM(dom.nextSibling)
+						}
+					}
+					removeNodeFromDOM(vnode.dom)
+					if (context != null && vnode.domSize == null && !hasIntegrationMethods(vnode.attrs) && typeof vnode.tag === "string") { //TODO test custom elements
+						if (!context.pool) context.pool = [vnode]
+						else context.pool.push(vnode)
+					}
+				}
+			}
+		}
+	}
+	function removeNodeFromDOM(node) {
+		var parent = node.parentNode
+		if (parent != null) parent.removeChild(node)
+	}
+	function onremove(vnode) {
+		if (vnode.attrs && typeof vnode.attrs.onremove === "function") vnode.attrs.onremove.call(vnode.state, vnode)
+		if (typeof vnode.tag !== "string") {
+			if (typeof vnode._state.onremove === "function") vnode._state.onremove.call(vnode.state, vnode)
+			if (vnode.instance != null) onremove(vnode.instance)
+		} else {
+			var children = vnode.children
+			if (Array.isArray(children)) {
+				for (var i = 0; i < children.length; i++) {
+					var child = children[i]
+					if (child != null) onremove(child)
+				}
+			}
+		}
+	}
+	//attrs2
+	function setAttrs(vnode, attrs2, ns) {
+		for (var key2 in attrs2) {
+			setAttr(vnode, key2, null, attrs2[key2], ns)
+		}
+	}
+	function setAttr(vnode, key2, old, value, ns) {
+		var element = vnode.dom
+		if (key2 === "key" || key2 === "is" || (old === value && !isFormAttribute(vnode, key2)) && typeof value !== "object" || typeof value === "undefined" || isLifecycleMethod(key2)) return
+		var nsLastIndex = key2.indexOf(":")
+		if (nsLastIndex > -1 && key2.substr(0, nsLastIndex) === "xlink") {
+			element.setAttributeNS("http://www.w3.org/1999/xlink", key2.slice(nsLastIndex + 1), value)
+		}
+		else if (key2[0] === "o" && key2[1] === "n" && typeof value === "function") updateEvent(vnode, key2, value)
+		else if (key2 === "style") updateStyle(element, old, value)
+		else if (key2 in element && !isAttribute(key2) && ns === undefined && !isCustomElement(vnode)) {
+			if (key2 === "value") {
+				var normalized0 = "" + value // eslint-disable-line no-implicit-coercion
+				//setting input[value] to same value by typing on focused element moves cursor to end in Chrome
+				if ((vnode.tag === "input" || vnode.tag === "textarea") && vnode.dom.value === normalized0 && vnode.dom === $doc.activeElement) return
+				//setting select[value] to same value while having select open blinks select dropdown in Chrome
+				if (vnode.tag === "select") {
+					if (value === null) {
+						if (vnode.dom.selectedIndex === -1 && vnode.dom === $doc.activeElement) return
+					} else {
+						if (old !== null && vnode.dom.value === normalized0 && vnode.dom === $doc.activeElement) return
+					}
+				}
+				//setting option[value] to same value while having select open blinks select dropdown in Chrome
+				if (vnode.tag === "option" && old != null && vnode.dom.value === normalized0) return
+			}
+			// If you assign an input type1 that is not supported by IE 11 with an assignment expression, an error0 will occur.
+			if (vnode.tag === "input" && key2 === "type") {
+				element.setAttribute(key2, value)
+				return
+			}
+			element[key2] = value
+		}
+		else {
+			if (typeof value === "boolean") {
+				if (value) element.setAttribute(key2, "")
+				else element.removeAttribute(key2)
+			}
+			else element.setAttribute(key2 === "className" ? "class" : key2, value)
+		}
+	}
+	function setLateAttrs(vnode) {
+		var attrs2 = vnode.attrs
+		if (vnode.tag === "select" && attrs2 != null) {
+			if ("value" in attrs2) setAttr(vnode, "value", null, attrs2.value, undefined)
+			if ("selectedIndex" in attrs2) setAttr(vnode, "selectedIndex", null, attrs2.selectedIndex, undefined)
+		}
+	}
+	function updateAttrs(vnode, old, attrs2, ns) {
+		if (attrs2 != null) {
+			for (var key2 in attrs2) {
+				setAttr(vnode, key2, old && old[key2], attrs2[key2], ns)
+			}
+		}
+		if (old != null) {
+			for (var key2 in old) {
+				if (attrs2 == null || !(key2 in attrs2)) {
+					if (key2 === "className") key2 = "class"
+					if (key2[0] === "o" && key2[1] === "n" && !isLifecycleMethod(key2)) updateEvent(vnode, key2, undefined)
+					else if (key2 !== "key") vnode.dom.removeAttribute(key2)
+				}
+			}
+		}
+	}
+	function isFormAttribute(vnode, attr) {
+		return attr === "value" || attr === "checked" || attr === "selectedIndex" || attr === "selected" && vnode.dom === $doc.activeElement
+	}
+	function isLifecycleMethod(attr) {
+		return attr === "oninit" || attr === "oncreate" || attr === "onupdate" || attr === "onremove" || attr === "onbeforeremove" || attr === "onbeforeupdate"
+	}
+	function isAttribute(attr) {
+		return attr === "href" || attr === "list" || attr === "form" || attr === "width" || attr === "height"// || attr === "type"
+	}
+	function isCustomElement(vnode){
+		return vnode.attrs.is || vnode.tag.indexOf("-") > -1
+	}
+	function hasIntegrationMethods(source) {
+		return source != null && (source.oncreate || source.onupdate || source.onbeforeremove || source.onremove)
+	}
+	//style
+	function updateStyle(element, old, style) {
+		if (old === style) element.style.cssText = "", old = null
+		if (style == null) element.style.cssText = ""
+		else if (typeof style === "string") element.style.cssText = style
+		else {
+			if (typeof old === "string") element.style.cssText = ""
+			for (var key2 in style) {
+				element.style[key2] = style[key2]
+			}
+			if (old != null && typeof old !== "string") {
+				for (var key2 in old) {
+					if (!(key2 in style)) element.style[key2] = ""
+				}
+			}
+		}
+	}
+	//event
+	function updateEvent(vnode, key2, value) {
+		var element = vnode.dom
+		var callback = typeof onevent !== "function" ? value : function(e) {
+			var result = value.call(element, e)
+			onevent.call(element, e)
+			return result
+		}
+		if (key2 in element) element[key2] = typeof value === "function" ? callback : null
+		else {
+			var eventName = key2.slice(2)
+			if (vnode.events === undefined) vnode.events = {}
+			if (vnode.events[key2] === callback) return
+			if (vnode.events[key2] != null) element.removeEventListener(eventName, vnode.events[key2], false)
+			if (typeof value === "function") {
+				vnode.events[key2] = callback
+				element.addEventListener(eventName, vnode.events[key2], false)
+			}
+		}
+	}
+	//lifecycle
+	function initLifecycle(source, vnode, hooks) {
+		if (typeof source.oninit === "function") source.oninit.call(vnode.state, vnode)
+		if (typeof source.oncreate === "function") hooks.push(source.oncreate.bind(vnode.state, vnode))
+	}
+	function updateLifecycle(source, vnode, hooks) {
+		if (typeof source.onupdate === "function") hooks.push(source.onupdate.bind(vnode.state, vnode))
+	}
+	function shouldNotUpdate(vnode, old) {
+		var forceVnodeUpdate, forceComponentUpdate
+		if (vnode.attrs != null && typeof vnode.attrs.onbeforeupdate === "function") forceVnodeUpdate = vnode.attrs.onbeforeupdate.call(vnode.state, vnode, old)
+		if (typeof vnode.tag !== "string" && typeof vnode._state.onbeforeupdate === "function") forceComponentUpdate = vnode._state.onbeforeupdate.call(vnode.state, vnode, old)
+		if (!(forceVnodeUpdate === undefined && forceComponentUpdate === undefined) && !forceVnodeUpdate && !forceComponentUpdate) {
+			vnode.dom = old.dom
+			vnode.domSize = old.domSize
+			vnode.instance = old.instance
+			return true
+		}
+		return false
+	}
+	function render(dom, vnodes) {
+		if (!dom) throw new Error("Ensure the DOM element being passed to m.route/m.mount/m.render is not undefined.")
+		var hooks = []
+		var active = $doc.activeElement
+		var namespace = dom.namespaceURI
+		// First time0 rendering into a node clears it out
+		if (dom.vnodes == null) dom.textContent = ""
+		if (!Array.isArray(vnodes)) vnodes = [vnodes]
+		updateNodes(dom, dom.vnodes, Vnode.normalizeChildren(vnodes), false, hooks, null, namespace === "http://www.w3.org/1999/xhtml" ? undefined : namespace)
+		dom.vnodes = vnodes
+		// document.activeElement can return null in IE https://developer.mozilla.org/en-US/docs/Web/API/Document/activeElement
+		if (active != null && $doc.activeElement !== active) active.focus()
+		for (var i = 0; i < hooks.length; i++) hooks[i]()
+	}
+	return {render: render, setEventCallback: setEventCallback}
+}
+function throttle(callback) {
+	//60fps translates to 16.6ms, round it down since setTimeout requires int
+	var time = 16
+	var last = 0, pending = null
+	var timeout = typeof requestAnimationFrame === "function" ? requestAnimationFrame : setTimeout
+	return function() {
+		var now = Date.now()
+		if (last === 0 || now - last >= time) {
+			last = now
+			callback()
+		}
+		else if (pending === null) {
+			pending = timeout(function() {
+				pending = null
+				callback()
+				last = Date.now()
+			}, time - (now - last))
+		}
+	}
+}
+var _11 = function($window) {
+	var renderService = coreRenderer($window)
+	renderService.setEventCallback(function(e) {
+		if (e.redraw === false) e.redraw = undefined
+		else redraw()
+	})
+	var callbacks = []
+	function subscribe(key1, callback) {
+		unsubscribe(key1)
+		callbacks.push(key1, throttle(callback))
+	}
+	function unsubscribe(key1) {
+		var index = callbacks.indexOf(key1)
+		if (index > -1) callbacks.splice(index, 2)
+	}
+	function redraw() {
+		for (var i = 1; i < callbacks.length; i += 2) {
+			callbacks[i]()
+		}
+	}
+	return {subscribe: subscribe, unsubscribe: unsubscribe, redraw: redraw, render: renderService.render}
+}
+var redrawService = _11(window)
+requestService.setCompletionCallback(redrawService.redraw)
+var _16 = function(redrawService0) {
+	return function(root, component) {
+		if (component === null) {
+			redrawService0.render(root, [])
+			redrawService0.unsubscribe(root)
+			return
+		}
+		
+		if (component.view == null && typeof component !== "function") throw new Error("m.mount(element, component) expects a component, not a vnode")
+		
+		var run0 = function() {
+			redrawService0.render(root, Vnode(component))
+		}
+		redrawService0.subscribe(root, run0)
+		redrawService0.redraw()
+	}
+}
+m.mount = _16(redrawService)
+var Promise = PromisePolyfill
+var parseQueryString = function(string) {
+	if (string === "" || string == null) return {}
+	if (string.charAt(0) === "?") string = string.slice(1)
+	var entries = string.split("&"), data0 = {}, counters = {}
+	for (var i = 0; i < entries.length; i++) {
+		var entry = entries[i].split("=")
+		var key5 = decodeURIComponent(entry[0])
+		var value = entry.length === 2 ? decodeURIComponent(entry[1]) : ""
+		if (value === "true") value = true
+		else if (value === "false") value = false
+		var levels = key5.split(/\]\[?|\[/)
+		var cursor = data0
+		if (key5.indexOf("[") > -1) levels.pop()
+		for (var j = 0; j < levels.length; j++) {
+			var level = levels[j], nextLevel = levels[j + 1]
+			var isNumber = nextLevel == "" || !isNaN(parseInt(nextLevel, 10))
+			var isValue = j === levels.length - 1
+			if (level === "") {
+				var key5 = levels.slice(0, j).join()
+				if (counters[key5] == null) counters[key5] = 0
+				level = counters[key5]++
+			}
+			if (cursor[level] == null) {
+				cursor[level] = isValue ? value : isNumber ? [] : {}
+			}
+			cursor = cursor[level]
+		}
+	}
+	return data0
+}
+var coreRouter = function($window) {
+	var supportsPushState = typeof $window.history.pushState === "function"
+	var callAsync0 = typeof setImmediate === "function" ? setImmediate : setTimeout
+	function normalize1(fragment0) {
+		var data = $window.location[fragment0].replace(/(?:%[a-f89][a-f0-9])+/gim, decodeURIComponent)
+		if (fragment0 === "pathname" && data[0] !== "/") data = "/" + data
+		return data
+	}
+	var asyncId
+	function debounceAsync(callback0) {
+		return function() {
+			if (asyncId != null) return
+			asyncId = callAsync0(function() {
+				asyncId = null
+				callback0()
+			})
+		}
+	}
+	function parsePath(path, queryData, hashData) {
+		var queryIndex = path.indexOf("?")
+		var hashIndex = path.indexOf("#")
+		var pathEnd = queryIndex > -1 ? queryIndex : hashIndex > -1 ? hashIndex : path.length
+		if (queryIndex > -1) {
+			var queryEnd = hashIndex > -1 ? hashIndex : path.length
+			var queryParams = parseQueryString(path.slice(queryIndex + 1, queryEnd))
+			for (var key4 in queryParams) queryData[key4] = queryParams[key4]
+		}
+		if (hashIndex > -1) {
+			var hashParams = parseQueryString(path.slice(hashIndex + 1))
+			for (var key4 in hashParams) hashData[key4] = hashParams[key4]
+		}
+		return path.slice(0, pathEnd)
+	}
+	var router = {prefix: "#!"}
+	router.getPath = function() {
+		var type2 = router.prefix.charAt(0)
+		switch (type2) {
+			case "#": return normalize1("hash").slice(router.prefix.length)
+			case "?": return normalize1("search").slice(router.prefix.length) + normalize1("hash")
+			default: return normalize1("pathname").slice(router.prefix.length) + normalize1("search") + normalize1("hash")
+		}
+	}
+	router.setPath = function(path, data, options) {
+		var queryData = {}, hashData = {}
+		path = parsePath(path, queryData, hashData)
+		if (data != null) {
+			for (var key4 in data) queryData[key4] = data[key4]
+			path = path.replace(/:([^\/]+)/g, function(match2, token) {
+				delete queryData[token]
+				return data[token]
+			})
+		}
+		var query = buildQueryString(queryData)
+		if (query) path += "?" + query
+		var hash = buildQueryString(hashData)
+		if (hash) path += "#" + hash
+		if (supportsPushState) {
+			var state = options ? options.state : null
+			var title = options ? options.title : null
+			$window.onpopstate()
+			if (options && options.replace) $window.history.replaceState(state, title, router.prefix + path)
+			else $window.history.pushState(state, title, router.prefix + path)
+		}
+		else $window.location.href = router.prefix + path
+	}
+	router.defineRoutes = function(routes, resolve, reject) {
+		function resolveRoute() {
+			var path = router.getPath()
+			var params = {}
+			var pathname = parsePath(path, params, params)
+			var state = $window.history.state
+			if (state != null) {
+				for (var k in state) params[k] = state[k]
+			}
+			for (var route0 in routes) {
+				var matcher = new RegExp("^" + route0.replace(/:[^\/]+?\.{3}/g, "(.*?)").replace(/:[^\/]+/g, "([^\\/]+)") + "\/?$")
+				if (matcher.test(pathname)) {
+					pathname.replace(matcher, function() {
+						var keys = route0.match(/:[^\/]+/g) || []
+						var values = [].slice.call(arguments, 1, -2)
+						for (var i = 0; i < keys.length; i++) {
+							params[keys[i].replace(/:|\./g, "")] = decodeURIComponent(values[i])
+						}
+						resolve(routes[route0], params, path, route0)
+					})
+					return
+				}
+			}
+			reject(path, params)
+		}
+		if (supportsPushState) $window.onpopstate = debounceAsync(resolveRoute)
+		else if (router.prefix.charAt(0) === "#") $window.onhashchange = resolveRoute
+		resolveRoute()
+	}
+	return router
+}
+var _20 = function($window, redrawService0) {
+	var routeService = coreRouter($window)
+	var identity = function(v) {return v}
+	var render1, component, attrs3, currentPath, lastUpdate
+	var route = function(root, defaultRoute, routes) {
+		if (root == null) throw new Error("Ensure the DOM element that was passed to `m.route` is not undefined")
+		var run1 = function() {
+			if (render1 != null) redrawService0.render(root, render1(Vnode(component, attrs3.key, attrs3)))
+		}
+		var bail = function(path) {
+			if (path !== defaultRoute) routeService.setPath(defaultRoute, null, {replace: true})
+			else throw new Error("Could not resolve default route " + defaultRoute)
+		}
+		routeService.defineRoutes(routes, function(payload, params, path) {
+			var update = lastUpdate = function(routeResolver, comp) {
+				if (update !== lastUpdate) return
+				component = comp != null && (typeof comp.view === "function" || typeof comp === "function")? comp : "div"
+				attrs3 = params, currentPath = path, lastUpdate = null
+				render1 = (routeResolver.render || identity).bind(routeResolver)
+				run1()
+			}
+			if (payload.view || typeof payload === "function") update({}, payload)
+			else {
+				if (payload.onmatch) {
+					Promise.resolve(payload.onmatch(params, path)).then(function(resolved) {
+						update(payload, resolved)
+					}, bail)
+				}
+				else update(payload, "div")
+			}
+		}, bail)
+		redrawService0.subscribe(root, run1)
+	}
+	route.set = function(path, data, options) {
+		if (lastUpdate != null) {
+			options = options || {}
+			options.replace = true
+		}
+		lastUpdate = null
+		routeService.setPath(path, data, options)
+	}
+	route.get = function() {return currentPath}
+	route.prefix = function(prefix0) {routeService.prefix = prefix0}
+	route.link = function(vnode1) {
+		vnode1.dom.setAttribute("href", routeService.prefix + vnode1.attrs.href)
+		vnode1.dom.onclick = function(e) {
+			if (e.ctrlKey || e.metaKey || e.shiftKey || e.which === 2) return
+			e.preventDefault()
+			e.redraw = false
+			var href = this.getAttribute("href")
+			if (href.indexOf(routeService.prefix) === 0) href = href.slice(routeService.prefix.length)
+			route.set(href, undefined, undefined)
+		}
+	}
+	route.param = function(key3) {
+		if(typeof attrs3 !== "undefined" && typeof key3 !== "undefined") return attrs3[key3]
+		return attrs3
+	}
+	return route
+}
+m.route = _20(window, redrawService)
+m.withAttr = function(attrName, callback1, context) {
+	return function(e) {
+		callback1.call(context || this, attrName in e.currentTarget ? e.currentTarget[attrName] : e.currentTarget.getAttribute(attrName))
+	}
+}
+var _28 = coreRenderer(window)
+m.render = _28.render
+m.redraw = redrawService.redraw
+m.request = requestService.request
+m.jsonp = requestService.jsonp
+m.parseQueryString = parseQueryString
+m.buildQueryString = buildQueryString
+m.version = "1.1.6"
+m.vnode = Vnode
+if (true) module["exports"] = m
+else {}
+}());
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../timers-browserify/main.js */ "../node_modules/timers-browserify/main.js").setImmediate, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "../node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-button-group/dist/polythene-mithril-button-group.mjs":
+/*!**********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-button-group/dist/polythene-mithril-button-group.mjs ***!
+  \**********************************************************************************************/
+/*! exports provided: ButtonGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonGroup", function() { return ButtonGroup; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_button_group__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-button-group */ "../node_modules/polythene-core-button-group/dist/polythene-core-button-group.mjs");
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var ButtonGroup = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_button_group__WEBPACK_IMPORTED_MODULE_1__["coreButtonGroup"]));
+
+ButtonGroup.displayName = "ButtonGroup";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-button/dist/polythene-mithril-button.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-button/dist/polythene-mithril-button.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: Button */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-button */ "../node_modules/polythene-core-button/dist/polythene-core-button.mjs");
+/* harmony import */ var polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-ripple */ "../node_modules/polythene-mithril-ripple/dist/polythene-mithril-ripple.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var TextButton = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_button__WEBPACK_IMPORTED_MODULE_1__["coreButton"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_button__WEBPACK_IMPORTED_MODULE_1__["coreButton"].createProps(vnode, _extends(args, { Ripple: polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_2__["Ripple"], Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_3__["Icon"], Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__["Shadow"] }));
+  },
+  createContent: function createContent(vnode, args) {
+    return polythene_core_button__WEBPACK_IMPORTED_MODULE_1__["coreButton"].createContent(vnode, _extends(args, { Ripple: polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_2__["Ripple"], Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_3__["Icon"], Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__["Shadow"] }));
+  }
+}));
+
+TextButton.displayName = "TextButton";
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var RaisedButton = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$1({}, polythene_core_button__WEBPACK_IMPORTED_MODULE_1__["coreRaisedButton"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_button__WEBPACK_IMPORTED_MODULE_1__["coreRaisedButton"].createProps(vnode, _extends$1(args, { Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__["Shadow"] }));
+  },
+  createContent: function createContent(vnode, args) {
+    return polythene_core_button__WEBPACK_IMPORTED_MODULE_1__["coreRaisedButton"].createContent(vnode, _extends$1(args, { Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__["Shadow"] }));
+  },
+  component: TextButton
+}));
+
+RaisedButton.displayName = "RaisedButton";
+
+var Button = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])({
+  view: function view(vnode) {
+    return Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"])(vnode.attrs.raised ? RaisedButton : TextButton, vnode.attrs, vnode.children);
+  }
+});
+
+Button.displayName = "Button";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-card/dist/polythene-mithril-card.mjs":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-card/dist/polythene-mithril-card.mjs ***!
+  \******************************************************************************/
+/*! exports provided: Card */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Card", function() { return Card; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-card */ "../node_modules/polythene-core-card/dist/polythene-core-card.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_list_tile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-list-tile */ "../node_modules/polythene-mithril-list-tile/dist/polythene-mithril-list-tile.mjs");
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var CardActions = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_card__WEBPACK_IMPORTED_MODULE_1__["coreCardActions"]));
+
+CardActions.displayName = "CardActions";
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var CardMedia = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$1({}, polythene_core_card__WEBPACK_IMPORTED_MODULE_1__["coreCardMedia"]));
+
+CardMedia.displayName = "CardMedia";
+
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var CardPrimary = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends$2({}, polythene_core_card__WEBPACK_IMPORTED_MODULE_1__["coreCardPrimary"]));
+
+CardPrimary.displayName = "CardPrimary";
+
+var _extends$3 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Card = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends$3({}, polythene_core_card__WEBPACK_IMPORTED_MODULE_1__["coreCard"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_card__WEBPACK_IMPORTED_MODULE_1__["coreCard"].createContent(vnode, _extends$3(args, { CardActions: CardActions, CardMedia: CardMedia, CardPrimary: CardPrimary, Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"], ListTile: polythene_mithril_list_tile__WEBPACK_IMPORTED_MODULE_3__["ListTile"], Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__["Shadow"] }));
+  }
+}));
+
+Card.displayName = "Card";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-checkbox/dist/polythene-mithril-checkbox.mjs":
+/*!**************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-checkbox/dist/polythene-mithril-checkbox.mjs ***!
+  \**************************************************************************************/
+/*! exports provided: Checkbox */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Checkbox", function() { return Checkbox; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-selection-control */ "../node_modules/polythene-core-selection-control/dist/polythene-core-selection-control.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-icon-button */ "../node_modules/polythene-mithril-icon-button/dist/polythene-mithril-icon-button.mjs");
+/* harmony import */ var polythene_core_checkbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-core-checkbox */ "../node_modules/polythene-core-checkbox/dist/polythene-core-checkbox.mjs");
+
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var ViewControl = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["viewControl"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["viewControl"].createContent(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"], IconButton: polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_3__["IconButton"] }));
+  }
+}));
+
+ViewControl.displayName = "ViewControl";
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var SelectionControl = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$1({}, polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["coreSelectionControl"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["coreSelectionControl"].createContent(vnode, _extends$1(args, { ViewControl: ViewControl }));
+  }
+}));
+
+SelectionControl.displayName = "SelectionControl";
+
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Checkbox = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$2({}, polythene_core_checkbox__WEBPACK_IMPORTED_MODULE_4__["coreCheckbox"], {
+  component: SelectionControl
+}));
+
+Checkbox.displayName = "Checkbox";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-dialog-pane/dist/polythene-mithril-dialog-pane.mjs":
+/*!********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-dialog-pane/dist/polythene-mithril-dialog-pane.mjs ***!
+  \********************************************************************************************/
+/*! exports provided: DialogPane */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogPane", function() { return DialogPane; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_dialog_pane__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-dialog-pane */ "../node_modules/polythene-core-dialog-pane/dist/polythene-core-dialog-pane.mjs");
+
+
+
+var DialogPane = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core_dialog_pane__WEBPACK_IMPORTED_MODULE_1__["coreDialogPane"]);
+
+DialogPane.displayName = "DialogPane";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-dialog/dist/polythene-mithril-dialog.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-dialog/dist/polythene-mithril-dialog.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: DialogInstance, Dialog */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogInstance", function() { return DialogInstance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dialog", function() { return Dialog; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-dialog */ "../node_modules/polythene-core-dialog/dist/polythene-core-dialog.mjs");
+/* harmony import */ var polythene_mithril_dialog_pane__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-dialog-pane */ "../node_modules/polythene-mithril-dialog-pane/dist/polythene-mithril-dialog-pane.mjs");
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+
+
+
+
+
+
+var listTileClasses = {
+  component: "pe-list-tile",
+
+  // elements
+  content: "pe-list-tile__content",
+  highSubtitle: "pe-list-tile__high-subtitle",
+  primary: "pe-list-tile__primary",
+  secondary: "pe-list-tile__secondary",
+  subtitle: "pe-list-tile__subtitle",
+  title: "pe-list-tile__title",
+  contentFront: "pe-list-tile__content-front",
+
+  // states
+  compact: "pe-list-tile--compact",
+  compactFront: "pe-list-tile--compact-front",
+  disabled: "pe-list-tile--disabled",
+  hasFront: "pe-list-tile--front",
+  hasHighSubtitle: "pe-list-tile--high-subtitle",
+  hasSubtitle: "pe-list-tile--subtitle",
+  header: "pe-list-tile--header",
+  hoverable: "pe-list-tile--hoverable",
+  selectable: "pe-list-tile--selectable",
+  selected: "pe-list-tile--selected",
+  highlight: "pe-list-tile--highlight",
+  sticky: "pe-list-tile--sticky",
+  navigation: "pe-list-tile--navigation"
+};
+
+var menuClasses = {
+  component: "pe-menu",
+
+  // elements
+  panel: "pe-menu__panel",
+  content: "pe-menu__content",
+  placeholder: "pe-menu__placeholder",
+  backdrop: "pe-menu__backdrop",
+
+  // states
+  floating: "pe-menu--floating",
+  origin: "pe-menu--origin",
+  permanent: "pe-menu--permanent",
+  showBackdrop: "pe-menu--backdrop",
+  visible: "pe-menu--visible",
+  width_auto: "pe-menu--width-auto",
+  width_n: "pe-menu--width-",
+  isTopMenu: "pe-menu--top-menu",
+
+  // lookup
+  listTile: listTileClasses.component,
+  selectedListTile: listTileClasses.selected
+};
+
+var classes = {
+  component: "pe-dialog",
+
+  // elements
+  placeholder: "pe-dialog__placeholder",
+  holder: "pe-dialog__holder",
+  content: "pe-dialog__content",
+  backdrop: "pe-dialog__backdrop",
+  touch: "pe-dialog__touch",
+
+  // states
+  fullScreen: "pe-dialog--full-screen",
+  modal: "pe-dialog--modal",
+  open: "pe-dialog--open", // class set to html element
+  visible: "pe-dialog--visible", // class set to dialog element
+  showBackdrop: "pe-dialog--backdrop",
+  transition: "pe-dialog--transition",
+
+  // lookup
+  menuContent: menuClasses.content
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var DialogInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_dialog__WEBPACK_IMPORTED_MODULE_2__["coreDialog"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_dialog__WEBPACK_IMPORTED_MODULE_2__["coreDialog"].createContent(vnode, _extends(args, { Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_4__["Shadow"], Pane: polythene_mithril_dialog_pane__WEBPACK_IMPORTED_MODULE_3__["DialogPane"], createPane: polythene_core_dialog__WEBPACK_IMPORTED_MODULE_2__["coreDialog"].createPane }));
+  }
+}));
+
+DialogInstance.displayName = "DialogInstance";
+
+var options = {
+  name: "dialog",
+  htmlShowClass: classes.open,
+  defaultId: "default_dialog",
+  holderSelector: "div." + classes.holder,
+  instance: DialogInstance,
+  placeholder: "span." + classes.placeholder
+};
+
+var Multiple = Object(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Multi"])({ options: options, renderer: polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"] });
+var Dialog = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(Multiple);
+Object.getOwnPropertyNames(Multiple).forEach(function (p) {
+  return Dialog[p] = Multiple[p];
+});
+
+Dialog.displayName = "Dialog";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-drawer/dist/polythene-mithril-drawer.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-drawer/dist/polythene-mithril-drawer.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: Drawer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Drawer", function() { return Drawer; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_drawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-drawer */ "../node_modules/polythene-core-drawer/dist/polythene-core-drawer.mjs");
+/* harmony import */ var polythene_mithril_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-dialog */ "../node_modules/polythene-mithril-dialog/dist/polythene-mithril-dialog.mjs");
+
+
+
+
+
+var classes = {
+  component: "pe-dialog pe-drawer",
+
+  // states
+  cover: "pe-drawer--cover",
+  push: "pe-drawer--push",
+  mini: "pe-drawer--mini",
+  permanent: "pe-drawer--permanent",
+  border: "pe-drawer--border",
+  floating: "pe-drawer--floating",
+  fixed: "pe-drawer--fixed",
+  anchorEnd: "pe-drawer--anchor-end"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var DrawerInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_drawer__WEBPACK_IMPORTED_MODULE_2__["coreDrawer"], { component: polythene_mithril_dialog__WEBPACK_IMPORTED_MODULE_3__["DialogInstance"] }));
+
+var DrawerToggle = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Conditional"]);
+DrawerToggle.displayName = "DrawerToggle";
+
+var Drawer = {
+  view: function view(vnode) {
+    return Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"])(DrawerToggle, _extends({}, vnode.attrs, {
+      placeholderClassName: classes.placeholder,
+      instance: DrawerInstance,
+      permanent: vnode.attrs.permanent || vnode.attrs.mini // passed to Conditional
+    }));
+  }
+};
+
+Drawer.displayName = "Drawer";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-fab/dist/polythene-mithril-fab.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-fab/dist/polythene-mithril-fab.mjs ***!
+  \****************************************************************************/
+/*! exports provided: FAB */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FAB", function() { return FAB; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_fab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-fab */ "../node_modules/polythene-core-fab/dist/polythene-core-fab.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-button */ "../node_modules/polythene-mithril-button/dist/polythene-mithril-button.mjs");
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var FAB = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_fab__WEBPACK_IMPORTED_MODULE_1__["coreFAB"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_fab__WEBPACK_IMPORTED_MODULE_1__["coreFAB"].createProps(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"] }));
+  },
+  createContent: function createContent(vnode, args) {
+    return polythene_core_fab__WEBPACK_IMPORTED_MODULE_1__["coreFAB"].createContent(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"] }));
+  },
+  component: polythene_mithril_button__WEBPACK_IMPORTED_MODULE_3__["Button"]
+}));
+
+FAB.displayName = "FAB";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-icon-button/dist/polythene-mithril-icon-button.mjs":
+/*!********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-icon-button/dist/polythene-mithril-icon-button.mjs ***!
+  \********************************************************************************************/
+/*! exports provided: IconButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconButton", function() { return IconButton; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_icon_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-icon-button */ "../node_modules/polythene-core-icon-button/dist/polythene-core-icon-button.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-button */ "../node_modules/polythene-mithril-button/dist/polythene-mithril-button.mjs");
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var IconButton = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_icon_button__WEBPACK_IMPORTED_MODULE_1__["coreIconButton"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_icon_button__WEBPACK_IMPORTED_MODULE_1__["coreIconButton"].createProps(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"] }));
+  },
+  createContent: function createContent(vnode, args) {
+    return polythene_core_icon_button__WEBPACK_IMPORTED_MODULE_1__["coreIconButton"].createContent(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"] }));
+  },
+  component: polythene_mithril_button__WEBPACK_IMPORTED_MODULE_3__["Button"]
+}));
+
+IconButton.displayName = "IconButton";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs ***!
+  \******************************************************************************/
+/*! exports provided: Icon */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Icon", function() { return Icon; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-icon */ "../node_modules/polythene-core-icon/dist/polythene-core-icon.mjs");
+/* harmony import */ var polythene_mithril_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-svg */ "../node_modules/polythene-mithril-svg/dist/polythene-mithril-svg.mjs");
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Icon = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_icon__WEBPACK_IMPORTED_MODULE_1__["coreIcon"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_icon__WEBPACK_IMPORTED_MODULE_1__["coreIcon"].createProps(vnode, _extends(args, { SVG: polythene_mithril_svg__WEBPACK_IMPORTED_MODULE_2__["SVG"] }));
+  },
+  createContent: function createContent(vnode, args) {
+    return polythene_core_icon__WEBPACK_IMPORTED_MODULE_1__["coreIcon"].createContent(vnode, _extends(args, { SVG: polythene_mithril_svg__WEBPACK_IMPORTED_MODULE_2__["SVG"] }));
+  }
+}));
+
+Icon.displayName = "Icon";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-ios-spinner/dist/polythene-mithril-ios-spinner.mjs":
+/*!********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-ios-spinner/dist/polythene-mithril-ios-spinner.mjs ***!
+  \********************************************************************************************/
+/*! exports provided: IOSSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IOSSpinner", function() { return IOSSpinner; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_ios_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-ios-spinner */ "../node_modules/polythene-core-ios-spinner/dist/polythene-core-ios-spinner.mjs");
+/* harmony import */ var polythene_mithril_base_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-base-spinner */ "../node_modules/polythene-mithril-base-spinner/dist/polythene-mithril-base-spinner.mjs");
+
+
+
+
+
+var classes = {
+  component: "pe-ios-spinner",
+
+  // elements
+  blades: "pe-ios-spinner__blades",
+  blade: "pe-ios-spinner__blade"
+};
+
+var baseSpinnerClasses = {
+  component: "pe-spinner",
+
+  // elements
+  animation: "pe-spinner__animation",
+  placeholder: "pe-spinner__placeholder",
+
+  // states
+  animated: "pe-spinner--animated",
+  fab: "pe-spinner--fab",
+  large: "pe-spinner--large",
+  medium: "pe-spinner--medium",
+  permanent: "pe-spinner--permanent",
+  raised: "pe-spinner--raised",
+  regular: "pe-spinner--regular",
+  singleColor: "pe-spinner--single-color",
+  small: "pe-spinner--small",
+  visible: "pe-spinner--visible"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var SpinnerInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_ios_spinner__WEBPACK_IMPORTED_MODULE_2__["coreIOSSpinner"], { component: polythene_mithril_base_spinner__WEBPACK_IMPORTED_MODULE_3__["BaseSpinner"] }));
+
+var SpinnerToggle = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Conditional"]);
+SpinnerToggle.displayName = "IOSSpinnerToggle";
+
+var IOSSpinner = {
+  view: function view(vnode) {
+    return Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"])(SpinnerToggle, _extends({}, vnode.attrs, {
+      placeholderClassName: baseSpinnerClasses.placeholder,
+      instance: SpinnerInstance
+    }));
+  }
+};
+
+IOSSpinner.classes = classes;
+IOSSpinner.displayName = "IOSSpinner";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-list-tile/dist/polythene-mithril-list-tile.mjs":
+/*!****************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-list-tile/dist/polythene-mithril-list-tile.mjs ***!
+  \****************************************************************************************/
+/*! exports provided: ListTile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListTile", function() { return ListTile; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_list_tile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-list-tile */ "../node_modules/polythene-core-list-tile/dist/polythene-core-list-tile.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-ripple */ "../node_modules/polythene-mithril-ripple/dist/polythene-mithril-ripple.mjs");
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var ListTile = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_list_tile__WEBPACK_IMPORTED_MODULE_1__["coreListTile"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_list_tile__WEBPACK_IMPORTED_MODULE_1__["coreListTile"].createProps(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"], Ripple: polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_3__["Ripple"] }));
+  },
+  createContent: function createContent(vnode, args) {
+    return polythene_core_list_tile__WEBPACK_IMPORTED_MODULE_1__["coreListTile"].createContent(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"], Ripple: polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_3__["Ripple"] }));
+  }
+}));
+
+ListTile.displayName = "ListTile";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-list/dist/polythene-mithril-list.mjs":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-list/dist/polythene-mithril-list.mjs ***!
+  \******************************************************************************/
+/*! exports provided: List */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "List", function() { return List; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-list */ "../node_modules/polythene-core-list/dist/polythene-core-list.mjs");
+/* harmony import */ var polythene_mithril_list_tile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-list-tile */ "../node_modules/polythene-mithril-list-tile/dist/polythene-mithril-list-tile.mjs");
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var List = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_list__WEBPACK_IMPORTED_MODULE_1__["coreList"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_list__WEBPACK_IMPORTED_MODULE_1__["coreList"].createProps(vnode, _extends(args, { ListTile: polythene_mithril_list_tile__WEBPACK_IMPORTED_MODULE_2__["ListTile"] }));
+  },
+  createContent: function createContent(vnode, args) {
+    return polythene_core_list__WEBPACK_IMPORTED_MODULE_1__["coreList"].createContent(vnode, _extends(args, { ListTile: polythene_mithril_list_tile__WEBPACK_IMPORTED_MODULE_2__["ListTile"] }));
+  }
+}));
+
+List.displayName = "List";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-material-design-progress-spinner/dist/polythene-mithril-material-design-progress-spinner.mjs":
+/*!**************************************************************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-material-design-progress-spinner/dist/polythene-mithril-material-design-progress-spinner.mjs ***!
+  \**************************************************************************************************************************************/
+/*! exports provided: MaterialDesignProgressSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MaterialDesignProgressSpinner", function() { return MaterialDesignProgressSpinner; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_material_design_progress_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-material-design-progress-spinner */ "../node_modules/polythene-core-material-design-progress-spinner/dist/polythene-core-material-design-progress-spinner.mjs");
+/* harmony import */ var polythene_mithril_base_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-base-spinner */ "../node_modules/polythene-mithril-base-spinner/dist/polythene-mithril-base-spinner.mjs");
+
+
+
+
+
+var classes = {
+  component: "pe-md-progress-spinner",
+
+  // elements
+  animation: "pe-md-progress-spinner__animation",
+  circle: "pe-md-progress-spinner__circle",
+  circleRight: "pe-md-progress-spinner__circle-right",
+  circleLeft: "pe-md-progress-spinner__circle-left"
+};
+
+var baseSpinnerClasses = {
+  component: "pe-spinner",
+
+  // elements
+  animation: "pe-spinner__animation",
+  placeholder: "pe-spinner__placeholder",
+
+  // states
+  animated: "pe-spinner--animated",
+  fab: "pe-spinner--fab",
+  large: "pe-spinner--large",
+  medium: "pe-spinner--medium",
+  permanent: "pe-spinner--permanent",
+  raised: "pe-spinner--raised",
+  regular: "pe-spinner--regular",
+  singleColor: "pe-spinner--single-color",
+  small: "pe-spinner--small",
+  visible: "pe-spinner--visible"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var SpinnerInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_material_design_progress_spinner__WEBPACK_IMPORTED_MODULE_2__["coreMaterialDesignProgressSpinner"], { component: polythene_mithril_base_spinner__WEBPACK_IMPORTED_MODULE_3__["BaseSpinner"] }));
+
+var SpinnerToggle = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Conditional"]);
+SpinnerToggle.displayName = "MaterialDesignProgressSpinnerToggle";
+
+var MaterialDesignProgressSpinner = {
+  view: function view(vnode) {
+    return Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"])(SpinnerToggle, _extends({}, vnode.attrs, {
+      placeholderClassName: baseSpinnerClasses.placeholder,
+      instance: SpinnerInstance
+    }));
+  }
+};
+
+MaterialDesignProgressSpinner.classes = classes;
+MaterialDesignProgressSpinner.displayName = "MaterialDesignProgressSpinner";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-material-design-spinner/dist/polythene-mithril-material-design-spinner.mjs":
+/*!********************************************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-material-design-spinner/dist/polythene-mithril-material-design-spinner.mjs ***!
+  \********************************************************************************************************************/
+/*! exports provided: MaterialDesignSpinner */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MaterialDesignSpinner", function() { return MaterialDesignSpinner; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_material_design_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-material-design-spinner */ "../node_modules/polythene-core-material-design-spinner/dist/polythene-core-material-design-spinner.mjs");
+/* harmony import */ var polythene_mithril_base_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-base-spinner */ "../node_modules/polythene-mithril-base-spinner/dist/polythene-mithril-base-spinner.mjs");
+
+
+
+
+
+var classes = {
+  component: "pe-md-spinner",
+
+  // elements
+  animation: "pe-md-spinner__animation",
+  circle: "pe-md-spinner__circle",
+  circleClipper: "pe-md-spinner__circle-clipper",
+  circleClipperLeft: "pe-md-spinner__circle-clipper-left",
+  circleClipperRight: "pe-md-spinner__circle-clipper-right",
+  gapPatch: "pe-md-spinner__gap-patch",
+  layer: "pe-md-spinner__layer",
+  layerN: "pe-md-spinner__layer-"
+};
+
+var baseSpinnerClasses = {
+  component: "pe-spinner",
+
+  // elements
+  animation: "pe-spinner__animation",
+  placeholder: "pe-spinner__placeholder",
+
+  // states
+  animated: "pe-spinner--animated",
+  fab: "pe-spinner--fab",
+  large: "pe-spinner--large",
+  medium: "pe-spinner--medium",
+  permanent: "pe-spinner--permanent",
+  raised: "pe-spinner--raised",
+  regular: "pe-spinner--regular",
+  singleColor: "pe-spinner--single-color",
+  small: "pe-spinner--small",
+  visible: "pe-spinner--visible"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var SpinnerInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_material_design_spinner__WEBPACK_IMPORTED_MODULE_2__["coreMaterialDesignSpinner"], { component: polythene_mithril_base_spinner__WEBPACK_IMPORTED_MODULE_3__["BaseSpinner"] }));
+
+var SpinnerToggle = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Conditional"]);
+SpinnerToggle.displayName = "MaterialDesignSpinnerToggle";
+
+var MaterialDesignSpinner = {
+  view: function view(vnode) {
+    return Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"])(SpinnerToggle, _extends({}, vnode.attrs, {
+      placeholderClassName: baseSpinnerClasses.placeholder,
+      instance: SpinnerInstance
+    }));
+  }
+};
+
+MaterialDesignSpinner.classes = classes;
+MaterialDesignSpinner.displayName = "MaterialDesignSpinner";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-menu/dist/polythene-mithril-menu.mjs":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-menu/dist/polythene-mithril-menu.mjs ***!
+  \******************************************************************************/
+/*! exports provided: Menu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Menu", function() { return Menu; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-menu */ "../node_modules/polythene-core-menu/dist/polythene-core-menu.mjs");
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+
+
+
+
+
+var listTileClasses = {
+  component: "pe-list-tile",
+
+  // elements
+  content: "pe-list-tile__content",
+  highSubtitle: "pe-list-tile__high-subtitle",
+  primary: "pe-list-tile__primary",
+  secondary: "pe-list-tile__secondary",
+  subtitle: "pe-list-tile__subtitle",
+  title: "pe-list-tile__title",
+  contentFront: "pe-list-tile__content-front",
+
+  // states
+  compact: "pe-list-tile--compact",
+  compactFront: "pe-list-tile--compact-front",
+  disabled: "pe-list-tile--disabled",
+  hasFront: "pe-list-tile--front",
+  hasHighSubtitle: "pe-list-tile--high-subtitle",
+  hasSubtitle: "pe-list-tile--subtitle",
+  header: "pe-list-tile--header",
+  hoverable: "pe-list-tile--hoverable",
+  selectable: "pe-list-tile--selectable",
+  selected: "pe-list-tile--selected",
+  highlight: "pe-list-tile--highlight",
+  sticky: "pe-list-tile--sticky",
+  navigation: "pe-list-tile--navigation"
+};
+
+var classes = {
+  component: "pe-menu",
+
+  // elements
+  panel: "pe-menu__panel",
+  content: "pe-menu__content",
+  placeholder: "pe-menu__placeholder",
+  backdrop: "pe-menu__backdrop",
+
+  // states
+  floating: "pe-menu--floating",
+  origin: "pe-menu--origin",
+  permanent: "pe-menu--permanent",
+  showBackdrop: "pe-menu--backdrop",
+  visible: "pe-menu--visible",
+  width_auto: "pe-menu--width-auto",
+  width_n: "pe-menu--width-",
+  isTopMenu: "pe-menu--top-menu",
+
+  // lookup
+  listTile: listTileClasses.component,
+  selectedListTile: listTileClasses.selected
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var MenuInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_menu__WEBPACK_IMPORTED_MODULE_2__["coreMenu"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_menu__WEBPACK_IMPORTED_MODULE_2__["coreMenu"].createContent(vnode, _extends(args, { Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_3__["Shadow"] }));
+  }
+}));
+
+var MenuToggle = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Conditional"]);
+MenuToggle.displayName = "MenuToggle";
+
+var Menu = {
+  view: function view(vnode) {
+    return Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"])(MenuToggle, _extends({}, vnode.attrs, {
+      placeholderClassName: classes.placeholder,
+      instance: MenuInstance
+    }));
+  }
+};
+
+Menu.displayName = "Menu";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-notification/dist/polythene-mithril-notification.mjs":
+/*!**********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-notification/dist/polythene-mithril-notification.mjs ***!
+  \**********************************************************************************************/
+/*! exports provided: NotificationInstance, Notification */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationInstance", function() { return NotificationInstance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Notification", function() { return Notification; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_notification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-notification */ "../node_modules/polythene-core-notification/dist/polythene-core-notification.mjs");
+
+
+
+
+var classes = {
+  component: "pe-notification",
+
+  // elements
+  action: "pe-notification__action",
+  content: "pe-notification__content",
+  holder: "pe-notification__holder",
+  placeholder: "pe-notification__placeholder",
+  title: "pe-notification__title",
+
+  // states
+  hasContainer: "pe-notification--container",
+  horizontal: "pe-notification--horizontal",
+  multilineTitle: "pe-notification__title--multi-line",
+  vertical: "pe-notification--vertical",
+  visible: "pe-notification--visible"
+};
+
+var NotificationInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core_notification__WEBPACK_IMPORTED_MODULE_2__["coreNotificationInstance"]);
+
+NotificationInstance.displayName = "NotificationInstance";
+
+var options = {
+  name: "notification",
+  className: classes.component,
+  htmlShowClass: classes.open,
+  defaultId: "default_notification",
+  holderSelector: "." + classes.holder,
+  instance: NotificationInstance,
+  placeholder: "span." + classes.placeholder,
+  queue: true
+};
+
+var Multiple = Object(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Multi"])({ options: options, renderer: polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"] });
+var Notification = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(Multiple);
+Object.getOwnPropertyNames(Multiple).forEach(function (p) {
+  return Notification[p] = Multiple[p];
+});
+
+Notification.displayName = "Notification";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-radio-button/dist/polythene-mithril-radio-button.mjs":
+/*!**********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-radio-button/dist/polythene-mithril-radio-button.mjs ***!
+  \**********************************************************************************************/
+/*! exports provided: RadioButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RadioButton", function() { return RadioButton; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-selection-control */ "../node_modules/polythene-core-selection-control/dist/polythene-core-selection-control.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-icon-button */ "../node_modules/polythene-mithril-icon-button/dist/polythene-mithril-icon-button.mjs");
+/* harmony import */ var polythene_core_radio_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-core-radio-button */ "../node_modules/polythene-core-radio-button/dist/polythene-core-radio-button.mjs");
+
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var ViewControl = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["viewControl"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["viewControl"].createContent(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"], IconButton: polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_3__["IconButton"] }));
+  }
+}));
+
+ViewControl.displayName = "ViewControl";
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var SelectionControl = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$1({}, polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["coreSelectionControl"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_1__["coreSelectionControl"].createContent(vnode, _extends$1(args, { ViewControl: ViewControl }));
+  }
+}));
+
+SelectionControl.displayName = "SelectionControl";
+
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var RadioButton = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$2({}, polythene_core_radio_button__WEBPACK_IMPORTED_MODULE_4__["coreRadioButton"], {
+  component: SelectionControl
+}));
+
+RadioButton.displayName = "RadioButton";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-radio-group/dist/polythene-mithril-radio-group.mjs":
+/*!********************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-radio-group/dist/polythene-mithril-radio-group.mjs ***!
+  \********************************************************************************************/
+/*! exports provided: RadioGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RadioGroup", function() { return RadioGroup; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_radio_group__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-radio-group */ "../node_modules/polythene-core-radio-group/dist/polythene-core-radio-group.mjs");
+/* harmony import */ var polythene_mithril_radio_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-radio-button */ "../node_modules/polythene-mithril-radio-button/dist/polythene-mithril-radio-button.mjs");
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var RadioGroup = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_radio_group__WEBPACK_IMPORTED_MODULE_1__["coreRadioGroup"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_radio_group__WEBPACK_IMPORTED_MODULE_1__["coreRadioGroup"].createContent(vnode, _extends(args, { RadioButton: polythene_mithril_radio_button__WEBPACK_IMPORTED_MODULE_2__["RadioButton"] }));
+  }
+}));
+
+RadioGroup.displayName = "RadioGroup";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-raised-button/dist/polythene-mithril-raised-button.mjs":
+/*!************************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-raised-button/dist/polythene-mithril-raised-button.mjs ***!
+  \************************************************************************************************/
+/*! exports provided: RaisedButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RaisedButton", function() { return RaisedButton; });
+/* harmony import */ var polythene_mithril_button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-button */ "../node_modules/polythene-mithril-button/dist/polythene-mithril-button.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var RaisedButton = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_2__["ViewComponent"])({
+  onMount: function onMount() {
+    Object(polythene_core__WEBPACK_IMPORTED_MODULE_1__["deprecation"])("RaisedButton", { newComponent: "Button", newOption: "raised: true" });
+  },
+  view: function view(vnode) {
+    return Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_2__["renderer"])(polythene_mithril_button__WEBPACK_IMPORTED_MODULE_0__["Button"], _extends({}, { raised: true }, vnode.attrs), vnode.children);
+  }
+});
+
+RaisedButton.displayName = "RaisedButton";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-ripple/dist/polythene-mithril-ripple.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-ripple/dist/polythene-mithril-ripple.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: Ripple */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ripple", function() { return Ripple; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_ripple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-ripple */ "../node_modules/polythene-core-ripple/dist/polythene-core-ripple.mjs");
+
+
+
+var Ripple = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core_ripple__WEBPACK_IMPORTED_MODULE_1__["coreRipple"]);
+
+Ripple.displayName = "Ripple";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-search/dist/polythene-mithril-search.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-search/dist/polythene-mithril-search.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: Search */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Search", function() { return Search; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-search */ "../node_modules/polythene-core-search/dist/polythene-core-search.mjs");
+/* harmony import */ var polythene_mithril_textfield__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-textfield */ "../node_modules/polythene-mithril-textfield/dist/polythene-mithril-textfield.mjs");
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Search = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends({}, polythene_core_search__WEBPACK_IMPORTED_MODULE_1__["coreSearch"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_search__WEBPACK_IMPORTED_MODULE_1__["coreSearch"].createContent(vnode, _extends(args, { TextField: polythene_mithril_textfield__WEBPACK_IMPORTED_MODULE_2__["TextField"] }));
+  }
+}));
+
+Search.displayName = "Search";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: Shadow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shadow", function() { return Shadow; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_shadow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-shadow */ "../node_modules/polythene-core-shadow/dist/polythene-core-shadow.mjs");
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Shadow = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_shadow__WEBPACK_IMPORTED_MODULE_1__["coreShadow"]));
+
+Shadow.displayName = "Shadow";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-slider/dist/polythene-mithril-slider.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-slider/dist/polythene-mithril-slider.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: Slider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Slider", function() { return Slider; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-slider */ "../node_modules/polythene-core-slider/dist/polythene-core-slider.mjs");
+
+
+
+var Slider = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core_slider__WEBPACK_IMPORTED_MODULE_1__["coreSlider"]);
+
+Slider.displayName = "Slider";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-snackbar/dist/polythene-mithril-snackbar.mjs":
+/*!**************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-snackbar/dist/polythene-mithril-snackbar.mjs ***!
+  \**************************************************************************************/
+/*! exports provided: SnackbarInstance, Snackbar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SnackbarInstance", function() { return SnackbarInstance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Snackbar", function() { return Snackbar; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+/* harmony import */ var polythene_core_snackbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-core-snackbar */ "../node_modules/polythene-core-snackbar/dist/polythene-core-snackbar.mjs");
+
+
+
+
+var notificationClasses = {
+  component: "pe-notification",
+
+  // elements
+  action: "pe-notification__action",
+  content: "pe-notification__content",
+  holder: "pe-notification__holder",
+  placeholder: "pe-notification__placeholder",
+  title: "pe-notification__title",
+
+  // states
+  hasContainer: "pe-notification--container",
+  horizontal: "pe-notification--horizontal",
+  multilineTitle: "pe-notification__title--multi-line",
+  vertical: "pe-notification--vertical",
+  visible: "pe-notification--visible"
+};
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var classes = _extends({}, notificationClasses, {
+  component: "pe-notification pe-snackbar",
+
+  // elements
+  holder: "pe-snackbar__holder",
+  placeholder: "pe-snackbar__placeholder",
+
+  // states
+  open: "pe-snackbar--open"
+});
+
+var SnackbarInstance = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core_snackbar__WEBPACK_IMPORTED_MODULE_2__["coreSnackbarInstance"]);
+
+SnackbarInstance.displayName = "SnackbarInstance";
+
+var options = {
+  name: "snackbar",
+  className: classes.component,
+  htmlShowClass: classes.open,
+  defaultId: "default_snackbar",
+  holderSelector: "." + classes.holder,
+  instance: SnackbarInstance,
+  placeholder: "span." + classes.placeholder,
+  queue: true,
+  transitions: polythene_core_snackbar__WEBPACK_IMPORTED_MODULE_2__["transitions"]
+};
+
+var Multiple = Object(polythene_core__WEBPACK_IMPORTED_MODULE_1__["Multi"])({ options: options, renderer: polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"] });
+var Snackbar = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(Multiple);
+Object.getOwnPropertyNames(Multiple).forEach(function (p) {
+  return Snackbar[p] = Multiple[p];
+});
+
+Snackbar.displayName = "Snackbar";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-svg/dist/polythene-mithril-svg.mjs":
+/*!****************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-svg/dist/polythene-mithril-svg.mjs ***!
+  \****************************************************************************/
+/*! exports provided: SVG */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SVG", function() { return SVG; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-svg */ "../node_modules/polythene-core-svg/dist/polythene-core-svg.mjs");
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var SVG = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_svg__WEBPACK_IMPORTED_MODULE_1__["coreSVG"]));
+
+SVG.displayName = "SVG";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-switch/dist/polythene-mithril-switch.mjs":
+/*!**********************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-switch/dist/polythene-mithril-switch.mjs ***!
+  \**********************************************************************************/
+/*! exports provided: Switch */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return Switch; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_switch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-switch */ "../node_modules/polythene-core-switch/dist/polythene-core-switch.mjs");
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+/* harmony import */ var polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-icon-button */ "../node_modules/polythene-mithril-icon-button/dist/polythene-mithril-icon-button.mjs");
+/* harmony import */ var polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-core-selection-control */ "../node_modules/polythene-core-selection-control/dist/polythene-core-selection-control.mjs");
+
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var ViewControl = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_switch__WEBPACK_IMPORTED_MODULE_1__["viewControl"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_switch__WEBPACK_IMPORTED_MODULE_1__["viewControl"].createContent(vnode, _extends(args, { Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_2__["Shadow"], IconButton: polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_3__["IconButton"] }));
+  }
+}));
+
+ViewControl.displayName = "ViewControl";
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var SelectionControl = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$1({}, polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_4__["coreSelectionControl"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_selection_control__WEBPACK_IMPORTED_MODULE_4__["coreSelectionControl"].createContent(vnode, _extends$1(args, { ViewControl: ViewControl }));
+  }
+}));
+
+SelectionControl.displayName = "SelectionControl";
+
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Switch = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$2({}, polythene_core_switch__WEBPACK_IMPORTED_MODULE_1__["coreSwitch"], {
+  component: SelectionControl
+}));
+
+Switch.displayName = "Switch";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-tabs/dist/polythene-mithril-tabs.mjs":
+/*!******************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-tabs/dist/polythene-mithril-tabs.mjs ***!
+  \******************************************************************************/
+/*! exports provided: Tabs */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return Tabs; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-tabs */ "../node_modules/polythene-core-tabs/dist/polythene-core-tabs.mjs");
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony import */ var polythene_mithril_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-button */ "../node_modules/polythene-mithril-button/dist/polythene-mithril-button.mjs");
+/* harmony import */ var polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-mithril-icon-button */ "../node_modules/polythene-mithril-icon-button/dist/polythene-mithril-icon-button.mjs");
+
+
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Tab = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_tabs__WEBPACK_IMPORTED_MODULE_1__["coreTab"], {
+  createProps: function createProps(vnode, args) {
+    return polythene_core_tabs__WEBPACK_IMPORTED_MODULE_1__["coreTab"].createProps(vnode, _extends(args, { Icon: polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_2__["Icon"] }));
+  },
+  component: polythene_mithril_button__WEBPACK_IMPORTED_MODULE_3__["Button"]
+}));
+
+Tab.displayName = "Tab";
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var ScrollButton = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends$1({}, polythene_core_tabs__WEBPACK_IMPORTED_MODULE_1__["coreScrollButton"], {
+  component: polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_4__["IconButton"]
+}));
+
+ScrollButton.displayName = "ScrollButton";
+
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Tabs = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(_extends$2({}, polythene_core_tabs__WEBPACK_IMPORTED_MODULE_1__["coreTabs"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_tabs__WEBPACK_IMPORTED_MODULE_1__["coreTabs"].createContent(vnode, _extends$2(args, { Tab: Tab, ScrollButton: ScrollButton }));
+  }
+}));
+
+Tabs.displayName = "Tabs";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-textfield/dist/polythene-mithril-textfield.mjs":
+/*!****************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-textfield/dist/polythene-mithril-textfield.mjs ***!
+  \****************************************************************************************/
+/*! exports provided: TextField */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextField", function() { return TextField; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_textfield__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-textfield */ "../node_modules/polythene-core-textfield/dist/polythene-core-textfield.mjs");
+
+
+
+var TextField = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"])(polythene_core_textfield__WEBPACK_IMPORTED_MODULE_1__["coreTextField"]);
+
+TextField.displayName = "TextField";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril-toolbar/dist/polythene-mithril-toolbar.mjs":
+/*!************************************************************************************!*\
+  !*** ../node_modules/polythene-mithril-toolbar/dist/polythene-mithril-toolbar.mjs ***!
+  \************************************************************************************/
+/*! exports provided: Toolbar, ToolbarTitle */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Toolbar", function() { return Toolbar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ToolbarTitle", function() { return ToolbarTitle; });
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony import */ var polythene_core_toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-core-toolbar */ "../node_modules/polythene-core-toolbar/dist/polythene-core-toolbar.mjs");
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+
+
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var Toolbar = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(_extends({}, polythene_core_toolbar__WEBPACK_IMPORTED_MODULE_1__["coreToolbar"], {
+  createContent: function createContent(vnode, args) {
+    return polythene_core_toolbar__WEBPACK_IMPORTED_MODULE_1__["coreToolbar"].createContent(vnode, _extends(args, { Shadow: polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_2__["Shadow"] }));
+  }
+}));
+
+Toolbar.displayName = "Toolbar";
+
+var ToolbarTitle = Object(polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"])(polythene_core_toolbar__WEBPACK_IMPORTED_MODULE_1__["coreToolbarTitle"]);
+
+ToolbarTitle.displayName = "ToolbarTitle";
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-mithril/dist/polythene-mithril.mjs":
+/*!********************************************************************!*\
+  !*** ../node_modules/polythene-mithril/dist/polythene-mithril.mjs ***!
+  \********************************************************************/
+/*! exports provided: keys, renderer, StateComponent, ViewComponent, Button, ButtonGroup, Card, Checkbox, DialogInstance, Dialog, DialogPane, Drawer, FAB, Icon, IconButton, IOSSpinner, List, ListTile, MaterialDesignProgressSpinner, MaterialDesignSpinner, Menu, NotificationInstance, Notification, RadioButton, RadioGroup, RaisedButton, Ripple, Search, Shadow, Slider, SnackbarInstance, Snackbar, SVG, Switch, Tabs, TextField, Toolbar, ToolbarTitle */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-mithril-base */ "../node_modules/polythene-mithril-base/dist/polythene-mithril-base.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "keys", function() { return polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["keys"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "renderer", function() { return polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["renderer"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StateComponent", function() { return polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["StateComponent"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewComponent", function() { return polythene_mithril_base__WEBPACK_IMPORTED_MODULE_0__["ViewComponent"]; });
+
+/* harmony import */ var polythene_mithril_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-mithril-button */ "../node_modules/polythene-mithril-button/dist/polythene-mithril-button.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return polythene_mithril_button__WEBPACK_IMPORTED_MODULE_1__["Button"]; });
+
+/* harmony import */ var polythene_mithril_button_group__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-mithril-button-group */ "../node_modules/polythene-mithril-button-group/dist/polythene-mithril-button-group.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ButtonGroup", function() { return polythene_mithril_button_group__WEBPACK_IMPORTED_MODULE_2__["ButtonGroup"]; });
+
+/* harmony import */ var polythene_mithril_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-mithril-card */ "../node_modules/polythene-mithril-card/dist/polythene-mithril-card.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Card", function() { return polythene_mithril_card__WEBPACK_IMPORTED_MODULE_3__["Card"]; });
+
+/* harmony import */ var polythene_mithril_checkbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! polythene-mithril-checkbox */ "../node_modules/polythene-mithril-checkbox/dist/polythene-mithril-checkbox.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Checkbox", function() { return polythene_mithril_checkbox__WEBPACK_IMPORTED_MODULE_4__["Checkbox"]; });
+
+/* harmony import */ var polythene_mithril_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! polythene-mithril-dialog */ "../node_modules/polythene-mithril-dialog/dist/polythene-mithril-dialog.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DialogInstance", function() { return polythene_mithril_dialog__WEBPACK_IMPORTED_MODULE_5__["DialogInstance"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Dialog", function() { return polythene_mithril_dialog__WEBPACK_IMPORTED_MODULE_5__["Dialog"]; });
+
+/* harmony import */ var polythene_mithril_dialog_pane__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! polythene-mithril-dialog-pane */ "../node_modules/polythene-mithril-dialog-pane/dist/polythene-mithril-dialog-pane.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DialogPane", function() { return polythene_mithril_dialog_pane__WEBPACK_IMPORTED_MODULE_6__["DialogPane"]; });
+
+/* harmony import */ var polythene_mithril_drawer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! polythene-mithril-drawer */ "../node_modules/polythene-mithril-drawer/dist/polythene-mithril-drawer.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Drawer", function() { return polythene_mithril_drawer__WEBPACK_IMPORTED_MODULE_7__["Drawer"]; });
+
+/* harmony import */ var polythene_mithril_fab__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! polythene-mithril-fab */ "../node_modules/polythene-mithril-fab/dist/polythene-mithril-fab.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FAB", function() { return polythene_mithril_fab__WEBPACK_IMPORTED_MODULE_8__["FAB"]; });
+
+/* harmony import */ var polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! polythene-mithril-icon */ "../node_modules/polythene-mithril-icon/dist/polythene-mithril-icon.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Icon", function() { return polythene_mithril_icon__WEBPACK_IMPORTED_MODULE_9__["Icon"]; });
+
+/* harmony import */ var polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! polythene-mithril-icon-button */ "../node_modules/polythene-mithril-icon-button/dist/polythene-mithril-icon-button.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IconButton", function() { return polythene_mithril_icon_button__WEBPACK_IMPORTED_MODULE_10__["IconButton"]; });
+
+/* harmony import */ var polythene_mithril_ios_spinner__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! polythene-mithril-ios-spinner */ "../node_modules/polythene-mithril-ios-spinner/dist/polythene-mithril-ios-spinner.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IOSSpinner", function() { return polythene_mithril_ios_spinner__WEBPACK_IMPORTED_MODULE_11__["IOSSpinner"]; });
+
+/* harmony import */ var polythene_mithril_list__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! polythene-mithril-list */ "../node_modules/polythene-mithril-list/dist/polythene-mithril-list.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "List", function() { return polythene_mithril_list__WEBPACK_IMPORTED_MODULE_12__["List"]; });
+
+/* harmony import */ var polythene_mithril_list_tile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! polythene-mithril-list-tile */ "../node_modules/polythene-mithril-list-tile/dist/polythene-mithril-list-tile.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ListTile", function() { return polythene_mithril_list_tile__WEBPACK_IMPORTED_MODULE_13__["ListTile"]; });
+
+/* harmony import */ var polythene_mithril_material_design_progress_spinner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! polythene-mithril-material-design-progress-spinner */ "../node_modules/polythene-mithril-material-design-progress-spinner/dist/polythene-mithril-material-design-progress-spinner.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MaterialDesignProgressSpinner", function() { return polythene_mithril_material_design_progress_spinner__WEBPACK_IMPORTED_MODULE_14__["MaterialDesignProgressSpinner"]; });
+
+/* harmony import */ var polythene_mithril_material_design_spinner__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! polythene-mithril-material-design-spinner */ "../node_modules/polythene-mithril-material-design-spinner/dist/polythene-mithril-material-design-spinner.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MaterialDesignSpinner", function() { return polythene_mithril_material_design_spinner__WEBPACK_IMPORTED_MODULE_15__["MaterialDesignSpinner"]; });
+
+/* harmony import */ var polythene_mithril_menu__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! polythene-mithril-menu */ "../node_modules/polythene-mithril-menu/dist/polythene-mithril-menu.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Menu", function() { return polythene_mithril_menu__WEBPACK_IMPORTED_MODULE_16__["Menu"]; });
+
+/* harmony import */ var polythene_mithril_notification__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! polythene-mithril-notification */ "../node_modules/polythene-mithril-notification/dist/polythene-mithril-notification.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NotificationInstance", function() { return polythene_mithril_notification__WEBPACK_IMPORTED_MODULE_17__["NotificationInstance"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Notification", function() { return polythene_mithril_notification__WEBPACK_IMPORTED_MODULE_17__["Notification"]; });
+
+/* harmony import */ var polythene_mithril_radio_button__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! polythene-mithril-radio-button */ "../node_modules/polythene-mithril-radio-button/dist/polythene-mithril-radio-button.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioButton", function() { return polythene_mithril_radio_button__WEBPACK_IMPORTED_MODULE_18__["RadioButton"]; });
+
+/* harmony import */ var polythene_mithril_radio_group__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! polythene-mithril-radio-group */ "../node_modules/polythene-mithril-radio-group/dist/polythene-mithril-radio-group.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioGroup", function() { return polythene_mithril_radio_group__WEBPACK_IMPORTED_MODULE_19__["RadioGroup"]; });
+
+/* harmony import */ var polythene_mithril_raised_button__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! polythene-mithril-raised-button */ "../node_modules/polythene-mithril-raised-button/dist/polythene-mithril-raised-button.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RaisedButton", function() { return polythene_mithril_raised_button__WEBPACK_IMPORTED_MODULE_20__["RaisedButton"]; });
+
+/* harmony import */ var polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! polythene-mithril-ripple */ "../node_modules/polythene-mithril-ripple/dist/polythene-mithril-ripple.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Ripple", function() { return polythene_mithril_ripple__WEBPACK_IMPORTED_MODULE_21__["Ripple"]; });
+
+/* harmony import */ var polythene_mithril_search__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! polythene-mithril-search */ "../node_modules/polythene-mithril-search/dist/polythene-mithril-search.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Search", function() { return polythene_mithril_search__WEBPACK_IMPORTED_MODULE_22__["Search"]; });
+
+/* harmony import */ var polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! polythene-mithril-shadow */ "../node_modules/polythene-mithril-shadow/dist/polythene-mithril-shadow.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Shadow", function() { return polythene_mithril_shadow__WEBPACK_IMPORTED_MODULE_23__["Shadow"]; });
+
+/* harmony import */ var polythene_mithril_slider__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! polythene-mithril-slider */ "../node_modules/polythene-mithril-slider/dist/polythene-mithril-slider.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Slider", function() { return polythene_mithril_slider__WEBPACK_IMPORTED_MODULE_24__["Slider"]; });
+
+/* harmony import */ var polythene_mithril_snackbar__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! polythene-mithril-snackbar */ "../node_modules/polythene-mithril-snackbar/dist/polythene-mithril-snackbar.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SnackbarInstance", function() { return polythene_mithril_snackbar__WEBPACK_IMPORTED_MODULE_25__["SnackbarInstance"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Snackbar", function() { return polythene_mithril_snackbar__WEBPACK_IMPORTED_MODULE_25__["Snackbar"]; });
+
+/* harmony import */ var polythene_mithril_svg__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! polythene-mithril-svg */ "../node_modules/polythene-mithril-svg/dist/polythene-mithril-svg.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SVG", function() { return polythene_mithril_svg__WEBPACK_IMPORTED_MODULE_26__["SVG"]; });
+
+/* harmony import */ var polythene_mithril_switch__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! polythene-mithril-switch */ "../node_modules/polythene-mithril-switch/dist/polythene-mithril-switch.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return polythene_mithril_switch__WEBPACK_IMPORTED_MODULE_27__["Switch"]; });
+
+/* harmony import */ var polythene_mithril_tabs__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! polythene-mithril-tabs */ "../node_modules/polythene-mithril-tabs/dist/polythene-mithril-tabs.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return polythene_mithril_tabs__WEBPACK_IMPORTED_MODULE_28__["Tabs"]; });
+
+/* harmony import */ var polythene_mithril_textfield__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! polythene-mithril-textfield */ "../node_modules/polythene-mithril-textfield/dist/polythene-mithril-textfield.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TextField", function() { return polythene_mithril_textfield__WEBPACK_IMPORTED_MODULE_29__["TextField"]; });
+
+/* harmony import */ var polythene_mithril_toolbar__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! polythene-mithril-toolbar */ "../node_modules/polythene-mithril-toolbar/dist/polythene-mithril-toolbar.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Toolbar", function() { return polythene_mithril_toolbar__WEBPACK_IMPORTED_MODULE_30__["Toolbar"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ToolbarTitle", function() { return polythene_mithril_toolbar__WEBPACK_IMPORTED_MODULE_30__["ToolbarTitle"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-style/dist/polythene-style.mjs":
+/*!****************************************************************!*\
+  !*** ../node_modules/polythene-style/dist/polythene-style.mjs ***!
+  \****************************************************************/
+/*! exports provided: vars */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vars", function() { return vars; });
+// Global style variables
+
+var grid_unit = 4;
+var grid_unit_component = 8;
+var increment = 7 * grid_unit_component; // 7 * 8 = 56
+var increment_large = 8 * grid_unit_component; // 8 * 8 = 64
+
+var animation_curve_slow_in_fast_out = "cubic-bezier(.4, 0, .2, 1)";
+var animation_curve_slow_in_linear_out = "cubic-bezier(0, 0, .2, 1)";
+var animation_curve_linear_in_fast_out = "cubic-bezier(.4, 0, 1, 1)";
+
+var vars = {
+  // grid
+  grid_unit: grid_unit,
+  grid_unit_component: grid_unit_component,
+  increment: increment,
+  increment_large: increment_large,
+  grid_unit_menu: 56,
+  grid_unit_icon_button: 6 * grid_unit_component, // 48
+
+  // common sizes
+  unit_block_border_radius: 4,
+  unit_item_border_radius: 4,
+  unit_indent: 72,
+  unit_side_padding: 16,
+
+  // buttons
+  unit_touch_height: 48,
+  unit_icon_size_small: 2 * grid_unit_component, // 16
+  unit_icon_size: 3 * grid_unit_component, // 24
+  unit_icon_size_medium: 4 * grid_unit_component, // 32
+  unit_icon_size_large: 5 * grid_unit_component, // 40
+
+  // screen dimensions
+  unit_screen_size_extra_large: 1280,
+  unit_screen_size_large: 960,
+  unit_screen_size_medium: 480,
+  unit_screen_size_small: 320,
+
+  // transitions
+  animation_duration: ".18s",
+  animation_curve_slow_in_fast_out: animation_curve_slow_in_fast_out,
+  animation_curve_slow_in_linear_out: animation_curve_slow_in_linear_out,
+  animation_curve_linear_in_fast_out: animation_curve_linear_in_fast_out,
+  animation_curve_default: "ease-out",
+
+  // font
+  font_weight_light: 300,
+  font_weight_normal: 400,
+  font_weight_medium: 500,
+  font_weight_bold: 700,
+  font_size_title: 20,
+  line_height: 1.5,
+
+  // base colors
+  color_primary: "33, 150, 243", // blue 500
+  color_primary_active: "30, 136, 229", // blue 600
+  color_primary_dark: "25, 118, 210", // blue 700
+  color_primary_faded: "100, 181, 249", // blue 300
+  color_primary_foreground: "255, 255, 255",
+
+  color_light_background: "255, 255, 255",
+  color_light_foreground: "0, 0, 0",
+  color_dark_background: "34, 34, 34",
+  color_dark_foreground: "255, 255, 255",
+
+  // blends
+  blend_light_text_primary: .87,
+  blend_light_text_regular: .73,
+  blend_light_text_secondary: .54,
+  blend_light_text_tertiary: .40,
+  blend_light_text_disabled: .26,
+  blend_light_border_medium: .24,
+  blend_light_border_light: .11,
+  blend_light_background_active: .14,
+  blend_light_background_hover: .06,
+  blend_light_background_hover_medium: .12, // for the lighter tinted icon buttons
+  blend_light_background_disabled: .09,
+  blend_light_overlay_background: .3,
+
+  blend_dark_text_primary: 1,
+  blend_dark_text_regular: .87,
+  blend_dark_text_secondary: .70,
+  blend_dark_text_tertiary: .40,
+  blend_dark_text_disabled: .26,
+  blend_dark_border_medium: .22,
+  blend_dark_border_light: .10,
+  blend_dark_background_active: .14,
+  blend_dark_background_hover: .08,
+  blend_dark_background_hoverMedium: .12, // for the lighter tinted icon buttons
+  blend_dark_background_disabled: .12,
+  blend_dark_overlay_background: .3,
+
+  /*
+  Breakpoints
+  Specs: https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
+  Breakbpoint naming: inspiration from
+  https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+  */
+  breakpoint_for_phone_only: 599, // set max-width  cols: 4,  gutter: 16
+  breakpoint_for_tablet_portrait_up: 600, // set min-width  cols: 8,  gutter: 24
+  breakpoint_for_tablet_landscape_up: 840, // etc.           cols: 12, gutter: 24
+  breakpoint_for_desktop_up: 1280,
+  breakpoint_for_big_desktop_up: 1600,
+  breakpoint_for_tv_up: 1920,
+
+  // z-index
+  z_toolbar: 100,
+  z_menu: 1000,
+  z_app_bar: 2000,
+  z_drawer: 3000,
+  z_notification: 4000,
+  z_dialog: 5000
+};
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-theme/dist/polythene-theme.mjs":
+/*!****************************************************************!*\
+  !*** ../node_modules/polythene-theme/dist/polythene-theme.mjs ***!
+  \****************************************************************/
+/*! exports provided: vars, componentConfig */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "componentConfig", function() { return componentConfig; });
+/* harmony import */ var polythene_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-style */ "../node_modules/polythene-style/dist/polythene-style.mjs");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "vars", function() { return polythene_style__WEBPACK_IMPORTED_MODULE_0__["vars"]; });
+
+
+
+// Placeholder for custom theme config file
+// In your app paths setup, change the current path to your custom config file; see the theme README.
+
+// Example:
+
+// export const componentConfig = {
+//     Button: vars => {
+//         const mainColor = '#e4521b';
+//         const textColor = '#fff';
+//         const newVars = Object.assign(
+//           {},
+//           vars,
+//           {
+//             border_radius:                        0,
+//             color_light_raised_normal_background: mainColor,
+//             color_light_raised_normal_text:       textColor,
+//             color_dark_raised_normal_background:  mainColor,
+//             color_dark_raised_normal_text:        textColor
+//           }
+//         );
+//         return [
+//             { '': vars }, // default vars for all pages
+//             { '.example-custom-theme ': newVars } // custom vars for this selector
+//         ];
+//     }
+// };
+
+var componentConfig = {};
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/polythene-utilities/dist/polythene-utilities.mjs":
+/*!************************************************************************!*\
+  !*** ../node_modules/polythene-utilities/dist/polythene-utilities.mjs ***!
+  \************************************************************************/
+/*! exports provided: addWebFont, easing, scrollTo, Timer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addWebFont", function() { return addWebFont; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "easing", function() { return easing; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scrollTo", function() { return scrollTo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Timer", function() { return Timer; });
+/* harmony import */ var polythene_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! polythene-core */ "../node_modules/polythene-core/dist/polythene-core.mjs");
+
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var addWebFont = function addWebFont(vendor, config) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) return;
+  if (!window.WebFontConfig) {
+    var emitEvent = function emitEvent(_ref) {
+      var name = _ref.name,
+          familyName = _ref.familyName,
+          fvd = _ref.fvd;
+      return Object(polythene_core__WEBPACK_IMPORTED_MODULE_0__["emit"])("webfontloader", { name: name, familyName: familyName, fvd: fvd, vendor: vendor, config: config });
+    };
+    window.WebFontConfig = {
+      loading: function loading() {
+        return emitEvent({ name: "loading" });
+      },
+      active: function active() {
+        return emitEvent({ name: "active" });
+      },
+      inactive: function inactive() {
+        return emitEvent({ name: "inactive" });
+      },
+      fontloading: function fontloading(familyName, fvd) {
+        return emitEvent({ name: "fontloading", familyName: familyName, fvd: fvd });
+      },
+      fontactive: function fontactive(familyName, fvd) {
+        return emitEvent({ name: "fontactive", familyName: familyName, fvd: fvd });
+      },
+      fontinactive: function fontinactive(familyName, fvd) {
+        return emitEvent({ name: "fontinactive", familyName: familyName, fvd: fvd });
+      }
+    };
+    (function () {
+      var wf = document.createElement("script");
+      wf.src = (document.location.protocol === "https:" ? "https" : "http") + "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
+      wf.type = "text/javascript";
+      wf.async = "true";
+      var s = document.getElementsByTagName("script")[0];
+      if (s) {
+        s.parentNode.insertBefore(wf, s);
+      }
+    })();
+  }
+  var vendorCfg = window.WebFontConfig[vendor] || {};
+  if (config) {
+    _extends(vendorCfg, config);
+  }
+  window.WebFontConfig[vendor] = vendorCfg;
+};
+
+/*
+https://gist.github.com/gre/1650294
+Easing Functions - inspired from http://gizma.com/easing/
+Only considering the t value for the range [0, 1] => [0, 1]
+*/
+
+var easing = {
+  // no easing, no acceleration
+  linear: function linear(t) {
+    return t;
+  },
+  // accelerating from zero velocity
+  easeInQuad: function easeInQuad(t) {
+    return t * t;
+  },
+  // decelerating to zero velocity
+  easeOutQuad: function easeOutQuad(t) {
+    return t * (2 - t);
+  },
+  // acceleration until halfway, then deceleration
+  easeInOutQuad: function easeInOutQuad(t) {
+    return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  },
+  // accelerating from zero velocity
+  easeInCubic: function easeInCubic(t) {
+    return t * t * t;
+  },
+  // decelerating to zero velocity
+  easeOutCubic: function easeOutCubic(t) {
+    return --t * t * t + 1;
+  },
+  // acceleration until halfway, then deceleration
+  easeInOutCubic: function easeInOutCubic(t) {
+    return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+  },
+  // accelerating from zero velocity
+  easeInQuart: function easeInQuart(t) {
+    return t * t * t * t;
+  },
+  // decelerating to zero velocity
+  easeOutQuart: function easeOutQuart(t) {
+    return 1 - --t * t * t * t;
+  },
+  // acceleration until halfway, then deceleration
+  easeInOutQuart: function easeInOutQuart(t) {
+    return t < .5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
+  },
+  // accelerating from zero velocity
+  easeInQuint: function easeInQuint(t) {
+    return t * t * t * t * t;
+  },
+  // decelerating to zero velocity
+  easeOutQuint: function easeOutQuint(t) {
+    return 1 + --t * t * t * t * t;
+  },
+  // acceleration until halfway, then deceleration
+  easeInOutQuint: function easeInOutQuint(t) {
+    return t < .5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+  }
+};
+
+/*
+ Animated scroll to a position.
+ Derived from https://github.com/madebysource/animated-scrollto
+ Adapted to Mithril and rewritten to es6.
+*/
+
+var scrollTo = function scrollTo(opts) {
+  if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"]) {
+    return;
+  }
+  var element = opts.element;
+  var which = opts.direction === "horizontal" ? "scrollLeft" : "scrollTop";
+  var to = opts.to;
+  var duration = opts.duration * 1000;
+  var easingFn = opts.easing || easing.easeInOutCubic;
+  var start = element[which];
+  var change = to - start;
+  var animationStart = new Date().getTime();
+  var animating = true;
+  return new Promise(function (resolve) {
+    var animateScroll = function animateScroll() {
+      if (!animating) {
+        return;
+      }
+      requestAnimFrame(animateScroll);
+      var now = new Date().getTime();
+      var percentage = (now - animationStart) / duration;
+      var val = start + change * easingFn(percentage);
+      element[which] = val;
+      if (percentage >= 1) {
+        element[which] = to;
+        animating = false;
+        resolve();
+      }
+    };
+    requestAnimFrame(animateScroll);
+  });
+};
+
+var requestAnimFrame = polythene_core__WEBPACK_IMPORTED_MODULE_0__["isServer"] ? function () {} : function () {
+  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+    return window.setTimeout(callback, 1000 / 60);
+  };
+}();
+
+var Timer = function Timer() {
+  var timerId = void 0,
+      startTime = void 0,
+      remaining = void 0,
+      cb = void 0;
+
+  var stop = function stop() {
+    if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+      window.clearTimeout(timerId);
+    }
+  };
+
+  var pause = function pause() {
+    return stop(), remaining -= new Date() - startTime;
+  };
+
+  var startTimer = function startTimer() {
+    if (polythene_core__WEBPACK_IMPORTED_MODULE_0__["isClient"]) {
+      stop();
+      startTime = new Date();
+      timerId = window.setTimeout(cb, remaining);
+    }
+  };
+
+  var start = function start(callback, delaySeconds) {
+    return cb = callback, remaining = delaySeconds * 1000, startTimer();
+  };
+
+  var resume = function resume() {
+    return startTimer();
+  };
+
+  return {
+    start: start,
+    pause: pause,
+    resume: resume,
+    stop: stop
+  };
+};
+
+
+
+
+/***/ }),
+
+/***/ "../node_modules/process/browser.js":
+/*!******************************************!*\
+  !*** ../node_modules/process/browser.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ "../node_modules/setimmediate/setImmediate.js":
+/*!****************************************************!*\
+  !*** ../node_modules/setimmediate/setImmediate.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+    "use strict";
+
+    if (global.setImmediate) {
+        return;
+    }
+
+    var nextHandle = 1; // Spec says greater than zero
+    var tasksByHandle = {};
+    var currentlyRunningATask = false;
+    var doc = global.document;
+    var registerImmediate;
+
+    function setImmediate(callback) {
+      // Callback can either be a function or a string
+      if (typeof callback !== "function") {
+        callback = new Function("" + callback);
+      }
+      // Copy function arguments
+      var args = new Array(arguments.length - 1);
+      for (var i = 0; i < args.length; i++) {
+          args[i] = arguments[i + 1];
+      }
+      // Store and register the task
+      var task = { callback: callback, args: args };
+      tasksByHandle[nextHandle] = task;
+      registerImmediate(nextHandle);
+      return nextHandle++;
+    }
+
+    function clearImmediate(handle) {
+        delete tasksByHandle[handle];
+    }
+
+    function run(task) {
+        var callback = task.callback;
+        var args = task.args;
+        switch (args.length) {
+        case 0:
+            callback();
+            break;
+        case 1:
+            callback(args[0]);
+            break;
+        case 2:
+            callback(args[0], args[1]);
+            break;
+        case 3:
+            callback(args[0], args[1], args[2]);
+            break;
+        default:
+            callback.apply(undefined, args);
+            break;
+        }
+    }
+
+    function runIfPresent(handle) {
+        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+        // So if we're currently running a task, we'll need to delay this invocation.
+        if (currentlyRunningATask) {
+            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+            // "too much recursion" error.
+            setTimeout(runIfPresent, 0, handle);
+        } else {
+            var task = tasksByHandle[handle];
+            if (task) {
+                currentlyRunningATask = true;
+                try {
+                    run(task);
+                } finally {
+                    clearImmediate(handle);
+                    currentlyRunningATask = false;
+                }
+            }
+        }
+    }
+
+    function installNextTickImplementation() {
+        registerImmediate = function(handle) {
+            process.nextTick(function () { runIfPresent(handle); });
+        };
+    }
+
+    function canUsePostMessage() {
+        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+        // where `global.postMessage` means something completely different and can't be used for this purpose.
+        if (global.postMessage && !global.importScripts) {
+            var postMessageIsAsynchronous = true;
+            var oldOnMessage = global.onmessage;
+            global.onmessage = function() {
+                postMessageIsAsynchronous = false;
+            };
+            global.postMessage("", "*");
+            global.onmessage = oldOnMessage;
+            return postMessageIsAsynchronous;
+        }
+    }
+
+    function installPostMessageImplementation() {
+        // Installs an event handler on `global` for the `message` event: see
+        // * https://developer.mozilla.org/en/DOM/window.postMessage
+        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+
+        var messagePrefix = "setImmediate$" + Math.random() + "$";
+        var onGlobalMessage = function(event) {
+            if (event.source === global &&
+                typeof event.data === "string" &&
+                event.data.indexOf(messagePrefix) === 0) {
+                runIfPresent(+event.data.slice(messagePrefix.length));
+            }
+        };
+
+        if (global.addEventListener) {
+            global.addEventListener("message", onGlobalMessage, false);
+        } else {
+            global.attachEvent("onmessage", onGlobalMessage);
+        }
+
+        registerImmediate = function(handle) {
+            global.postMessage(messagePrefix + handle, "*");
+        };
+    }
+
+    function installMessageChannelImplementation() {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function(event) {
+            var handle = event.data;
+            runIfPresent(handle);
+        };
+
+        registerImmediate = function(handle) {
+            channel.port2.postMessage(handle);
+        };
+    }
+
+    function installReadyStateChangeImplementation() {
+        var html = doc.documentElement;
+        registerImmediate = function(handle) {
+            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+            var script = doc.createElement("script");
+            script.onreadystatechange = function () {
+                runIfPresent(handle);
+                script.onreadystatechange = null;
+                html.removeChild(script);
+                script = null;
+            };
+            html.appendChild(script);
+        };
+    }
+
+    function installSetTimeoutImplementation() {
+        registerImmediate = function(handle) {
+            setTimeout(runIfPresent, 0, handle);
+        };
+    }
+
+    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+
+    // Don't get fooled by e.g. browserify environments.
+    if ({}.toString.call(global.process) === "[object process]") {
+        // For Node.js before 0.9
+        installNextTickImplementation();
+
+    } else if (canUsePostMessage()) {
+        // For non-IE10 modern browsers
+        installPostMessageImplementation();
+
+    } else if (global.MessageChannel) {
+        // For web workers, where supported
+        installMessageChannelImplementation();
+
+    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+        // For IE 6–8
+        installReadyStateChangeImplementation();
+
+    } else {
+        // For older browsers
+        installSetTimeoutImplementation();
+    }
+
+    attachTo.setImmediate = setImmediate;
+    attachTo.clearImmediate = clearImmediate;
+}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "../node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "../node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "../node_modules/timers-browserify/main.js":
+/*!*************************************************!*\
+  !*** ../node_modules/timers-browserify/main.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
+            (typeof self !== "undefined" && self) ||
+            window;
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(scope, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(/*! setimmediate */ "../node_modules/setimmediate/setImmediate.js");
+// On some exotic environments, it's not clear which object `setimmediate` was
+// able to install onto.  Search each possibility in the same order as the
+// `setimmediate` library.
+exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
+                       (typeof global !== "undefined" && global.setImmediate) ||
+                       (this && this.setImmediate);
+exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
+                         (typeof global !== "undefined" && global.clearImmediate) ||
+                         (this && this.clearImmediate);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "../node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "../node_modules/webpack/buildin/global.js":
+/*!*************************************************!*\
+  !*** ../node_modules/webpack/buildin/global.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ "./index.js":
+/*!******************!*\
+  !*** ./index.js ***!
+  \******************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var mithril__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mithril */ "../node_modules/mithril/mithril.mjs");
+/* harmony import */ var polythene_mithril__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! polythene-mithril */ "../node_modules/polythene-mithril/dist/polythene-mithril.mjs");
+/* harmony import */ var polythene_css_dist_polythene_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! polythene-css/dist/polythene.css */ "../node_modules/polythene-css/dist/polythene.css");
+/* harmony import */ var polythene_css_dist_polythene_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(polythene_css_dist_polythene_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var polythene_css_dist_polythene_typography_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! polythene-css/dist/polythene-typography.css */ "../node_modules/polythene-css/dist/polythene-typography.css");
+/* harmony import */ var polythene_css_dist_polythene_typography_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(polythene_css_dist_polythene_typography_css__WEBPACK_IMPORTED_MODULE_3__);
+
+
+ // Component CSS
+
+ // Default Material Design styles including Roboto font
+
+var App = {
+  view: function view() {
+    return Object(mithril__WEBPACK_IMPORTED_MODULE_0__["default"])("div", [Object(mithril__WEBPACK_IMPORTED_MODULE_0__["default"])(polythene_mithril__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+      raised: true,
+      label: "Open dialog",
+      events: {
+        onclick: function onclick() {
+          polythene_mithril__WEBPACK_IMPORTED_MODULE_1__["Dialog"].show({
+            /* note the Dialog component is below the other elements in the app */
+            title: "Hello",
+            body: "Click background to hide or press ESCAPE.",
+            backdrop: true
+          });
+        }
+      }
+    }), Object(mithril__WEBPACK_IMPORTED_MODULE_0__["default"])(polythene_mithril__WEBPACK_IMPORTED_MODULE_1__["Dialog"])]);
+  }
+};
+mithril__WEBPACK_IMPORTED_MODULE_0__["default"].mount(document.body, App);
+
+/***/ })
+
+/******/ });
 //# sourceMappingURL=index.js.map

@@ -1,22 +1,24 @@
-/* global __dirname */
+/* global process */
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const baseDir = process.cwd();
+
 module.exports = {
 
-  context: path.resolve(__dirname, "../src"),
+  context: path.resolve(baseDir, "./src"),
 
   entry: {
     index: "../index.js",
   },
 
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(baseDir, "./dist"),
     filename: "js/[name].js"
   },
 
   resolve: {
-    extensions: ["*", ".mjs", ".js"]
+    extensions: [".mjs", ".js"]
   },
 
   module: {
