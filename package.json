@@ -1,7 +1,7 @@
 {
   "name": "polythene-mithril-setup",
   "description": "Polythene for Mithril setup example",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "mithril": "1.1.6",
-    "polythene-css": "1.4.0",
-    "polythene-mithril": "1.4.0"
+    "polythene-css": "1.4.1",
+    "polythene-mithril": "1.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -33,6 +33,6 @@
     "terser-webpack-plugin": "^1.2.0",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.13"
+    "webpack-dev-server": "^3.1.14"
   }
 }
